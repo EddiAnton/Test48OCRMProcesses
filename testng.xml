@@ -6,6 +6,7 @@
         <classes>
             <class name="TestSuites.Test1"></class>
             <class name="TestSuites.Test2"></class>
+            <class name="TestSuites.TestNameOfCompany"></class>
         </classes>
     </test>
 </suite>
