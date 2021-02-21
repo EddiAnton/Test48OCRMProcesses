@@ -2,11 +2,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/home/eduard/projects/Test48OCRMProcesses">
+
+    <test name="ExampleTest">
+
         <classes>
             <class name="TestSuites.Test1"></class>
             <class name="TestSuites.Test2"></class>
-            <class name="TestSuites.TestNameOfCompany"></class>
         </classes>
     </test>
+
+    <test name="InitialTests">
+        <parameter name="userName" value="Admin"></parameter>
+        <parameter name="password" value="4YFDtyiaPpvIbYkehzkG"></parameter>
+
+        <classes>
+            <class name="TestSuites.TestConnection"></class>
+            <class name="TestSuites.TestAuthorization"></class>
+        </classes>
+    </test>
+
 </suite>
