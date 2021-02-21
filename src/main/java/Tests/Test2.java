@@ -1,4 +1,4 @@
-package TestSuites;
+package Tests;
 
 import org.testng.annotations.Test;
 

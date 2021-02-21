@@ -6,8 +6,8 @@
     <test name="ExampleTest">
 
         <classes>
-            <class name="TestSuites.Test1"></class>
-            <class name="TestSuites.Test2"></class>
+            <class name="Tests.Test1"></class>
+            <class name="Tests.Test2"></class>
         </classes>
     </test>
 
@@ -16,14 +16,14 @@
         <parameter name="password" value="4YFDtyiaPpvIbYkehzkG"></parameter>
 
         <classes>
-            <class name="TestSuites.TestConnection"></class>
-            <class name="TestSuites.TestAuthorization"></class>
+            <class name="Tests.TestConnection"></class>
+            <class name="Tests.TestAuthorization"></class>
         </classes>
     </test>
 
     <test name="TestNameOfCompany">
         <classes>
-            <class name="TestSuites.TestNameOfCompany"></class>
+            <class name="Tests.TestNameOfCompany"></class>
         </classes>
     </test>
 

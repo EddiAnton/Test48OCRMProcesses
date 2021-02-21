@@ -1,4 +1,4 @@
-package TestSuites;
+package Tests;
 
 public class TestTaxAccounting {
 }
