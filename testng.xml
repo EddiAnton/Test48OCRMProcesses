@@ -21,4 +21,10 @@
         </classes>
     </test>
 
+    <test name="TestNameOfCompany">
+        <classes>
+            <class name="TestSuites.TestNameOfCompany"></class>
+        </classes>
+    </test>
+
 </suite>

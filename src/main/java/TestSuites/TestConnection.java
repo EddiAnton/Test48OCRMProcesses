@@ -16,6 +16,8 @@ public class TestConnection {
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
 
+            driver.close();
+
         } catch (InterruptedException e) {
             System.out.println("/WebConnectionLinux/ test failed");
             e.printStackTrace();
@@ -35,6 +37,8 @@ public class TestConnection {
 
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+
+            driver.close();
 
         } catch (InterruptedException e) {
             System.out.println("/WebConnectionWindows/ test failed");

@@ -42,6 +42,8 @@ public class TestAuthorization {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
             submitButton.click();
 
+            driver.close();
+
         } catch (InterruptedException e) {
             System.out.println("/TestAuthorization/ test failed");
             e.printStackTrace();
