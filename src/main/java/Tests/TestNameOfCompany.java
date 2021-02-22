@@ -91,6 +91,12 @@ public class TestNameOfCompany {
             lastApplication.click();
             Thread.sleep(5000);
 
+            // Select the Organization Name tab
+            WebElement organizationNameTab = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[1]/a"));
+            organizationNameTab.click();
+            Thread.sleep(2000);
+
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
