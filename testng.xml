@@ -33,4 +33,10 @@
         </classes>
     </test>
 
+    <test name="TestLicense">
+        <classes>
+            <class name="Tests.TestGoverningBodies"></class>
+        </classes>
+    </test>
+
 </suite>
