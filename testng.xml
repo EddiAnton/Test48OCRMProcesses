@@ -33,7 +33,7 @@
         </classes>
     </test>
 
-    <test name="TestLicense">
+    <test name="TestGoverningBodies">
         <classes>
             <class name="Tests.TestGoverningBodies"></class>
         </classes>
