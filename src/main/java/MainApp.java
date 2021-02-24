@@ -128,7 +128,7 @@ public class MainApp {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST", "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@server:1521:SERVER_NOMOS_TEST", "SYSDBA", "masterkey");
 
             String selectTableSQL = "SELECT ACCOUNTNAME, AKA, ENGNAME, ENGNAMESHORT from FB_PRODUCTORDMEMB_DATA where ...";
 

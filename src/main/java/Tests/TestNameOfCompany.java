@@ -16,6 +16,7 @@ public class TestNameOfCompany {
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
+    String productOrderNumber = null;
     String test_ACCOUNTNAME = null;
     String test_AKA = null;
     String test_ENGNAME = null;
@@ -92,6 +93,14 @@ public class TestNameOfCompany {
             lastApplication.click();
             Thread.sleep(2000);
 
+            // Get data of the PRODUCTORDERNUMBER
+            WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
+                    .xpath("//*[@id='PageTitle']"));
+            String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
+            // Отрезать "Заявка - "
+            String [] splitString = productOrderNumberFull.split(" ");
+            productOrderNumber = splitString[2];
+
             // Select the Organization Name tab
             WebElement organizationNameTab = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[1]/a"));
@@ -121,6 +130,7 @@ public class TestNameOfCompany {
             driver.close();
         }
 
+        System.out.println(productOrderNumber);
         System.out.println(test_ACCOUNTNAME);
         System.out.println(test_AKA);
         System.out.println(test_ENGNAME);

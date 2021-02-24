@@ -16,6 +16,7 @@ public class TestLicense {
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
+    String productOrderNumber = null;
     String test_LICENSENUMBER = null;
     String test_ACTIVITYKIND = null;
     String test_ISSUEDBY = null;
@@ -94,6 +95,14 @@ public class TestLicense {
             //        .xpath("/html/body/form/div[4]/div[1]/div[3]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/table/tr/td[1]/a"));
             lastApplication.click();
             Thread.sleep(5000);
+
+            // Get data of the PRODUCTORDERNUMBER
+            WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
+                    .xpath("//*[@id='PageTitle']"));
+            String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
+            // Отрезать "Заявка - "
+            String [] splitString = productOrderNumberFull.split(" ");
+            productOrderNumber = splitString[2];
 
             // Select the License tab
             WebElement licenseTab = driver.findElement(By
