@@ -1,32 +1,27 @@
-package Tests;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.Duration;
 
-public class TestGoverningBodies {
-    String userName = "Admin";
-    String password = "4YFDtyiaPpvIbYkehzkG";
-    String requestMask = "UC";
-    String productOrderNumber = null;
-    String test_MANAGE_PERSON = null;
-    String test_MANAGE_STRUCTURE = null;
-    String managePerson = null;
-    String manageStructure = null;
+public class MainApp {
+    public static void main(String[] args) {
+        String userName = "Admin";
+        String password = "4YFDtyiaPpvIbYkehzkG";
+        String requestMask = "UC";
+        String productOrderNumber = null;
+        String test_ACCOUNTNAME = null;
+        String test_AKA = null;
+        String test_ENGNAME = null;
+        String test_ENGNAMESHORT = null;
+        String accountName = null;
+        String aka = null;
+        String engName = null;
+        String engNameShort = null;
 
-    @Test
-    public void testGoverningBodies() {
-
-        System.setProperty("webdriver.chrome.driver",
-                "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         try {
@@ -37,7 +32,7 @@ public class TestGoverningBodies {
                     .linkText("Вернуться на страницу входа"));
             logoffHref.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By
@@ -52,7 +47,7 @@ public class TestGoverningBodies {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
             submitButton.click();
 
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
             // Enter to "Data change requests"
             WebElement requestsHref = driver.findElement(By.xpath("//*[text()='Заявки']"));
@@ -98,38 +93,44 @@ public class TestGoverningBodies {
             productOrderNumber = splitString[2];
 
 
-            // Select the Governing Bodies tab
-            WebElement licenseTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[8]/a"));
-            licenseTab.click();
+            // Select the Organization Name tab
+            WebElement organizationNameTab = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[1]/a"));
+            organizationNameTab.click();
             Thread.sleep(2000);
 
-            // Get data of the Governing Bodies type
-            WebElement field_MANAGE_PERSON = driver.findElement(By
+            // Get data of the Name type
+            WebElement field_ACCOUNTNAME = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
-            test_MANAGE_PERSON = field_MANAGE_PERSON.getAttribute("value");
+            test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
-            WebElement field_MANAGE_STRUCTURE = driver.findElement(By
+            WebElement field_AKA = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
-            test_MANAGE_STRUCTURE = field_MANAGE_STRUCTURE.getAttribute("value");
+            test_AKA = field_AKA.getAttribute("value");
+
+            WebElement field_ENGNAME = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/textarea"));
+            test_ENGNAME = field_ENGNAME.getAttribute("value");
+
+            WebElement field_ENGNAMESHORT = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
+            test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            driver.close();
         }
 
         System.out.println(productOrderNumber);
-        System.out.println(test_MANAGE_PERSON);
-        System.out.println(test_MANAGE_STRUCTURE);
+        System.out.println(test_ACCOUNTNAME);
+        System.out.println(test_AKA);
+        System.out.println(test_ENGNAME);
+        System.out.println(test_ENGNAMESHORT);
 
         try {
-
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST",
-                    "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST", "SYSDBA", "masterkey");
 
-            String selectTableSQL = "SELECT MANAGE_PERSON, MANAGE_STRUCTURE from FB_PRODUCTORDMEMB_DATA";
+            String selectTableSQL = "SELECT ACCOUNTNAME, AKA, ENGNAME, ENGNAMESHORT from FB_PRODUCTORDMEMB_DATA where ...";
 
             Statement statement = connection.createStatement();
 
@@ -138,8 +139,10 @@ public class TestGoverningBodies {
 
             // if something was received then the while loop will work
             while (rs.next()) {
-                managePerson = rs.getString("MANAGE_PERSON");
-                manageStructure = rs.getString("MANAGE_STRUCTURE");
+                accountName = rs.getString("ACCOUNTNAME");
+                aka = rs.getString("AKA");
+                engName = rs.getString("ENGNAME");
+                engNameShort = rs.getString("ENGNAMESHORT");
             }
             connection.close();
 
@@ -147,7 +150,11 @@ public class TestGoverningBodies {
             ex.printStackTrace();
         }
 
-        System.out.println("managePerson : " + managePerson);
-        System.out.println("manageStructure : " + manageStructure);
+        System.out.println("accountName : " + accountName);
+        System.out.println("aka : " + aka);
+        System.out.println("engName : " + engName);
+        System.out.println("engNameShort : " + engNameShort);
+
     }
 }
+
