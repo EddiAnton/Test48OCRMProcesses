@@ -16,6 +16,7 @@ public class TestGoverningBodies {
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
+    String productOrderNumber = null;
     String test_MANAGE_PERSON = null;
     String test_MANAGE_STRUCTURE = null;
     String managePerson = null;
@@ -87,6 +88,16 @@ public class TestGoverningBodies {
                     .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
             lastApplication.click();
             Thread.sleep(2000);
+
+            // Get data of the PRODUCTORDERNUMBER
+            WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
+                    .xpath("//*[@id='PageTitleText']"));
+            productOrderNumber = field_PRODUCTORDERNUMBER.getAttribute("value");
+            // Отрезать "Заявка - "
+
+
+            
+
 
             // Select the Governing Bodies tab
             WebElement licenseTab = driver.findElement(By

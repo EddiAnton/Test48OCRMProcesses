@@ -76,20 +76,21 @@ public class TestNameOfCompany {
             WebElement submitSelect = driver.findElement(By
                     .xpath("//*[@id='GroupLookup-ConditionManager-Search_label']"));
             submitSelect.click();
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // Sort search result
             WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
             sortByModifiedDate.click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             sortByModifiedDate.click();
+            Thread.sleep(5000);
 
             // Open the last application
-            WebElement lastApplication = driver.findElement(By.xpath("//*[@id='listGrid-row-:r6AiXwz1uQM=']/table/tr/td[1]/a"));
-            //WebElement lastApplication = driver.findElement(By
-            //        .xpath("/html/body/form/div[4]/div[1]/div[3]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/table/tr/td[1]/a"));
+            //WebElement lastApplication = driver.findElement(By.xpath("//*[@id='listGrid-row-:r6AiXwz1uQM=']/table/tr/td[1]/a"));
+            WebElement lastApplication = driver.findElement(By
+                    .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
             lastApplication.click();
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // Select the Organization Name tab
             WebElement organizationNameTab = driver.findElement(By
