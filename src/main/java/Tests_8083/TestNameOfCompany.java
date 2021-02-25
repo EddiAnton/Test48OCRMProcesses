@@ -16,8 +16,8 @@ public class TestNameOfCompany {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
     String userName = "Admin";
-    String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
+
     String productOrderNumber = null;
     String test_ACCOUNTNAME = null;
     String test_AKA = null;
@@ -49,10 +49,6 @@ public class TestNameOfCompany {
             WebElement inputUserName = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
-
-            WebElement inputPassword = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
