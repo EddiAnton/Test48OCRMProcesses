@@ -6,12 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class TestLicense {
+    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
+
     String userName = "Admin";
-    String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
+
     String productOrderNumber = null;
     String test_LICENSENUMBER = null;
     String test_ACTIVITYKIND = null;
@@ -35,7 +41,7 @@ public class TestLicense {
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -47,10 +53,6 @@ public class TestLicense {
             WebElement inputUserName = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
-
-            WebElement inputPassword = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
@@ -154,10 +156,9 @@ public class TestLicense {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST",
-                    "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
-            String selectTableSQL = "SELECT LICENSENUMBER, ACTIVITYKIND, ISSUEDBY, ISSUEDATE, EXPIRYDATE, ACTIVITYKINDLIST from FB_PRODUCTORDERLICENSE";
+            String selectTableSQL = "SELECT LICENSENUMBER, ACTIVITYKIND, ISSUEDBY, ISSUEDATE, EXPIRYDATE, ACTIVITYKINDLIST from FB_PRODUCTORDERLICENSE ...";
 
             Statement statement = connection.createStatement();
 
