@@ -3,14 +3,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.sql.*;
-import java.time.Duration;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class MainApp {
     public static void main(String[] args) {
         String userName = "Admin";
-        String password = "4YFDtyiaPpvIbYkehzkG";
-        String requestMask = "UC";
+        //String password = "4YFDtyiaPpvIbYkehzkG";
+        String requestMask = "UC-TSP";
         String productOrderNumber = null;
         String test_ACCOUNTNAME = null;
         String test_AKA = null;
@@ -26,7 +29,7 @@ public class MainApp {
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -39,9 +42,9 @@ public class MainApp {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
 
-            WebElement inputPassword = driver.findElement(By
+            /* WebElement inputPassword = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password);
+            inputPassword.sendKeys(password); */
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
@@ -71,7 +74,7 @@ public class MainApp {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -101,19 +104,19 @@ public class MainApp {
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='orgShortName']"));
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
             WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='orgFullName']"));
             test_AKA = field_AKA.getAttribute("value");
 
             WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='engName']"));
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
             WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='engNameShort']"));
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
@@ -128,9 +131,16 @@ public class MainApp {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@server:1521:SERVER_NOMOS_TEST", "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@server:1521:slx0", "SYSDBA", "masterkey");
 
-            String selectTableSQL = "SELECT ACCOUNTNAME, AKA, ENGNAME, ENGNAMESHORT from FB_PRODUCTORDMEMB_DATA where ...";
+            String selectTableSQL = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
+                                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                                    "AND fbpomd.MEMBERDATATYPE = '1'";
 
             Statement statement = connection.createStatement();
 
