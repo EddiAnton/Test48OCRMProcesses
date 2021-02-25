@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 public class TestAuthorization {
 
-    @Parameters({"userName", "password"})
+    @Parameters({"userName"})
     @Test
-    public void testAuthorization(String userName, String password) {
+    public void testAuthorization(String userName) {
 
         try {
 
@@ -21,7 +21,7 @@ public class TestAuthorization {
             WebDriver driver = new ChromeDriver();
 
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -33,10 +33,6 @@ public class TestAuthorization {
             WebElement inputUserName = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
-
-            WebElement inputPassword = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));

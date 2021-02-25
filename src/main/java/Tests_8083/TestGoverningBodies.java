@@ -14,6 +14,7 @@ import java.sql.Statement;
 
 public class TestGoverningBodies {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
+
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
@@ -32,7 +33,7 @@ public class TestGoverningBodies {
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -127,10 +128,9 @@ public class TestGoverningBodies {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST",
-                    "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
-            String selectTableSQL = "SELECT MANAGE_PERSON, MANAGE_STRUCTURE from FB_PRODUCTORDMEMB_DATA";
+            String selectTableSQL = "SELECT MANAGE_PERSON, MANAGE_STRUCTURE from FB_PRODUCTORDMEMB_DATA ...";
 
             Statement statement = connection.createStatement();
 
