@@ -1,4 +1,4 @@
-package Tests;
+package Tests_8092;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,24 +6,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class TestGoverningBodies {
+public class TestLicense {
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
     String productOrderNumber = null;
-    String test_MANAGE_PERSON = null;
-    String test_MANAGE_STRUCTURE = null;
-    String managePerson = null;
-    String manageStructure = null;
+    String test_LICENSENUMBER = null;
+    String test_ACTIVITYKIND = null;
+    String test_ISSUEDBY = null;
+    String test_ISSUEDATE = null;
+    String test_EXPIRYDATE = null;
+    String test_ACTIVITYKINDLIST = null;
+    String licenseNumber = null;
+    String activityKind = null;
+    String issuedBy = null;
+    String issueDate = null;
+    String expiryDate = null;
+    String activityKindList = null;
 
     @Test
-    public void testGoverningBodies() {
+    public void testLicense() {
 
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
@@ -73,7 +77,7 @@ public class TestGoverningBodies {
             WebElement submitSelect = driver.findElement(By
                     .xpath("//*[@id='GroupLookup-ConditionManager-Search_label']"));
             submitSelect.click();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
             // Sort search result
             WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
@@ -93,25 +97,46 @@ public class TestGoverningBodies {
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
                     .xpath("//*[@id='PageTitle']"));
             String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
-            String [] splitString = productOrderNumberFull.split(" ");
             // Отрезать "Заявка - "
+            String [] splitString = productOrderNumberFull.split(" ");
             productOrderNumber = splitString[2];
 
-
-            // Select the Governing Bodies tab
+            // Select the License tab
             WebElement licenseTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[8]/a"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[2]/a"));
             licenseTab.click();
             Thread.sleep(2000);
 
-            // Get data of the Governing Bodies type
-            WebElement field_MANAGE_PERSON = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
-            test_MANAGE_PERSON = field_MANAGE_PERSON.getAttribute("value");
+            // Disclose data on the License - " ^ "
+            WebElement openLicense = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div"));
+            openLicense.click();
+            Thread.sleep(2000);
 
-            WebElement field_MANAGE_STRUCTURE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
-            test_MANAGE_STRUCTURE = field_MANAGE_STRUCTURE.getAttribute("value");
+            // Get data of the License type
+            WebElement field_LICENSENUMBER = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[1]/div[1]/div/div/textarea"));
+            test_LICENSENUMBER = field_LICENSENUMBER.getAttribute("value");
+
+            WebElement field_ACTIVITYKIND = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_ACTIVITYKIND = field_ACTIVITYKIND.getAttribute("value");
+
+            WebElement field_ISSUEDBY = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[3]/div[1]/div/div/textarea"));
+            test_ISSUEDBY = field_ISSUEDBY.getAttribute("value");
+
+            WebElement field_ISSUEDATE = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[1]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_ISSUEDATE = field_ISSUEDATE.getAttribute("value");
+
+            WebElement field_EXPIRYDATE = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_EXPIRYDATE = field_EXPIRYDATE.getAttribute("value");
+
+            WebElement field_ACTIVITYKINDLIST = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[5]/div[1]/div/div/textarea"));
+            test_ACTIVITYKINDLIST = field_ACTIVITYKINDLIST.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -119,9 +144,12 @@ public class TestGoverningBodies {
             driver.close();
         }
 
-        System.out.println(productOrderNumber);
-        System.out.println(test_MANAGE_PERSON);
-        System.out.println(test_MANAGE_STRUCTURE);
+        System.out.println(test_LICENSENUMBER);
+        System.out.println(test_ACTIVITYKIND);
+        System.out.println(test_ISSUEDBY);
+        System.out.println(test_ISSUEDATE);
+        System.out.println(test_EXPIRYDATE);
+        System.out.println(test_ACTIVITYKINDLIST);
 
         try {
 
@@ -129,7 +157,7 @@ public class TestGoverningBodies {
             Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST",
                     "SYSDBA", "masterkey");
 
-            String selectTableSQL = "SELECT MANAGE_PERSON, MANAGE_STRUCTURE from FB_PRODUCTORDMEMB_DATA";
+            String selectTableSQL = "SELECT LICENSENUMBER, ACTIVITYKIND, ISSUEDBY, ISSUEDATE, EXPIRYDATE, ACTIVITYKINDLIST from FB_PRODUCTORDERLICENSE";
 
             Statement statement = connection.createStatement();
 
@@ -138,8 +166,12 @@ public class TestGoverningBodies {
 
             // if something was received then the while loop will work
             while (rs.next()) {
-                managePerson = rs.getString("MANAGE_PERSON");
-                manageStructure = rs.getString("MANAGE_STRUCTURE");
+                licenseNumber = rs.getString("LICENSENUMBER");
+                activityKind = rs.getString("ACTIVITYKIND");
+                issuedBy = rs.getString("ISSUEDBY");
+                issueDate = rs.getString("ISSUEDATE");
+                expiryDate = rs.getString("EXPIRYDATE");
+                activityKindList = rs.getString("ACTIVITYKINDLIST");
             }
             connection.close();
 
@@ -147,7 +179,12 @@ public class TestGoverningBodies {
             ex.printStackTrace();
         }
 
-        System.out.println("managePerson : " + managePerson);
-        System.out.println("manageStructure : " + manageStructure);
+        System.out.println("licenseNumber : " + licenseNumber);
+        System.out.println("activityKind : " + activityKind);
+        System.out.println("issuedBy : " + issuedBy);
+        System.out.println("issueDate : " + issueDate);
+        System.out.println("expiryDate : " + expiryDate);
+        System.out.println("activityKindList : " + activityKindList);
+
     }
 }

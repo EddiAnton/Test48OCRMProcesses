@@ -6,8 +6,8 @@
     <test name="ExampleTest">
 
         <classes>
-            <class name="Tests.Test1"></class>
-            <class name="Tests.Test2"></class>
+            <class name="Tests_8083.Test1"></class>
+            <class name="Tests_8083.Test2"></class>
         </classes>
     </test>
 
@@ -16,26 +16,26 @@
         <parameter name="password" value="4YFDtyiaPpvIbYkehzkG"></parameter>
 
         <classes>
-            <class name="Tests.TestConnection"></class>
-            <class name="Tests.TestAuthorization"></class>
+            <class name="Tests_8083.TestConnection"></class>
+            <class name="Tests_8083.TestAuthorization"></class>
         </classes>
     </test>
 
     <test name="TestNameOfCompany">
         <classes>
-            <class name="Tests.TestNameOfCompany"></class>
+            <class name="Tests_8083.TestNameOfCompany"></class>
         </classes>
     </test>
 
     <test name="TestLicense">
         <classes>
-            <class name="Tests.TestLicense"></class>
+            <class name="Tests_8083.TestLicense"></class>
         </classes>
     </test>
 
     <test name="TestGoverningBodies">
         <classes>
-            <class name="Tests.TestGoverningBodies"></class>
+            <class name="Tests_8083.TestGoverningBodies"></class>
         </classes>
     </test>
 

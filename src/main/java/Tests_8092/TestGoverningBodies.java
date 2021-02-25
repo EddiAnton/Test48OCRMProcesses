@@ -1,4 +1,4 @@
-package Tests;
+package Tests_8092;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,28 +6,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class TestNameOfCompany {
+public class TestGoverningBodies {
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
     String productOrderNumber = null;
-    String test_ACCOUNTNAME = null;
-    String test_AKA = null;
-    String test_ENGNAME = null;
-    String test_ENGNAMESHORT = null;
-    String accountName = null;
-    String aka = null;
-    String engName = null;
-    String engNameShort = null;
+    String test_MANAGE_PERSON = null;
+    String test_MANAGE_STRUCTURE = null;
+    String managePerson = null;
+    String manageStructure = null;
 
     @Test
-    public void testNameOfCompany() {
+    public void testGoverningBodies() {
 
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
@@ -97,32 +89,25 @@ public class TestNameOfCompany {
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
                     .xpath("//*[@id='PageTitle']"));
             String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
-            // Отрезать "Заявка - "
             String [] splitString = productOrderNumberFull.split(" ");
+            // Отрезать "Заявка - "
             productOrderNumber = splitString[2];
 
-            // Select the Organization Name tab
-            WebElement organizationNameTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[1]/a"));
-            organizationNameTab.click();
+
+            // Select the Governing Bodies tab
+            WebElement licenseTab = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[8]/a"));
+            licenseTab.click();
             Thread.sleep(2000);
 
-            // Get data of the Name type
-            WebElement field_ACCOUNTNAME = driver.findElement(By
+            // Get data of the Governing Bodies type
+            WebElement field_MANAGE_PERSON = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
-            test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
+            test_MANAGE_PERSON = field_MANAGE_PERSON.getAttribute("value");
 
-            WebElement field_AKA = driver.findElement(By
+            WebElement field_MANAGE_STRUCTURE = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
-            test_AKA = field_AKA.getAttribute("value");
-
-            WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/textarea"));
-            test_ENGNAME = field_ENGNAME.getAttribute("value");
-
-            WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
-            test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
+            test_MANAGE_STRUCTURE = field_MANAGE_STRUCTURE.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -131,18 +116,16 @@ public class TestNameOfCompany {
         }
 
         System.out.println(productOrderNumber);
-        System.out.println(test_ACCOUNTNAME);
-        System.out.println(test_AKA);
-        System.out.println(test_ENGNAME);
-        System.out.println(test_ENGNAMESHORT);
+        System.out.println(test_MANAGE_PERSON);
+        System.out.println(test_MANAGE_STRUCTURE);
 
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST",
-                                                               "SYSDBA", "masterkey");
+                    "SYSDBA", "masterkey");
 
-            String selectTableSQL = "SELECT ACCOUNTNAME, AKA, ENGNAME, ENGNAMESHORT from FB_PRODUCTORDMEMB_DATA";
+            String selectTableSQL = "SELECT MANAGE_PERSON, MANAGE_STRUCTURE from FB_PRODUCTORDMEMB_DATA";
 
             Statement statement = connection.createStatement();
 
@@ -151,10 +134,8 @@ public class TestNameOfCompany {
 
             // if something was received then the while loop will work
             while (rs.next()) {
-                accountName = rs.getString("ACCOUNTNAME");
-                aka = rs.getString("AKA");
-                engName = rs.getString("ENGNAME");
-                engNameShort = rs.getString("ENGNAMESHORT");
+                managePerson = rs.getString("MANAGE_PERSON");
+                manageStructure = rs.getString("MANAGE_STRUCTURE");
             }
             connection.close();
 
@@ -162,10 +143,7 @@ public class TestNameOfCompany {
             ex.printStackTrace();
         }
 
-        System.out.println("accountName : " + accountName);
-        System.out.println("aka : " + aka);
-        System.out.println("engName : " + engName);
-        System.out.println("engNameShort : " + engNameShort);
-
+        System.out.println("managePerson : " + managePerson);
+        System.out.println("manageStructure : " + manageStructure);
     }
 }
