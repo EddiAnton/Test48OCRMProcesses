@@ -13,6 +13,16 @@ public class MainApp {
     public static void main(String[] args) {
         String userName = "Admin";
         //String password = "4YFDtyiaPpvIbYkehzkG";
+
+        // контур 8083
+        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
+
+        // Контур 8093
+        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
+
+        // Контур 8092
+        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
+
         String requestMask = "UC-TSP";
         String productOrderNumber = null;
         String test_ACCOUNTNAME = null;
@@ -121,6 +131,8 @@ public class MainApp {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            driver.close();
         }
 
         System.out.println(productOrderNumber);
@@ -131,7 +143,7 @@ public class MainApp {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@server:1521:slx0", "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
             String selectTableSQL = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
                                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
@@ -160,6 +172,7 @@ public class MainApp {
             ex.printStackTrace();
         }
 
+        System.out.println("----------------------------");
         System.out.println("accountName : " + accountName);
         System.out.println("aka : " + aka);
         System.out.println("engName : " + engName);
