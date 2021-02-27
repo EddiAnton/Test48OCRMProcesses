@@ -163,6 +163,7 @@ public class TestNameOfCompany {
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '1'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomd.MEMBERCLASS IS NULL";
 
             String selectTableSQLForType_2 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
@@ -173,6 +174,7 @@ public class TestNameOfCompany {
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '2'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomd.MEMBERCLASS IS NULL";
 
             String selectTableSQLForType_3 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
@@ -183,6 +185,7 @@ public class TestNameOfCompany {
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '3'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomd.MEMBERCLASS IS NULL";
 
             Statement statement = connection.createStatement();

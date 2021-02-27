@@ -161,34 +161,38 @@ public class TestNameOfCompany {
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
-                                            "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
-                                            "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
-                                            "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
-                                            "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
-                                            "AND fbpomd.MEMBERDATATYPE = '1'" +
-                                            "AND fbpomd.MEMBERCLASS IS NULL";
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '1'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
 
             String selectTableSQLForType_2 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
-                                            "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
-                                            "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
-                                            "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
-                                            "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
-                                            "AND fbpomd.MEMBERDATATYPE = '2'" +
-                                            "AND fbpomd.MEMBERCLASS IS NULL";
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '2'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
 
             String selectTableSQLForType_3 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
-                                            "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
-                                            "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
-                                            "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
-                                            "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
-                                            "AND fbpomd.MEMBERDATATYPE = '3'" +
-                                            "AND fbpomd.MEMBERCLASS IS NULL";
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '3'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
+
             Statement statement = connection.createStatement();
 
             // Get data for type 1 from the database
