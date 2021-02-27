@@ -48,7 +48,7 @@ public class MainApp {
         String engName_type_3 = null;
         String engNameShort_type_3 = null;
 
-        //System.setProperty("webdriver.chrome.driver", "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         try {
@@ -150,10 +150,12 @@ public class MainApp {
         }
 
         System.out.println(productOrderNumber);
+        System.out.println("---------------");
         System.out.println(test_ACCOUNTNAME);
         System.out.println(test_AKA);
         System.out.println(test_ENGNAME);
         System.out.println(test_ENGNAMESHORT);
+        System.out.println("---------------");
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -253,14 +255,7 @@ public class MainApp {
             System.out.println("ENGNAMESHORT test failed! - X");
         }
 
-
-
         System.out.println("----------------------------");
-        System.out.println("accountName : " );
-        System.out.println("aka : " );
-        System.out.println("engName : " );
-        System.out.println("engNameShort : " );
-
     }
 }
 
