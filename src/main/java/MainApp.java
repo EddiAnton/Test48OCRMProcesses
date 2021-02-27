@@ -152,7 +152,8 @@ public class MainApp {
                                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
-                                    "AND fbpomd.MEMBERDATATYPE = '1'";
+                                    "AND fbpomd.MEMBERDATATYPE = '1'" +
+                                    "AND fbpomd.MEMBERCLASS IS NULL";
 
             Statement statement = connection.createStatement();
 
