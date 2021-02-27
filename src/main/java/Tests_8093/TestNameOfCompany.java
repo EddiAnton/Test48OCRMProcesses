@@ -1,4 +1,4 @@
-package Tests;
+package Tests_8093;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,11 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class TestNameOfCompany {
     String userName = "Admin";

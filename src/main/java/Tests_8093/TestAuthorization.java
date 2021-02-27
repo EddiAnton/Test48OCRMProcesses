@@ -1,4 +1,4 @@
-package Tests;
+package Tests_8093;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
