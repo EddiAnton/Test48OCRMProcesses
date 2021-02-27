@@ -47,7 +47,7 @@ public class MainApp {
         String engName_type_3 = null;
         String engNameShort_type_3 = null;
 
-        System.setProperty("webdriver.chrome.driver", "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         try {
@@ -228,25 +228,25 @@ public class MainApp {
             ex.printStackTrace();
         }
 
-        if(test_ACCOUNTNAME != null) {
+        if(test_ACCOUNTNAME == DataComparison.compareData(accountName_type_1, accountName_type_2, accountName_type_3)) {
             System.out.println("ACCOUNTNAME test passed!");
         }else {
             System.out.println("ACCOUNTNAME test failed! - X");
         }
 
-        if(test_AKA != null) {
+        if(test_AKA == DataComparison.compareData(aka_type_1, aka_type_2, aka_type_3)) {
             System.out.println("AKA test passed!");
         }else {
             System.out.println("AKA test failed! - X");
         }
 
-        if(test_ENGNAME != null) {
+        if(test_ENGNAME == DataComparison.compareData(engName_type_1, engName_type_2, engName_type_3)) {
             System.out.println("ENGNAME test passed!");
         }else {
             System.out.println("ENGNAME test failed! - X");
         }
 
-        if(test_ENGNAMESHORT != null) {
+        if(test_ENGNAMESHORT == DataComparison.compareData(engNameShort_type_1, engNameShort_type_2, engNameShort_type_3)) {
             System.out.println("ENGNAMESHORT test passed!");
         }else {
             System.out.println("ENGNAMESHORT test failed! - X");
