@@ -92,7 +92,7 @@ public class TestNameOfCompany {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -121,19 +121,19 @@ public class TestNameOfCompany {
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='orgShortName']"));
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
             WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='orgFullName']"));
             test_AKA = field_AKA.getAttribute("value");
 
             WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='engName']"));
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
             WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='engNameShort']"));
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {

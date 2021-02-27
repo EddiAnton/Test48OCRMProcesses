@@ -3,14 +3,6 @@
 
 <suite name="All Test Suite">
 
-    <test name="ExampleTest">
-
-        <classes>
-            <class name="Tests_8083.Test1"></class>
-            <class name="Tests_8083.Test2"></class>
-        </classes>
-    </test>
-
     <test name="InitialTests">
         <parameter name="userName" value="Admin"></parameter>
         <parameter name="password" value="4YFDtyiaPpvIbYkehzkG"></parameter>
@@ -18,24 +10,28 @@
         <classes>
             <class name="Tests_8083.TestConnection"></class>
             <class name="Tests_8083.TestAuthorization"></class>
+            <class name="Tests_8093.TestConnection"></class>
+            <class name="Tests_8093.TestAuthorization"></class>
+            <class name="Tests_8092.TestConnection"></class>
+            <class name="Tests_8092.TestAuthorization"></class>
         </classes>
     </test>
 
-    <test name="TestNameOfCompany">
+    <test name="TestNameOfCompany_8083">
         <classes>
             <class name="Tests_8083.TestNameOfCompany"></class>
         </classes>
     </test>
 
-    <test name="TestLicense">
+    <test name="TestNameOfCompany_8093">
         <classes>
-            <class name="Tests_8083.TestLicense"></class>
+            <class name="Tests_8093.TestNameOfCompany"></class>
         </classes>
     </test>
 
-    <test name="TestGoverningBodies">
+    <test name="TestNameOfCompany_8092">
         <classes>
-            <class name="Tests_8083.TestGoverningBodies"></class>
+            <class name="Tests_8092.TestNameOfCompany"></class>
         </classes>
     </test>
 
