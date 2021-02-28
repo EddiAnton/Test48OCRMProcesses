@@ -17,13 +17,13 @@ public class MainApp {
         //String password = "4YFDtyiaPpvIbYkehzkG";
 
         // контур 8083
-        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
+        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
         // Контур 8093
         //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 
         // Контур 8092
-        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
+        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
         String requestMask = "UC-TSP";
         String productOrderNumber = null;
@@ -53,7 +53,7 @@ public class MainApp {
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -98,7 +98,7 @@ public class MainApp {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -118,6 +118,7 @@ public class MainApp {
             String [] splitString = productOrderNumberFull.split(" ");
             // Отрезать "Заявка - "
             productOrderNumber = splitString[2];
+            Thread.sleep(3000);
 
 
             // Select the Organization Name tab
@@ -128,25 +129,23 @@ public class MainApp {
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='orgShortName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[1]/div[1]/div/div/textarea"));
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
             WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='orgFullName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[2]/div[1]/div/div/textarea"));
             test_AKA = field_AKA.getAttribute("value");
 
             WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='engName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[3]/div[1]/div/div/textarea"));
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
             WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='engNameShort']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[4]/div[1]/div/div/textarea"));
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            driver.close();
         }
 
         System.out.println(productOrderNumber);

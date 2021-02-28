@@ -18,7 +18,7 @@ public class TestNameOfCompany {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
     String userName = "Admin";
-    String requestMask = "UC";
+    String requestMask = "UC-TSP";
 
     String productOrderNumber = null;
 

@@ -19,7 +19,7 @@ public class TestNameOfCompany {
 
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
-    String requestMask = "UC";
+    String requestMask = "UC-TSP";
 
     String productOrderNumber = null;
 

@@ -18,7 +18,7 @@ public class TestNameOfCompany {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
     String userName = "Admin";
-    String requestMask = "UC";
+    String requestMask = "UC-TSP";
 
     String productOrderNumber = null;
 
@@ -112,6 +112,7 @@ public class TestNameOfCompany {
             // Отрезать "Заявка - "
             String [] splitString = productOrderNumberFull.split(" ");
             productOrderNumber = splitString[2];
+            Thread.sleep(3000);
 
             // Select the Organization Name tab
             WebElement organizationNameTab = driver.findElement(By
@@ -121,19 +122,19 @@ public class TestNameOfCompany {
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[1]/div[1]/div/div/textarea"));
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
             WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[2]/div[1]/div/div/textarea"));
             test_AKA = field_AKA.getAttribute("value");
 
             WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[3]/div[1]/div/div/textarea"));
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
             WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[4]/div[1]/div/div/textarea"));
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
