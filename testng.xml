@@ -8,11 +8,8 @@
         <parameter name="password" value="4YFDtyiaPpvIbYkehzkG"></parameter>
 
         <classes>
-            <class name="Tests_8083.TestConnection"></class>
             <class name="Tests_8083.TestAuthorization"></class>
-            <class name="Tests_8093.TestConnection"></class>
             <class name="Tests_8093.TestAuthorization"></class>
-            <class name="Tests_8092.TestConnection"></class>
             <class name="Tests_8092.TestAuthorization"></class>
         </classes>
     </test>
