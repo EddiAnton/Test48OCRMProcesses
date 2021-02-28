@@ -14,16 +14,16 @@ import java.util.Objects;
 public class MainApp {
     public static void main(String[] args) {
         String userName = "Admin";
-        //String password = "4YFDtyiaPpvIbYkehzkG";
+        String password = "4YFDtyiaPpvIbYkehzkG";
 
         // контур 8083
         //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
         // Контур 8093
-        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
+        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 
         // Контур 8092
-        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
+        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
         String requestMask = "UC-TSP";
         String productOrderNumber = null;
@@ -53,7 +53,7 @@ public class MainApp {
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -66,9 +66,9 @@ public class MainApp {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
 
-            /* WebElement inputPassword = driver.findElement(By
+            WebElement inputPassword = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password); */
+            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
