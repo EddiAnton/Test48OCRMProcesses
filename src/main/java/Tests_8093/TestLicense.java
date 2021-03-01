@@ -62,6 +62,7 @@ public class TestLicense {
         try {
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+            driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -106,7 +107,7 @@ public class TestLicense {
             Thread.sleep(5000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -135,7 +136,7 @@ public class TestLicense {
 
             // Disclose data on the License - " V "
             WebElement openLicense = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div/div"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div"));
             openLicense.click();
             Thread.sleep(2000);
 

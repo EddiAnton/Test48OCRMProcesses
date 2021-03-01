@@ -11,25 +11,30 @@
             <class name="Tests_8083.TestAuthorization"></class>
             <class name="Tests_8093.TestAuthorization"></class>
             <class name="Tests_8092.TestAuthorization"></class>
+
         </classes>
     </test>
 
     <test name="TestNameOfCompany_8083">
         <classes>
             <class name="Tests_8083.TestNameOfCompany"></class>
+            <class name="Tests_8083.TestLicense"></class>
         </classes>
     </test>
 
     <test name="TestNameOfCompany_8093">
         <classes>
+            <class name="Tests_8093.TestLicense"></class>
             <class name="Tests_8093.TestNameOfCompany"></class>
         </classes>
     </test>
 
     <test name="TestNameOfCompany_8092">
         <classes>
+            <class name="Tests_8092.TestLicense"></class>
             <class name="Tests_8092.TestNameOfCompany"></class>
         </classes>
     </test>
+
 
 </suite>

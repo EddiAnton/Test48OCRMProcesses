@@ -19,7 +19,7 @@ public class TestLicense {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
     String userName = "Admin";
-    String requestMask = "UC";
+    String requestMask = "UC-TSP";
 
     String productOrderNumber = null;
 
@@ -61,12 +61,13 @@ public class TestLicense {
         try {
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
             logoffHref.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By
@@ -77,7 +78,7 @@ public class TestLicense {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
             submitButton.click();
 
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
             // Enter to "Data change requests"
             WebElement requestsHref = driver.findElement(By.xpath("//*[text()='Заявки']"));
@@ -98,7 +99,7 @@ public class TestLicense {
             WebElement submitSelect = driver.findElement(By
                     .xpath("//*[@id='GroupLookup-ConditionManager-Search_label']"));
             submitSelect.click();
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // Sort search result
             WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
@@ -121,6 +122,7 @@ public class TestLicense {
             // Отрезать "Заявка - "
             String [] splitString = productOrderNumberFull.split(" ");
             productOrderNumber = splitString[2];
+            Thread.sleep(3000);
 
             // Select the License tab
             WebElement licenseTab = driver.findElement(By
@@ -132,7 +134,7 @@ public class TestLicense {
             WebElement openLicense = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div/div"));
             openLicense.click();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
             // Get data of the License type
             WebElement field_LICENSENUMBER = driver.findElement(By
@@ -254,12 +256,12 @@ public class TestLicense {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                licenseNumber_type_2 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_2 = rs_1.getString("ACTIVITYKIND");
-                issuedBy_type_2 = rs_1.getString("ISSUEDBY");
-                issueDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
-                expiryDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
-                activityKindList_type_2 = rs_1.getString("ACTIVITYKINDLIST");
+                licenseNumber_type_2 = rs_2.getString("LICENSENUMBER");
+                activityKind_type_2 = rs_2.getString("ACTIVITYKIND");
+                issuedBy_type_2 = rs_2.getString("ISSUEDBY");
+                issueDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("ISSUEDATE"));
+                expiryDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("EXPIRYDATE"));
+                activityKindList_type_2 = rs_2.getString("ACTIVITYKINDLIST");
             }
 
             // Get data for type 3 from the database
@@ -267,12 +269,12 @@ public class TestLicense {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                licenseNumber_type_3 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_3 = rs_1.getString("ACTIVITYKIND");
-                issuedBy_type_3 = rs_1.getString("ISSUEDBY");
-                issueDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
-                expiryDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
-                activityKindList_type_3 = rs_1.getString("ACTIVITYKINDLIST");
+                licenseNumber_type_3 = rs_3.getString("LICENSENUMBER");
+                activityKind_type_3 = rs_3.getString("ACTIVITYKIND");
+                issuedBy_type_3 = rs_3.getString("ISSUEDBY");
+                issueDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("ISSUEDATE"));
+                expiryDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("EXPIRYDATE"));
+                activityKindList_type_3 = rs_3.getString("ACTIVITYKINDLIST");
             }
 
             connection.close();

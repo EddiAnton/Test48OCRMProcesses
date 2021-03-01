@@ -15,13 +15,13 @@ import java.util.Objects;
 public class MainApp {
     public static void main(String[] args) {
         String userName = "Admin";
-        //String password = "4YFDtyiaPpvIbYkehzkG";
+        String password = "4YFDtyiaPpvIbYkehzkG";
 
         // контур 8083
-        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
+        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
         // Контур 8093
-        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
+        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 
         // Контур 8092
         //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
@@ -57,12 +57,13 @@ public class MainApp {
         String expiryDate_type_3 = null;
         String activityKindList_type_3 = null;
 
-        System.setProperty("webdriver.chrome.driver", "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",
+                "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
             driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
@@ -76,9 +77,9 @@ public class MainApp {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
 
-            /* WebElement inputPassword = driver.findElement(By
+            WebElement inputPassword = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password); */
+            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
@@ -108,7 +109,7 @@ public class MainApp {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -139,7 +140,7 @@ public class MainApp {
 
             // Disclose data on the License - " V "
             WebElement openLicense = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div/div"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div"));
             openLicense.click();
             Thread.sleep(3000);
 
@@ -193,9 +194,9 @@ public class MainApp {
                     "fbpol.EXPIRYDATE, " +
                     "fbpol.ACTIVITYKINDLIST " +
                     "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
-                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "JOIN sysdba.fb_productordmemb_data fbpomd " +
                     "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
-                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "JOIN sysdba.fb_productordermember fbpom " +
                     "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
@@ -211,9 +212,9 @@ public class MainApp {
                     "fbpol.EXPIRYDATE, " +
                     "fbpol.ACTIVITYKINDLIST " +
                     "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
-                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "JOIN sysdba.fb_productordmemb_data fbpomd " +
                     "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
-                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "JOIN sysdba.fb_productordermember fbpom " +
                     "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
@@ -229,9 +230,9 @@ public class MainApp {
                     "fbpol.EXPIRYDATE, " +
                     "fbpol.ACTIVITYKINDLIST " +
                     "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
-                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "JOIN sysdba.fb_productordmemb_data fbpomd " +
                     "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
-                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "JOIN sysdba.fb_productordermember fbpom " +
                     "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
@@ -260,12 +261,12 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                licenseNumber_type_2 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_2 = rs_1.getString("ACTIVITYKIND");
-                issuedBy_type_2 = rs_1.getString("ISSUEDBY");
-                issueDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
-                expiryDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
-                activityKindList_type_2 = rs_1.getString("ACTIVITYKINDLIST");
+                licenseNumber_type_2 = rs_2.getString("LICENSENUMBER");
+                activityKind_type_2 = rs_2.getString("ACTIVITYKIND");
+                issuedBy_type_2 = rs_2.getString("ISSUEDBY");
+                issueDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("ISSUEDATE"));
+                expiryDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("EXPIRYDATE"));
+                activityKindList_type_2 = rs_2.getString("ACTIVITYKINDLIST");
             }
 
             // Get data for type 3 from the database
@@ -273,12 +274,12 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                licenseNumber_type_3 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_3 = rs_1.getString("ACTIVITYKIND");
-                issuedBy_type_3 = rs_1.getString("ISSUEDBY");
-                issueDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
-                expiryDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
-                activityKindList_type_3 = rs_1.getString("ACTIVITYKINDLIST");
+                licenseNumber_type_3 = rs_3.getString("LICENSENUMBER");
+                activityKind_type_3 = rs_3.getString("ACTIVITYKIND");
+                issuedBy_type_3 = rs_3.getString("ISSUEDBY");
+                issueDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("ISSUEDATE"));
+                expiryDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("EXPIRYDATE"));
+                activityKindList_type_3 = rs_3.getString("ACTIVITYKINDLIST");
             }
             connection.close();
 
