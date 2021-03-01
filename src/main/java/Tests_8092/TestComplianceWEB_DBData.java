@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
+@Test
 public class TestComplianceWEB_DBData {
 
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
@@ -76,7 +77,7 @@ public class TestComplianceWEB_DBData {
     String activityKindList_type_3 = null;
 
 
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver;
 
 
     @Test (groups = {"smoke", "regress"},
@@ -84,9 +85,9 @@ public class TestComplianceWEB_DBData {
     public void testAuthorization() {
 
         try {
-
             System.setProperty("webdriver.chrome.driver",
                     "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+            driver =  new ChromeDriver();
 
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
@@ -327,11 +328,12 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "openDataChangeRequest")
+            dependsOnMethods = "complianceNameOfCompany")
     public void complianceLicense() {
 
         try {
 
+            Thread.sleep(2000);
             // Select the License tab
             WebElement licenseTab = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[2]/a"));
@@ -340,7 +342,7 @@ public class TestComplianceWEB_DBData {
 
             // Disclose data on the License - " V "
             WebElement openLicense = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div/div"));
             openLicense.click();
             Thread.sleep(2000);
 
