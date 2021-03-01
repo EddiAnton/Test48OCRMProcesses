@@ -1,4 +1,5 @@
 import Services.DataComparison;
+import Services.DateReplace;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,13 +15,13 @@ import java.util.Objects;
 public class MainApp {
     public static void main(String[] args) {
         String userName = "Admin";
-        String password = "4YFDtyiaPpvIbYkehzkG";
+        //String password = "4YFDtyiaPpvIbYkehzkG";
 
         // контур 8083
-        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
+        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
         // Контур 8093
-        final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
+        //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 
         // Контур 8092
         //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
@@ -28,32 +29,41 @@ public class MainApp {
         String requestMask = "UC-TSP";
         String productOrderNumber = null;
 
-        String test_ACCOUNTNAME = null;
-        String test_AKA = null;
-        String test_ENGNAME = null;
-        String test_ENGNAMESHORT = null;
+        String test_LICENSENUMBER = null;
+        String test_ACTIVITYKIND = null;
+        String test_ISSUEDBY = null;
+        String test_ISSUEDATE = null;
+        String test_EXPIRYDATE = null;
+        String test_ACTIVITYKINDLIST = null;
 
-        String accountName_type_1 = null;
-        String aka_type_1 = null;
-        String engName_type_1 = null;
-        String engNameShort_type_1 = null;
+        String licenseNumber_type_1 = null;
+        String activityKind_type_1 = null;
+        String issuedBy_type_1 = null;
+        String issueDate_type_1 = null;
+        String expiryDate_type_1 = null;
+        String activityKindList_type_1 = null;
 
-        String accountName_type_2 = null;
-        String aka_type_2 = null;
-        String engName_type_2 = null;
-        String engNameShort_type_2 = null;
+        String licenseNumber_type_2 = null;
+        String activityKind_type_2 = null;
+        String issuedBy_type_2 = null;
+        String issueDate_type_2 = null;
+        String expiryDate_type_2 = null;
+        String activityKindList_type_2 = null;
 
-        String accountName_type_3 = null;
-        String aka_type_3 = null;
-        String engName_type_3 = null;
-        String engNameShort_type_3 = null;
+        String licenseNumber_type_3 = null;
+        String activityKind_type_3 = null;
+        String issuedBy_type_3 = null;
+        String issueDate_type_3 = null;
+        String expiryDate_type_3 = null;
+        String activityKindList_type_3 = null;
 
         System.setProperty("webdriver.chrome.driver", "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
@@ -66,9 +76,9 @@ public class MainApp {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
 
-            WebElement inputPassword = driver.findElement(By
+            /* WebElement inputPassword = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password);
+            inputPassword.sendKeys(password); */
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
@@ -98,7 +108,7 @@ public class MainApp {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -121,28 +131,42 @@ public class MainApp {
             Thread.sleep(3000);
 
 
-            // Select the Organization Name tab
-            WebElement organizationNameTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[1]/a"));
-            organizationNameTab.click();
+            // Select the License tab
+            WebElement licenseTab = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[2]/a"));
+            licenseTab.click();
             Thread.sleep(2000);
 
-            // Get data of the Name type
-            WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[1]/div[1]/div/div/textarea"));
-            test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
+            // Disclose data on the License - " V "
+            WebElement openLicense = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div/div"));
+            openLicense.click();
+            Thread.sleep(3000);
 
-            WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[2]/div[1]/div/div/textarea"));
-            test_AKA = field_AKA.getAttribute("value");
+            // Get data of the License type
+            WebElement field_LICENSENUMBER = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[1]/div[1]/div/div/textarea"));
+            test_LICENSENUMBER = field_LICENSENUMBER.getAttribute("value");
 
-            WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[3]/div[1]/div/div/textarea"));
-            test_ENGNAME = field_ENGNAME.getAttribute("value");
+            WebElement field_ACTIVITYKIND = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_ACTIVITYKIND = field_ACTIVITYKIND.getAttribute("value");
 
-            WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[4]/div[1]/div/div/textarea"));
-            test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
+            WebElement field_ISSUEDBY = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[3]/div[1]/div/div/textarea"));
+            test_ISSUEDBY = field_ISSUEDBY.getAttribute("value");
+
+            WebElement field_ISSUEDATE = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[1]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_ISSUEDATE = field_ISSUEDATE.getAttribute("value");
+
+            WebElement field_EXPIRYDATE = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_EXPIRYDATE = field_EXPIRYDATE.getAttribute("value");
+
+            WebElement field_ACTIVITYKINDLIST = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[5]/div[1]/div/div/textarea"));
+            test_ACTIVITYKINDLIST = field_ACTIVITYKINDLIST.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -150,48 +174,71 @@ public class MainApp {
 
         System.out.println(productOrderNumber);
         System.out.println("---------------");
-        System.out.println(test_ACCOUNTNAME);
-        System.out.println(test_AKA);
-        System.out.println(test_ENGNAME);
-        System.out.println(test_ENGNAMESHORT);
+        System.out.println(test_LICENSENUMBER);
+        System.out.println(test_ACTIVITYKIND);
+        System.out.println(test_ISSUEDBY);
+        System.out.println(test_ISSUEDATE);
+        System.out.println(test_EXPIRYDATE);
+        System.out.println(test_ACTIVITYKINDLIST);
         System.out.println("---------------");
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
-            String selectTableSQLForType_1 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
-                                            "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
-                                            "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
-                                            "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
-                                            "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
-                                            "AND fbpomd.MEMBERDATATYPE = '1'" +
-                                            "AND fbpomd.ISPRIMARY = 'T'" +
-                                            "AND fbpomd.MEMBERCLASS IS NULL";
+            String selectTableSQLForType_1 = "SELECT fbpol.LICENSENUMBER, " +
+                    "fbpol.ACTIVITYKIND, " +
+                    "fbpol.ISSUEDBY, " +
+                    "fbpol.ISSUEDATE, " +
+                    "fbpol.EXPIRYDATE, " +
+                    "fbpol.ACTIVITYKINDLIST " +
+                    "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '1'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
 
-            String selectTableSQLForType_2 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
-                                            "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
-                                            "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
-                                            "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
-                                            "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
-                                            "AND fbpomd.MEMBERDATATYPE = '2'" +
-                                            "AND fbpomd.ISPRIMARY = 'T'" +
-                                            "AND fbpomd.MEMBERCLASS IS NULL";
+            String selectTableSQLForType_2 = "SELECT fbpol.LICENSENUMBER, " +
+                    "fbpol.ACTIVITYKIND, " +
+                    "fbpol.ISSUEDBY, " +
+                    "fbpol.ISSUEDATE, " +
+                    "fbpol.EXPIRYDATE, " +
+                    "fbpol.ACTIVITYKINDLIST " +
+                    "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '2'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
 
-            String selectTableSQLForType_3 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
-                                            "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
-                                            "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
-                                            "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
-                                            "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
-                                            "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
-                                            "AND fbpomd.MEMBERDATATYPE = '3'" +
-                                            "AND fbpomd.ISPRIMARY = 'T'" +
-                                            "AND fbpomd.MEMBERCLASS IS NULL";
+            String selectTableSQLForType_3 = "SELECT fbpol.LICENSENUMBER, " +
+                    "fbpol.ACTIVITYKIND, " +
+                    "fbpol.ISSUEDBY, " +
+                    "fbpol.ISSUEDATE, " +
+                    "fbpol.EXPIRYDATE, " +
+                    "fbpol.ACTIVITYKINDLIST " +
+                    "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '3'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
 
             Statement statement = connection.createStatement();
 
@@ -200,10 +247,12 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                accountName_type_1 = rs_1.getString("ACCOUNTNAME");
-                aka_type_1 = rs_1.getString("AKA");
-                engName_type_1 = rs_1.getString("ENGNAME");
-                engNameShort_type_1 = rs_1.getString("ENGNAMESHORT");
+                licenseNumber_type_1 = rs_1.getString("LICENSENUMBER");
+                activityKind_type_1 = rs_1.getString("ACTIVITYKIND");
+                issuedBy_type_1 = rs_1.getString("ISSUEDBY");
+                issueDate_type_1 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
+                expiryDate_type_1 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
+                activityKindList_type_1 = rs_1.getString("ACTIVITYKINDLIST");
             }
 
             // Get data for type 2 from the database
@@ -211,10 +260,12 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                accountName_type_2 = rs_2.getString("ACCOUNTNAME");
-                aka_type_2 = rs_2.getString("AKA");
-                engName_type_2 = rs_2.getString("ENGNAME");
-                engNameShort_type_2 = rs_2.getString("ENGNAMESHORT");
+                licenseNumber_type_2 = rs_1.getString("LICENSENUMBER");
+                activityKind_type_2 = rs_1.getString("ACTIVITYKIND");
+                issuedBy_type_2 = rs_1.getString("ISSUEDBY");
+                issueDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
+                expiryDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
+                activityKindList_type_2 = rs_1.getString("ACTIVITYKINDLIST");
             }
 
             // Get data for type 3 from the database
@@ -222,10 +273,12 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                accountName_type_3 = rs_3.getString("ACCOUNTNAME");
-                aka_type_3 = rs_3.getString("AKA");
-                engName_type_3 = rs_3.getString("ENGNAME");
-                engNameShort_type_3 = rs_3.getString("ENGNAMESHORT");
+                licenseNumber_type_3 = rs_1.getString("LICENSENUMBER");
+                activityKind_type_3 = rs_1.getString("ACTIVITYKIND");
+                issuedBy_type_3 = rs_1.getString("ISSUEDBY");
+                issueDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
+                expiryDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
+                activityKindList_type_3 = rs_1.getString("ACTIVITYKINDLIST");
             }
             connection.close();
 
@@ -233,28 +286,40 @@ public class MainApp {
             ex.printStackTrace();
         }
 
-        if(Objects.equals(test_ACCOUNTNAME, DataComparison.compareData(accountName_type_1, accountName_type_2, accountName_type_3))) {
-            System.out.println("ACCOUNTNAME test passed!");
+        if(Objects.equals(test_LICENSENUMBER, DataComparison.compareData(licenseNumber_type_1, licenseNumber_type_2, licenseNumber_type_3))) {
+            System.out.println("LICENSENUMBER test passed!");
         }else {
-            System.out.println("ACCOUNTNAME test failed! - X");
+            System.out.println("LICENSENUMBER test failed! - X");
         }
 
-        if(Objects.equals(test_AKA, DataComparison.compareData(aka_type_1, aka_type_2, aka_type_3))) {
-            System.out.println("AKA test passed!");
+        if(Objects.equals(test_ACTIVITYKIND, DataComparison.compareData(activityKind_type_1, activityKind_type_2, activityKind_type_3))) {
+            System.out.println("ACTIVITYKIND test passed!");
         }else {
-            System.out.println("AKA test failed! - X");
+            System.out.println("ACTIVITYKIND test failed! - X");
         }
 
-        if(Objects.equals(test_ENGNAME, DataComparison.compareData(engName_type_1, engName_type_2, engName_type_3))) {
-            System.out.println("ENGNAME test passed!");
+        if(Objects.equals(test_ISSUEDBY, DataComparison.compareData(issuedBy_type_1, issuedBy_type_2, issuedBy_type_3))) {
+            System.out.println("ISSUEDBY test passed!");
         }else {
-            System.out.println("ENGNAME test failed! - X");
+            System.out.println("ISSUEDBY test failed! - X");
         }
 
-        if(Objects.equals(test_ENGNAMESHORT, DataComparison.compareData(engNameShort_type_1, engNameShort_type_2, engNameShort_type_3))) {
-            System.out.println("ENGNAMESHORT test passed!");
+        if(Objects.equals(test_ISSUEDATE, DataComparison.compareData(issueDate_type_1, issueDate_type_2, issueDate_type_3))) {
+            System.out.println("ISSUEDATE test passed!");
         }else {
-            System.out.println("ENGNAMESHORT test failed! - X");
+            System.out.println("ISSUEDATE test failed! - X");
+        }
+
+        if(Objects.equals(test_EXPIRYDATE, DataComparison.compareData(expiryDate_type_1, expiryDate_type_2, expiryDate_type_3))) {
+            System.out.println("EXPIRYDATE test passed!");
+        }else {
+            System.out.println("EXPIRYDATE test failed! - X");
+        }
+
+        if(Objects.equals(test_ACTIVITYKINDLIST, DataComparison.compareData(activityKindList_type_1, activityKindList_type_2, activityKindList_type_3))) {
+            System.out.println("ACTIVITYKINDLIST test passed!");
+        }else {
+            System.out.println("ACTIVITYKINDLIST test failed! - X");
         }
 
         System.out.println("----------------------------");
