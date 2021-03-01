@@ -1,6 +1,7 @@
 package Tests_8092;
 
 import Services.DataComparison;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,7 @@ public class TestComplianceWEB_DBData {
 
     String productOrderNumber = null;
 
-    // Variables for testNameOfCompany method
+    // Variables for complianceNameOfCompany method
     String test_ACCOUNTNAME = null;
     String test_AKA = null;
     String test_ENGNAME = null;
@@ -50,7 +51,8 @@ public class TestComplianceWEB_DBData {
     WebDriver driver = new ChromeDriver();
 
 
-    @Test
+    @Test (groups = {"smoke", "regress"},
+           retryAnalyzer = Rerty.class)
     public void testAuthorization() {
 
         try {
@@ -85,7 +87,9 @@ public class TestComplianceWEB_DBData {
     }
 
 
-    @Test
+    @Test (groups = {"smoke", "regress"},
+           dependsOnMethods = "testAuthorization",
+           retryAnalyzer = Rerty.class)
     public void openDataChangeRequest() {
 
         try {
@@ -144,7 +148,8 @@ public class TestComplianceWEB_DBData {
     }
 
 
-    @Test
+    @Test (groups = {"regress"},
+           dependsOnMethods = "openDataChangeRequest")
     public void complianceNameOfCompany() {
 
         try {

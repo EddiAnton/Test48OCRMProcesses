@@ -5,11 +5,16 @@
 
     <test name="Tests_8092">
 
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
         <classes>
             <class name="Tests_8092.TestComplianceWEB_DBData">
 
             </class>
-
         </classes>
     </test>
 
