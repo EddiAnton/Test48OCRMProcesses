@@ -1,5 +1,6 @@
 package Tests_8092;
 
+import Services.DataComparison;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +9,10 @@ import org.testng.annotations.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 
 public class TestOtherChangesInDoc {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
@@ -210,12 +213,79 @@ public class TestOtherChangesInDoc {
 
             Statement statement = connection.createStatement();
 
+            // Get data for type 1 from the database
+            ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);
 
+            // if something was received then the while loop will work
+            while (rs_1.next()) {
+                okfs_type_1 = rs_1.getString("OKFS");
+                companyType_type_1 = rs_1.getString("COMPANYTYPE");
+                okopf_type_1 = rs_1.getString("OKOPF");
+                capitalAnnouncedSum_type_1 = rs_1.getString("CAPITALANNOUNCEDSUM");
+                capitalCurrency_type_1 = rs_1.getString("CAPITALCURRENCY");
+            }
+
+            // Get data for type 2 from the database
+            ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_1);
+
+            // if something was received then the while loop will work
+            while (rs_2.next()) {
+                okfs_type_2 = rs_2.getString("OKFS");
+                companyType_type_2 = rs_2.getString("COMPANYTYPE");
+                okopf_type_2 = rs_2.getString("OKOPF");
+                capitalAnnouncedSum_type_2 = rs_2.getString("CAPITALANNOUNCEDSUM");
+                capitalCurrency_type_2 = rs_2.getString("CAPITALCURRENCY");
+            }
+
+            // Get data for type 3 from the database
+            ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_1);
+
+            // if something was received then the while loop will work
+            while (rs_3.next()) {
+                okfs_type_3 = rs_3.getString("OKFS");
+                companyType_type_3 = rs_3.getString("COMPANYTYPE");
+                okopf_type_3 = rs_3.getString("OKOPF");
+                capitalAnnouncedSum_type_3 = rs_3.getString("CAPITALANNOUNCEDSUM");
+                capitalCurrency_type_3 = rs_3.getString("CAPITALCURRENCY");
+            }
 
             connection.close();
 
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
+
+        if(Objects.equals(test_OKFS, DataComparison.compareData(okfs_type_1, okfs_type_2, okfs_type_3))) {
+            System.out.println("OKFS test passed!");
+        }else {
+            System.out.println("OKFS test failed! - X");
+        }
+
+        if(Objects.equals(test_COMPANYTYPE, DataComparison.compareData(companyType_type_1, companyType_type_2, companyType_type_3))) {
+            System.out.println("COMPANYTYPE test passed!");
+        }else {
+            System.out.println("OKCOMPANYTYPEFS test failed! - X");
+        }
+
+        if(Objects.equals(test_OKOPF, DataComparison.compareData(okopf_type_1, okopf_type_2, okopf_type_3))) {
+            System.out.println("OKOPF test passed!");
+        }else {
+            System.out.println("OKOPF test failed! - X");
+        }
+
+        if(Objects.equals(test_CAPITALANNOUNCEDSUM, DataComparison.compareData(capitalAnnouncedSum_type_1, capitalAnnouncedSum_type_2, capitalAnnouncedSum_type_3))) {
+            System.out.println("CAPITALANNOUNCEDSUM test passed!");
+        }else {
+            System.out.println("CAPITALANNOUNCEDSUM test failed! - X");
+        }
+
+        if(Objects.equals(test_CAPITALCURRENCY, DataComparison.compareData(capitalCurrency_type_1, capitalCurrency_type_2, capitalCurrency_type_3))) {
+            System.out.println("CAPITALCURRENCY test passed!");
+        }else {
+            System.out.println("CAPITALCURRENCY test failed! - X");
+        }
+
+        System.out.println("----------------------------");
+
     }
 }
