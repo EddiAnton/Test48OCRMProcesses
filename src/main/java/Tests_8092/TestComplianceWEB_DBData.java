@@ -688,7 +688,7 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "complianceLicense")
+            dependsOnMethods = "complianceGoverningBodies")
     public void complianceOtherChangesInDoc() {
 
         try{
