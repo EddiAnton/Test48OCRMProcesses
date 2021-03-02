@@ -255,7 +255,7 @@ public class TestOtherChangesInDoc {
             ex.printStackTrace();
         }
 
-git pull        if(Objects.equals(test_OKFS, DataComparison.compareData(okfs_type_1, okfs_type_2, okfs_type_3))) {
+        if(Objects.equals(test_OKFS, DataComparison.compareData(okfs_type_1, okfs_type_2, okfs_type_3))) {
             System.out.println("OKFS test passed!");
         }else {
             System.out.println("OKFS test failed! - X");
