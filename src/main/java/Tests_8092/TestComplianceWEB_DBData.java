@@ -76,6 +76,12 @@ public class TestComplianceWEB_DBData {
     String expiryDate_type_3 = null;
     String activityKindList_type_3 = null;
 
+    // // Variables for complianceGoverningBodies method
+    String test_MANAGE_PERSON = null;
+    String test_MANAGE_STRUCTURE = null;
+    String managePerson = null;
+    String manageStructure = null;
+
 
     WebDriver driver;
 
@@ -528,6 +534,12 @@ public class TestComplianceWEB_DBData {
         }
 
         System.out.println("----------------------------");
+
+    }
+
+    @Test
+    public void complianceGoverningBodies() {
+
 
     }
 }

@@ -29,33 +29,17 @@ public class MainApp {
         String requestMask = "UC-TSP";
         String productOrderNumber = null;
 
-        String test_LICENSENUMBER = null;
-        String test_ACTIVITYKIND = null;
-        String test_ISSUEDBY = null;
-        String test_ISSUEDATE = null;
-        String test_EXPIRYDATE = null;
-        String test_ACTIVITYKINDLIST = null;
+        String test_MANAGE_PERSON = null;
+        String test_MANAGE_STRUCTURE = null;
 
-        String licenseNumber_type_1 = null;
-        String activityKind_type_1 = null;
-        String issuedBy_type_1 = null;
-        String issueDate_type_1 = null;
-        String expiryDate_type_1 = null;
-        String activityKindList_type_1 = null;
+        String managePerson_type_1 = null;
+        String manageStructure_type_1 = null;
 
-        String licenseNumber_type_2 = null;
-        String activityKind_type_2 = null;
-        String issuedBy_type_2 = null;
-        String issueDate_type_2 = null;
-        String expiryDate_type_2 = null;
-        String activityKindList_type_2 = null;
+        String managePerson_type_2 = null;
+        String manageStructure_type_2 = null;
 
-        String licenseNumber_type_3 = null;
-        String activityKind_type_3 = null;
-        String issuedBy_type_3 = null;
-        String issueDate_type_3 = null;
-        String expiryDate_type_3 = null;
-        String activityKindList_type_3 = null;
+        String managePerson_type_3 = null;
+        String manageStructure_type_3 = null;
 
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
@@ -64,13 +48,12 @@ public class MainApp {
         try {
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
-            driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));
             logoffHref.click();
 
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By
@@ -85,7 +68,7 @@ public class MainApp {
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
             submitButton.click();
 
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
             // Enter to "Data change requests"
             WebElement requestsHref = driver.findElement(By.xpath("//*[text()='Заявки']"));
@@ -120,7 +103,7 @@ public class MainApp {
             WebElement lastApplication = driver.findElement(By
                     .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
             lastApplication.click();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
@@ -129,75 +112,43 @@ public class MainApp {
             String [] splitString = productOrderNumberFull.split(" ");
             // Отрезать "Заявка - "
             productOrderNumber = splitString[2];
-            Thread.sleep(3000);
 
-
-            // Select the License tab
+            // Select the Governing Bodies tab
             WebElement licenseTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[2]/a"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[8]/a"));
             licenseTab.click();
             Thread.sleep(2000);
 
-            // Disclose data on the License - " V "
-            WebElement openLicense = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div"));
-            openLicense.click();
-            Thread.sleep(3000);
+            // Get data of the Governing Bodies type
+            WebElement field_MANAGE_PERSON = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
+            test_MANAGE_PERSON = field_MANAGE_PERSON.getAttribute("value");
 
-            // Get data of the License type
-            WebElement field_LICENSENUMBER = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[1]/div[1]/div/div/textarea"));
-            test_LICENSENUMBER = field_LICENSENUMBER.getAttribute("value");
-
-            WebElement field_ACTIVITYKIND = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
-            test_ACTIVITYKIND = field_ACTIVITYKIND.getAttribute("value");
-
-            WebElement field_ISSUEDBY = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[3]/div[1]/div/div/textarea"));
-            test_ISSUEDBY = field_ISSUEDBY.getAttribute("value");
-
-            WebElement field_ISSUEDATE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[1]/div[1]/div/div/div/div/div/div[1]/input"));
-            test_ISSUEDATE = field_ISSUEDATE.getAttribute("value");
-
-            WebElement field_EXPIRYDATE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
-            test_EXPIRYDATE = field_EXPIRYDATE.getAttribute("value");
-
-            WebElement field_ACTIVITYKINDLIST = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[5]/div[1]/div/div/textarea"));
-            test_ACTIVITYKINDLIST = field_ACTIVITYKINDLIST.getAttribute("value");
+            WebElement field_MANAGE_STRUCTURE = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
+            test_MANAGE_STRUCTURE = field_MANAGE_STRUCTURE.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            driver.close();
         }
 
         System.out.println(productOrderNumber);
         System.out.println("---------------");
-        System.out.println(test_LICENSENUMBER);
-        System.out.println(test_ACTIVITYKIND);
-        System.out.println(test_ISSUEDBY);
-        System.out.println(test_ISSUEDATE);
-        System.out.println(test_EXPIRYDATE);
-        System.out.println(test_ACTIVITYKINDLIST);
+        System.out.println(test_MANAGE_PERSON);
+        System.out.println(test_MANAGE_STRUCTURE);
         System.out.println("---------------");
 
         try {
+
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
-            String selectTableSQLForType_1 = "SELECT fbpol.LICENSENUMBER, " +
-                    "fbpol.ACTIVITYKIND, " +
-                    "fbpol.ISSUEDBY, " +
-                    "fbpol.ISSUEDATE, " +
-                    "fbpol.EXPIRYDATE, " +
-                    "fbpol.ACTIVITYKINDLIST " +
-                    "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
-                    "JOIN sysdba.fb_productordmemb_data fbpomd " +
-                    "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
-                    "JOIN sysdba.fb_productordermember fbpom " +
-                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+            String selectTableSQLForType_1 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
@@ -205,17 +156,10 @@ public class MainApp {
                     "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomd.MEMBERCLASS IS NULL";
 
-            String selectTableSQLForType_2 = "SELECT fbpol.LICENSENUMBER, " +
-                    "fbpol.ACTIVITYKIND, " +
-                    "fbpol.ISSUEDBY, " +
-                    "fbpol.ISSUEDATE, " +
-                    "fbpol.EXPIRYDATE, " +
-                    "fbpol.ACTIVITYKINDLIST " +
-                    "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
-                    "JOIN sysdba.fb_productordmemb_data fbpomd " +
-                    "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
-                    "JOIN sysdba.fb_productordermember fbpom " +
-                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+            String selectTableSQLForType_2 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
@@ -223,17 +167,10 @@ public class MainApp {
                     "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomd.MEMBERCLASS IS NULL";
 
-            String selectTableSQLForType_3 = "SELECT fbpol.LICENSENUMBER, " +
-                    "fbpol.ACTIVITYKIND, " +
-                    "fbpol.ISSUEDBY, " +
-                    "fbpol.ISSUEDATE, " +
-                    "fbpol.EXPIRYDATE, " +
-                    "fbpol.ACTIVITYKINDLIST " +
-                    "FROM SYSDBA.FB_PRODUCTORDERLICENSE fbpol " +
-                    "JOIN sysdba.fb_productordmemb_data fbpomd " +
-                    "ON fbpol.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
-                    "JOIN sysdba.fb_productordermember fbpom " +
-                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+            String selectTableSQLForType_3 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
@@ -248,12 +185,8 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                licenseNumber_type_1 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_1 = rs_1.getString("ACTIVITYKIND");
-                issuedBy_type_1 = rs_1.getString("ISSUEDBY");
-                issueDate_type_1 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
-                expiryDate_type_1 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
-                activityKindList_type_1 = rs_1.getString("ACTIVITYKINDLIST");
+                managePerson_type_1 = rs_1.getString("MANAGE_PERSON");
+                manageStructure_type_1 = rs_1.getString("MANAGE_STRUCTURE");
             }
 
             // Get data for type 2 from the database
@@ -261,12 +194,8 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                licenseNumber_type_2 = rs_2.getString("LICENSENUMBER");
-                activityKind_type_2 = rs_2.getString("ACTIVITYKIND");
-                issuedBy_type_2 = rs_2.getString("ISSUEDBY");
-                issueDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("ISSUEDATE"));
-                expiryDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("EXPIRYDATE"));
-                activityKindList_type_2 = rs_2.getString("ACTIVITYKINDLIST");
+                managePerson_type_2 = rs_2.getString("MANAGE_PERSON");
+                manageStructure_type_2 = rs_2.getString("MANAGE_STRUCTURE");
             }
 
             // Get data for type 3 from the database
@@ -274,56 +203,27 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                licenseNumber_type_3 = rs_3.getString("LICENSENUMBER");
-                activityKind_type_3 = rs_3.getString("ACTIVITYKIND");
-                issuedBy_type_3 = rs_3.getString("ISSUEDBY");
-                issueDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("ISSUEDATE"));
-                expiryDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("EXPIRYDATE"));
-                activityKindList_type_3 = rs_3.getString("ACTIVITYKINDLIST");
+                managePerson_type_3 = rs_3.getString("MANAGE_PERSON");
+                manageStructure_type_3 = rs_3.getString("MANAGE_STRUCTURE");
             }
+
             connection.close();
 
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
 
-        if(Objects.equals(test_LICENSENUMBER, DataComparison.compareData(licenseNumber_type_1, licenseNumber_type_2, licenseNumber_type_3))) {
-            System.out.println("LICENSENUMBER test passed!");
-        }else {
-            System.out.println("LICENSENUMBER test failed! - X");
+        if(Objects.equals(test_MANAGE_PERSON, DataComparison.compareData(managePerson_type_1, managePerson_type_2, managePerson_type_3))) {
+            System.out.println("MANAGE_PERSON test passed!");
+        } else {
+            System.out.println("MANAGE_PERSON test failed! - X");
         }
 
-        if(Objects.equals(test_ACTIVITYKIND, DataComparison.compareData(activityKind_type_1, activityKind_type_2, activityKind_type_3))) {
-            System.out.println("ACTIVITYKIND test passed!");
-        }else {
-            System.out.println("ACTIVITYKIND test failed! - X");
+        if(Objects.equals(test_MANAGE_STRUCTURE, DataComparison.compareData(manageStructure_type_1, manageStructure_type_2, manageStructure_type_3))) {
+            System.out.println("MANAGE_STRUCTURE test passed!");
+        } else {
+            System.out.println("MANAGE_STRUCTURE test failed! - X");
         }
-
-        if(Objects.equals(test_ISSUEDBY, DataComparison.compareData(issuedBy_type_1, issuedBy_type_2, issuedBy_type_3))) {
-            System.out.println("ISSUEDBY test passed!");
-        }else {
-            System.out.println("ISSUEDBY test failed! - X");
-        }
-
-        if(Objects.equals(test_ISSUEDATE, DataComparison.compareData(issueDate_type_1, issueDate_type_2, issueDate_type_3))) {
-            System.out.println("ISSUEDATE test passed!");
-        }else {
-            System.out.println("ISSUEDATE test failed! - X");
-        }
-
-        if(Objects.equals(test_EXPIRYDATE, DataComparison.compareData(expiryDate_type_1, expiryDate_type_2, expiryDate_type_3))) {
-            System.out.println("EXPIRYDATE test passed!");
-        }else {
-            System.out.println("EXPIRYDATE test failed! - X");
-        }
-
-        if(Objects.equals(test_ACTIVITYKINDLIST, DataComparison.compareData(activityKindList_type_1, activityKindList_type_2, activityKindList_type_3))) {
-            System.out.println("ACTIVITYKINDLIST test passed!");
-        }else {
-            System.out.println("ACTIVITYKINDLIST test failed! - X");
-        }
-
-        System.out.println("----------------------------");
     }
 }
 
