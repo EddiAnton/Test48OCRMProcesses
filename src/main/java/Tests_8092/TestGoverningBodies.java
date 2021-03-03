@@ -44,6 +44,7 @@ public class TestGoverningBodies {
         try {
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
+            driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
                     .linkText("Вернуться на страницу входа"));

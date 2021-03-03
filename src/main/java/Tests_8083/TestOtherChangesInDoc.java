@@ -24,6 +24,7 @@ public class TestOtherChangesInDoc {
 
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.manage().window().maximize();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
