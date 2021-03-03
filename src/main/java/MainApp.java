@@ -35,23 +35,29 @@ public class MainApp {
         String test_CAPITALANNOUNCEDSUM = null;
         String test_CAPITALCURRENCY = null;
 
+        String codeOkfs_type_1 = null;
         String okfs_type_1 = null;
         String codeCompanyType_type_1 = null;
         String companyType_type_1 = null;
+        String codeOkopf_type_1 = null;
         String okopf_type_1 = null;
         String capitalAnnouncedSum_type_1 = null;
         String capitalCurrency_type_1 = null;
 
+        String codeOkfs_type_2 = null;
         String okfs_type_2 = null;
         String codeCompanyType_type_2 = null;
         String companyType_type_2 = null;
+        String codeOkopf_type_2 = null;
         String okopf_type_2 = null;
         String capitalAnnouncedSum_type_2 = null;
         String capitalCurrency_type_2 = null;
 
+        String codeOkfs_type_3 = null;
         String okfs_type_3 = null;
         String codeCompanyType_type_3 = null;
         String companyType_type_3 = null;
+        String codeOkopf_type_3 = null;
         String okopf_type_3 = null;
         String capitalAnnouncedSum_type_3 = null;
         String capitalCurrency_type_3 = null;
@@ -225,11 +231,20 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                okfs_type_1 = rs_1.getString("OKFS");
+                codeOkfs_type_1 = rs_1.getString("OKFS");
                 codeCompanyType_type_1 = rs_1.getString("COMPANYTYPE");
                 okopf_type_1 = rs_1.getString("OKOPF");
                 capitalAnnouncedSum_type_1 = rs_1.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_1 = rs_1.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_1 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = '" + codeOkfs_type_1 + "'";
+
+            ResultSet rs_1_okfs = statement.executeQuery(selectPicklistOKFS_1);
+            while (rs_1_okfs.next()) {
+                okfs_type_1 = rs_1_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_1 = "select pl.text " +
@@ -254,6 +269,15 @@ public class MainApp {
                 capitalCurrency_type_2 = rs_2.getString("CAPITALCURRENCY");
             }
 
+            String selectPicklistOKFS_2 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = '" + codeOkfs_type_2 + "'";
+
+            ResultSet rs_2_okfs = statement.executeQuery(selectPicklistOKFS_2);
+            while (rs_2_okfs.next()) {
+                okfs_type_2 = rs_2_okfs.getString("SHORTNAME");
+            }
+
             String selectPicklistCompanyType_2 = "select pl.text " +
                     "from picklist pl " +
                     "where pl.picklistid = 'k6UJ9A000FPX' " +
@@ -274,6 +298,15 @@ public class MainApp {
                 okopf_type_3 = rs_3.getString("OKOPF");
                 capitalAnnouncedSum_type_3 = rs_3.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_3 = rs_3.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_3 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = '" + codeOkfs_type_3 + "'";
+
+            ResultSet rs_3_okfs = statement.executeQuery(selectPicklistOKFS_3);
+            while (rs_3_okfs.next()) {
+                okfs_type_3 = rs_3_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_3 = "select pl.text " +
