@@ -16,6 +16,9 @@ public class MainApp {
     public static void main(String[] args) {
         String userName = "Admin";
         String password = "4YFDtyiaPpvIbYkehzkG";
+        String requestMask = "UC-TSP";
+
+        String productOrderNumber = null;
 
         // контур 8083
         //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
@@ -26,20 +29,32 @@ public class MainApp {
         // Контур 8092
         //final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
-        String requestMask = "UC-TSP";
-        String productOrderNumber = null;
+        String test_OKFS = null;
+        String test_COMPANYTYPE = null;
+        String test_OKOPF = null;
+        String test_CAPITALANNOUNCEDSUM = null;
+        String test_CAPITALCURRENCY = null;
 
-        String test_MANAGE_PERSON = null;
-        String test_MANAGE_STRUCTURE = null;
+        String okfs_type_1 = null;
+        String codeCompanyType_type_1 = null;
+        String companyType_type_1 = null;
+        String okopf_type_1 = null;
+        String capitalAnnouncedSum_type_1 = null;
+        String capitalCurrency_type_1 = null;
 
-        String managePerson_type_1 = null;
-        String manageStructure_type_1 = null;
+        String okfs_type_2 = null;
+        String codeCompanyType_type_2 = null;
+        String companyType_type_2 = null;
+        String okopf_type_2 = null;
+        String capitalAnnouncedSum_type_2 = null;
+        String capitalCurrency_type_2 = null;
 
-        String managePerson_type_2 = null;
-        String manageStructure_type_2 = null;
-
-        String managePerson_type_3 = null;
-        String manageStructure_type_3 = null;
+        String okfs_type_3 = null;
+        String codeCompanyType_type_3 = null;
+        String companyType_type_3 = null;
+        String okopf_type_3 = null;
+        String capitalAnnouncedSum_type_3 = null;
+        String capitalCurrency_type_3 = null;
 
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
@@ -113,39 +128,56 @@ public class MainApp {
             // Отрезать "Заявка - "
             productOrderNumber = splitString[2];
 
-            // Select the Governing Bodies tab
-            WebElement licenseTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[8]/a"));
-            licenseTab.click();
+            // Select the Other Changes in Doc tab
+            WebElement OtherChangesInDoc = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[9]/a"));
+            OtherChangesInDoc.click();
             Thread.sleep(2000);
 
-            // Get data of the Governing Bodies type
-            WebElement field_MANAGE_PERSON = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
-            test_MANAGE_PERSON = field_MANAGE_PERSON.getAttribute("value");
+            // Get data of the Other changes type
+            WebElement field_OKFS = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_OKFS = field_OKFS.getAttribute("value");
 
-            WebElement field_MANAGE_STRUCTURE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
-            test_MANAGE_STRUCTURE = field_MANAGE_STRUCTURE.getAttribute("value");
+            WebElement field_COMPANYTYPE = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_COMPANYTYPE = field_COMPANYTYPE.getAttribute("value");
+
+            WebElement field_OKOPF = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_OKOPF = field_OKOPF.getAttribute("value");
+
+            WebElement field_CAPITALANNOUNCEDSUM = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
+            test_CAPITALANNOUNCEDSUM = field_CAPITALANNOUNCEDSUM.getAttribute("value");
+
+            WebElement field_CAPITALCURRENCY = driver.findElement(By
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[5]/div[1]/div/div/div/div/div/div[1]/input"));
+            test_CAPITALCURRENCY = field_CAPITALCURRENCY.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            driver.close();
         }
 
         System.out.println(productOrderNumber);
-        System.out.println("---------------");
-        System.out.println(test_MANAGE_PERSON);
-        System.out.println(test_MANAGE_STRUCTURE);
-        System.out.println("---------------");
+        System.out.println("----------------");
+        System.out.println(test_OKFS);
+        System.out.println(test_COMPANYTYPE);
+        System.out.println(test_OKOPF);
+        System.out.println(test_CAPITALANNOUNCEDSUM);
+        System.out.println(test_CAPITALCURRENCY);
+        System.out.println("----------------");
 
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
-            String selectTableSQLForType_1 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+            String selectTableSQLForType_1 = "SELECT fbpomd.OKFS, " +
+                    "fbpomd.COMPANYTYPE, " +
+                    "fbpomd.OKOPF, " +
+                    "fbpomd.CAPITALANNOUNCEDSUM, " +
+                    "fbpomd.CAPITALCURRENCY " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
                     "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
@@ -156,7 +188,11 @@ public class MainApp {
                     "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomd.MEMBERCLASS IS NULL";
 
-            String selectTableSQLForType_2 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+            String selectTableSQLForType_2 = "SELECT fbpomd.OKFS, " +
+                    "fbpomd.COMPANYTYPE, " +
+                    "fbpomd.OKOPF, " +
+                    "fbpomd.CAPITALANNOUNCEDSUM, " +
+                    "fbpomd.CAPITALCURRENCY " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
                     "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
@@ -167,7 +203,11 @@ public class MainApp {
                     "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomd.MEMBERCLASS IS NULL";
 
-            String selectTableSQLForType_3 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+            String selectTableSQLForType_3 = "SELECT fbpomd.OKFS, " +
+                    "fbpomd.COMPANYTYPE, " +
+                    "fbpomd.OKOPF, " +
+                    "fbpomd.CAPITALANNOUNCEDSUM, " +
+                    "fbpomd.CAPITALCURRENCY " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
                     "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
@@ -185,8 +225,21 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                managePerson_type_1 = rs_1.getString("MANAGE_PERSON");
-                manageStructure_type_1 = rs_1.getString("MANAGE_STRUCTURE");
+                okfs_type_1 = rs_1.getString("OKFS");
+                codeCompanyType_type_1 = rs_1.getString("COMPANYTYPE");
+                okopf_type_1 = rs_1.getString("OKOPF");
+                capitalAnnouncedSum_type_1 = rs_1.getString("CAPITALANNOUNCEDSUM");
+                capitalCurrency_type_1 = rs_1.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistCompanyType_1 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyType_type_1 + "'";
+
+            ResultSet rs_1_companyType = statement.executeQuery(selectPicklistCompanyType_1);
+            while (rs_1_companyType.next()) {
+                companyType_type_1 = rs_1_companyType.getString("TEXT");
             }
 
             // Get data for type 2 from the database
@@ -194,8 +247,21 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                managePerson_type_2 = rs_2.getString("MANAGE_PERSON");
-                manageStructure_type_2 = rs_2.getString("MANAGE_STRUCTURE");
+                okfs_type_2 = rs_2.getString("OKFS");
+                codeCompanyType_type_2 = rs_2.getString("COMPANYTYPE");
+                okopf_type_2 = rs_2.getString("OKOPF");
+                capitalAnnouncedSum_type_2 = rs_2.getString("CAPITALANNOUNCEDSUM");
+                capitalCurrency_type_2 = rs_2.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistCompanyType_2 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyType_type_2 + "'";
+
+            ResultSet rs_2_companyType = statement.executeQuery(selectPicklistCompanyType_2);
+            while (rs_2_companyType.next()) {
+                companyType_type_2 = rs_2_companyType.getString("TEXT");
             }
 
             // Get data for type 3 from the database
@@ -203,8 +269,21 @@ public class MainApp {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                managePerson_type_3 = rs_3.getString("MANAGE_PERSON");
-                manageStructure_type_3 = rs_3.getString("MANAGE_STRUCTURE");
+                okfs_type_3 = rs_3.getString("OKFS");
+                codeCompanyType_type_3 = rs_3.getString("COMPANYTYPE");
+                okopf_type_3 = rs_3.getString("OKOPF");
+                capitalAnnouncedSum_type_3 = rs_3.getString("CAPITALANNOUNCEDSUM");
+                capitalCurrency_type_3 = rs_3.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistCompanyType_3 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyType_type_3 + "'";
+
+            ResultSet rs_3_companyType = statement.executeQuery(selectPicklistCompanyType_3);
+            while (rs_3_companyType.next()) {
+                companyType_type_3 = rs_3_companyType.getString("TEXT");
             }
 
             connection.close();
@@ -213,17 +292,37 @@ public class MainApp {
             ex.printStackTrace();
         }
 
-        if(Objects.equals(test_MANAGE_PERSON, DataComparison.compareData(managePerson_type_1, managePerson_type_2, managePerson_type_3))) {
-            System.out.println("MANAGE_PERSON test passed!");
-        } else {
-            System.out.println("MANAGE_PERSON test failed! - X");
+        if(Objects.equals(test_OKFS, DataComparison.compareData(okfs_type_1, okfs_type_2, okfs_type_3))) {
+            System.out.println("OKFS test passed!");
+        }else {
+            System.out.println("OKFS test failed! - X");
         }
 
-        if(Objects.equals(test_MANAGE_STRUCTURE, DataComparison.compareData(manageStructure_type_1, manageStructure_type_2, manageStructure_type_3))) {
-            System.out.println("MANAGE_STRUCTURE test passed!");
-        } else {
-            System.out.println("MANAGE_STRUCTURE test failed! - X");
+        if(Objects.equals(test_COMPANYTYPE, DataComparison.compareData(companyType_type_1, companyType_type_2, companyType_type_3))) {
+            System.out.println("COMPANYTYPE test passed!");
+        }else {
+            System.out.println("OKCOMPANYTYPEFS test failed! - X");
         }
+
+        if(Objects.equals(test_OKOPF, DataComparison.compareData(okopf_type_1, okopf_type_2, okopf_type_3))) {
+            System.out.println("OKOPF test passed!");
+        }else {
+            System.out.println("OKOPF test failed! - X");
+        }
+
+        if(Objects.equals(test_CAPITALANNOUNCEDSUM, DataComparison.compareData(capitalAnnouncedSum_type_1, capitalAnnouncedSum_type_2, capitalAnnouncedSum_type_3))) {
+            System.out.println("CAPITALANNOUNCEDSUM test passed!");
+        }else {
+            System.out.println("CAPITALANNOUNCEDSUM test failed! - X");
+        }
+
+        if(Objects.equals(test_CAPITALCURRENCY, DataComparison.compareData(capitalCurrency_type_1, capitalCurrency_type_2, capitalCurrency_type_3))) {
+            System.out.println("CAPITALCURRENCY test passed!");
+        }else {
+            System.out.println("CAPITALCURRENCY test failed! - X");
+        }
+
+        System.out.println("----------------------------");
     }
 }
 

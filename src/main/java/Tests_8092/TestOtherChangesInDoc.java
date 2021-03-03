@@ -29,18 +29,21 @@ public class TestOtherChangesInDoc {
     String test_CAPITALCURRENCY = null;
 
     String okfs_type_1 = null;
+    String codeCompanyType_type_1 = null;
     String companyType_type_1 = null;
     String okopf_type_1 = null;
     String capitalAnnouncedSum_type_1 = null;
     String capitalCurrency_type_1 = null;
 
     String okfs_type_2 = null;
+    String codeCompanyType_type_2 = null;
     String companyType_type_2 = null;
     String okopf_type_2 = null;
     String capitalAnnouncedSum_type_2 = null;
     String capitalCurrency_type_2 = null;
 
     String okfs_type_3 = null;
+    String codeCompanyType_type_3 = null;
     String companyType_type_3 = null;
     String okopf_type_3 = null;
     String capitalAnnouncedSum_type_3 = null;
@@ -219,34 +222,64 @@ public class TestOtherChangesInDoc {
             // if something was received then the while loop will work
             while (rs_1.next()) {
                 okfs_type_1 = rs_1.getString("OKFS");
-                companyType_type_1 = rs_1.getString("COMPANYTYPE");
+                codeCompanyType_type_1 = rs_1.getString("COMPANYTYPE");
                 okopf_type_1 = rs_1.getString("OKOPF");
                 capitalAnnouncedSum_type_1 = rs_1.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_1 = rs_1.getString("CAPITALCURRENCY");
             }
 
+            String selectPicklistCompanyType_1 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyType_type_1 + "'";
+
+            ResultSet rs_1_companyType = statement.executeQuery(selectPicklistCompanyType_1);
+            while (rs_1_companyType.next()) {
+                companyType_type_1 = rs_1_companyType.getString("TEXT");
+            }
+
             // Get data for type 2 from the database
-            ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_1);
+            ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
                 okfs_type_2 = rs_2.getString("OKFS");
-                companyType_type_2 = rs_2.getString("COMPANYTYPE");
+                codeCompanyType_type_2 = rs_2.getString("COMPANYTYPE");
                 okopf_type_2 = rs_2.getString("OKOPF");
                 capitalAnnouncedSum_type_2 = rs_2.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_2 = rs_2.getString("CAPITALCURRENCY");
             }
 
+            String selectPicklistCompanyType_2 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyType_type_2 + "'";
+
+            ResultSet rs_2_companyType = statement.executeQuery(selectPicklistCompanyType_2);
+            while (rs_2_companyType.next()) {
+                companyType_type_2 = rs_2_companyType.getString("TEXT");
+            }
+
             // Get data for type 3 from the database
-            ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_1);
+            ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
                 okfs_type_3 = rs_3.getString("OKFS");
-                companyType_type_3 = rs_3.getString("COMPANYTYPE");
+                codeCompanyType_type_3 = rs_3.getString("COMPANYTYPE");
                 okopf_type_3 = rs_3.getString("OKOPF");
                 capitalAnnouncedSum_type_3 = rs_3.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_3 = rs_3.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistCompanyType_3 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyType_type_3 + "'";
+
+            ResultSet rs_3_companyType = statement.executeQuery(selectPicklistCompanyType_3);
+            while (rs_3_companyType.next()) {
+                companyType_type_3 = rs_3_companyType.getString("TEXT");
             }
 
             connection.close();
