@@ -3,7 +3,7 @@
 
 <suite name="All Test Suite">
 
-    <test name="Tests_8092">
+    <test name="Tests_8093">
         <groups>
             <run>
                 <include name="regress"/>
@@ -11,7 +11,7 @@
         </groups>
 
         <classes>
-            <class name="Tests_8092.TestComplianceWEB_DBData">
+            <class name="Tests_8093.TestComplianceWEB_DBData">
 
             </class>
         </classes>
