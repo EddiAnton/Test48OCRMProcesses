@@ -124,6 +124,12 @@ public class TestComplianceWEB_DBData {
            retryAnalyzer = Rerty.class)
     public void testAuthorization() {
 
+        System.out.println();
+        System.out.println("TEST 8092 IS STARTING...");
+        System.out.println();
+        System.out.println();
+        System.out.println("Test Authorization is starting...");
+
         try {
             System.setProperty("webdriver.chrome.driver",
                     "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
@@ -164,6 +170,10 @@ public class TestComplianceWEB_DBData {
 
         try {
 
+            System.out.println();
+            System.out.println();
+            System.out.println("Test open DataChangeRequest is starting...");
+
             Thread.sleep(3000);
 
             // Enter to "Data change requests"
@@ -199,7 +209,7 @@ public class TestComplianceWEB_DBData {
             WebElement lastApplication = driver.findElement(By
                     .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
             lastApplication.click();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
@@ -221,8 +231,13 @@ public class TestComplianceWEB_DBData {
 
 
     @Test (groups = {"regress"},
-           dependsOnMethods = "openDataChangeRequest")
+           dependsOnMethods = "openDataChangeRequest",
+           retryAnalyzer = Rerty.class)
     public void complianceNameOfCompany() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance NameOfCompany is starting...");
 
         try {
 
@@ -369,8 +384,13 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "complianceNameOfCompany")
+            dependsOnMethods = "complianceNameOfCompany",
+            retryAnalyzer = Rerty.class)
     public void complianceLicense() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance License is starting...");
 
         try {
 
@@ -573,8 +593,13 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-           dependsOnMethods = "complianceLicense")
+           dependsOnMethods = "complianceLicense",
+            retryAnalyzer = Rerty.class)
     public void complianceGoverningBodies() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance GoverningBodies is starting...");
 
         try {
 
@@ -692,8 +717,13 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "complianceGoverningBodies")
+            dependsOnMethods = "complianceGoverningBodies",
+            retryAnalyzer = Rerty.class)
     public void complianceOtherChangesInDoc() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance OtherChangesInDoc is starting...");
 
         try{
 

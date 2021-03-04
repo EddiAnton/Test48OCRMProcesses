@@ -7,13 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.json.JsonOutput;
 import org.testng.annotations.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Objects;
 
 @Test
@@ -96,33 +93,44 @@ public class TestComplianceWEB_DBData {
     String test_CAPITALANNOUNCEDSUM = null;
     String test_CAPITALCURRENCY = null;
 
+    int codeOkfs_type_1 = 0;
     String okfs_type_1 = null;
     String codeCompanyType_type_1 = null;
     String companyType_type_1 = null;
+    int codeOkopf_type_1 = 0;
     String okopf_type_1 = null;
     String capitalAnnouncedSum_type_1 = null;
     String capitalCurrency_type_1 = null;
 
+    int codeOkfs_type_2 = 0;
     String okfs_type_2 = null;
     String codeCompanyType_type_2 = null;
     String companyType_type_2 = null;
+    int codeOkopf_type_2 = 0;
     String okopf_type_2 = null;
     String capitalAnnouncedSum_type_2 = null;
     String capitalCurrency_type_2 = null;
 
+    int codeOkfs_type_3 = 0;
     String okfs_type_3 = null;
     String codeCompanyType_type_3 = null;
     String companyType_type_3 = null;
+    int codeOkopf_type_3 = 0;
     String okopf_type_3 = null;
     String capitalAnnouncedSum_type_3 = null;
     String capitalCurrency_type_3 = null;
 
     WebDriver driver;
 
-
     @Test (groups = {"smoke", "regress"},
             retryAnalyzer = Rerty.class)
     public void testAuthorization() {
+
+        System.out.println();
+        System.out.println("TEST 8083 IS STARTING...");
+        System.out.println();
+        System.out.println();
+        System.out.println("Test Authorization is starting...");
 
         try {
             System.setProperty("webdriver.chrome.driver",
@@ -162,6 +170,10 @@ public class TestComplianceWEB_DBData {
             retryAnalyzer = Rerty.class)
     public void openDataChangeRequest() {
 
+        System.out.println();
+        System.out.println();
+        System.out.println("Test open DataChangeRequest is starting...");
+
         try {
 
             Thread.sleep(3000);
@@ -188,7 +200,7 @@ public class TestComplianceWEB_DBData {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div']"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -199,7 +211,7 @@ public class TestComplianceWEB_DBData {
             WebElement lastApplication = driver.findElement(By
                     .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
             lastApplication.click();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
@@ -221,8 +233,13 @@ public class TestComplianceWEB_DBData {
 
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "openDataChangeRequest")
+            dependsOnMethods = "openDataChangeRequest",
+            retryAnalyzer = Rerty.class)
     public void complianceNameOfCompany() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance NameOfCompany is starting...");
 
         try {
 
@@ -234,19 +251,19 @@ public class TestComplianceWEB_DBData {
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='orgShortName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[1]/div[1]/div/div/textarea"));
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
             WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='orgFullName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[2]/div[1]/div/div/textarea"));
             test_AKA = field_AKA.getAttribute("value");
 
             WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='engName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[3]/div[1]/div/div/textarea"));
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
             WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='engNameShort']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[4]/div[1]/div/div/textarea"));
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
@@ -369,8 +386,13 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "complianceNameOfCompany")
+            dependsOnMethods = "complianceNameOfCompany",
+            retryAnalyzer = Rerty.class)
     public void complianceLicense() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance License is starting...");
 
         try {
 
@@ -383,7 +405,7 @@ public class TestComplianceWEB_DBData {
 
             // Disclose data on the License - " V "
             WebElement openLicense = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div/div"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div/div"));
             openLicense.click();
             Thread.sleep(2000);
 
@@ -573,8 +595,13 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "complianceLicense")
+            dependsOnMethods = "complianceLicense",
+            retryAnalyzer = Rerty.class)
     public void complianceGoverningBodies() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance GoverningBodies is starting...");
 
         try {
 
@@ -692,8 +719,13 @@ public class TestComplianceWEB_DBData {
     }
 
     @Test (groups = {"regress"},
-            dependsOnMethods = "complianceGoverningBodies")
+            dependsOnMethods = "complianceGoverningBodies",
+            retryAnalyzer = Rerty.class)
     public void complianceOtherChangesInDoc() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance OtherChangesInDoc is starting...");
 
         try{
 
@@ -793,11 +825,20 @@ public class TestComplianceWEB_DBData {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                okfs_type_1 = rs_1.getString("OKFS");
+                codeOkfs_type_1 = rs_1.getInt("OKFS");
                 codeCompanyType_type_1 = rs_1.getString("COMPANYTYPE");
-                okopf_type_1 = rs_1.getString("OKOPF");
+                codeOkopf_type_1 = rs_1.getInt("OKOPF");
                 capitalAnnouncedSum_type_1 = rs_1.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_1 = rs_1.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_1 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfs_type_1;
+
+            ResultSet rs_1_okfs = statement.executeQuery(selectPicklistOKFS_1);
+            while (rs_1_okfs.next()) {
+                okfs_type_1 = rs_1_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_1 = "select pl.text " +
@@ -810,16 +851,34 @@ public class TestComplianceWEB_DBData {
                 companyType_type_1 = rs_1_companyType.getString("TEXT");
             }
 
+            String selectPicklistOKOPF_1 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopf_type_1;
+
+            ResultSet rs_1_okopf = statement.executeQuery(selectPicklistOKOPF_1);
+            while (rs_1_okopf.next()) {
+                okopf_type_1 = rs_1_okopf.getString("FULLNAME");
+            }
+
             // Get data for type 2 from the database
             ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                okfs_type_2 = rs_2.getString("OKFS");
+                codeOkfs_type_2 = rs_2.getInt("OKFS");
                 codeCompanyType_type_2 = rs_2.getString("COMPANYTYPE");
-                okopf_type_2 = rs_2.getString("OKOPF");
+                codeOkopf_type_2 = rs_2.getInt("OKOPF");
                 capitalAnnouncedSum_type_2 = rs_2.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_2 = rs_2.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_2 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfs_type_2;
+
+            ResultSet rs_2_okfs = statement.executeQuery(selectPicklistOKFS_2);
+            while (rs_2_okfs.next()) {
+                okfs_type_2 = rs_2_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_2 = "select pl.text " +
@@ -832,16 +891,34 @@ public class TestComplianceWEB_DBData {
                 companyType_type_2 = rs_2_companyType.getString("TEXT");
             }
 
+            String selectPicklistOKOPF_2 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopf_type_2;
+
+            ResultSet rs_2_okopf = statement.executeQuery(selectPicklistOKOPF_2);
+            while (rs_2_okopf.next()) {
+                okopf_type_2 = rs_2_okopf.getString("FULLNAME");
+            }
+
             // Get data for type 3 from the database
             ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                okfs_type_3 = rs_3.getString("OKFS");
+                codeOkfs_type_3 = rs_3.getInt("OKFS");
                 codeCompanyType_type_3 = rs_3.getString("COMPANYTYPE");
-                okopf_type_3 = rs_3.getString("OKOPF");
+                codeOkopf_type_3 = rs_3.getInt("OKOPF");
                 capitalAnnouncedSum_type_3 = rs_3.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_3 = rs_3.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_3 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfs_type_3;
+
+            ResultSet rs_3_okfs = statement.executeQuery(selectPicklistOKFS_3);
+            while (rs_3_okfs.next()) {
+                okfs_type_3 = rs_3_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_3 = "select pl.text " +
@@ -852,6 +929,15 @@ public class TestComplianceWEB_DBData {
             ResultSet rs_3_companyType = statement.executeQuery(selectPicklistCompanyType_3);
             while (rs_3_companyType.next()) {
                 companyType_type_3 = rs_3_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_3 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopf_type_3;
+
+            ResultSet rs_3_okopf = statement.executeQuery(selectPicklistOKOPF_3);
+            while (rs_3_okopf.next()) {
+                okopf_type_3 = rs_3_okopf.getString("FULLNAME");
             }
 
             connection.close();
