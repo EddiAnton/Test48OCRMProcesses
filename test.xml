@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All Test Suite">
+    <test name="RegressionTests_8083_Contour">
+        <groups>
+            <run>
+                <include name="regress"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests_8083.TestComplianceWEB_DBData"></class>
+        </classes>
+    </test>
+    <test name="RegressionTests_8093_Contour">
+        <groups>
+            <run>
+                <include name="regress"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests_8093.TestComplianceWEB_DBData"></class>
+        </classes>
+    </test>
+    <test name="RegressionTests_8092_Contour">
+        <groups>
+            <run>
+                <include name="regress"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests_8092.TestComplianceWEB_DBData"></class>
+        </classes>
+    </test>
+</suite>
