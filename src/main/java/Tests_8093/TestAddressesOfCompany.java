@@ -393,81 +393,81 @@ public class TestAddressesOfCompany {
         }
 
         if(Objects.equals(test_OKATO, DataComparison.compareData(okato_type_1, okato_type_2, okato_type_3))) {
-            System.out.println("LICENSENUMBER test passed!");
+            System.out.println("OKATO test passed!");
         }else {
-            System.out.println("LICENSENUMBER test failed! - X");
+            System.out.println("OKATO test failed! - X");
         }
 
         if(Objects.equals(test_OKTMO, DataComparison.compareData(oktmo_type_1, oktmo_type_2, oktmo_type_3))) {
-            System.out.println("ACTIVITYKIND test passed!");
+            System.out.println("OKTMO test passed!");
         }else {
-            System.out.println("ACTIVITYKIND test failed! - X");
+            System.out.println("OKTMO test failed! - X");
         }
 
         if(Objects.equals(test_ADDRESSTYPE, DataComparison.compareData(addresstype_type_1, addresstype_type_2, addresstype_type_3))) {
-            System.out.println("ISSUEDBY test passed!");
+            System.out.println("ADDRESSTYPE test passed!");
         }else {
-            System.out.println("ISSUEDBY test failed! - X");
+            System.out.println("ADDRESSTYPE test failed! - X");
         }
 
         if(Objects.equals(test_COUNTRY, DataComparison.compareData(country_type_1, country_type_2, country_type_3))) {
-            System.out.println("ISSUEDATE test passed!");
+            System.out.println("COUNTRY test passed!");
         }else {
-            System.out.println("ISSUEDATE test failed! - X");
+            System.out.println("COUNTRY test failed! - X");
         }
 
         if(Objects.equals(test_POSTALCODE, DataComparison.compareData(postalcode_type_1, postalcode_type_2, postalcode_type_3))) {
-            System.out.println("EXPIRYDATE test passed!");
+            System.out.println("POSTALCODE test passed!");
         }else {
-            System.out.println("EXPIRYDATE test failed! - X");
+            System.out.println("POSTALCODE test failed! - X");
         }
 
         if(Objects.equals(test_COUNTY, DataComparison.compareData(county_type_1, county_type_2, county_type_3))) {
-            System.out.println("ACTIVITYKINDLIST test passed!");
+            System.out.println("COUNTY test passed!");
         }else {
-            System.out.println("ACTIVITYKINDLIST test failed! - X");
+            System.out.println("COUNTY test failed! - X");
         }
 
         if(Objects.equals(test_DISTRICT, DataComparison.compareData(district_type_1, district_type_2, district_type_3))) {
-            System.out.println("ISSUEDATE test passed!");
+            System.out.println("DISTRICT test passed!");
         }else {
-            System.out.println("ISSUEDATE test failed! - X");
+            System.out.println("DISTRICT test failed! - X");
         }
 
         if(Objects.equals(test_CITY, DataComparison.compareData(city_type_1, city_type_2, city_type_3))) {
-            System.out.println("EXPIRYDATE test passed!");
+            System.out.println("CITY test passed!");
         }else {
-            System.out.println("EXPIRYDATE test failed! - X");
+            System.out.println("CITY test failed! - X");
         }
 
         if(Objects.equals(test_STREET, DataComparison.compareData(street_type_1, street_type_2, street_type_3))) {
-            System.out.println("ACTIVITYKINDLIST test passed!");
+            System.out.println("STREET test passed!");
         }else {
-            System.out.println("ACTIVITYKINDLIST test failed! - X");
+            System.out.println("STREET test failed! - X");
         }
 
         if(Objects.equals(test_HOUSE, DataComparison.compareData(house_type_1, house_type_2, house_type_3))) {
-            System.out.println("ISSUEDATE test passed!");
+            System.out.println("HOUSE test passed!");
         }else {
-            System.out.println("ISSUEDATE test failed! - X");
+            System.out.println("HOUSE test failed! - X");
         }
 
         if(Objects.equals(test_CORPUS, DataComparison.compareData(corpus_type_1, corpus_type_2, corpus_type_3))) {
-            System.out.println("EXPIRYDATE test passed!");
+            System.out.println("CORPUS test passed!");
         }else {
-            System.out.println("EXPIRYDATE test failed! - X");
+            System.out.println("CORPUS test failed! - X");
         }
 
         if(Objects.equals(test_APARTMENT, DataComparison.compareData(apartment_type_1, apartment_type_2, apartment_type_3))) {
-            System.out.println("ACTIVITYKINDLIST test passed!");
+            System.out.println("APARTMENT test passed!");
         }else {
-            System.out.println("ACTIVITYKINDLIST test failed! - X");
+            System.out.println("APARTMENT test failed! - X");
         }
 
         if(Objects.equals(test_FULLADDRESS, DataComparison.compareData(fulladdress_type_1, fulladdress_type_2, fulladdress_type_3))) {
-            System.out.println("ACTIVITYKINDLIST test passed!");
+            System.out.println("FULLADDRESS test passed!");
         }else {
-            System.out.println("ACTIVITYKINDLIST test failed! - X");
+            System.out.println("FULLADDRESS test failed! - X");
         }
 
         System.out.println("----------------------------");
