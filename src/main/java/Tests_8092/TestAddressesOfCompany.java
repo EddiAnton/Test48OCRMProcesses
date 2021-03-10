@@ -244,6 +244,22 @@ public class TestAddressesOfCompany {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
+            Statement statement = connection.createStatement();
+
+            String selectCodeAddressTypeSQL = "select pl.shorttext " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pl.picklistid = 'k6UJ9A001O0V' " +
+                    "and pl.TEXT = '" + test_ADDRESSTYPE + "'";
+
+            String codeAddressType = null;
+            ResultSet rs_cat = statement.executeQuery(selectCodeAddressTypeSQL);
+            while (rs_cat.next()) {
+                codeAddressType = rs_cat.getString("SHORTTEXT");
+            }
+
             String selectTableSQLForType_1 = "SELECT fbpomd.OKATO, " +
                     "fbpomd.OKTMO, " +
                     "fbpomad.ADDRESSTYPE, " +
@@ -267,7 +283,7 @@ public class TestAddressesOfCompany {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '1'" +
                     "AND fbpomd.ISPRIMARY = 'T'" +
-                    "AND fbpomd.MEMBERCLASS IS NULL";
+                    "AND fbpomad.ADDRESSTYPE = '" + codeAddressType + "'";
 
             String selectTableSQLForType_2 = "SELECT fbpomd.OKATO, " +
                     "fbpomd.OKTMO, " +
@@ -292,7 +308,7 @@ public class TestAddressesOfCompany {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '2'" +
                     "AND fbpomd.ISPRIMARY = 'T'" +
-                    "AND fbpomd.MEMBERCLASS IS NULL";
+                    "AND fbpomad.ADDRESSTYPE = '" + codeAddressType + "'";
 
             String selectTableSQLForType_3 = "SELECT fbpomd.OKATO, " +
                     "fbpomd.OKTMO, " +
@@ -317,9 +333,7 @@ public class TestAddressesOfCompany {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '3'" +
                     "AND fbpomd.ISPRIMARY = 'T'" +
-                    "AND fbpomd.MEMBERCLASS IS NULL";
-
-            Statement statement = connection.createStatement();
+                    "AND fbpomad.ADDRESSTYPE = '" + codeAddressType + "'";
 
             // Get data for type 1 from the database
             ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);
