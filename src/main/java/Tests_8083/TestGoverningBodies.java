@@ -75,7 +75,7 @@ public class TestGoverningBodies {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();

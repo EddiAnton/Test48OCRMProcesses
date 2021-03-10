@@ -134,7 +134,7 @@ public class TestAddressesOfCompany {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -164,62 +164,62 @@ public class TestAddressesOfCompany {
 
             // Get data OKATO & OKTMO
             WebElement field_OKATO = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div[1]/div/div/textarea"));
             test_OKATO = field_OKATO.getAttribute("value");
 
             WebElement field_OKTMO = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[2]/div[1]/div/div/textarea"));
             test_OKTMO = field_OKTMO.getAttribute("value");
 
             // Disclose data on the Address - " V "
             WebElement openAddress = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div/div/i"));
             openAddress.click();
             Thread.sleep(3000);
 
             // Get data of the Address type
             WebElement field_ADDRESSTYPE = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
             test_ADDRESSTYPE = field_ADDRESSTYPE.getAttribute("value");
 
             WebElement field_COUNTRY = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[3]/div/div/div/div/div/div/input"));
             test_COUNTRY = field_COUNTRY.getAttribute("value");
 
             WebElement field_POSTALCODE = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[5]/div/div/textarea"));
             test_POSTALCODE = field_POSTALCODE.getAttribute("value");
 
             WebElement field_COUNTY = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[7]/div/div/div/div/div/div/input"));
             test_COUNTY = field_COUNTY.getAttribute("value");
 
             WebElement field_DISTRICT = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[9]/div/div/div/div/div/div/input"));
             test_DISTRICT = field_DISTRICT.getAttribute("value");
 
             WebElement field_CITY = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[11]/div/div/div/div/div/div/input"));
             test_CITY = field_CITY.getAttribute("value");
 
             WebElement field_STREET = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[13]/div/div/div/div/div/div/input"));
             test_STREET = field_STREET.getAttribute("value");
 
             WebElement field_HOUSE = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[15]/div/div/div[1]/div/div/div/div/input"));
             test_HOUSE = field_HOUSE.getAttribute("value");
 
             WebElement field_CORPUS = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[15]/div/div/div[2]/textarea"));
             test_CORPUS = field_CORPUS.getAttribute("value");
 
             WebElement field_APARTMENT = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[17]/div/div/textarea"));
             test_APARTMENT = field_APARTMENT.getAttribute("value");
 
             WebElement field_FULLADDRESS = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[19]/div/div/textarea"));
             test_FULLADDRESS = field_FULLADDRESS.getAttribute("value");
 
         } catch (InterruptedException e) {
