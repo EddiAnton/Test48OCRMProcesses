@@ -4,9 +4,13 @@
 <suite name="All Test Suite">
 
     <test name="RegressionTests_8083_Contour">
-
+        <groups>
+            <run>
+                <include name="regress"/>
+            </run>
+        </groups>
         <classes>
-            <class name="Tests_8083.TestAddressesOfCompany"></class>
+            <class name="Tests_8093.TestComplianceWEB_DBData"></class>
         </classes>
     </test>
 

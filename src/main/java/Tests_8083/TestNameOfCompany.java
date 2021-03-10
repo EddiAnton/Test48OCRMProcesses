@@ -122,19 +122,19 @@ public class TestNameOfCompany {
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='orgShortName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
             WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='orgFullName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
             test_AKA = field_AKA.getAttribute("value");
 
             WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='engName']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/textarea"));
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
             WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='engNameShort']"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
