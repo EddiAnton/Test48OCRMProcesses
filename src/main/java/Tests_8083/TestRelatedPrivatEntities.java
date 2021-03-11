@@ -30,7 +30,7 @@ public class TestRelatedPrivatEntities {
     String test_BIRTHDATE = null;
     String test_GENDER = null;
     String test_INN = null;
-    String test_COUNTRY = null;
+    String test_CITIZENSHIP = null;
 
     String lastName_type_1 = null;
     String firstName_type_1 = null;
@@ -39,7 +39,7 @@ public class TestRelatedPrivatEntities {
     String birthDate_type_1 = null;
     String gender_type_1 = null;
     String inn_type_1 = null;
-    String country_type_1 = null;
+    String citizenship_type_1 = null;
 
     String lastName_type_2 = null;
     String firstName_type_2 = null;
@@ -48,7 +48,7 @@ public class TestRelatedPrivatEntities {
     String birthDate_type_2 = null;
     String gender_type_2 = null;
     String inn_type_2 = null;
-    String country_type_2 = null;
+    String citizenship_type_2 = null;
 
     String lastName_type_3 = null;
     String firstName_type_3 = null;
@@ -57,7 +57,7 @@ public class TestRelatedPrivatEntities {
     String birthDate_type_3 = null;
     String gender_type_3 = null;
     String inn_type_3 = null;
-    String country_type_3 = null;
+    String citizenship_type_3 = null;
 
     @Test
     public void testRelatedPrivatEntities() {
@@ -173,9 +173,9 @@ public class TestRelatedPrivatEntities {
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[7]/div[1]/div/div/textarea"));
             test_INN = field_INN.getAttribute("value");
 
-            WebElement field_COUNTRY = driver.findElement(By
+            WebElement field_CITIZENSHIP = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[8]/div[1]/div/div/div/div/div/div[1]/input"));
-            test_COUNTRY = field_COUNTRY.getAttribute("value");
+            test_CITIZENSHIP = field_CITIZENSHIP.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -192,7 +192,7 @@ public class TestRelatedPrivatEntities {
         System.out.println(test_BIRTHDATE);
         System.out.println(test_GENDER);
         System.out.println(test_INN);
-        System.out.println(test_COUNTRY);
+        System.out.println(test_CITIZENSHIP);
         System.out.println("---------------");
 
         try {
@@ -271,7 +271,7 @@ public class TestRelatedPrivatEntities {
                 birthDate_type_1 = DateReplace.replaceInputDate(rs_1.getString("BIRTHDATE"));
                 gender_type_1 = rs_1.getString("GENDER");
                 inn_type_1 = rs_1.getString("INN");
-                country_type_1 = rs_1.getString("COUNTRY");
+                citizenship_type_1 = rs_1.getString("COUNTRY");
             }
 
             // Get data for type 2 from the database
@@ -286,7 +286,7 @@ public class TestRelatedPrivatEntities {
                 birthDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("BIRTHDATE"));
                 gender_type_2 = rs_2.getString("GENDER");
                 inn_type_2 = rs_2.getString("INN");
-                country_type_2 = rs_2.getString("COUNTRY");
+                citizenship_type_2 = rs_2.getString("COUNTRY");
             }
 
             // Get data for type 3 from the database
@@ -301,7 +301,7 @@ public class TestRelatedPrivatEntities {
                 birthDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("BIRTHDATE"));
                 gender_type_3 = rs_3.getString("GENDER");
                 inn_type_3 = rs_3.getString("INN");
-                country_type_3 = rs_3.getString("COUNTRY");
+                citizenship_type_3 = rs_3.getString("COUNTRY");
             }
 
             connection.close();
@@ -352,10 +352,10 @@ public class TestRelatedPrivatEntities {
             System.out.println("INN test failed! - X");
         }
 
-        if(Objects.equals(test_COUNTRY, DataComparison.compareData(country_type_1, country_type_2, country_type_3))) {
-            System.out.println("COUNTRY test passed!");
+        if(Objects.equals(test_CITIZENSHIP, DataComparison.compareData(citizenship_type_1, citizenship_type_2, citizenship_type_3))) {
+            System.out.println("CITIZENSHIP test passed!");
         }else {
-            System.out.println("COUNTRY test failed! - X");
+            System.out.println("CITIZENSHIP test failed! - X");
         }
 
         System.out.println("----------------------------");
