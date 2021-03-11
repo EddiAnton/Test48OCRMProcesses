@@ -152,9 +152,9 @@ public class TestAddressesOfCompany {
             Thread.sleep(3000);
 
             // Select the Address tab
-            WebElement licenseTab = driver.findElement(By
+            WebElement addressTab = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[3]/a"));
-            licenseTab.click();
+            addressTab.click();
             Thread.sleep(2000);
 
             // Get data OKATO & OKTMO

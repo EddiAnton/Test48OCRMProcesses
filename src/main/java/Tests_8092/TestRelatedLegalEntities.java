@@ -12,7 +12,7 @@ import java.sql.Statement;
 public class TestRelatedLegalEntities {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
-    @Test
+
     public void testRelatedLegalEntities() {
 
         System.setProperty("webdriver.chrome.driver",

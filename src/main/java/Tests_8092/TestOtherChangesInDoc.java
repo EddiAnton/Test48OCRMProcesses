@@ -125,9 +125,9 @@ public class TestOtherChangesInDoc {
             Thread.sleep(3000);
 
             // Select the Other Changes in Doc tab
-            WebElement OtherChangesInDoc = driver.findElement(By
+            WebElement otherChangesInDoc = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[9]/a"));
-            OtherChangesInDoc.click();
+            otherChangesInDoc.click();
             Thread.sleep(2000);
 
             // Get data of the Other changes type

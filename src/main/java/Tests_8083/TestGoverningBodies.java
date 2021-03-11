@@ -98,9 +98,9 @@ public class TestGoverningBodies {
 
 
             // Select the Governing Bodies tab
-            WebElement licenseTab = driver.findElement(By
+            WebElement governingBodiesTab = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[8]/a"));
-            licenseTab.click();
+            governingBodiesTab.click();
             Thread.sleep(2000);
 
             // Get data of the Governing Bodies type
