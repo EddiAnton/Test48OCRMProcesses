@@ -1,6 +1,7 @@
 package Tests_8093;
 
 import Services.DataComparison;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,28 +30,34 @@ public class TestOtherChangesInDoc {
     String test_CAPITALANNOUNCEDSUM = null;
     String test_CAPITALCURRENCY = null;
 
+    int codeOkfs_type_1 = 0;
     String okfs_type_1 = null;
     String codeCompanyType_type_1 = null;
     String companyType_type_1 = null;
+    int codeOkopf_type_1 = 0;
     String okopf_type_1 = null;
     String capitalAnnouncedSum_type_1 = null;
     String capitalCurrency_type_1 = null;
 
+    int codeOkfs_type_2 = 0;
     String okfs_type_2 = null;
     String codeCompanyType_type_2 = null;
     String companyType_type_2 = null;
+    int codeOkopf_type_2 = 0;
     String okopf_type_2 = null;
     String capitalAnnouncedSum_type_2 = null;
     String capitalCurrency_type_2 = null;
 
+    int codeOkfs_type_3 = 0;
     String okfs_type_3 = null;
     String codeCompanyType_type_3 = null;
     String companyType_type_3 = null;
+    int codeOkopf_type_3 = 0;
     String okopf_type_3 = null;
     String capitalAnnouncedSum_type_3 = null;
     String capitalCurrency_type_3 = null;
 
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void testOtherChangesInDoc() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -227,11 +234,20 @@ public class TestOtherChangesInDoc {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                okfs_type_1 = rs_1.getString("OKFS");
+                codeOkfs_type_1 = rs_1.getInt("OKFS");
                 codeCompanyType_type_1 = rs_1.getString("COMPANYTYPE");
-                okopf_type_1 = rs_1.getString("OKOPF");
+                codeOkopf_type_1 = rs_1.getInt("OKOPF");
                 capitalAnnouncedSum_type_1 = rs_1.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_1 = rs_1.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_1 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfs_type_1;
+
+            ResultSet rs_1_okfs = statement.executeQuery(selectPicklistOKFS_1);
+            while (rs_1_okfs.next()) {
+                okfs_type_1 = rs_1_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_1 = "select pl.text " +
@@ -244,16 +260,34 @@ public class TestOtherChangesInDoc {
                 companyType_type_1 = rs_1_companyType.getString("TEXT");
             }
 
+            String selectPicklistOKOPF_1 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopf_type_1;
+
+            ResultSet rs_1_okopf = statement.executeQuery(selectPicklistOKOPF_1);
+            while (rs_1_okopf.next()) {
+                okopf_type_1 = rs_1_okopf.getString("FULLNAME");
+            }
+
             // Get data for type 2 from the database
             ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                okfs_type_2 = rs_2.getString("OKFS");
+                codeOkfs_type_2 = rs_2.getInt("OKFS");
                 codeCompanyType_type_2 = rs_2.getString("COMPANYTYPE");
-                okopf_type_2 = rs_2.getString("OKOPF");
+                codeOkopf_type_2 = rs_2.getInt("OKOPF");
                 capitalAnnouncedSum_type_2 = rs_2.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_2 = rs_2.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_2 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfs_type_2;
+
+            ResultSet rs_2_okfs = statement.executeQuery(selectPicklistOKFS_2);
+            while (rs_2_okfs.next()) {
+                okfs_type_2 = rs_2_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_2 = "select pl.text " +
@@ -266,16 +300,34 @@ public class TestOtherChangesInDoc {
                 companyType_type_2 = rs_2_companyType.getString("TEXT");
             }
 
+            String selectPicklistOKOPF_2 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopf_type_2;
+
+            ResultSet rs_2_okopf = statement.executeQuery(selectPicklistOKOPF_2);
+            while (rs_2_okopf.next()) {
+                okopf_type_2 = rs_2_okopf.getString("FULLNAME");
+            }
+
             // Get data for type 3 from the database
             ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                okfs_type_3 = rs_3.getString("OKFS");
+                codeOkfs_type_3 = rs_3.getInt("OKFS");
                 codeCompanyType_type_3 = rs_3.getString("COMPANYTYPE");
-                okopf_type_3 = rs_3.getString("OKOPF");
+                codeOkopf_type_3 = rs_3.getInt("OKOPF");
                 capitalAnnouncedSum_type_3 = rs_3.getString("CAPITALANNOUNCEDSUM");
                 capitalCurrency_type_3 = rs_3.getString("CAPITALCURRENCY");
+            }
+
+            String selectPicklistOKFS_3 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfs_type_3;
+
+            ResultSet rs_3_okfs = statement.executeQuery(selectPicklistOKFS_3);
+            while (rs_3_okfs.next()) {
+                okfs_type_3 = rs_3_okfs.getString("SHORTNAME");
             }
 
             String selectPicklistCompanyType_3 = "select pl.text " +
@@ -286,6 +338,15 @@ public class TestOtherChangesInDoc {
             ResultSet rs_3_companyType = statement.executeQuery(selectPicklistCompanyType_3);
             while (rs_3_companyType.next()) {
                 companyType_type_3 = rs_3_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_3 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopf_type_3;
+
+            ResultSet rs_3_okopf = statement.executeQuery(selectPicklistOKOPF_3);
+            while (rs_3_okopf.next()) {
+                okopf_type_3 = rs_3_okopf.getString("FULLNAME");
             }
 
             connection.close();

@@ -2,6 +2,7 @@ package Tests_8093;
 
 import Services.DataComparison;
 import Services.DateReplace;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,7 +53,7 @@ public class TestLicense {
     String expiryDate_type_3 = null;
     String activityKindList_type_3 = null;
 
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void testLicense() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -260,12 +261,12 @@ public class TestLicense {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                licenseNumber_type_2 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_2 = rs_1.getString("ACTIVITYKIND");
-                issuedBy_type_2 = rs_1.getString("ISSUEDBY");
-                issueDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
-                expiryDate_type_2 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
-                activityKindList_type_2 = rs_1.getString("ACTIVITYKINDLIST");
+                licenseNumber_type_2 = rs_2.getString("LICENSENUMBER");
+                activityKind_type_2 = rs_2.getString("ACTIVITYKIND");
+                issuedBy_type_2 = rs_2.getString("ISSUEDBY");
+                issueDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("ISSUEDATE"));
+                expiryDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("EXPIRYDATE"));
+                activityKindList_type_2 = rs_2.getString("ACTIVITYKINDLIST");
             }
 
             // Get data for type 3 from the database
@@ -273,12 +274,12 @@ public class TestLicense {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                licenseNumber_type_3 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_3 = rs_1.getString("ACTIVITYKIND");
-                issuedBy_type_3 = rs_1.getString("ISSUEDBY");
-                issueDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
-                expiryDate_type_3 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
-                activityKindList_type_3 = rs_1.getString("ACTIVITYKINDLIST");
+                licenseNumber_type_3 = rs_3.getString("LICENSENUMBER");
+                activityKind_type_3 = rs_3.getString("ACTIVITYKIND");
+                issuedBy_type_3 = rs_3.getString("ISSUEDBY");
+                issueDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("ISSUEDATE"));
+                expiryDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("EXPIRYDATE"));
+                activityKindList_type_3 = rs_3.getString("ACTIVITYKINDLIST");
             }
 
             connection.close();

@@ -2,6 +2,7 @@ package Tests_8093;
 
 import Services.DataComparison;
 import Services.DateReplace;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,7 +61,7 @@ public class TestRelatedPrivatEntities {
     String inn_type_3 = null;
     String citizenship_type_3 = null;
 
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void testRelatedPrivatEntities() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -115,7 +116,7 @@ public class TestRelatedPrivatEntities {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique22']"));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();

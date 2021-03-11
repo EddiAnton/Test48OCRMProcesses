@@ -1,6 +1,7 @@
 package Tests_8093;
 
 import Services.DataComparison;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,7 +44,7 @@ public class TestNameOfCompany {
     String engName_type_3 = null;
     String engNameShort_type_3 = null;
 
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void testNameOfCompany() {
 
         System.setProperty("webdriver.chrome.driver",

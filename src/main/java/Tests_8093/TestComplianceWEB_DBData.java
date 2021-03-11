@@ -804,7 +804,7 @@ public class TestComplianceWEB_DBData {
                     "inner join picklist pln " +
                     "on pln.itemid = pl.picklistid " +
                     "and pln.picklistid = 'PICKLISTLIST' " +
-                    "where pl.picklistid = 'k6UJ9A001O0V' " +
+                    "where pln.text = 'Тип адреса' " +
                     "and pl.TEXT = '" + test_ADDRESSTYPE + "'";
 
             String codeAddressType = null;
@@ -1041,6 +1041,10 @@ public class TestComplianceWEB_DBData {
             retryAnalyzer = Rerty.class)
     public void complianceRelatedPrivatEntities() {
 
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance Related Privat Entities is starting...");
+
         try {
 
             // Select the Related Privat Entities tab
@@ -1276,7 +1280,7 @@ public class TestComplianceWEB_DBData {
 
         System.out.println();
         System.out.println();
-        System.out.println("Test compliance GoverningBodies is starting...");
+        System.out.println("Test compliance Governing Bodies is starting...");
 
         try {
 
@@ -1400,7 +1404,7 @@ public class TestComplianceWEB_DBData {
 
         System.out.println();
         System.out.println();
-        System.out.println("Test compliance OtherChangesInDoc is starting...");
+        System.out.println("Test compliance Other Changes In Doc is starting...");
 
         try{
 
