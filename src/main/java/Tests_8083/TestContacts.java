@@ -1,6 +1,7 @@
 package Tests_8083;
 
 import Services.DataComparison;
+import Services.DataConversion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,22 +30,28 @@ public class TestContacts {
     String test_ISPRIMARY = null;
     String test_NOTE = null;
 
+    String codeChannelType_type_1 = null;
     String channelType_type_1 = null;
     String channelValue_type_1 = null;
+    int codeChannelSubtype_type_1;
     String channelSubtype_type_1 = null;
     String isActiveContact_type_1 = null;
     String isPrimaryContact_type_1 = null;
     String noteContact_type_1 = null;
 
+    String codeChannelType_type_2 = null;
     String channelType_type_2 = null;
     String channelValue_type_2 = null;
+    int codeChannelSubtype_type_2;
     String channelSubtype_type_2 = null;
     String isActiveContact_type_2 = null;
     String isPrimaryContact_type_2 = null;
     String noteContact_type_2 = null;
 
+    String codeChannelType_type_3 = null;
     String channelType_type_3 = null;
     String channelValue_type_3 = null;
+    int codeChannelSubtype_type_3;
     String channelSubtype_type_3 = null;
     String isActiveContact_type_3 = null;
     String isPrimaryContact_type_3 = null;
@@ -119,10 +126,7 @@ public class TestContacts {
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
                     .xpath("//*[@id='PageTitle']"));
-            String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
-            // Отрезать "Заявка - "
-            String [] splitString = productOrderNumberFull.split(" ");
-            productOrderNumber = splitString[2];
+            productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
             Thread.sleep(3000);
 
             // Select the Contacts tab
@@ -185,20 +189,6 @@ public class TestContacts {
 
             Statement statement = connection.createStatement();
 
-            String selectCodeContactTypeSQL = "select pl.shorttext " +
-                    "from picklist pl " +
-                    "inner join picklist pln " +
-                    "on pln.itemid = pl.picklistid " +
-                    "and pln.picklistid = 'PICKLISTLIST' " +
-                    "where pln.text = 'Тип контакта' " +
-                    "and pl.TEXT = '" + test_CHANNEL_TYPE + "'";
-
-            String codeContactType = null;
-            ResultSet rs_cat = statement.executeQuery(selectCodeContactTypeSQL);
-            while (rs_cat.next()) {
-                codeContactType = rs_cat.getString("SHORTTEXT");
-            }
-
             String selectTableSQLForType_1 = "SELECT fbpomcont.CHANNEL_TYPE, " +
                     "fbpomcont.CHANNEL_VALUE, " +
                     "fbpomcont.CHANNEL_SUBTYPE, " +
@@ -215,7 +205,7 @@ public class TestContacts {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
                     "AND fbpomd.MEMBERDATATYPE = '1' " +
                     "AND fbpomd.ISPRIMARY = 'T' " +
-                    "AND fbpomad.ADDRESSTYPE = '" + codeContactType + "'";
+                    "AND fbpomcont.CHANNEL_VALUE = '" + test_CHANNEL_VALUE + "'";
 
             String selectTableSQLForType_2 = "SELECT fbpomcont.CHANNEL_TYPE, " +
                     "fbpomcont.CHANNEL_VALUE, " +
@@ -233,7 +223,7 @@ public class TestContacts {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
                     "AND fbpomd.MEMBERDATATYPE = '2' " +
                     "AND fbpomd.ISPRIMARY = 'T' " +
-                    "AND fbpomad.ADDRESSTYPE = '" + codeContactType + "'";
+                    "AND fbpomcont.CHANNEL_VALUE = '" + test_CHANNEL_VALUE + "'";
 
             String selectTableSQLForType_3 = "SELECT fbpomcont.CHANNEL_TYPE, " +
                     "fbpomcont.CHANNEL_VALUE, " +
@@ -251,19 +241,47 @@ public class TestContacts {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
                     "AND fbpomd.MEMBERDATATYPE = '3' " +
                     "AND fbpomd.ISPRIMARY = 'T' " +
-                    "AND fbpomad.ADDRESSTYPE = '" + codeContactType + "'";
+                    "AND fbpomcont.CHANNEL_VALUE = '" + test_CHANNEL_VALUE + "'";
 
             // Get data for type 1 from the database
             ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                channelType_type_1 = rs_1.getString("CHANNEL_TYPE");
+                codeChannelType_type_1 = rs_1.getString("CHANNEL_TYPE");
                 channelValue_type_1 = rs_1.getString("CHANNEL_VALUE");
-                channelSubtype_type_1 = rs_1.getString("CHANNEL_SUBTYPE");
-                isActiveContact_type_1 = rs_1.getString("ISACTIVE");
-                isPrimaryContact_type_1 = rs_1.getString("ISPRIMARY");
+                codeChannelSubtype_type_1 = rs_1.getInt("CHANNEL_SUBTYPE");
+                isActiveContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISACTIVE"));
+                isPrimaryContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISPRIMARY"));
                 noteContact_type_1 = rs_1.getString("NOTE");
+            }
+
+            String selectCodeContactTypeSQL_1 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Тип контакта' " +
+                    "and pl.SHORTTEXT = '" + codeChannelType_type_1 + "'";
+
+
+            ResultSet rs_cct_1 = statement.executeQuery(selectCodeContactTypeSQL_1);
+            while (rs_cct_1.next()) {
+                channelType_type_1 = rs_cct_1.getString("TEXT");
+            }
+
+            String selectCodeContactSubTypeSQL_1 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Принадлежность' " +
+                    "and pl.SHORTTEXT = '" + codeChannelSubtype_type_1 + "'";
+
+
+            ResultSet rs_ccst_1 = statement.executeQuery(selectCodeContactSubTypeSQL_1);
+            while (rs_ccst_1.next()) {
+                channelSubtype_type_1 = rs_ccst_1.getString("TEXT");
             }
 
             // Get data for type 2 from the database
@@ -273,10 +291,38 @@ public class TestContacts {
             while (rs_2.next()) {
                 channelType_type_2 = rs_2.getString("CHANNEL_TYPE");
                 channelValue_type_2 = rs_2.getString("CHANNEL_VALUE");
-                channelSubtype_type_2 = rs_2.getString("CHANNEL_SUBTYPE");
-                isActiveContact_type_2 = rs_2.getString("ISACTIVE");
-                isPrimaryContact_type_2 = rs_2.getString("ISPRIMARY");
+                codeChannelSubtype_type_2 = rs_2.getInt("CHANNEL_SUBTYPE");
+                isActiveContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISACTIVE"));
+                isPrimaryContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISPRIMARY"));
                 noteContact_type_2 = rs_2.getString("NOTE");
+            }
+
+            String selectCodeContactTypeSQL_2 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Тип контакта' " +
+                    "and pl.SHORTTEXT = '" + codeChannelType_type_2 + "'";
+
+
+            ResultSet rs_cct_2 = statement.executeQuery(selectCodeContactTypeSQL_2);
+            while (rs_cct_2.next()) {
+                channelType_type_2 = rs_cct_2.getString("TEXT");
+            }
+
+            String selectCodeContactSubTypeSQL_2 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Принадлежность' " +
+                    "and pl.SHORTTEXT = '" + codeChannelSubtype_type_2 + "'";
+
+
+            ResultSet rs_ccst_2 = statement.executeQuery(selectCodeContactSubTypeSQL_2);
+            while (rs_ccst_2.next()) {
+                channelSubtype_type_2 = rs_ccst_2.getString("TEXT");
             }
 
             // Get data for type 3 from the database
@@ -286,10 +332,38 @@ public class TestContacts {
             while (rs_3.next()) {
                 channelType_type_3 = rs_3.getString("CHANNEL_TYPE");
                 channelValue_type_3 = rs_3.getString("CHANNEL_VALUE");
-                channelSubtype_type_3 = rs_3.getString("CHANNEL_SUBTYPE");
-                isActiveContact_type_3 = rs_3.getString("ISACTIVE");
-                isPrimaryContact_type_3 = rs_3.getString("ISPRIMARY");
+                codeChannelSubtype_type_3 = rs_3.getInt("CHANNEL_SUBTYPE");
+                isActiveContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISACTIVE"));
+                isPrimaryContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISPRIMARY"));
                 noteContact_type_3 = rs_3.getString("NOTE");
+            }
+
+            String selectCodeContactTypeSQL_3 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Тип контакта' " +
+                    "and pl.SHORTTEXT = '" + codeChannelType_type_3 + "'";
+
+
+            ResultSet rs_cct_3 = statement.executeQuery(selectCodeContactTypeSQL_3);
+            while (rs_cct_3.next()) {
+                channelType_type_3 = rs_cct_3.getString("TEXT");
+            }
+
+            String selectCodeContactSubTypeSQL_3 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Принадлежность' " +
+                    "and pl.SHORTTEXT = '" + codeChannelSubtype_type_3 + "'";
+
+
+            ResultSet rs_ccst_3 = statement.executeQuery(selectCodeContactSubTypeSQL_3);
+            while (rs_ccst_3.next()) {
+                channelSubtype_type_3 = rs_ccst_3.getString("TEXT");
             }
 
             connection.close();
