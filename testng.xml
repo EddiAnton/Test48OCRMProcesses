@@ -4,50 +4,10 @@
 <suite name="All Test Suite">
     <test name="RegressionTests_8083_Contour">
         <classes>
-            <class name="Tests_8083.TestComplianceWEB_DBData"></class>
-            <class name="Tests_8083.TestNameOfCompany"></class>
-            <class name="Tests_8083.TestLicense"></class>
-            <class name="Tests_8083.TestAddressesOfCompany"></class>
-            <class name="Tests_8083.TestContacts"></class>
-            <class name="Tests_8083.TestGoverningBodies"></class>
-            <class name="Tests_8083.TestOKVED"></class>
-            <class name="Tests_8083.TestOtherChangesInDoc"></class>
-            <class name="Tests_8083.TestRelatedLegalEntities"></class>
-            <class name="Tests_8083.TestRelatedPrivatEntities"></class>
-            <class name="Tests_8083.TestTaxAccounting"></class>
-            <class name="Tests_8083.TestUpdatingOtherInformation"></class>
-        </classes>
-    </test>
-    <test name="RegressionTests_8093_Contour">
-        <classes>
-            <class name="Tests_8093.TestComplianceWEB_DBData"></class>
-            <class name="Tests_8093.TestNameOfCompany"></class>
-            <class name="Tests_8093.TestLicense"></class>
-            <class name="Tests_8093.TestAddressesOfCompany"></class>
-            <class name="Tests_8093.TestContacts"></class>
-            <class name="Tests_8093.TestGoverningBodies"></class>
-            <class name="Tests_8093.TestOKVED"></class>
-            <class name="Tests_8093.TestOtherChangesInDoc"></class>
-            <class name="Tests_8093.TestRelatedLegalEntities"></class>
-            <class name="Tests_8093.TestRelatedPrivatEntities"></class>
-            <class name="Tests_8093.TestTaxAccounting"></class>
-            <class name="Tests_8093.TestUpdatingOtherInformation"></class>
-        </classes>
-    </test>
-    <test name="RegressionTests_8092_Contour">
-        <classes>
-            <class name="Tests_8092.TestComplianceWEB_DBData"></class>
-            <class name="Tests_8092.TestNameOfCompany"></class>
-            <class name="Tests_8092.TestLicense"></class>
+
             <class name="Tests_8092.TestAddressesOfCompany"></class>
-            <class name="Tests_8092.TestContacts"></class>
-            <class name="Tests_8092.TestGoverningBodies"></class>
-            <class name="Tests_8092.TestOKVED"></class>
-            <class name="Tests_8092.TestOtherChangesInDoc"></class>
-            <class name="Tests_8092.TestRelatedLegalEntities"></class>
-            <class name="Tests_8092.TestRelatedPrivatEntities"></class>
-            <class name="Tests_8092.TestTaxAccounting"></class>
-            <class name="Tests_8092.TestUpdatingOtherInformation"></class>
+
         </classes>
     </test>
+
 </suite>

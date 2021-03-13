@@ -1,24 +1,42 @@
 package Tests_8093;
 
+import Services.DataComparison;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Objects;
 
 public class TestGoverningBodies {
+    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
+
     String userName = "Admin";
     String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC";
+
     String productOrderNumber = null;
+
     String test_MANAGE_PERSON = null;
     String test_MANAGE_STRUCTURE = null;
-    String managePerson = null;
-    String manageStructure = null;
 
-    @Test
+    String managePerson_type_1 = null;
+    String manageStructure_type_1 = null;
+
+    String managePerson_type_2 = null;
+    String manageStructure_type_2 = null;
+
+    String managePerson_type_3 = null;
+    String manageStructure_type_3 = null;
+
+    @Test(retryAnalyzer = Rerty.class)
     public void testGoverningBodies() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -123,28 +141,86 @@ public class TestGoverningBodies {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:8093:SERVER_NOMOS_TEST",
-                    "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
-            String selectTableSQL = "SELECT MANAGE_PERSON, MANAGE_STRUCTURE from FB_PRODUCTORDMEMB_DATA";
+            String selectTableSQLForType_1 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '1'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
+
+            String selectTableSQLForType_2 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '2'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
+
+            String selectTableSQLForType_3 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '3'" +
+                    "AND fbpomd.ISPRIMARY = 'T'" +
+                    "AND fbpomd.MEMBERCLASS IS NULL";
 
             Statement statement = connection.createStatement();
 
-            // Get data from the database
-            ResultSet rs = statement.executeQuery(selectTableSQL);
+            // Get data for type 1 from the database
+            ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);
 
             // if something was received then the while loop will work
-            while (rs.next()) {
-                managePerson = rs.getString("MANAGE_PERSON");
-                manageStructure = rs.getString("MANAGE_STRUCTURE");
+            while (rs_1.next()) {
+                managePerson_type_1 = rs_1.getString("MANAGE_PERSON");
+                manageStructure_type_1 = rs_1.getString("MANAGE_STRUCTURE");
             }
+
+            // Get data for type 2 from the database
+            ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
+
+            // if something was received then the while loop will work
+            while (rs_2.next()) {
+                managePerson_type_2 = rs_2.getString("MANAGE_PERSON");
+                manageStructure_type_2 = rs_2.getString("MANAGE_STRUCTURE");
+            }
+
+            // Get data for type 3 from the database
+            ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
+
+            // if something was received then the while loop will work
+            while (rs_3.next()) {
+                managePerson_type_3 = rs_3.getString("MANAGE_PERSON");
+                manageStructure_type_3 = rs_3.getString("MANAGE_STRUCTURE");
+            }
+
             connection.close();
 
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
 
-        System.out.println("managePerson : " + managePerson);
-        System.out.println("manageStructure : " + manageStructure);
+        if(Objects.equals(test_MANAGE_PERSON, DataComparison.compareData(managePerson_type_1, managePerson_type_2, managePerson_type_3))) {
+            System.out.println("MANAGE_PERSON test passed!");
+        } else {
+            System.out.println("MANAGE_PERSON test failed! - X");
+        }
+
+        if(Objects.equals(test_MANAGE_STRUCTURE, DataComparison.compareData(manageStructure_type_1, manageStructure_type_2, manageStructure_type_3))) {
+            System.out.println("MANAGE_STRUCTURE test passed!");
+        } else {
+            System.out.println("MANAGE_STRUCTURE test failed! - X");
+        }
     }
 }

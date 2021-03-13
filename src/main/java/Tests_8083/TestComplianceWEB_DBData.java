@@ -797,7 +797,7 @@ public class TestComplianceWEB_DBData {
                     "inner join picklist pln " +
                     "on pln.itemid = pl.picklistid " +
                     "and pln.picklistid = 'PICKLISTLIST' " +
-                    "where pl.picklistid = 'k6UJ9A001O0V' " +
+                    "where pln.text = 'Тип адреса' " +
                     "and pl.TEXT = '" + test_ADDRESSTYPE + "'";
 
             String codeAddressType = null;
@@ -1034,6 +1034,10 @@ public class TestComplianceWEB_DBData {
             retryAnalyzer = Rerty.class)
     public void complianceRelatedPrivatEntities() {
 
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance Related Privat Entities is starting...");
+
         try {
 
             // Select the Related Privat Entities tab
@@ -1253,9 +1257,9 @@ public class TestComplianceWEB_DBData {
         }
 
         if(Objects.equals(test_CITIZENSHIP, DataComparison.compareData(citizenship_type_1, citizenship_type_2, citizenship_type_3))) {
-            System.out.println("COUNTRY test passed!");
+            System.out.println("CITIZENSHIP test passed!");
         }else {
-            System.out.println("COUNTRY test failed! - X");
+            System.out.println("CITIZENSHIP test failed! - X");
         }
 
         System.out.println("----------------------------");
@@ -1269,7 +1273,7 @@ public class TestComplianceWEB_DBData {
 
         System.out.println();
         System.out.println();
-        System.out.println("Test compliance GoverningBodies is starting...");
+        System.out.println("Test compliance Governing Bodies is starting...");
 
         try {
 
@@ -1393,7 +1397,7 @@ public class TestComplianceWEB_DBData {
 
         System.out.println();
         System.out.println();
-        System.out.println("Test compliance OtherChangesInDoc is starting...");
+        System.out.println("Test compliance Other Changes In Doc is starting...");
 
         try{
 
@@ -1624,7 +1628,7 @@ public class TestComplianceWEB_DBData {
         if(Objects.equals(test_COMPANYTYPE, DataComparison.compareData(companyType_type_1, companyType_type_2, companyType_type_3))) {
             System.out.println("COMPANYTYPE test passed!");
         }else {
-            System.out.println("OKCOMPANYTYPEFS test failed! - X");
+            System.out.println("COMPANYTYPE test failed! - X");
         }
 
         if(Objects.equals(test_OKOPF, DataComparison.compareData(okopf_type_1, okopf_type_2, okopf_type_3))) {

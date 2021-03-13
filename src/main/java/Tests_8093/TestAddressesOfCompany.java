@@ -1,6 +1,7 @@
 package Tests_8093;
 
 import Services.DataComparison;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -79,7 +80,7 @@ public class TestAddressesOfCompany {
     String apartment_type_3 = null;
     String fulladdress_type_3 = null;
 
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void testAddressesOfCompany() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -246,6 +247,7 @@ public class TestAddressesOfCompany {
         System.out.println("---------------");
 
         try {
+
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
@@ -256,7 +258,7 @@ public class TestAddressesOfCompany {
                     "inner join picklist pln " +
                     "on pln.itemid = pl.picklistid " +
                     "and pln.picklistid = 'PICKLISTLIST' " +
-                    "where pl.picklistid = 'k6UJ9A001O0V' " +
+                    "where pln.text = 'Тип адреса' " +
                     "and pl.TEXT = '" + test_ADDRESSTYPE + "'";
 
             String codeAddressType = null;
@@ -339,6 +341,8 @@ public class TestAddressesOfCompany {
                     "AND fbpomd.MEMBERDATATYPE = '3'" +
                     "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomad.ADDRESSTYPE = '" + codeAddressType + "'";
+
+
 
             // Get data for type 1 from the database
             ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);

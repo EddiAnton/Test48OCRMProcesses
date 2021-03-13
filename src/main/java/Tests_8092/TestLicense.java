@@ -2,6 +2,7 @@ package Tests_8092;
 
 import Services.DataComparison;
 import Services.DateReplace;
+import Services.Rerty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,7 +52,7 @@ public class TestLicense {
     String expiryDate_type_3 = null;
     String activityKindList_type_3 = null;
 
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void testLicense() {
 
         System.setProperty("webdriver.chrome.driver",
