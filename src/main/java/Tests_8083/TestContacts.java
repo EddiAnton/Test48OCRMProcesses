@@ -1,5 +1,6 @@
 package Tests_8083;
 
+import Services.CheckData;
 import Services.DataComparison;
 import Services.DataConversion;
 import org.openqa.selenium.By;
@@ -281,7 +282,7 @@ public class TestContacts {
 
             ResultSet rs_ccst_1 = statement.executeQuery(selectCodeContactSubTypeSQL_1);
             while (rs_ccst_1.next()) {
-                channelSubtype_type_1 = rs_ccst_1.getString("TEXT");
+                channelSubtype_type_1 = CheckData.checkContactChanelSubtype(rs_ccst_1.getString("TEXT"));
             }
 
             // Get data for type 2 from the database
@@ -322,7 +323,7 @@ public class TestContacts {
 
             ResultSet rs_ccst_2 = statement.executeQuery(selectCodeContactSubTypeSQL_2);
             while (rs_ccst_2.next()) {
-                channelSubtype_type_2 = rs_ccst_2.getString("TEXT");
+                channelSubtype_type_2 = CheckData.checkContactChanelSubtype(rs_ccst_2.getString("TEXT"));
             }
 
             // Get data for type 3 from the database
@@ -363,7 +364,7 @@ public class TestContacts {
 
             ResultSet rs_ccst_3 = statement.executeQuery(selectCodeContactSubTypeSQL_3);
             while (rs_ccst_3.next()) {
-                channelSubtype_type_3 = rs_ccst_3.getString("TEXT");
+                channelSubtype_type_3 = CheckData.checkContactChanelSubtype(rs_ccst_3.getString("TEXT"));
             }
 
             connection.close();
