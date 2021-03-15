@@ -562,7 +562,7 @@ public class TestComplianceWEB_DBData {
 
             // Disclose data on the License - " V "
             WebElement openLicense = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div/div"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div/div/div/i"));
             openLicense.click();
             Thread.sleep(2000);
 
