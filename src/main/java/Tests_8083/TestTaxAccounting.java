@@ -189,11 +189,50 @@ public class TestTaxAccounting {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
-            String selectTableSQLForType_1_tax = "";
+            String selectTableSQLForType_1_tax = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.CODENAME, " +
+                    "fbpomcode.BEGINDATE " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '1' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.codetype = '4' ";
 
-            String selectTableSQLForType_2_tax = "";
+            String selectTableSQLForType_2_tax = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.CODENAME, " +
+                    "fbpomcode.BEGINDATE " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '2' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.codetype = '4' ";
 
-            String selectTableSQLForType_3_tax = "";
+            String selectTableSQLForType_3_tax = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.CODENAME, " +
+                    "fbpomcode.BEGINDATE " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '3' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.codetype = '4' ";
 
             Statement statement = connection.createStatement();
 
@@ -228,11 +267,50 @@ public class TestTaxAccounting {
             }
 
 
-            String selectTableSQLForType_1_kpp = "";
+            String selectTableSQLForType_1_kpp = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.ISPRIMARY, " +
+                    "fbpomcode.ISADDITIONALPROPERTY1 " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '1' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.codetype = '2' ";
 
-            String selectTableSQLForType_2_kpp = "";
+            String selectTableSQLForType_2_kpp = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.ISPRIMARY, " +
+                    "fbpomcode.ISADDITIONALPROPERTY1 " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '2' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.codetype = '2' ";
 
-            String selectTableSQLForType_3_kpp = "";
+            String selectTableSQLForType_3_kpp = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.ISPRIMARY, " +
+                    "fbpomcode.ISADDITIONALPROPERTY1 " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '3' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.codetype = '2' ";
 
             // Get KPP data for type 1 from the database
             ResultSet rs_kpp_1 = statement.executeQuery(selectTableSQLForType_1_kpp);
@@ -240,8 +318,8 @@ public class TestTaxAccounting {
             // if something was received then the while loop will work
             while (rs_kpp_1.next()) {
                 codeKPP_type_1 = rs_kpp_1.getString("CODE");
-                isPrimaryKPP_type_1 = rs_kpp_1.getString("ISPRIMARY");
-                isAdditionalProperty1_type_1 = rs_kpp_1.getString("ISADDITIONALPROPERTY1");
+                isPrimaryKPP_type_1 = DataConversion.booleanConversion(rs_kpp_1.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_1 = DataConversion.booleanConversion(rs_kpp_1.getString("ISADDITIONALPROPERTY1"));
             }
 
             // Get KPP data for type 2 from the database
@@ -250,8 +328,8 @@ public class TestTaxAccounting {
             // if something was received then the while loop will work
             while (rs_kpp_2.next()) {
                 codeKPP_type_2 = rs_kpp_2.getString("CODE");
-                isPrimaryKPP_type_2 = rs_kpp_2.getString("ISPRIMARY");
-                isAdditionalProperty1_type_2 = rs_kpp_2.getString("ISADDITIONALPROPERTY1");
+                isPrimaryKPP_type_2 = DataConversion.booleanConversion(rs_kpp_2.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_2 = DataConversion.booleanConversion(rs_kpp_2.getString("ISADDITIONALPROPERTY1"));
             }
 
             // Get KPP data for type 3 from the database
@@ -260,8 +338,8 @@ public class TestTaxAccounting {
             // if something was received then the while loop will work
             while (rs_kpp_3.next()) {
                 codeKPP_type_3 = rs_kpp_3.getString("CODE");
-                isPrimaryKPP_type_3 = rs_kpp_3.getString("ISPRIMARY");
-                isAdditionalProperty1_type_3 = rs_kpp_3.getString("ISADDITIONALPROPERTY1");
+                isPrimaryKPP_type_3 = DataConversion.booleanConversion(rs_kpp_3.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_3 = DataConversion.booleanConversion(rs_kpp_3.getString("ISADDITIONALPROPERTY1"));
             }
 
             connection.close();
