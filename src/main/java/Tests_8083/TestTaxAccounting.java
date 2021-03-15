@@ -126,46 +126,46 @@ public class TestTaxAccounting {
 
             // Select the Tax Accounting tab
             WebElement taxAccountingTab = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[6]/a"));
             taxAccountingTab.click();
             Thread.sleep(2000);
 
             // Disclose data on the Tax - " V "
             WebElement openTax = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[1]/div[2]/div/div/div/i"));
             openTax.click();
             Thread.sleep(3000);
 
             // Get data of the Tax type
             WebElement field_CODE_TAX = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[1]/div[2]/div/div[2]/div[2]/div[1]/div[1]//input"));
             test_CODE_TAX = field_CODE_TAX.getAttribute("value");
 
             WebElement field_CODENAME_TAX = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[1]/div[2]/div/div[2]/div[2]/div[1]/div[2]//input"));
             test_CODENAME_TAX = field_CODENAME_TAX.getAttribute("value");
 
             WebElement field_BEGINDATE_TAX = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[1]/div[2]/div/div[2]/div[2]/div[2]/div[1]//input"));
             test_BEGINDATE_TAX = field_BEGINDATE_TAX.getAttribute("value");
 
             // Disclose data on the KPP - " V "
             WebElement openKPP = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[2]/div[2]/div/div/div/i"));
             openKPP.click();
             Thread.sleep(3000);
 
             // Get data of the KPP type
             WebElement field_CODE_KPP = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div[1]//textarea"));
             test_CODE_KPP = field_CODE_KPP.getAttribute("value");
 
             WebElement field_ISPRIMARY_KPP = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]//input"));
             test_ISPRIMARY_KPP = field_ISPRIMARY_KPP.getAttribute("value");
 
             WebElement field_ISADDITIONALPROPERTY1 = driver.findElement(By
-                    .xpath(""));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[6]/div[2]/div[2]/div/div[2]/div[2]/div[3]/div[1]//input"));
             test_ISADDITIONALPROPERTY1 = field_ISADDITIONALPROPERTY1.getAttribute("value");
 
         } catch (InterruptedException e) {
