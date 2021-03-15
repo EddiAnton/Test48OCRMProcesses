@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.json.JsonOutput;
 import org.testng.annotations.Test;
 
 import java.sql.*;
@@ -544,6 +543,7 @@ public class TestComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceNameOfCompany",
+            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceLicense() {
 
@@ -754,6 +754,7 @@ public class TestComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceLicense",
+            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceAddressesOfCompany() {
 
@@ -1096,6 +1097,7 @@ public class TestComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceAddressesOfCompany",
+            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceRelatedPrivatEntities() {
 
@@ -1334,6 +1336,7 @@ public class TestComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceRelatedPrivatEntities",
+            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceTaxAccounting() {
 
@@ -1605,6 +1608,7 @@ public class TestComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceTaxAccounting",
+            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceContacts() {
 
@@ -1893,6 +1897,7 @@ public class TestComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceContacts",
+            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceGoverningBodies() {
 
@@ -2018,6 +2023,7 @@ public class TestComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceGoverningBodies",
+            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceOtherChangesInDoc() {
 
