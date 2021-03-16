@@ -781,7 +781,7 @@ public class TestComplianceWEB_DBData {
 
             // Disclose data on the Address - " V "
             WebElement openAddress = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div/div/i"));
+                    .xpath("//*[@id=DetailProductOrderChangeComponent]/div[2]/section/div/div[5]/div[2]/div/div/div[1]/div/div/i"));
             openAddress.click();
             Thread.sleep(3000);
 
