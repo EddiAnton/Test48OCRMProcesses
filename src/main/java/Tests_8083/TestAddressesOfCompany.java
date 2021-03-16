@@ -1,7 +1,6 @@
 package Tests_8083;
 
-import Services.DataComparison;
-import Services.Rerty;
+import Services.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -91,131 +90,106 @@ public class TestAddressesOfCompany {
             driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
             driver.manage().window().maximize();
 
-            WebElement logoffHref = driver.findElement(By
-                    .linkText("Вернуться на страницу входа"));
+            WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
 
             Thread.sleep(2000);
 
             // Authorization in system
-            WebElement inputUserName = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
+            WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
             inputUserName.sendKeys(userName);
 
-            WebElement submitButton = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
+            WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
 
             Thread.sleep(2000);
 
             // Enter to "Data change requests"
-            WebElement requestsHref = driver.findElement(By.xpath("//*[text()='Заявки']"));
+            WebElement requestsHref = driver.findElement(By.xpath(XpathAuthorization.REQUESTS_HREF));
             requestsHref.click();
 
             Thread.sleep(5000);
 
             // Select UC requests
-            WebElement filterUC = driver.findElement(By.xpath("//*[@id='GroupLookupButton']"));
+            WebElement filterUC = driver.findElement(By.xpath(XpathAuthorization.FILTER_UC_TSP));
             filterUC.click();
 
             Thread.sleep(2000);
 
-            WebElement inputNumberOfRequest = driver.findElement(By
-                    .xpath("//*[@id='widget_GroupLookup-ConditionManager-SearchCondition0-TextValue']/div/input"));
+            WebElement inputNumberOfRequest = driver.findElement(By.xpath(XpathAuthorization.INPUT_UC_TSP));
             inputNumberOfRequest.sendKeys(requestMask);
 
-            WebElement submitSelect = driver.findElement(By
-                    .xpath("//*[@id='GroupLookup-ConditionManager-Search_label']"));
+            WebElement submitSelect = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_SELECT));
             submitSelect.click();
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
             Thread.sleep(5000);
 
             // Open the last application
-            //WebElement lastApplication = driver.findElement(By.xpath("//*[@id='listGrid-row-:r6AiXwz1uQM=']/table/tr/td[1]/a"));
-            WebElement lastApplication = driver.findElement(By
-                    .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
+            WebElement lastApplication = driver.findElement(By.xpath(XpathAuthorization.LAST_APPLICATION));
             lastApplication.click();
             Thread.sleep(2000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
-                    .xpath("//*[@id='PageTitle']"));
-            String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
-            // Отрезать "Заявка - "
-            String [] splitString = productOrderNumberFull.split(" ");
-            productOrderNumber = splitString[2];
+                    .xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER));
+            productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
             Thread.sleep(3000);
 
             // Select the Address tab
-            WebElement addressTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[3]/a"));
+            WebElement addressTab = driver.findElement(By.xpath(XpathAddress.ADDRESS_TAB));
             addressTab.click();
             Thread.sleep(5000);
 
             // Get data OKATO & OKTMO
-            WebElement field_OKATO = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div[1]/div/div/textarea"));
+            WebElement field_OKATO = driver.findElement(By.xpath(XpathAddress.FIELD_OKATO));
             test_OKATO = field_OKATO.getAttribute("value");
 
-            WebElement field_OKTMO = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[2]/div[1]/div/div/textarea"));
+            WebElement field_OKTMO = driver.findElement(By.xpath(XpathAddress.FIELD_OKTMO));
             test_OKTMO = field_OKTMO.getAttribute("value");
 
             // Disclose data on the Address - " V "
-            WebElement openAddress = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[5]/div[2]/div/div/div[1]/div/div"));
+            WebElement openAddress = driver.findElement(By.xpath(XpathAddress.OPEN_ADDRESS));
             openAddress.click();
             Thread.sleep(3000);
 
             // Get data of the Address type
-            WebElement field_ADDRESSTYPE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            WebElement field_ADDRESSTYPE = driver.findElement(By.xpath(XpathAddress.FIELD_ADDRESSTYPE));
             test_ADDRESSTYPE = field_ADDRESSTYPE.getAttribute("value");
 
-            WebElement field_COUNTRY = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[3]/div/div/div/div/div/div/input"));
+            WebElement field_COUNTRY = driver.findElement(By.xpath(XpathAddress.FIELD_COUNTRY));
             test_COUNTRY = field_COUNTRY.getAttribute("value");
 
-            WebElement field_POSTALCODE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[5]/div/div/textarea"));
+            WebElement field_POSTALCODE = driver.findElement(By.xpath(XpathAddress.FIELD_POSTALCODE));
             test_POSTALCODE = field_POSTALCODE.getAttribute("value");
 
-            WebElement field_COUNTY = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[7]/div/div/div/div/div/div/input"));
+            WebElement field_COUNTY = driver.findElement(By.xpath(XpathAddress.FIELD_COUNTY));
             test_COUNTY = field_COUNTY.getAttribute("value");
 
-            WebElement field_DISTRICT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[9]/div/div/div/div/div/div/input"));
+            WebElement field_DISTRICT = driver.findElement(By.xpath(XpathAddress.FIELD_DISTRICT));
             test_DISTRICT = field_DISTRICT.getAttribute("value");
 
-            WebElement field_CITY = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[11]/div/div/div/div/div/div/input"));
+            WebElement field_CITY = driver.findElement(By.xpath(XpathAddress.FIELD_CITY));
             test_CITY = field_CITY.getAttribute("value");
 
-            WebElement field_STREET = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[13]/div/div/div/div/div/div/input"));
+            WebElement field_STREET = driver.findElement(By.xpath(XpathAddress.FIELD_STREET));
             test_STREET = field_STREET.getAttribute("value");
 
-            WebElement field_HOUSE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[15]/div/div/div[1]/div/div/div/div/input"));
+            WebElement field_HOUSE = driver.findElement(By.xpath(XpathAddress.FIELD_HOUSE));
             test_HOUSE = field_HOUSE.getAttribute("value");
 
-            WebElement field_CORPUS = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[15]/div/div/div[2]/textarea"));
+            WebElement field_CORPUS = driver.findElement(By.xpath(XpathAddress.FIELD_CORPUS));
             test_CORPUS = field_CORPUS.getAttribute("value");
 
-            WebElement field_APARTMENT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[17]/div/div/textarea"));
+            WebElement field_APARTMENT = driver.findElement(By.xpath(XpathAddress.FIELD_APARTMENT));
             test_APARTMENT = field_APARTMENT.getAttribute("value");
 
-            WebElement field_FULLADDRESS = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div/div[1]/div[2]/div[2]/div[19]/div/div/textarea"));
+            WebElement field_FULLADDRESS = driver.findElement(By.xpath(XpathAddress.FIELD_FULLADDRESS));
             test_FULLADDRESS = field_FULLADDRESS.getAttribute("value");
 
         } catch (InterruptedException e) {
