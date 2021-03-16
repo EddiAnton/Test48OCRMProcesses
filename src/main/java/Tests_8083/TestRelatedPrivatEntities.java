@@ -141,7 +141,7 @@ public class TestRelatedPrivatEntities {
 
             // Disclose data on the Related Privat Entities - " V "
             WebElement openrelatedPrivatEntities = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div/div/i"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[10]/div[1]/div/div/i"));
             openrelatedPrivatEntities.click();
             Thread.sleep(3000);
 
