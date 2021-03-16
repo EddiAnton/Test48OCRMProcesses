@@ -144,7 +144,8 @@ public class TestContacts {
 
             // Get data of the Contact type
             WebElement field_CHANNEL_TYPE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div/div/div/div/div/div[1]/input"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div/div/div/div/div/div[1]/input"));
+                            //*[@id="DetailProductOrderChangeComponent"]/div[2]/section/div/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div/div/div/div/div/div[1]/input
             test_CHANNEL_TYPE = field_CHANNEL_TYPE.getAttribute("value");
 
             WebElement field_CHANNEL_VALUE = driver.findElement(By

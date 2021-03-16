@@ -79,7 +79,7 @@ public class TestAddressesOfCompany {
     String apartment_type_3 = null;
     String fulladdress_type_3 = null;
 
-    @Test(retryAnalyzer = Rerty.class)
+    @Test
     public void testAddressesOfCompany() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -156,7 +156,7 @@ public class TestAddressesOfCompany {
             WebElement addressTab = driver.findElement(By
                     .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[3]/a"));
             addressTab.click();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
             // Get data OKATO & OKTMO
             WebElement field_OKATO = driver.findElement(By
@@ -169,7 +169,7 @@ public class TestAddressesOfCompany {
 
             // Disclose data on the Address - " V "
             WebElement openAddress = driver.findElement(By
-                    .xpath("//*[@id=DetailProductOrderChangeComponent]/div[2]/section/div/div[5]/div[2]/div/div/div[1]/div/div/i"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[5]/div[2]/div/div/div[1]/div/div"));
             openAddress.click();
             Thread.sleep(3000);
 
