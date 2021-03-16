@@ -1625,7 +1625,7 @@ public class TestComplianceWEB_DBData {
 
             // Disclose data on the Contact - " V "
             WebElement openContact = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div[1]/div/div/i"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[1]/div[1]/div/div/i"));
             openContact.click();
             Thread.sleep(3000);
 
