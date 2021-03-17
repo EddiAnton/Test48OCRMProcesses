@@ -10,7 +10,7 @@ public class XpathAddress {
 
     public static final String FIELD_OKTMO = "//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[2]/div[1]/div/div/textarea";
 
-    public static final String OPEN_ADDRESS = "//*[@id=DetailProductOrderChangeComponent]/div[2]/section/div/div[5]/div[2]/div/div/div[1]/div/div/i";
+    public static final String OPEN_ADDRESS = "//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[5]/div[2]/div/div/div[1]";
 
     public static final String FIELD_ADDRESSTYPE = "//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[5]/div[2]/div/div/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input";
 
