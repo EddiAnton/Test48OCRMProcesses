@@ -85,7 +85,9 @@ public class TestAddressesOfCompany {
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
+
         try {
+
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
             driver.manage().window().maximize();

@@ -1,7 +1,6 @@
 package Tests_8083;
 
-import Services.DataComparison;
-import Services.Rerty;
+import Services.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,85 +41,75 @@ public class TestGoverningBodies {
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
+
         try {
+
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
             driver.manage().window().maximize();
 
-            WebElement logoffHref = driver.findElement(By
-                    .linkText("Вернуться на страницу входа"));
+            WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
 
             Thread.sleep(5000);
 
             // Authorization in system
-            WebElement inputUserName = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
+            WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
             inputUserName.sendKeys(userName);
 
-            WebElement submitButton = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
+            WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
 
             Thread.sleep(3000);
 
             // Enter to "Data change requests"
-            WebElement requestsHref = driver.findElement(By.xpath("//*[text()='Заявки']"));
+            WebElement requestsHref = driver.findElement(By.xpath(XpathAuthorization.REQUESTS_HREF));
             requestsHref.click();
 
             Thread.sleep(5000);
 
             // Select UC requests
-            WebElement filterUC = driver.findElement(By.xpath("//*[@id='GroupLookupButton']"));
+            WebElement filterUC = driver.findElement(By.xpath(XpathAuthorization.FILTER_UC_TSP));
             filterUC.click();
 
             Thread.sleep(2000);
 
-            WebElement inputNumberOfRequest = driver.findElement(By
-                    .xpath("//*[@id='widget_GroupLookup-ConditionManager-SearchCondition0-TextValue']/div/input"));
+            WebElement inputNumberOfRequest = driver.findElement(By.xpath(XpathAuthorization.INPUT_UC_TSP));
             inputNumberOfRequest.sendKeys(requestMask);
 
-            WebElement submitSelect = driver.findElement(By
-                    .xpath("//*[@id='GroupLookup-ConditionManager-Search_label']"));
+            WebElement submitSelect = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_SELECT));
             submitSelect.click();
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
             Thread.sleep(5000);
 
             // Open the last application
-            //WebElement lastApplication = driver.findElement(By.xpath("//*[@id='listGrid-row-:r6AiXwz1uQM=']/table/tr/td[1]/a"));
-            WebElement lastApplication = driver.findElement(By
-                    .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
+            WebElement lastApplication = driver.findElement(By.xpath(XpathAuthorization.LAST_APPLICATION));
             lastApplication.click();
             Thread.sleep(2000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
-                    .xpath("//*[@id='PageTitle']"));
-            String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
-            String [] splitString = productOrderNumberFull.split(" ");
-            // Отрезать "Заявка - "
-            productOrderNumber = splitString[2];
-
+                    .xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER));
+            productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
+            Thread.sleep(3000);
 
             // Select the Governing Bodies tab
-            WebElement governingBodiesTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[8]/a"));
+            WebElement governingBodiesTab = driver.findElement(By.xpath(XpathGoverningBodies.GOVERNING_BODIES_TAB));
             governingBodiesTab.click();
             Thread.sleep(2000);
 
             // Get data of the Governing Bodies type
-            WebElement field_MANAGE_PERSON = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
+            WebElement field_MANAGE_PERSON = driver.findElement(By.xpath(XpathGoverningBodies.FIELD_MANAGE_PERSON));
             test_MANAGE_PERSON = field_MANAGE_PERSON.getAttribute("value");
 
             WebElement field_MANAGE_STRUCTURE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
+                    .xpath(XpathGoverningBodies.FIELD_MANAGE_STRUCTURE));
             test_MANAGE_STRUCTURE = field_MANAGE_STRUCTURE.getAttribute("value");
 
         } catch (InterruptedException e) {

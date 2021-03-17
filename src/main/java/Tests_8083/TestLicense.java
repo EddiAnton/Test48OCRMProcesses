@@ -1,8 +1,6 @@
 package Tests_8083;
 
-import Services.DataComparison;
-import Services.DateReplace;
-import Services.Rerty;
+import Services.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -65,102 +63,84 @@ public class TestLicense {
             driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
             driver.manage().window().maximize();
 
-            WebElement logoffHref = driver.findElement(By
-                    .linkText("Вернуться на страницу входа"));
+            WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
 
             Thread.sleep(2000);
 
             // Authorization in system
-            WebElement inputUserName = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
+            WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
             inputUserName.sendKeys(userName);
 
-            WebElement submitButton = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
+            WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
 
             Thread.sleep(2000);
 
             // Enter to "Data change requests"
-            WebElement requestsHref = driver.findElement(By.xpath("//*[text()='Заявки']"));
+            WebElement requestsHref = driver.findElement(By.xpath(XpathAuthorization.REQUESTS_HREF));
             requestsHref.click();
 
             Thread.sleep(5000);
 
             // Select UC requests
-            WebElement filterUC = driver.findElement(By.xpath("//*[@id='GroupLookupButton']"));
+            WebElement filterUC = driver.findElement(By.xpath(XpathAuthorization.FILTER_UC_TSP));
             filterUC.click();
 
             Thread.sleep(2000);
 
-            WebElement inputNumberOfRequest = driver.findElement(By
-                    .xpath("//*[@id='widget_GroupLookup-ConditionManager-SearchCondition0-TextValue']/div/input"));
+            WebElement inputNumberOfRequest = driver.findElement(By.xpath(XpathAuthorization.INPUT_UC_TSP));
             inputNumberOfRequest.sendKeys(requestMask);
 
-            WebElement submitSelect = driver.findElement(By
-                    .xpath("//*[@id='GroupLookup-ConditionManager-Search_label']"));
+            WebElement submitSelect = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_SELECT));
             submitSelect.click();
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath("//*[@id='dojoUnique27']/div"));
+            WebElement sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
             Thread.sleep(5000);
 
             // Open the last application
-            //WebElement lastApplication = driver.findElement(By.xpath("//*[@id='listGrid-row-:r6AiXwz1uQM=']/table/tr/td[1]/a"));
-            WebElement lastApplication = driver.findElement(By
-                    .xpath("//div[@id='dijit_layout_StackContainer_0']//td/a"));
+            WebElement lastApplication = driver.findElement(By.xpath(XpathAuthorization.LAST_APPLICATION));
             lastApplication.click();
             Thread.sleep(2000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
-                    .xpath("//*[@id='PageTitle']"));
-            String productOrderNumberFull = field_PRODUCTORDERNUMBER.getText();
-            // Отрезать "Заявка - "
-            String [] splitString = productOrderNumberFull.split(" ");
-            productOrderNumber = splitString[2];
+                    .xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER));
+            productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
             Thread.sleep(3000);
 
             // Select the License tab
-            WebElement licenseTab = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[1]/div/div[2]/a"));
+            WebElement licenseTab = driver.findElement(By.xpath(XpathLicense.LICENSE_TAB));
             licenseTab.click();
             Thread.sleep(2000);
 
             // Disclose data on the License - " V "
-            WebElement openLicense = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[2]/div/div/div/i"));
+            WebElement openLicense = driver.findElement(By.xpath(XpathLicense.OPEN_LICENSE));
             openLicense.click();
             Thread.sleep(3000);
 
             // Get data of the License type
-            WebElement field_LICENSENUMBER = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[1]/div[1]/div/div/textarea"));
+            WebElement field_LICENSENUMBER = driver.findElement(By.xpath(XpathLicense.FIELD_LICENSENUMBER));
             test_LICENSENUMBER = field_LICENSENUMBER.getAttribute("value");
 
-            WebElement field_ACTIVITYKIND = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            WebElement field_ACTIVITYKIND = driver.findElement(By.xpath(XpathLicense.FIELD_ACTIVITYKIND));
             test_ACTIVITYKIND = field_ACTIVITYKIND.getAttribute("value");
 
-            WebElement field_ISSUEDBY = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[3]/div[1]/div/div/textarea"));
+            WebElement field_ISSUEDBY = driver.findElement(By.xpath(XpathLicense.FIELD_ISSUEDBY));
             test_ISSUEDBY = field_ISSUEDBY.getAttribute("value");
 
-            WebElement field_ISSUEDATE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[1]/div[1]/div/div/div/div/div/div[1]/input"));
+            WebElement field_ISSUEDATE = driver.findElement(By.xpath(XpathLicense.FIELD_ISSUEDATE));
             test_ISSUEDATE = field_ISSUEDATE.getAttribute("value");
 
-            WebElement field_EXPIRYDATE = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[4]/div[2]/div[1]/div/div/div/div/div/div[1]/input"));
+            WebElement field_EXPIRYDATE = driver.findElement(By.xpath(XpathLicense.FIELD_EXPIRYDATE));
             test_EXPIRYDATE = field_EXPIRYDATE.getAttribute("value");
 
-            WebElement field_ACTIVITYKINDLIST = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div/div[2]/div[2]/div[5]/div[1]/div/div/textarea"));
+            WebElement field_ACTIVITYKINDLIST = driver.findElement(By.xpath(XpathLicense.FIELD_ACTIVITYKINDLIST));
             test_ACTIVITYKINDLIST = field_ACTIVITYKINDLIST.getAttribute("value");
 
         } catch (InterruptedException e) {
