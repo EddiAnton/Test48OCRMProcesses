@@ -2,12 +2,12 @@ package Tests_8083;
 
 import Services.DataConversion;
 import Services.XpathAuthorization;
-import Services.XpathRelatedPrivatEntities;
 import Services.XpathTestProcessStage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 public class TestProcessStage_AwaitsClientInput {
 
@@ -20,6 +20,7 @@ public class TestProcessStage_AwaitsClientInput {
 
     String applicationStatus = null;
 
+    @Test
     public void goToAwaitsClientInput() {
 
         System.setProperty("webdriver.chrome.driver",
