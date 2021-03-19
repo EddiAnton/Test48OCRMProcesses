@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class TestGoverningBodies {
+public class TestSF_GoverningBodies {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
     String userName = "Admin";
