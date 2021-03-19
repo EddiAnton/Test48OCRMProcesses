@@ -9,6 +9,8 @@ public  final class DataConversion {
             result = "true";
         else if (s1.equals("F"))
             result = "false";
+        else if (s1.equals(null))
+            result = "";
 
         return result;
     }
