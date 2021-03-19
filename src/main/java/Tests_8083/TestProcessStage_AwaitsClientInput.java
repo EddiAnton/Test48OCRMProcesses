@@ -2,12 +2,13 @@ package Tests_8083;
 
 import Services.DataConversion;
 import Services.XpathAuthorization;
-import Services.XpathRelatedPrivatEntities;
 import Services.XpathTestProcessStage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 public class TestProcessStage_AwaitsClientInput {
 
@@ -19,7 +20,9 @@ public class TestProcessStage_AwaitsClientInput {
     String productOrderNumber = null;
 
     String applicationStatus = null;
+    String newApplicationStatus = null;
 
+    @Test
     public void goToAwaitsClientInput() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -89,6 +92,25 @@ public class TestProcessStage_AwaitsClientInput {
                     .xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS));
             applicationStatus = field_applicationStatus.getText();
 
+            if (applicationStatus.equals("В РАБОТЕ")) {
+
+                // Get data of the application Status
+                WebElement continueRegistration  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_CONTINUE_REGISTRATION));
+                submitSelect.click();
+                Thread.sleep(2000);
+
+                // Selecting a stage from the drop-down list
+                Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
+                statusList.selectByVisibleText("Ожидание информации от клиента");
+
+                newApplicationStatus = field_applicationStatus.getText();
+
+            } else {
+
+                System.out.println("Невозможно перейти с текущего статуса.");
+
+            }
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -97,8 +119,8 @@ public class TestProcessStage_AwaitsClientInput {
 
         System.out.println(productOrderNumber);
         System.out.println("---------------");
-        System.out.println(applicationStatus);
-        System.out.println();
+        System.out.println("Текущий статус" + applicationStatus);
+        System.out.println("Новый статус" + newApplicationStatus);
         System.out.println("---------------");
 
     }
