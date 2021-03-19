@@ -96,12 +96,16 @@ public class TestProcessStage_AwaitsClientInput {
 
                 // Get data of the application Status
                 WebElement continueRegistration  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_CONTINUE_REGISTRATION));
-                submitSelect.click();
+                continueRegistration.click();
                 Thread.sleep(2000);
 
                 // Selecting a stage from the drop-down list
                 Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
                 statusList.selectByVisibleText("Ожидание информации от клиента");
+
+                WebElement nextStage  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE));
+                nextStage.click();
+                Thread.sleep(5000);
 
                 newApplicationStatus = field_applicationStatus.getText();
 
