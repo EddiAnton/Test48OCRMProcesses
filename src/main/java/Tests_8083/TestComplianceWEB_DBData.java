@@ -538,7 +538,6 @@ public class TestComplianceWEB_DBData {
 
         try {
 
-            Thread.sleep(2000);
             // Select the License tab
             WebElement licenseTab = driver.findElement(By.xpath(XpathLicense.LICENSE_TAB));
             licenseTab.click();

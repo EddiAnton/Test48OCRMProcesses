@@ -12,7 +12,7 @@ public class XpathAuthorization {
 
     // Open, select ant sort "Data change requests" XPATH constants
 
-    public static final String REQUESTS_HREF = "//*[text()='Заявки']";
+    public static final String REQUESTS_HREF = "//*[@id=\"borderCenter\"]/nav/ul/li[16]/a";
 
     public static final String FILTER_UC_TSP = "//*[@id='GroupLookupButton']";
 

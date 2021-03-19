@@ -7,7 +7,7 @@ public  final class DataConversion {
 
         if (s1.equals("T"))
             result = "true";
-        else
+        else if (s1.equals("F"))
             result = "false";
 
         return result;

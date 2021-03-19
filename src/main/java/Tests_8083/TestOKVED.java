@@ -160,8 +160,8 @@ public class TestOKVED {
 
             String selectTableSQLForType_1_okved = "SELECT fbpomcode.CODE, " +
                     "fbpomcode.CODENAME, " +
-                    "fbpomcode.BEGINDATE " +
-                    "fbpomcode.ENDDATE " +
+                    "fbpomcode.BEGINDATE, " +
+                    "fbpomcode.ENDDATE, " +
                     "fbpomcode.ISPRIMARY " +
                     "FROM sysdba.fb_productordmemb_code fbpomcode " +
                     "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
@@ -173,12 +173,12 @@ public class TestOKVED {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '1' " +
                     "AND fbpomd.isprimary = 'T' " +
-                    "AND fbpomcode.codetype = '1' ";
+                    "AND fbpomcode.code = '" + test_CODE_OKVED + "'";
 
             String selectTableSQLForType_2_okved = "SELECT fbpomcode.CODE, " +
                     "fbpomcode.CODENAME, " +
-                    "fbpomcode.BEGINDATE " +
-                    "fbpomcode.ENDDATE " +
+                    "fbpomcode.BEGINDATE, " +
+                    "fbpomcode.ENDDATE, " +
                     "fbpomcode.ISPRIMARY " +
                     "FROM sysdba.fb_productordmemb_code fbpomcode " +
                     "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
@@ -190,12 +190,12 @@ public class TestOKVED {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '2' " +
                     "AND fbpomd.isprimary = 'T' " +
-                    "AND fbpomcode.codetype = '1' ";
+                    "AND fbpomcode.code = '" + test_CODE_OKVED + "'";
 
             String selectTableSQLForType_3_okved = "SELECT fbpomcode.CODE, " +
                     "fbpomcode.CODENAME, " +
-                    "fbpomcode.BEGINDATE " +
-                    "fbpomcode.ENDDATE " +
+                    "fbpomcode.BEGINDATE, " +
+                    "fbpomcode.ENDDATE, " +
                     "fbpomcode.ISPRIMARY " +
                     "FROM sysdba.fb_productordmemb_code fbpomcode " +
                     "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
@@ -207,7 +207,7 @@ public class TestOKVED {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
                     "AND fbpomd.MEMBERDATATYPE = '3' " +
                     "AND fbpomd.isprimary = 'T' " +
-                    "AND fbpomcode.codetype = '1' ";
+                    "AND fbpomcode.code = '" + test_CODE_OKVED + "'";
 
             Statement statement = connection.createStatement();
 
@@ -220,7 +220,7 @@ public class TestOKVED {
                 codeNameOKVED_type_1 = rs_okved_1.getString("CODENAME");
                 beginDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("BEGINDATE"));
                 endDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("ENDDATE"));
-                isPrimaryOKVED_type_1 = rs_okved_1.getString("ISPRIMARY");
+                isPrimaryOKVED_type_1 = DataConversion.booleanConversion(rs_okved_1.getString("ISPRIMARY"));
             }
 
             // Get Tax data for type 2 from the database
@@ -232,7 +232,7 @@ public class TestOKVED {
                 codeNameOKVED_type_2 = rs_okved_2.getString("CODENAME");
                 beginDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("BEGINDATE"));
                 endDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("ENDDATE"));
-                isPrimaryOKVED_type_2 = rs_okved_2.getString("ISPRIMARY");
+                isPrimaryOKVED_type_2 = DataConversion.booleanConversion(rs_okved_2.getString("ISPRIMARY"));
             }
 
             // Get Tax data for type 3 from the database
@@ -244,7 +244,7 @@ public class TestOKVED {
                 codeNameOKVED_type_3 = rs_okved_3.getString("CODENAME");
                 beginDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("BEGINDATE"));
                 endDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("ENDDATE"));
-                isPrimaryOKVED_type_3 = rs_okved_3.getString("ISPRIMARY");
+                isPrimaryOKVED_type_3 = DataConversion.booleanConversion(rs_okved_3.getString("ISPRIMARY"));
             }
 
             connection.close();

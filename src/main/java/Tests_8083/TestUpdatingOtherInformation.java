@@ -103,7 +103,7 @@ public class TestUpdatingOtherInformation {
     String crsDateEnd_type_3 = null;
     String crsStatus_type_3 = null;
 
-    @Test(retryAnalyzer = Rerty.class)
+    @Test
     public void testUpdatingOtherInformation() {
 
         System.setProperty("webdriver.chrome.driver",
@@ -347,7 +347,7 @@ public class TestUpdatingOtherInformation {
                 giin_type_1 = rs_1.getString("GIIN");
                 fatcaDocW9_type_1 = DataConversion.booleanConversion(rs_1.getString("FATCADOCW9"));
                 fatcaDoc_type_1 = DataConversion.booleanConversion(rs_1.getString("FATCADOC"));
-                disregarded_type_1 = DataConversion.booleanConversion(rs_1.getString("DISREGARDED"));
+                disregarded_type_1 = rs_1.getString("DISREGARDED");
                 fatcaStatus_type_1 = rs_1.getString("FATCASTATUS");
             }
 
@@ -364,7 +364,7 @@ public class TestUpdatingOtherInformation {
                 giin_type_2 = rs_2.getString("GIIN");
                 fatcaDocW9_type_2 = DataConversion.booleanConversion(rs_2.getString("FATCADOCW9"));
                 fatcaDoc_type_2 = DataConversion.booleanConversion(rs_2.getString("FATCADOC"));
-                disregarded_type_2 = DataConversion.booleanConversion(rs_2.getString("DISREGARDED"));
+                disregarded_type_2 = rs_2.getString("DISREGARDED");
                 fatcaStatus_type_2 = rs_2.getString("FATCASTATUS");
             }
 
@@ -381,7 +381,7 @@ public class TestUpdatingOtherInformation {
                 giin_type_3 = rs_3.getString("GIIN");
                 fatcaDocW9_type_3 = DataConversion.booleanConversion(rs_3.getString("FATCADOCW9"));
                 fatcaDoc_type_3 = DataConversion.booleanConversion(rs_3.getString("FATCADOC"));
-                disregarded_type_3 = DataConversion.booleanConversion(rs_3.getString("DISREGARDED"));
+                disregarded_type_3 = rs_3.getString("DISREGARDED");
                 fatcaStatus_type_3 = rs_3.getString("FATCASTATUS");
             }
             connection.close();

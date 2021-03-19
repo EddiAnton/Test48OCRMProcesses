@@ -12,7 +12,7 @@ public class XpathOtherChangesInDoc {
 
     public static final String FIELD_OKOPF = "//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/div/div/div/div[1]/input";
 
-    public static final String FIELD_CAPITALANNOUNCEDSUM = "//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea";
+    public static final String FIELD_CAPITALANNOUNCEDSUM = "//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div[8]/div[4]/div[1]/div/div/textarea";
 
     public static final String FIELD_CAPITALCURRENCY = "//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[5]/div[1]/div/div/div/div/div/div[1]/input";
 
