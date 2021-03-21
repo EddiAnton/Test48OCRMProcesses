@@ -7,7 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+<<<<<<< HEAD
+=======
 import org.openqa.selenium.support.ui.Select;
+>>>>>>> b3016edda7f147820e77853bcc39cee5d1057b11
 import org.testng.annotations.Test;
 
 public class TestProcessStage_AwaitsClientInput {
