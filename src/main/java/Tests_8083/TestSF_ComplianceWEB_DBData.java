@@ -1,13 +1,32 @@
 package Tests_8083;
 
-import Services.*;
+import Services.CheckData;
+import Services.DataComparison;
+import Services.DataConversion;
+import Services.DateReplace;
+import Services.Rerty;
+import Services.XpathAddress;
+import Services.XpathAuthorization;
+import Services.XpathContact;
+import Services.XpathGoverningBodies;
+import Services.XpathLicense;
+import Services.XpathNameOfCompany;
+import Services.XpathOtherChangesInDoc;
+import Services.XpathRelatedPrivatEntities;
+import Services.XpathTaxAccounting;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.annotations.Test;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Objects;
 
 @Test

@@ -3,14 +3,13 @@ package Tests_8083;
 import Services.DataConversion;
 import Services.XpathAuthorization;
 import Services.XpathTestProcessStage;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-<<<<<<< HEAD
-=======
 import org.openqa.selenium.support.ui.Select;
->>>>>>> b3016edda7f147820e77853bcc39cee5d1057b11
+
 import org.testng.annotations.Test;
 
 public class TestProcessStage_AwaitsClientInput {
@@ -34,6 +33,10 @@ public class TestProcessStage_AwaitsClientInput {
         WebDriver driver = new ChromeDriver();
 
         try {
+
+            System.out.println();
+            System.out.println("Test Process Stage AwaitsClientInput is starting...");
+            System.out.println();
 
             Thread.sleep(2000);
             driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
@@ -88,6 +91,7 @@ public class TestProcessStage_AwaitsClientInput {
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
                     .xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER));
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
+            System.out.println(productOrderNumber);
             Thread.sleep(3000);
 
             // Get data of the application Status
@@ -124,10 +128,9 @@ public class TestProcessStage_AwaitsClientInput {
             driver.close();
         }
 
-        System.out.println(productOrderNumber);
         System.out.println("---------------");
-        System.out.println("Текущий статус" + applicationStatus);
-        System.out.println("Новый статус" + newApplicationStatus);
+        System.out.println("Текущий статус: " + applicationStatus);
+        System.out.println("Новый статус: " + newApplicationStatus);
         System.out.println("---------------");
 
     }
