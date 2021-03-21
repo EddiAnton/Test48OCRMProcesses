@@ -92,7 +92,7 @@ public class TestProcessStage_AwaitsClientInput {
                     .xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS));
             applicationStatus = field_applicationStatus.getText();
 
-            if (applicationStatus.equals("В РАБОТЕ")) {
+            if (applicationStatus.equals("В РАБОТЕ") || applicationStatus.equals("ДОРАБОТКА")) {
 
                 // Get data of the application Status
                 WebElement continueRegistration  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_CONTINUE_REGISTRATION));
