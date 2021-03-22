@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import org.testng.annotations.Test;
@@ -107,8 +108,12 @@ public class TestProcessStage_AwaitsClientInput {
                 Thread.sleep(2000);
 
                 // Selecting a stage from the drop-down list
-                Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
-                statusList.selectByVisibleText("Ожидание информации от клиента");
+                //Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
+                //statusList.selectByVisibleText("Ожидание информации от клиента");
+
+                driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)).click();
+                Thread.sleep(1000);
+                driver.findElement(By.linkText("Ожидание информации от клиента")).click();
 
                 WebElement nextStage  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE));
                 nextStage.click();
