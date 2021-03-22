@@ -123,8 +123,8 @@ public class TestProcessStage_ClientRefusal {
 
         System.out.println(productOrderNumber);
         System.out.println("---------------");
-        System.out.println("Текущий статус" + applicationStatus);
-        System.out.println("Новый статус" + newApplicationStatus);
+        System.out.println("Текущий статус: " + applicationStatus);
+        System.out.println("Новый статус: " + newApplicationStatus);
         System.out.println("---------------");
     }
 }

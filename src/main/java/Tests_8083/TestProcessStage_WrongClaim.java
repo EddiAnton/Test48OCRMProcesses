@@ -121,8 +121,8 @@ public class TestProcessStage_WrongClaim {final String DB_Data = "jdbc:oracle:th
 
         System.out.println(productOrderNumber);
         System.out.println("---------------");
-        System.out.println("Текущий статус" + applicationStatus);
-        System.out.println("Новый статус" + newApplicationStatus);
+        System.out.println("Текущий статус: " + applicationStatus);
+        System.out.println("Новый статус: " + newApplicationStatus);
         System.out.println("---------------");
     }
 
