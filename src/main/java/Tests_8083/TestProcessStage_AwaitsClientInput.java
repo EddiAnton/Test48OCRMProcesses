@@ -113,7 +113,7 @@ public class TestProcessStage_AwaitsClientInput {
 
                 driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)).click();
                 Thread.sleep(1000);
-                driver.findElement(By.linkText("Ожидание информации от клиента")).click();
+                driver.findElement(By.xpath(XpathTestProcessStage.STATUS_AWAITS_CLIENT_INPUT)).click();
 
                 WebElement nextStage  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE));
                 nextStage.click();

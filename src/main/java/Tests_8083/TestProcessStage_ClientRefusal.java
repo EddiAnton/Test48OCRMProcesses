@@ -100,8 +100,12 @@ public class TestProcessStage_ClientRefusal {
                 Thread.sleep(2000);
 
                 // Selecting a stage from the drop-down list
-                Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
-                statusList.selectByVisibleText("Отказ клиента");
+                //Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
+                //statusList.selectByVisibleText("Отказ клиента");
+
+                driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)).click();
+                Thread.sleep(1000);
+                driver.findElement(By.xpath(XpathTestProcessStage.STATUS_CLIENT_REFUSAL)).click();
 
                 WebElement nextStage = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE));
                 nextStage.click();

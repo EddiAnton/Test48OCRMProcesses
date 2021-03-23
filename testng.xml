@@ -5,6 +5,9 @@
     <test name="RegressionTests_8083_Contour">
         <classes>
             <class name="Tests_8083.TestProcessStage_AwaitsClientInput"></class>
+            <class name="Tests_8083.TestProcessStage_Postponed"></class>
+            <class name="Tests_8083.TestProcessStage_ClientRefusal"></class>
+
 
         </classes>
     </test>
