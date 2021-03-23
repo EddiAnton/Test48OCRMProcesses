@@ -100,8 +100,12 @@ public class TestProcessStage_SubmittingForVerification {
                 Thread.sleep(2000);
 
                 // Selecting a stage from the drop-down list
-                Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
-                statusList.selectByVisibleText("Отправка на верификацию");
+                // Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
+                // statusList.selectByVisibleText("Отправка на верификацию");
+
+                driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)).click();
+                Thread.sleep(1000);
+                driver.findElement(By.xpath(XpathTestProcessStage.STATUS_SUBMITTING_FOR_VERIFICATION)).click();
 
                 WebElement nextStage = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE));
                 nextStage.click();

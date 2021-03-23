@@ -100,8 +100,12 @@ public class TestProcessStage_Postponed {
                 Thread.sleep(2000);
 
                 // Selecting a stage from the drop-down list
-                Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
-                statusList.selectByVisibleText("Отложена");
+                // Select statusList = new Select(driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)));
+                // statusList.selectByVisibleText("Отложена");
+
+                driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)).click();
+                Thread.sleep(1000);
+                driver.findElement(By.xpath(XpathTestProcessStage.STATUS_POSTPONED)).click();
 
                 WebElement nextStage = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE));
                 nextStage.click();
