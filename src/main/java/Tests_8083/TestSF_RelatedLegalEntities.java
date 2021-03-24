@@ -28,89 +28,89 @@ public class TestSF_RelatedLegalEntities {
     String productOrderNumber = null;
 
     String test_CODE_FACE = null;
-    String test_ACCOUNTNAME = null;
-    String test_AKA = null;
-    String test_ENGNAME = null;
-    String test_ENGNAMESHORT = null;
-    String test_OKFS = null;
-    String test_COMPANYTYPE = null;
-    String test_OKOPF = null;
-    String test_JURISDICTION = null;
-    String test_ISREGOFFSHORZONE = null;
-    String test_INN = null;
-    String test_CODE_KPP = null;
-    String test_SWIFT = null;
-    String test_KIO = null;
-    String test_OKATO = null;
-    String test_OKTMO = null;
-    String test_OKPO = null;
-    String test_OKOGU = null;
+    String test_ACCOUNTNAME_RLE = null;
+    String test_AKA_RLE = null;
+    String test_ENGNAME_RLE = null;
+    String test_ENGNAMESHORT_RLE = null;
+    String test_OKFS_RLE = null;
+    String test_COMPANYTYPE_RLE = null;
+    String test_OKOPF_RLE = null;
+    String test_JURISDICTION_RLE = null;
+    String test_ISREGOFFSHORZONE_RLE = null;
+    String test_INN_RLE = null;
+    String test_CODE_KPP_RLE = null;
+    String test_SWIFT_RLE = null;
+    String test_KIO_RLE = null;
+    String test_OKATO_RLE = null;
+    String test_OKTMO_RLE = null;
+    String test_OKPO_RLE = null;
+    String test_OKOGU_RLE = null;
 
     String codeFace_type_1 = null;
-    String accountName_type_1 = null;
-    String aka_type_1 = null;
-    String engName_type_1 = null;
-    String engNameShort_type_1 = null;
-    int codeOkfs_type_1 = 0;
-    String okfs_type_1 = null;
-    String codeCompanyType_type_1 = null;
-    String companyType_type_1 = null;
-    int codeOkopf_type_1 = 0;
-    String okopf_type_1 = null;
-    String jurisdiction_type_1 = null;
-    String isRegOffshorZone_type_1 = null;
-    String inn_type_1 = null;
-    String codeKPP_type_1 = null;
-    String swift_type_1 = null;
-    String kio_type_1 = null;
-    String okato_type_1 = null;
-    String oktmo_type_1 = null;
-    String okpo_type_1 = null;
-    String okogu_type_1 = null;
+    String accountNameRLE_type_1 = null;
+    String akaRLE_type_1 = null;
+    String engNameRLE_type_1 = null;
+    String engNameShortRLE_type_1 = null;
+    int codeOkfsRLE_type_1 = 0;
+    String okfsRLE_type_1 = null;
+    String codeCompanyTypeRLE_type_1 = null;
+    String companyTypeRLE_type_1 = null;
+    int codeOkopfRLE_type_1 = 0;
+    String okopfRLE_type_1 = null;
+    String jurisdictionRLE_type_1 = null;
+    String isRegOffshorZoneRLE_type_1 = null;
+    String innRLE_type_1 = null;
+    String codeKPPRLE_type_1 = null;
+    String swiftRLE_type_1 = null;
+    String kioRLE_type_1 = null;
+    String okatoRLE_type_1 = null;
+    String oktmoRLE_type_1 = null;
+    String okpoRLE_type_1 = null;
+    String okoguRLE_type_1 = null;
 
     String codeFace_type_2 = null;
-    String accountName_type_2 = null;
-    String aka_type_2 = null;
-    String engName_type_2 = null;
-    String engNameShort_type_2 = null;
-    int codeOkfs_type_2 = 0;
-    String okfs_type_2 = null;
-    String codeCompanyType_type_2 = null;
-    String companyType_type_2 = null;
-    int codeOkopf_type_2 = 0;
-    String okopf_type_2 = null;
-    String jurisdiction_type_2 = null;
-    String isRegOffshorZone_type_2 = null;
-    String inn_type_2 = null;
-    String codeKPP_type_2 = null;
-    String swift_type_2 = null;
-    String kio_type_2 = null;
-    String okato_type_2 = null;
-    String oktmo_type_2 = null;
-    String okpo_type_2 = null;
-    String okogu_type_2 = null;
+    String accountNameRLE_type_2 = null;
+    String akaRLE_type_2 = null;
+    String engNameRLE_type_2 = null;
+    String engNameShortRLE_type_2 = null;
+    int codeOkfsRLE_type_2 = 0;
+    String okfsRLE_type_2 = null;
+    String codeCompanyTypeRLE_type_2 = null;
+    String companyTypeRLE_type_2 = null;
+    int codeOkopfRLE_type_2 = 0;
+    String okopfRLE_type_2 = null;
+    String jurisdictionRLE_type_2 = null;
+    String isRegOffshorZoneRLE_type_2 = null;
+    String innRLE_type_2 = null;
+    String codeKPPRLE_type_2 = null;
+    String swiftRLE_type_2 = null;
+    String kioRLE_type_2 = null;
+    String okatoRLE_type_2 = null;
+    String oktmoRLE_type_2 = null;
+    String okpoRLE_type_2 = null;
+    String okoguRLE_type_2 = null;
 
     String codeFace_type_3 = null;
-    String accountName_type_3 = null;
-    String aka_type_3 = null;
-    String engName_type_3 = null;
-    String engNameShort_type_3 = null;
-    int codeOkfs_type_3 = 0;
-    String okfs_type_3 = null;
-    String codeCompanyType_type_3 = null;
-    String companyType_type_3 = null;
-    int codeOkopf_type_3 = 0;
-    String okopf_type_3 = null;
-    String jurisdiction_type_3 = null;
-    String isRegOffshorZone_type_3 = null;
-    String inn_type_3 = null;
-    String codeKPP_type_3 = null;
-    String swift_type_3 = null;
-    String kio_type_3 = null;
-    String okato_type_3 = null;
-    String oktmo_type_3 = null;
-    String okpo_type_3 = null;
-    String okogu_type_3 = null;
+    String accountNameRLE_type_3 = null;
+    String akaRLE_type_3 = null;
+    String engNameRLE_type_3 = null;
+    String engNameShortRLE_type_3 = null;
+    int codeOkfsRLE_type_3 = 0;
+    String okfsRLE_type_3 = null;
+    String codeCompanyTypeRLE_type_3 = null;
+    String companyTypeRLE_type_3 = null;
+    int codeOkopfRLE_type_3 = 0;
+    String okopfRLE_type_3 = null;
+    String jurisdictionRLE_type_3 = null;
+    String isRegOffshorZoneRLE_type_3 = null;
+    String innRLE_type_3 = null;
+    String codeKPPRLE_type_3 = null;
+    String swiftRLE_type_3 = null;
+    String kioRLE_type_3 = null;
+    String okatoRLE_type_3 = null;
+    String oktmoRLE_type_3 = null;
+    String okpoRLE_type_3 = null;
+    String okoguRLE_type_3 = null;
 
     @Test(retryAnalyzer = Rerty.class)
     public void testRelatedLegalEntities() {
@@ -193,57 +193,61 @@ public class TestSF_RelatedLegalEntities {
             WebElement field_CODE_FACE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_FACE));
             test_CODE_FACE = field_CODE_FACE.getAttribute("value");
 
-            WebElement field_ACCOUNTNAME = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ACCOUNTNAME));
-            test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
+            WebElement field_ACCOUNTNAME_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_ACCOUNTNAME));
+            test_ACCOUNTNAME_RLE = field_ACCOUNTNAME_RLE.getAttribute("value");
 
-            WebElement field_AKA = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_AKA));
-            test_AKA = field_AKA.getAttribute("value");
+            WebElement field_AKA_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_AKA));
+            test_AKA_RLE = field_AKA_RLE.getAttribute("value");
 
-            WebElement field_ENGNAME = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAME));
-            test_ENGNAME = field_ENGNAME.getAttribute("value");
+            WebElement field_ENGNAME_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAME));
+            test_ENGNAME_RLE = field_ENGNAME_RLE.getAttribute("value");
 
-            WebElement field_ENGNAMESHORT = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAMESHORT));
-            test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
+            WebElement field_ENGNAMESHORT_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_ENGNAMESHORT));
+            test_ENGNAMESHORT_RLE = field_ENGNAMESHORT_RLE.getAttribute("value");
 
-            WebElement field_OKFS = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKFS));
-            test_OKFS = field_OKFS.getAttribute("value");
+            WebElement field_OKFS_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKFS));
+            test_OKFS_RLE = field_OKFS_RLE.getAttribute("value");
 
-            WebElement field_COMPANYTYPE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_COMPANYTYPE));
-            test_COMPANYTYPE = field_COMPANYTYPE.getAttribute("value");
+            WebElement field_COMPANYTYPE_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_COMPANYTYPE));
+            test_COMPANYTYPE_RLE = field_COMPANYTYPE_RLE.getAttribute("value");
 
-            WebElement field_OKOPF = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOPF));
-            test_OKOPF = field_OKOPF.getAttribute("value");
+            WebElement field_OKOPF_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOPF));
+            test_OKOPF_RLE = field_OKOPF_RLE.getAttribute("value");
 
-            WebElement field_JURISDICTION = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_JURISDICTION));
-            test_JURISDICTION = field_JURISDICTION.getAttribute("value");
+            WebElement field_JURISDICTION_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_JURISDICTION));
+            test_JURISDICTION_RLE = field_JURISDICTION_RLE.getAttribute("value");
 
-            WebElement field_ISREGOFFSHORZONE = driver.findElement(By
+            WebElement field_ISREGOFFSHORZONE_RLE = driver.findElement(By
                     .xpath(XpathRelatedLegalEntities.FIELD_ISREGOFFSHORZONE));
-            test_ISREGOFFSHORZONE = field_ISREGOFFSHORZONE.getAttribute("value");
+            test_ISREGOFFSHORZONE_RLE = field_ISREGOFFSHORZONE_RLE.getAttribute("value");
 
-            WebElement field_INN = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_INN));
-            test_INN = field_INN.getAttribute("value");
+            WebElement field_INN_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_INN));
+            test_INN_RLE = field_INN_RLE.getAttribute("value");
 
-            WebElement field_CODE_KPP = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_KPP));
-            test_CODE_KPP = field_CODE_KPP.getAttribute("value");
+            WebElement field_CODE_KPP_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_KPP));
+            test_CODE_KPP_RLE = field_CODE_KPP_RLE.getAttribute("value");
 
-            WebElement field_SWIFT = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_SWIFT));
-            test_SWIFT = field_SWIFT.getAttribute("value");
+            WebElement field_SWIFT_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_SWIFT));
+            test_SWIFT_RLE = field_SWIFT_RLE.getAttribute("value");
 
-            WebElement field_KIO = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_KIO));
-            test_KIO = field_KIO.getAttribute("value");
+            WebElement field_KIO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_KIO));
+            test_KIO_RLE = field_KIO_RLE.getAttribute("value");
 
-            WebElement field_OKATO = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKATO));
-            test_OKATO = field_OKATO.getAttribute("value");
+            WebElement field_OKATO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKATO));
+            test_OKATO_RLE = field_OKATO_RLE.getAttribute("value");
 
-            WebElement field_OKTMO = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKTMO));
-            test_OKTMO = field_OKTMO.getAttribute("value");
+            WebElement field_OKTMO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKTMO));
+            test_OKTMO_RLE = field_OKTMO_RLE.getAttribute("value");
 
-            WebElement field_OKPO = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKPO));
-            test_OKPO = field_OKPO.getAttribute("value");
+            WebElement field_OKPO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKPO));
+            test_OKPO_RLE = field_OKPO_RLE.getAttribute("value");
 
-            WebElement field_OKOGU = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOGU));
-            test_OKOGU = field_OKOGU.getAttribute("value");
+            WebElement field_OKOGU_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOGU));
+            test_OKOGU_RLE = field_OKOGU_RLE.getAttribute("value");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -254,23 +258,23 @@ public class TestSF_RelatedLegalEntities {
         System.out.println(productOrderNumber);
         System.out.println("---------------");
         System.out.println(test_CODE_FACE);
-        System.out.println(test_ACCOUNTNAME);
-        System.out.println(test_AKA);
-        System.out.println(test_ENGNAME);
-        System.out.println(test_ENGNAMESHORT);
-        System.out.println(test_OKFS);
-        System.out.println(test_COMPANYTYPE);
-        System.out.println(test_OKOPF);
-        System.out.println(test_JURISDICTION);
-        System.out.println(test_ISREGOFFSHORZONE);
-        System.out.println(test_INN);
-        System.out.println(test_CODE_KPP);
-        System.out.println(test_SWIFT);
-        System.out.println(test_KIO);
-        System.out.println(test_OKATO);
-        System.out.println(test_OKTMO);
-        System.out.println(test_OKPO);
-        System.out.println(test_OKOGU);
+        System.out.println(test_ACCOUNTNAME_RLE);
+        System.out.println(test_AKA_RLE);
+        System.out.println(test_ENGNAME_RLE);
+        System.out.println(test_ENGNAMESHORT_RLE);
+        System.out.println(test_OKFS_RLE);
+        System.out.println(test_COMPANYTYPE_RLE);
+        System.out.println(test_OKOPF_RLE);
+        System.out.println(test_JURISDICTION_RLE);
+        System.out.println(test_ISREGOFFSHORZONE_RLE);
+        System.out.println(test_INN_RLE);
+        System.out.println(test_CODE_KPP_RLE);
+        System.out.println(test_SWIFT_RLE);
+        System.out.println(test_KIO_RLE);
+        System.out.println(test_OKATO_RLE);
+        System.out.println(test_OKTMO_RLE);
+        System.out.println(test_OKPO_RLE);
+        System.out.println(test_OKOGU_RLE);
         System.out.println("---------------");
 
         try {
@@ -302,7 +306,7 @@ public class TestSF_RelatedLegalEntities {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
                     "AND fbpomd.MEMBERDATATYPE = '1' " +
                     "AND fbpomd.ISPRIMARY = 'F' " +
-                    "AND fbpomd.INN = '" + test_INN + "'";
+                    "AND fbpomd.INN = '" + test_INN_RLE + "'";
 
             String selectTableSQLForType_2 = "SELECT fbpomd.ACCOUNTNAME, " +
                     "fbpomd.AKA, " +
@@ -328,7 +332,7 @@ public class TestSF_RelatedLegalEntities {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
                     "AND fbpomd.MEMBERDATATYPE = '2' " +
                     "AND fbpomd.ISPRIMARY = 'F' " +
-                    "AND fbpomd.INN = '" + test_INN + "'";
+                    "AND fbpomd.INN = '" + test_INN_RLE + "'";
 
             String selectTableSQLForType_3 = "SELECT fbpomd.ACCOUNTNAME, " +
                     "fbpomd.AKA, " +
@@ -354,7 +358,7 @@ public class TestSF_RelatedLegalEntities {
                     "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
                     "AND fbpomd.MEMBERDATATYPE = '3' " +
                     "AND fbpomd.ISPRIMARY = 'F' " +
-                    "AND fbpomd.INN = '" + test_INN + "'";
+                    "AND fbpomd.INN = '" + test_INN_RLE + "'";
 
             Statement statement = connection.createStatement();
 
@@ -363,69 +367,157 @@ public class TestSF_RelatedLegalEntities {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                accountName_type_1 = rs_1.getString("ACCOUNTNAME");
-                aka_type_1 = rs_1.getString("AKA");
-                engName_type_1 = rs_1.getString("ENGNAME");
-                engNameShort_type_1 = rs_1.getString("ENGNAMESHORT");
-                okfs_type_1 = rs_1.getString("OKFS");
-                companyType_type_1 = rs_1.getString("COMPANYTYPE");
-                okopf_type_1 = rs_1.getString("OKOPF");
-                jurisdiction_type_1 = rs_1.getString("JURISDICTION");
-                isRegOffshorZone_type_1 = rs_1.getString("ISREGOFFSHORZONE");
-                inn_type_1 = rs_1.getString("INN");
-                swift_type_1 = rs_1.getString("SWIFT");
-                kio_type_1 = rs_1.getString("KIO");
-                okato_type_1 = rs_1.getString("OKATO");
-                oktmo_type_1 = rs_1.getString("OKTMO");
-                okpo_type_1 = rs_1.getString("OKPO");
-                okogu_type_1 = rs_1.getString("OKOGU");
+                accountNameRLE_type_1 = rs_1.getString("ACCOUNTNAME");
+                akaRLE_type_1 = rs_1.getString("AKA");
+                engNameRLE_type_1 = rs_1.getString("ENGNAME");
+                engNameShortRLE_type_1 = rs_1.getString("ENGNAMESHORT");
+                codeOkfsRLE_type_1 = rs_1.getInt("OKFS");
+                codeCompanyTypeRLE_type_1 = rs_1.getString("COMPANYTYPE");
+                codeOkopfRLE_type_1 = rs_1.getInt("OKOPF");
+                jurisdictionRLE_type_1 = rs_1.getString("JURISDICTION");
+                isRegOffshorZoneRLE_type_1 = rs_1.getString("ISREGOFFSHORZONE");
+                innRLE_type_1 = rs_1.getString("INN");
+                swiftRLE_type_1 = rs_1.getString("SWIFT");
+                kioRLE_type_1 = rs_1.getString("KIO");
+                okatoRLE_type_1 = rs_1.getString("OKATO");
+                oktmoRLE_type_1 = rs_1.getString("OKTMO");
+                okpoRLE_type_1 = rs_1.getString("OKPO");
+                okoguRLE_type_1 = rs_1.getString("OKOGU");
             }
+
+            String selectPicklistOKFS_1 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfsRLE_type_1;
+
+            ResultSet rs_1_okfs = statement.executeQuery(selectPicklistOKFS_1);
+            while (rs_1_okfs.next()) {
+                okfsRLE_type_1 = rs_1_okfs.getString("SHORTNAME");
+            }
+
+            String selectPicklistCompanyType_1 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyTypeRLE_type_1 + "'";
+
+            ResultSet rs_1_companyType = statement.executeQuery(selectPicklistCompanyType_1);
+            while (rs_1_companyType.next()) {
+                companyTypeRLE_type_1 = rs_1_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_1 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopfRLE_type_1;
+
+            ResultSet rs_1_okopf = statement.executeQuery(selectPicklistOKOPF_1);
+            while (rs_1_okopf.next()) {
+                okopfRLE_type_1 = rs_1_okopf.getString("FULLNAME");
+            }
+
 
             // Get data for type 2 from the database
             ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                accountName_type_2 = rs_2.getString("ACCOUNTNAME");
-                aka_type_2 = rs_2.getString("AKA");
-                engName_type_2 = rs_2.getString("ENGNAME");
-                engNameShort_type_2 = rs_2.getString("ENGNAMESHORT");
-                okfs_type_2 = rs_2.getString("OKFS");
-                companyType_type_2 = rs_2.getString("COMPANYTYPE");
-                okopf_type_2 = rs_2.getString("OKOPF");
-                jurisdiction_type_2 = rs_2.getString("JURISDICTION");
-                isRegOffshorZone_type_2 = rs_2.getString("ISREGOFFSHORZONE");
-                inn_type_2 = rs_2.getString("INN");
-                swift_type_2 = rs_2.getString("SWIFT");
-                kio_type_2 = rs_2.getString("KIO");
-                okato_type_2 = rs_2.getString("OKATO");
-                oktmo_type_2 = rs_2.getString("OKTMO");
-                okpo_type_2 = rs_2.getString("OKPO");
-                okogu_type_2 = rs_2.getString("OKOGU");
+                accountNameRLE_type_2 = rs_2.getString("ACCOUNTNAME");
+                akaRLE_type_2 = rs_2.getString("AKA");
+                engNameRLE_type_2 = rs_2.getString("ENGNAME");
+                engNameShortRLE_type_2 = rs_2.getString("ENGNAMESHORT");
+                codeOkfsRLE_type_2 = rs_2.getInt("OKFS");
+                codeCompanyTypeRLE_type_2 = rs_2.getString("COMPANYTYPE");
+                codeOkopfRLE_type_2 = rs_2.getInt("OKOPF");
+                jurisdictionRLE_type_2 = rs_2.getString("JURISDICTION");
+                isRegOffshorZoneRLE_type_2 = rs_2.getString("ISREGOFFSHORZONE");
+                innRLE_type_2 = rs_2.getString("INN");
+                swiftRLE_type_2 = rs_2.getString("SWIFT");
+                kioRLE_type_2 = rs_2.getString("KIO");
+                okatoRLE_type_2 = rs_2.getString("OKATO");
+                oktmoRLE_type_2 = rs_2.getString("OKTMO");
+                okpoRLE_type_2 = rs_2.getString("OKPO");
+                okoguRLE_type_2 = rs_2.getString("OKOGU");
             }
+
+            String selectPicklistOKFS_2 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfsRLE_type_2;
+
+            ResultSet rs_2_okfs = statement.executeQuery(selectPicklistOKFS_2);
+            while (rs_2_okfs.next()) {
+                okfsRLE_type_2 = rs_2_okfs.getString("SHORTNAME");
+            }
+
+            String selectPicklistCompanyType_2 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyTypeRLE_type_2 + "'";
+
+            ResultSet rs_2_companyType = statement.executeQuery(selectPicklistCompanyType_2);
+            while (rs_2_companyType.next()) {
+                companyTypeRLE_type_2 = rs_2_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_2 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopfRLE_type_2;
+
+            ResultSet rs_2_okopf = statement.executeQuery(selectPicklistOKOPF_2);
+            while (rs_2_okopf.next()) {
+                okopfRLE_type_2 = rs_2_okopf.getString("FULLNAME");
+            }
+
 
             // Get data for type 3 from the database
             ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                accountName_type_3 = rs_3.getString("ACCOUNTNAME");
-                aka_type_3 = rs_3.getString("AKA");
-                engName_type_3 = rs_3.getString("ENGNAME");
-                engNameShort_type_3 = rs_3.getString("ENGNAMESHORT");
-                okfs_type_3 = rs_3.getString("OKFS");
-                companyType_type_3 = rs_3.getString("COMPANYTYPE");
-                okopf_type_3 = rs_3.getString("OKOPF");
-                jurisdiction_type_3 = rs_3.getString("JURISDICTION");
-                isRegOffshorZone_type_3 = rs_3.getString("ISREGOFFSHORZONE");
-                inn_type_3 = rs_3.getString("INN");
-                swift_type_3 = rs_3.getString("SWIFT");
-                kio_type_3 = rs_3.getString("KIO");
-                okato_type_3 = rs_3.getString("OKATO");
-                oktmo_type_3 = rs_3.getString("OKTMO");
-                okpo_type_3 = rs_3.getString("OKPO");
-                okogu_type_3 = rs_3.getString("OKOGU");
+                accountNameRLE_type_3 = rs_3.getString("ACCOUNTNAME");
+                akaRLE_type_3 = rs_3.getString("AKA");
+                engNameRLE_type_3 = rs_3.getString("ENGNAME");
+                engNameShortRLE_type_3 = rs_3.getString("ENGNAMESHORT");
+                codeOkfsRLE_type_3 = rs_3.getInt("OKFS");
+                codeCompanyTypeRLE_type_3 = rs_3.getString("COMPANYTYPE");
+                codeOkopfRLE_type_3 = rs_3.getInt("OKOPF");
+                jurisdictionRLE_type_3 = rs_3.getString("JURISDICTION");
+                isRegOffshorZoneRLE_type_3 = rs_3.getString("ISREGOFFSHORZONE");
+                innRLE_type_3 = rs_3.getString("INN");
+                swiftRLE_type_3 = rs_3.getString("SWIFT");
+                kioRLE_type_3 = rs_3.getString("KIO");
+                okatoRLE_type_3 = rs_3.getString("OKATO");
+                oktmoRLE_type_3 = rs_3.getString("OKTMO");
+                okpoRLE_type_3 = rs_3.getString("OKPO");
+                okoguRLE_type_3 = rs_3.getString("OKOGU");
             }
+
+            String selectPicklistOKFS_3 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfsRLE_type_3;
+
+            ResultSet rs_3_okfs = statement.executeQuery(selectPicklistOKFS_3);
+            while (rs_3_okfs.next()) {
+                okfsRLE_type_3 = rs_3_okfs.getString("SHORTNAME");
+            }
+
+            String selectPicklistCompanyType_3 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyTypeRLE_type_3 + "'";
+
+            ResultSet rs_3_companyType = statement.executeQuery(selectPicklistCompanyType_3);
+            while (rs_3_companyType.next()) {
+                companyTypeRLE_type_3 = rs_3_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_3 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopfRLE_type_3;
+
+            ResultSet rs_3_okopf = statement.executeQuery(selectPicklistOKOPF_3);
+            while (rs_3_okopf.next()) {
+                okopfRLE_type_3 = rs_3_okopf.getString("FULLNAME");
+            }
+
+
             connection.close();
 
         } catch (ClassNotFoundException | SQLException ex) {
@@ -439,103 +531,103 @@ public class TestSF_RelatedLegalEntities {
             System.out.println("CODE_FACE test failed! - X");
         }
 
-        if(Objects.equals(test_ACCOUNTNAME, DataComparison.compareData(accountName_type_1, accountName_type_2, accountName_type_3))) {
+        if(Objects.equals(test_ACCOUNTNAME_RLE, DataComparison.compareData(accountNameRLE_type_1, accountNameRLE_type_2, accountNameRLE_type_3))) {
             System.out.println("ACCOUNTNAME test passed!");
         }else {
             System.out.println("ACCOUNTNAME test failed! - X");
         }
 
-        if(Objects.equals(test_AKA, DataComparison.compareData(aka_type_1, aka_type_2, aka_type_3))) {
+        if(Objects.equals(test_AKA_RLE, DataComparison.compareData(akaRLE_type_1, akaRLE_type_2, akaRLE_type_3))) {
             System.out.println("AKA test passed!");
         }else {
             System.out.println("AKA test failed! - X");
         }
 
-        if(Objects.equals(test_ENGNAME, DataComparison.compareData(engName_type_1, engName_type_2, engName_type_3))) {
+        if(Objects.equals(test_ENGNAME_RLE, DataComparison.compareData(engNameRLE_type_1, engNameRLE_type_2, engNameRLE_type_3))) {
             System.out.println("ENGNAME test passed!");
         }else {
             System.out.println("ENGNAME test failed! - X");
         }
 
-        if(Objects.equals(test_ENGNAMESHORT, DataComparison.compareData(engNameShort_type_1, engNameShort_type_2, engNameShort_type_3))) {
+        if(Objects.equals(test_ENGNAMESHORT_RLE, DataComparison.compareData(engNameShortRLE_type_1, engNameShortRLE_type_2, engNameShortRLE_type_3))) {
             System.out.println("ENGNAMESHORT test passed!");
         }else {
             System.out.println("ENGNAMESHORT test failed! - X");
         }
 
-        if(Objects.equals(test_OKFS, DataComparison.compareData(okfs_type_1, okfs_type_2, okfs_type_3))) {
+        if(Objects.equals(test_OKFS_RLE, DataComparison.compareData(okfsRLE_type_1, okfsRLE_type_2, okfsRLE_type_3))) {
             System.out.println("OKFS test passed!");
         }else {
             System.out.println("OKFS test failed! - X");
         }
 
-        if(Objects.equals(test_COMPANYTYPE, DataComparison.compareData(companyType_type_1, companyType_type_2, companyType_type_3))) {
+        if(Objects.equals(test_COMPANYTYPE_RLE, DataComparison.compareData(companyTypeRLE_type_1, companyTypeRLE_type_2, companyTypeRLE_type_3))) {
             System.out.println("COMPANYTYPE test passed!");
         }else {
             System.out.println("COMPANYTYPE test failed! - X");
         }
 
-        if(Objects.equals(test_OKOPF, DataComparison.compareData(okopf_type_1, okopf_type_2, okopf_type_3))) {
+        if(Objects.equals(test_OKOPF_RLE, DataComparison.compareData(okopfRLE_type_1, okopfRLE_type_2, okopfRLE_type_3))) {
             System.out.println("OKOPF test passed!");
         }else {
             System.out.println("OKOPF test failed! - X");
         }
 
-        if(Objects.equals(test_JURISDICTION, DataComparison.compareData(jurisdiction_type_1, jurisdiction_type_2, jurisdiction_type_3))) {
+        if(Objects.equals(test_JURISDICTION_RLE, DataComparison.compareData(jurisdictionRLE_type_1, jurisdictionRLE_type_2, jurisdictionRLE_type_3))) {
             System.out.println("JURISDICTION test passed!");
         }else {
             System.out.println("JURISDICTION test failed! - X");
         }
 
-        if(Objects.equals(test_ISREGOFFSHORZONE, DataComparison.compareData(isRegOffshorZone_type_1, isRegOffshorZone_type_2, isRegOffshorZone_type_3))) {
+        if(Objects.equals(test_ISREGOFFSHORZONE_RLE, DataComparison.compareData(isRegOffshorZoneRLE_type_1, isRegOffshorZoneRLE_type_2, isRegOffshorZoneRLE_type_3))) {
             System.out.println("ISREGOFFSHORZONE test passed!");
         }else {
             System.out.println("ISREGOFFSHORZONE test failed! - X");
         }
 
-        if(Objects.equals(test_INN, DataComparison.compareData(inn_type_1, inn_type_2, inn_type_3))) {
+        if(Objects.equals(test_INN_RLE, DataComparison.compareData(innRLE_type_1, innRLE_type_2, innRLE_type_3))) {
             System.out.println("INN test passed!");
         }else {
             System.out.println("INN test failed! - X");
         }
 
-        if(Objects.equals(test_CODE_KPP, DataComparison.compareData(codeKPP_type_1, codeKPP_type_2, codeKPP_type_3))) {
+        if(Objects.equals(test_CODE_KPP_RLE, DataComparison.compareData(codeKPPRLE_type_1, codeKPPRLE_type_2, codeKPPRLE_type_3))) {
             System.out.println("CODE_KPP test passed!");
         }else {
             System.out.println("CODE_KPP test failed! - X");
         }
 
-        if(Objects.equals(test_SWIFT, DataComparison.compareData(swift_type_1, swift_type_2, swift_type_3))) {
+        if(Objects.equals(test_SWIFT_RLE, DataComparison.compareData(swiftRLE_type_1, swiftRLE_type_2, swiftRLE_type_3))) {
             System.out.println("SWIFT test passed!");
         }else {
             System.out.println("SWIFT test failed! - X");
         }
 
-        if(Objects.equals(test_KIO, DataComparison.compareData(kio_type_1, kio_type_2, kio_type_3))) {
+        if(Objects.equals(test_KIO_RLE, DataComparison.compareData(kioRLE_type_1, kioRLE_type_2, kioRLE_type_3))) {
             System.out.println("KIO test passed!");
         }else {
             System.out.println("KIO test failed! - X");
         }
 
-        if(Objects.equals(test_OKATO, DataComparison.compareData(okato_type_1, okato_type_2, okato_type_3))) {
+        if(Objects.equals(test_OKATO_RLE, DataComparison.compareData(okatoRLE_type_1, okatoRLE_type_2, okatoRLE_type_3))) {
             System.out.println("OKATO test passed!");
         }else {
             System.out.println("OKATO test failed! - X");
         }
 
-        if(Objects.equals(test_OKTMO, DataComparison.compareData(oktmo_type_1, oktmo_type_2, oktmo_type_3))) {
+        if(Objects.equals(test_OKTMO_RLE, DataComparison.compareData(oktmoRLE_type_1, oktmoRLE_type_2, oktmoRLE_type_3))) {
             System.out.println("OKTMO test passed!");
         }else {
             System.out.println("OKTMO test failed! - X");
         }
 
-        if(Objects.equals(test_OKPO, DataComparison.compareData(okpo_type_1, okpo_type_2, okpo_type_3))) {
+        if(Objects.equals(test_OKPO_RLE, DataComparison.compareData(okpoRLE_type_1, okpoRLE_type_2, okpoRLE_type_3))) {
             System.out.println("OKPO test passed!");
         }else {
             System.out.println("OKPO test failed! - X");
         }
 
-        if(Objects.equals(test_OKOGU, DataComparison.compareData(okogu_type_1, okogu_type_2, okogu_type_3))) {
+        if(Objects.equals(test_OKOGU_RLE, DataComparison.compareData(okoguRLE_type_1, okoguRLE_type_2, okoguRLE_type_3))) {
             System.out.println("OKOGU test passed!");
         }else {
             System.out.println("OKOGU test failed! - X");

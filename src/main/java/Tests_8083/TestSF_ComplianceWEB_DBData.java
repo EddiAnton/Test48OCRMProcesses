@@ -1,19 +1,6 @@
 package Tests_8083;
 
-import Services.CheckData;
-import Services.DataComparison;
-import Services.DataConversion;
-import Services.DateReplace;
-import Services.Rerty;
-import Services.XpathAddress;
-import Services.XpathAuthorization;
-import Services.XpathContact;
-import Services.XpathGoverningBodies;
-import Services.XpathLicense;
-import Services.XpathNameOfCompany;
-import Services.XpathOtherChangesInDoc;
-import Services.XpathRelatedPrivatEntities;
-import Services.XpathTaxAccounting;
+import Services.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -60,6 +47,7 @@ public class TestSF_ComplianceWEB_DBData {
     String engName_type_3 = null;
     String engNameShort_type_3 = null;
 
+
     // Variables for complianceLicense method
     String test_LICENSENUMBER = null;
     String test_ACTIVITYKIND = null;
@@ -88,6 +76,7 @@ public class TestSF_ComplianceWEB_DBData {
     String issueDate_type_3 = null;
     String expiryDate_type_3 = null;
     String activityKindList_type_3 = null;
+
 
     // Variables for complianceAddressesOfCompany method
     String test_OKATO = null;
@@ -146,6 +135,7 @@ public class TestSF_ComplianceWEB_DBData {
     String apartment_type_3 = null;
     String fulladdress_type_3 = null;
 
+
     // Variables for complianceRelatedPrivatEntities method
     String test_LASTNAME = null;
     String test_FIRSTNAME = null;
@@ -183,6 +173,94 @@ public class TestSF_ComplianceWEB_DBData {
     String inn_type_3 = null;
     String citizenship_type_3 = null;
 
+
+    // Variables for complianceRelatedLegalEntities method
+    String test_CODE_FACE = null;
+    String test_ACCOUNTNAME_RLE = null;
+    String test_AKA_RLE = null;
+    String test_ENGNAME_RLE = null;
+    String test_ENGNAMESHORT_RLE = null;
+    String test_OKFS_RLE = null;
+    String test_COMPANYTYPE_RLE = null;
+    String test_OKOPF_RLE = null;
+    String test_JURISDICTION_RLE = null;
+    String test_ISREGOFFSHORZONE_RLE = null;
+    String test_INN_RLE = null;
+    String test_CODE_KPP_RLE = null;
+    String test_SWIFT_RLE = null;
+    String test_KIO_RLE = null;
+    String test_OKATO_RLE = null;
+    String test_OKTMO_RLE = null;
+    String test_OKPO_RLE = null;
+    String test_OKOGU_RLE = null;
+
+    String codeFace_type_1 = null;
+    String accountNameRLE_type_1 = null;
+    String akaRLE_type_1 = null;
+    String engNameRLE_type_1 = null;
+    String engNameShortRLE_type_1 = null;
+    int codeOkfsRLE_type_1 = 0;
+    String okfsRLE_type_1 = null;
+    String codeCompanyTypeRLE_type_1 = null;
+    String companyTypeRLE_type_1 = null;
+    int codeOkopfRLE_type_1 = 0;
+    String okopfRLE_type_1 = null;
+    String jurisdictionRLE_type_1 = null;
+    String isRegOffshorZoneRLE_type_1 = null;
+    String innRLE_type_1 = null;
+    String codeKPPRLE_type_1 = null;
+    String swiftRLE_type_1 = null;
+    String kioRLE_type_1 = null;
+    String okatoRLE_type_1 = null;
+    String oktmoRLE_type_1 = null;
+    String okpoRLE_type_1 = null;
+    String okoguRLE_type_1 = null;
+
+    String codeFace_type_2 = null;
+    String accountNameRLE_type_2 = null;
+    String akaRLE_type_2 = null;
+    String engNameRLE_type_2 = null;
+    String engNameShortRLE_type_2 = null;
+    int codeOkfsRLE_type_2 = 0;
+    String okfsRLE_type_2 = null;
+    String codeCompanyTypeRLE_type_2 = null;
+    String companyTypeRLE_type_2 = null;
+    int codeOkopfRLE_type_2 = 0;
+    String okopfRLE_type_2 = null;
+    String jurisdictionRLE_type_2 = null;
+    String isRegOffshorZoneRLE_type_2 = null;
+    String innRLE_type_2 = null;
+    String codeKPPRLE_type_2 = null;
+    String swiftRLE_type_2 = null;
+    String kioRLE_type_2 = null;
+    String okatoRLE_type_2 = null;
+    String oktmoRLE_type_2 = null;
+    String okpoRLE_type_2 = null;
+    String okoguRLE_type_2 = null;
+
+    String codeFace_type_3 = null;
+    String accountNameRLE_type_3 = null;
+    String akaRLE_type_3 = null;
+    String engNameRLE_type_3 = null;
+    String engNameShortRLE_type_3 = null;
+    int codeOkfsRLE_type_3 = 0;
+    String okfsRLE_type_3 = null;
+    String codeCompanyTypeRLE_type_3 = null;
+    String companyTypeRLE_type_3 = null;
+    int codeOkopfRLE_type_3 = 0;
+    String okopfRLE_type_3 = null;
+    String jurisdictionRLE_type_3 = null;
+    String isRegOffshorZoneRLE_type_3 = null;
+    String innRLE_type_3 = null;
+    String codeKPPRLE_type_3 = null;
+    String swiftRLE_type_3 = null;
+    String kioRLE_type_3 = null;
+    String okatoRLE_type_3 = null;
+    String oktmoRLE_type_3 = null;
+    String okpoRLE_type_3 = null;
+    String okoguRLE_type_3 = null;
+
+
     // Variables for complianceTaxAccounting method
     String test_CODE_TAX = null;
     String test_CODENAME_TAX = null;
@@ -211,6 +289,7 @@ public class TestSF_ComplianceWEB_DBData {
     String codeKPP_type_3 = null;
     String isPrimaryKPP_type_3 = null;
     String isAdditionalProperty1_type_3 = null;
+
 
     // Variables for complianceContacts method
     String test_CHANNEL_TYPE = null;
@@ -247,6 +326,7 @@ public class TestSF_ComplianceWEB_DBData {
     String isPrimaryContact_type_3 = null;
     String noteContact_type_3 = null;
 
+
     // Variables for complianceGoverningBodies method
     String test_MANAGE_PERSON = null;
     String test_MANAGE_STRUCTURE = null;
@@ -259,6 +339,7 @@ public class TestSF_ComplianceWEB_DBData {
 
     String managePerson_type_3 = null;
     String manageStructure_type_3 = null;
+
 
     // Variables for complianceOtherChangesInDoc method
     String test_OKFS = null;
@@ -294,9 +375,113 @@ public class TestSF_ComplianceWEB_DBData {
     String capitalAnnouncedSum_type_3 = null;
     String capitalCurrency_type_3 = null;
 
+
+    // Variables for complianceOKVED method
+    String test_CODE_OKVED = null;
+    String test_CODENAME_OKVED = null;
+    String test_BEGINDATE_OKVED = null;
+    String test_ENDDATE_OKVED = null;
+    String test_ISPRIMARY_OKVED = null;
+
+    String codeOKVED_type_1 = null;
+    String codeNameOKVED_type_1 = null;
+    String beginDateOKVED_type_1 = null;
+    String endDateOKVED_type_1 = null;
+    String isPrimaryOKVED_type_1 = null;
+
+    String codeOKVED_type_2 = null;
+    String codeNameOKVED_type_2 = null;
+    String beginDateOKVED_type_2 = null;
+    String endDateOKVED_type_2 = null;
+    String isPrimaryOKVED_type_2 = null;
+
+    String codeOKVED_type_3 = null;
+    String codeNameOKVED_type_3 = null;
+    String beginDateOKVED_type_3 = null;
+    String endDateOKVED_type_3 = null;
+    String isPrimaryOKVED_type_3 = null;
+
+
+    // Variables for complianceUpdatingOtherInformation method
+    String test_ISREGOFFSHORZONE = null;
+    String test_OKPO = null;
+    String test_OKOGU = null;
+    String test_SWIFT = null;
+    String test_EIN = null;
+    String test_GIIN = null;
+    String test_FATCADOCW9 = null;
+    String test_FATCADOC = null;
+    String test_DISREGARDED = null;
+    String test_FATCASTATUS = null;
+    String test_CRS_NALOG_RESIDENCE = null;
+    String test_CRS_IINN_TYPE = null;
+    String test_CRS_IINN = null;
+    String test_CRS_NO_IINN_CODE = null;
+    String test_CRS_NO_IINN_REASON = null;
+    String test_CRS_DATE_BEGIN = null;
+    String test_CRS_DATE_END = null;
+    String test_CRS_STATUS = null;
+
+    String isRegOffshorZone_type_1 = null;
+    String okpo_type_1 = null;
+    String okogu_type_1 = null;
+    String swift_type_1 = null;
+    String ein_type_1 = null;
+    String giin_type_1 = null;
+    String fatcaDocW9_type_1 = null;
+    String fatcaDoc_type_1 = null;
+    String disregarded_type_1 = null;
+    String fatcaStatus_type_1 = null;
+    String crsNalogResidence_type_1 = null;
+    String crsIINNType_type_1 = null;
+    String crsIINN_type_1 = null;
+    String crsNoIINNCode_type_1 = null;
+    String crsNoIINNReason_type_1 = null;
+    String crsDateBegin_type_1 = null;
+    String crsDateEnd_type_1 = null;
+    String crsStatus_type_1 = null;
+
+    String isRegOffshorZone_type_2 = null;
+    String okpo_type_2 = null;
+    String okogu_type_2 = null;
+    String swift_type_2 = null;
+    String ein_type_2 = null;
+    String giin_type_2 = null;
+    String fatcaDocW9_type_2 = null;
+    String fatcaDoc_type_2 = null;
+    String disregarded_type_2 = null;
+    String fatcaStatus_type_2 = null;
+    String crsNalogResidence_type_2 = null;
+    String crsIINNType_type_2 = null;
+    String crsIINN_type_2 = null;
+    String crsNoIINNCode_type_2 = null;
+    String crsNoIINNReason_type_2 = null;
+    String crsDateBegin_type_2 = null;
+    String crsDateEnd_type_2 = null;
+    String crsStatus_type_2 = null;
+
+    String isRegOffshorZone_type_3 = null;
+    String okpo_type_3 = null;
+    String okogu_type_3 = null;
+    String swift_type_3 = null;
+    String ein_type_3 = null;
+    String giin_type_3 = null;
+    String fatcaDocW9_type_3 = null;
+    String fatcaDoc_type_3 = null;
+    String disregarded_type_3 = null;
+    String fatcaStatus_type_3 = null;
+    String crsNalogResidence_type_3 = null;
+    String crsIINNType_type_3 = null;
+    String crsIINN_type_3 = null;
+    String crsNoIINNCode_type_3 = null;
+    String crsNoIINNReason_type_3 = null;
+    String crsDateBegin_type_3 = null;
+    String crsDateEnd_type_3 = null;
+    String crsStatus_type_3 = null;
+
     WebDriver driver;
 
-    @Test (groups = {"smoke", "regress"},
+    @Test (groups = {"regress"},
             retryAnalyzer = Rerty.class)
     public void testAuthorization() {
 
@@ -336,7 +521,7 @@ public class TestSF_ComplianceWEB_DBData {
     }
 
 
-    @Test (groups = {"smoke", "regress"},
+    @Test (groups = {"regress"},
             dependsOnMethods = "testAuthorization",
             retryAnalyzer = Rerty.class)
     public void openDataChangeRequest() {
@@ -1311,6 +1496,475 @@ public class TestSF_ComplianceWEB_DBData {
             dependsOnMethods = "complianceRelatedPrivatEntities",
             alwaysRun = true,
             retryAnalyzer = Rerty.class)
+    public void complianceRelatedLegalEntities() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance Related Legal Entities is starting...");
+
+        try {
+
+            // Select the Related Legal Entities tab
+            WebElement relatedLegalEntitiesTab = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.RELATED_LEGAL_ENTITIES_TAB));
+            relatedLegalEntitiesTab.click();
+            Thread.sleep(2000);
+
+            // Disclose data on the Related Legal Entities - " V "
+            WebElement openRelatedLegalEntities = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.OPEN_RELATED_LEGAL_ENTITIES));
+            openRelatedLegalEntities.click();
+            Thread.sleep(3000);
+
+            // Get data of the Related Legal Entities type
+            WebElement field_CODE_FACE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_FACE));
+            test_CODE_FACE = field_CODE_FACE.getAttribute("value");
+
+            WebElement field_ACCOUNTNAME_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_ACCOUNTNAME));
+            test_ACCOUNTNAME_RLE = field_ACCOUNTNAME_RLE.getAttribute("value");
+
+            WebElement field_AKA_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_AKA));
+            test_AKA_RLE = field_AKA_RLE.getAttribute("value");
+
+            WebElement field_ENGNAME_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAME));
+            test_ENGNAME_RLE = field_ENGNAME_RLE.getAttribute("value");
+
+            WebElement field_ENGNAMESHORT_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_ENGNAMESHORT));
+            test_ENGNAMESHORT_RLE = field_ENGNAMESHORT_RLE.getAttribute("value");
+
+            WebElement field_OKFS_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKFS));
+            test_OKFS_RLE = field_OKFS_RLE.getAttribute("value");
+
+            WebElement field_COMPANYTYPE_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_COMPANYTYPE));
+            test_COMPANYTYPE_RLE = field_COMPANYTYPE_RLE.getAttribute("value");
+
+            WebElement field_OKOPF_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOPF));
+            test_OKOPF_RLE = field_OKOPF_RLE.getAttribute("value");
+
+            WebElement field_JURISDICTION_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_JURISDICTION));
+            test_JURISDICTION_RLE = field_JURISDICTION_RLE.getAttribute("value");
+
+            WebElement field_ISREGOFFSHORZONE_RLE = driver.findElement(By
+                    .xpath(XpathRelatedLegalEntities.FIELD_ISREGOFFSHORZONE));
+            test_ISREGOFFSHORZONE_RLE = field_ISREGOFFSHORZONE_RLE.getAttribute("value");
+
+            WebElement field_INN_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_INN));
+            test_INN_RLE = field_INN_RLE.getAttribute("value");
+
+            WebElement field_CODE_KPP_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_KPP));
+            test_CODE_KPP_RLE = field_CODE_KPP_RLE.getAttribute("value");
+
+            WebElement field_SWIFT_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_SWIFT));
+            test_SWIFT_RLE = field_SWIFT_RLE.getAttribute("value");
+
+            WebElement field_KIO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_KIO));
+            test_KIO_RLE = field_KIO_RLE.getAttribute("value");
+
+            WebElement field_OKATO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKATO));
+            test_OKATO_RLE = field_OKATO_RLE.getAttribute("value");
+
+            WebElement field_OKTMO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKTMO));
+            test_OKTMO_RLE = field_OKTMO_RLE.getAttribute("value");
+
+            WebElement field_OKPO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKPO));
+            test_OKPO_RLE = field_OKPO_RLE.getAttribute("value");
+
+            WebElement field_OKOGU_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOGU));
+            test_OKOGU_RLE = field_OKOGU_RLE.getAttribute("value");
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("---------------");
+        System.out.println(test_CODE_FACE);
+        System.out.println(test_ACCOUNTNAME_RLE);
+        System.out.println(test_AKA_RLE);
+        System.out.println(test_ENGNAME_RLE);
+        System.out.println(test_ENGNAMESHORT_RLE);
+        System.out.println(test_OKFS_RLE);
+        System.out.println(test_COMPANYTYPE_RLE);
+        System.out.println(test_OKOPF_RLE);
+        System.out.println(test_JURISDICTION_RLE);
+        System.out.println(test_ISREGOFFSHORZONE_RLE);
+        System.out.println(test_INN_RLE);
+        System.out.println(test_CODE_KPP_RLE);
+        System.out.println(test_SWIFT_RLE);
+        System.out.println(test_KIO_RLE);
+        System.out.println(test_OKATO_RLE);
+        System.out.println(test_OKTMO_RLE);
+        System.out.println(test_OKPO_RLE);
+        System.out.println(test_OKOGU_RLE);
+        System.out.println("---------------");
+
+        try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+
+            String selectTableSQLForType_1 = "SELECT fbpomd.ACCOUNTNAME, " +
+                    "fbpomd.AKA, " +
+                    "fbpomd.ENGNAME, " +
+                    "fbpomd.ENGNAMESHORT, " +
+                    "fbpomd.OKFS, " +
+                    "fbpomd.COMPANYTYPE, " +
+                    "fbpomd.OKOPF, " +
+                    "fbpomd.JURISDICTION, " +
+                    "fbpomd.ISREGOFFSHORZONE, " +
+                    "fbpomd.INN, " +
+                    "fbpomd.SWIFT, " +
+                    "fbpomd.KIO, " +
+                    "fbpomd.OKATO, " +
+                    "fbpomd.OKTMO, " +
+                    "fbpomd.OKPO, " +
+                    "fbpomd.OKOGU " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = '1' " +
+                    "AND fbpomd.ISPRIMARY = 'F' " +
+                    "AND fbpomd.INN = '" + test_INN_RLE + "'";
+
+            String selectTableSQLForType_2 = "SELECT fbpomd.ACCOUNTNAME, " +
+                    "fbpomd.AKA, " +
+                    "fbpomd.ENGNAME, " +
+                    "fbpomd.ENGNAMESHORT, " +
+                    "fbpomd.OKFS, " +
+                    "fbpomd.COMPANYTYPE, " +
+                    "fbpomd.OKOPF, " +
+                    "fbpomd.JURISDICTION, " +
+                    "fbpomd.ISREGOFFSHORZONE, " +
+                    "fbpomd.INN, " +
+                    "fbpomd.SWIFT, " +
+                    "fbpomd.KIO, " +
+                    "fbpomd.OKATO, " +
+                    "fbpomd.OKTMO, " +
+                    "fbpomd.OKPO, " +
+                    "fbpomd.OKOGU " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = '2' " +
+                    "AND fbpomd.ISPRIMARY = 'F' " +
+                    "AND fbpomd.INN = '" + test_INN_RLE + "'";
+
+            String selectTableSQLForType_3 = "SELECT fbpomd.ACCOUNTNAME, " +
+                    "fbpomd.AKA, " +
+                    "fbpomd.ENGNAME, " +
+                    "fbpomd.ENGNAMESHORT, " +
+                    "fbpomd.OKFS, " +
+                    "fbpomd.COMPANYTYPE, " +
+                    "fbpomd.OKOPF, " +
+                    "fbpomd.JURISDICTION, " +
+                    "fbpomd.ISREGOFFSHORZONE, " +
+                    "fbpomd.INN, " +
+                    "fbpomd.SWIFT, " +
+                    "fbpomd.KIO, " +
+                    "fbpomd.OKATO, " +
+                    "fbpomd.OKTMO, " +
+                    "fbpomd.OKPO, " +
+                    "fbpomd.OKOGU " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = '3' " +
+                    "AND fbpomd.ISPRIMARY = 'F' " +
+                    "AND fbpomd.INN = '" + test_INN_RLE + "'";
+
+            Statement statement = connection.createStatement();
+
+            // Get data for type 1 from the database
+            ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);
+
+            // if something was received then the while loop will work
+            while (rs_1.next()) {
+                accountNameRLE_type_1 = rs_1.getString("ACCOUNTNAME");
+                akaRLE_type_1 = rs_1.getString("AKA");
+                engNameRLE_type_1 = rs_1.getString("ENGNAME");
+                engNameShortRLE_type_1 = rs_1.getString("ENGNAMESHORT");
+                codeOkfsRLE_type_1 = rs_1.getInt("OKFS");
+                codeCompanyTypeRLE_type_1 = rs_1.getString("COMPANYTYPE");
+                codeOkopfRLE_type_1 = rs_1.getInt("OKOPF");
+                jurisdictionRLE_type_1 = rs_1.getString("JURISDICTION");
+                isRegOffshorZoneRLE_type_1 = rs_1.getString("ISREGOFFSHORZONE");
+                innRLE_type_1 = rs_1.getString("INN");
+                swiftRLE_type_1 = rs_1.getString("SWIFT");
+                kioRLE_type_1 = rs_1.getString("KIO");
+                okatoRLE_type_1 = rs_1.getString("OKATO");
+                oktmoRLE_type_1 = rs_1.getString("OKTMO");
+                okpoRLE_type_1 = rs_1.getString("OKPO");
+                okoguRLE_type_1 = rs_1.getString("OKOGU");
+            }
+
+            String selectPicklistOKFS_1 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfsRLE_type_1;
+
+            ResultSet rs_1_okfs = statement.executeQuery(selectPicklistOKFS_1);
+            while (rs_1_okfs.next()) {
+                okfsRLE_type_1 = rs_1_okfs.getString("SHORTNAME");
+            }
+
+            String selectPicklistCompanyType_1 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyTypeRLE_type_1 + "'";
+
+            ResultSet rs_1_companyType = statement.executeQuery(selectPicklistCompanyType_1);
+            while (rs_1_companyType.next()) {
+                companyTypeRLE_type_1 = rs_1_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_1 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopfRLE_type_1;
+
+            ResultSet rs_1_okopf = statement.executeQuery(selectPicklistOKOPF_1);
+            while (rs_1_okopf.next()) {
+                okopfRLE_type_1 = rs_1_okopf.getString("FULLNAME");
+            }
+
+
+            // Get data for type 2 from the database
+            ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
+
+            // if something was received then the while loop will work
+            while (rs_2.next()) {
+                accountNameRLE_type_2 = rs_2.getString("ACCOUNTNAME");
+                akaRLE_type_2 = rs_2.getString("AKA");
+                engNameRLE_type_2 = rs_2.getString("ENGNAME");
+                engNameShortRLE_type_2 = rs_2.getString("ENGNAMESHORT");
+                codeOkfsRLE_type_2 = rs_2.getInt("OKFS");
+                codeCompanyTypeRLE_type_2 = rs_2.getString("COMPANYTYPE");
+                codeOkopfRLE_type_2 = rs_2.getInt("OKOPF");
+                jurisdictionRLE_type_2 = rs_2.getString("JURISDICTION");
+                isRegOffshorZoneRLE_type_2 = rs_2.getString("ISREGOFFSHORZONE");
+                innRLE_type_2 = rs_2.getString("INN");
+                swiftRLE_type_2 = rs_2.getString("SWIFT");
+                kioRLE_type_2 = rs_2.getString("KIO");
+                okatoRLE_type_2 = rs_2.getString("OKATO");
+                oktmoRLE_type_2 = rs_2.getString("OKTMO");
+                okpoRLE_type_2 = rs_2.getString("OKPO");
+                okoguRLE_type_2 = rs_2.getString("OKOGU");
+            }
+
+            String selectPicklistOKFS_2 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfsRLE_type_2;
+
+            ResultSet rs_2_okfs = statement.executeQuery(selectPicklistOKFS_2);
+            while (rs_2_okfs.next()) {
+                okfsRLE_type_2 = rs_2_okfs.getString("SHORTNAME");
+            }
+
+            String selectPicklistCompanyType_2 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyTypeRLE_type_2 + "'";
+
+            ResultSet rs_2_companyType = statement.executeQuery(selectPicklistCompanyType_2);
+            while (rs_2_companyType.next()) {
+                companyTypeRLE_type_2 = rs_2_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_2 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopfRLE_type_2;
+
+            ResultSet rs_2_okopf = statement.executeQuery(selectPicklistOKOPF_2);
+            while (rs_2_okopf.next()) {
+                okopfRLE_type_2 = rs_2_okopf.getString("FULLNAME");
+            }
+
+
+            // Get data for type 3 from the database
+            ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
+
+            // if something was received then the while loop will work
+            while (rs_3.next()) {
+                accountNameRLE_type_3 = rs_3.getString("ACCOUNTNAME");
+                akaRLE_type_3 = rs_3.getString("AKA");
+                engNameRLE_type_3 = rs_3.getString("ENGNAME");
+                engNameShortRLE_type_3 = rs_3.getString("ENGNAMESHORT");
+                codeOkfsRLE_type_3 = rs_3.getInt("OKFS");
+                codeCompanyTypeRLE_type_3 = rs_3.getString("COMPANYTYPE");
+                codeOkopfRLE_type_3 = rs_3.getInt("OKOPF");
+                jurisdictionRLE_type_3 = rs_3.getString("JURISDICTION");
+                isRegOffshorZoneRLE_type_3 = rs_3.getString("ISREGOFFSHORZONE");
+                innRLE_type_3 = rs_3.getString("INN");
+                swiftRLE_type_3 = rs_3.getString("SWIFT");
+                kioRLE_type_3 = rs_3.getString("KIO");
+                okatoRLE_type_3 = rs_3.getString("OKATO");
+                oktmoRLE_type_3 = rs_3.getString("OKTMO");
+                okpoRLE_type_3 = rs_3.getString("OKPO");
+                okoguRLE_type_3 = rs_3.getString("OKOGU");
+            }
+
+            String selectPicklistOKFS_3 = "select shortname " +
+                    "from fb_okfs " +
+                    "where code = " + codeOkfsRLE_type_3;
+
+            ResultSet rs_3_okfs = statement.executeQuery(selectPicklistOKFS_3);
+            while (rs_3_okfs.next()) {
+                okfsRLE_type_3 = rs_3_okfs.getString("SHORTNAME");
+            }
+
+            String selectPicklistCompanyType_3 = "select pl.text " +
+                    "from picklist pl " +
+                    "where pl.picklistid = 'k6UJ9A000FPX' " +
+                    "AND pl.shorttext = '" + codeCompanyTypeRLE_type_3 + "'";
+
+            ResultSet rs_3_companyType = statement.executeQuery(selectPicklistCompanyType_3);
+            while (rs_3_companyType.next()) {
+                companyTypeRLE_type_3 = rs_3_companyType.getString("TEXT");
+            }
+
+            String selectPicklistOKOPF_3 = "select fullname " +
+                    "from fb_okopf " +
+                    "where code = " + codeOkopfRLE_type_3;
+
+            ResultSet rs_3_okopf = statement.executeQuery(selectPicklistOKOPF_3);
+            while (rs_3_okopf.next()) {
+                okopfRLE_type_3 = rs_3_okopf.getString("FULLNAME");
+            }
+
+            connection.close();
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        //Comparison of data from a Web service with data from a database.
+        if(Objects.equals(test_CODE_FACE, DataComparison.compareData(codeFace_type_1, codeFace_type_2, codeFace_type_3))) {
+            System.out.println("CODE_FACE test passed!");
+        }else {
+            System.out.println("CODE_FACE test failed! - X");
+        }
+
+        if(Objects.equals(test_ACCOUNTNAME_RLE, DataComparison.compareData(accountNameRLE_type_1, accountNameRLE_type_2, accountNameRLE_type_3))) {
+            System.out.println("ACCOUNTNAME test passed!");
+        }else {
+            System.out.println("ACCOUNTNAME test failed! - X");
+        }
+
+        if(Objects.equals(test_AKA_RLE, DataComparison.compareData(akaRLE_type_1, akaRLE_type_2, akaRLE_type_3))) {
+            System.out.println("AKA test passed!");
+        }else {
+            System.out.println("AKA test failed! - X");
+        }
+
+        if(Objects.equals(test_ENGNAME_RLE, DataComparison.compareData(engNameRLE_type_1, engNameRLE_type_2, engNameRLE_type_3))) {
+            System.out.println("ENGNAME test passed!");
+        }else {
+            System.out.println("ENGNAME test failed! - X");
+        }
+
+        if(Objects.equals(test_ENGNAMESHORT_RLE, DataComparison.compareData(engNameShortRLE_type_1, engNameShortRLE_type_2, engNameShortRLE_type_3))) {
+            System.out.println("ENGNAMESHORT test passed!");
+        }else {
+            System.out.println("ENGNAMESHORT test failed! - X");
+        }
+
+        if(Objects.equals(test_OKFS_RLE, DataComparison.compareData(okfsRLE_type_1, okfsRLE_type_2, okfsRLE_type_3))) {
+            System.out.println("OKFS test passed!");
+        }else {
+            System.out.println("OKFS test failed! - X");
+        }
+
+        if(Objects.equals(test_COMPANYTYPE_RLE, DataComparison.compareData(companyTypeRLE_type_1, companyTypeRLE_type_2, companyTypeRLE_type_3))) {
+            System.out.println("COMPANYTYPE test passed!");
+        }else {
+            System.out.println("COMPANYTYPE test failed! - X");
+        }
+
+        if(Objects.equals(test_OKOPF_RLE, DataComparison.compareData(okopfRLE_type_1, okopfRLE_type_2, okopfRLE_type_3))) {
+            System.out.println("OKOPF test passed!");
+        }else {
+            System.out.println("OKOPF test failed! - X");
+        }
+
+        if(Objects.equals(test_JURISDICTION_RLE, DataComparison.compareData(jurisdictionRLE_type_1, jurisdictionRLE_type_2, jurisdictionRLE_type_3))) {
+            System.out.println("JURISDICTION test passed!");
+        }else {
+            System.out.println("JURISDICTION test failed! - X");
+        }
+
+        if(Objects.equals(test_ISREGOFFSHORZONE_RLE, DataComparison.compareData(isRegOffshorZoneRLE_type_1, isRegOffshorZoneRLE_type_2, isRegOffshorZoneRLE_type_3))) {
+            System.out.println("ISREGOFFSHORZONE test passed!");
+        }else {
+            System.out.println("ISREGOFFSHORZONE test failed! - X");
+        }
+
+        if(Objects.equals(test_INN_RLE, DataComparison.compareData(innRLE_type_1, innRLE_type_2, innRLE_type_3))) {
+            System.out.println("INN test passed!");
+        }else {
+            System.out.println("INN test failed! - X");
+        }
+
+        if(Objects.equals(test_CODE_KPP_RLE, DataComparison.compareData(codeKPPRLE_type_1, codeKPPRLE_type_2, codeKPPRLE_type_3))) {
+            System.out.println("CODE_KPP test passed!");
+        }else {
+            System.out.println("CODE_KPP test failed! - X");
+        }
+
+        if(Objects.equals(test_SWIFT_RLE, DataComparison.compareData(swiftRLE_type_1, swiftRLE_type_2, swiftRLE_type_3))) {
+            System.out.println("SWIFT test passed!");
+        }else {
+            System.out.println("SWIFT test failed! - X");
+        }
+
+        if(Objects.equals(test_KIO_RLE, DataComparison.compareData(kioRLE_type_1, kioRLE_type_2, kioRLE_type_3))) {
+            System.out.println("KIO test passed!");
+        }else {
+            System.out.println("KIO test failed! - X");
+        }
+
+        if(Objects.equals(test_OKATO_RLE, DataComparison.compareData(okatoRLE_type_1, okatoRLE_type_2, okatoRLE_type_3))) {
+            System.out.println("OKATO test passed!");
+        }else {
+            System.out.println("OKATO test failed! - X");
+        }
+
+        if(Objects.equals(test_OKTMO_RLE, DataComparison.compareData(oktmoRLE_type_1, oktmoRLE_type_2, oktmoRLE_type_3))) {
+            System.out.println("OKTMO test passed!");
+        }else {
+            System.out.println("OKTMO test failed! - X");
+        }
+
+        if(Objects.equals(test_OKPO_RLE, DataComparison.compareData(okpoRLE_type_1, okpoRLE_type_2, okpoRLE_type_3))) {
+            System.out.println("OKPO test passed!");
+        }else {
+            System.out.println("OKPO test failed! - X");
+        }
+
+        if(Objects.equals(test_OKOGU_RLE, DataComparison.compareData(okoguRLE_type_1, okoguRLE_type_2, okoguRLE_type_3))) {
+            System.out.println("OKOGU test passed!");
+        }else {
+            System.out.println("OKOGU test failed! - X");
+        }
+
+        System.out.println("----------------------------");
+
+    }
+
+
+    @Test (groups = {"regress"},
+            dependsOnMethods = "complianceRelatedLegalEntities",
+            alwaysRun = true,
+            retryAnalyzer = Rerty.class)
     public void complianceTaxAccounting() {
 
         System.out.println();
@@ -2238,5 +2892,534 @@ public class TestSF_ComplianceWEB_DBData {
 
         System.out.println("----------------------------");
 
+    }
+
+
+    @Test (groups = {"regress"},
+            dependsOnMethods = "complianceOtherChangesInDoc",
+            alwaysRun = true,
+            retryAnalyzer = Rerty.class)
+    public void complianceOKVED() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance OKVED is starting...");
+
+        try {
+
+            // Select the OKVED tab
+            WebElement OKVEDTab = driver.findElement(By.xpath(XpathOKVED.OKVED_TAB));
+            OKVEDTab.click();
+            Thread.sleep(2000);
+
+            // Disclose data on the OKVED - " V "
+            WebElement openOKVED = driver.findElement(By.xpath(XpathOKVED.OPEN_OKVED));
+            openOKVED.click();
+            Thread.sleep(3000);
+
+            // Get data of the OKVED type
+            WebElement field_CODE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODE_OKVED));
+            test_CODE_OKVED = field_CODE_OKVED.getAttribute("value");
+
+            WebElement field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED));
+            test_CODENAME_OKVED = field_CODENAME_OKVED.getAttribute("value");
+
+            WebElement field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED));
+            test_BEGINDATE_OKVED = field_BEGINDATE_OKVED.getAttribute("value");
+
+            WebElement field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED));
+            test_ENDDATE_OKVED = field_ENDDATE_OKVED.getAttribute("value");
+
+            WebElement field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED));
+            test_ISPRIMARY_OKVED = field_ISPRIMARY_OKVED.getAttribute("value");
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("---------------");
+        System.out.println(test_CODE_OKVED);
+        System.out.println(test_CODENAME_OKVED);
+        System.out.println(test_BEGINDATE_OKVED);
+        System.out.println(test_ENDDATE_OKVED);
+        System.out.println(test_ISPRIMARY_OKVED);
+        System.out.println("---------------");
+
+        try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+
+            String selectTableSQLForType_1_okved = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.CODENAME, " +
+                    "fbpomcode.BEGINDATE, " +
+                    "fbpomcode.ENDDATE, " +
+                    "fbpomcode.ISPRIMARY " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '1' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.code = '" + test_CODE_OKVED + "'";
+
+            String selectTableSQLForType_2_okved = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.CODENAME, " +
+                    "fbpomcode.BEGINDATE, " +
+                    "fbpomcode.ENDDATE, " +
+                    "fbpomcode.ISPRIMARY " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '2' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.code = '" + test_CODE_OKVED + "'";
+
+            String selectTableSQLForType_3_okved = "SELECT fbpomcode.CODE, " +
+                    "fbpomcode.CODENAME, " +
+                    "fbpomcode.BEGINDATE, " +
+                    "fbpomcode.ENDDATE, " +
+                    "fbpomcode.ISPRIMARY " +
+                    "FROM sysdba.fb_productordmemb_code fbpomcode " +
+                    "INNER JOIN sysdba.fb_productordmemb_data fbpomd " +
+                    "ON fbpomcode.fb_productordmemb_dataid = fbpomd.fb_productordmemb_dataid " +
+                    "INNER JOIN sysdba.fb_productordermember fbpom " +
+                    "ON fbpomd.fb_productordermemberid = fbpom.fb_productordermemberid " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "'" +
+                    "AND fbpomd.MEMBERDATATYPE = '3' " +
+                    "AND fbpomd.isprimary = 'T' " +
+                    "AND fbpomcode.code = '" + test_CODE_OKVED + "'";
+
+            Statement statement = connection.createStatement();
+
+            // Get Tax data for type 1 from the database
+            ResultSet rs_okved_1 = statement.executeQuery(selectTableSQLForType_1_okved);
+
+            // if something was received then the while loop will work
+            while (rs_okved_1.next()) {
+                codeOKVED_type_1 = rs_okved_1.getString("CODE");
+                codeNameOKVED_type_1 = rs_okved_1.getString("CODENAME");
+                beginDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("BEGINDATE"));
+                endDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("ENDDATE"));
+                isPrimaryOKVED_type_1 = DataConversion.booleanConversion(rs_okved_1.getString("ISPRIMARY"));
+            }
+
+            // Get Tax data for type 2 from the database
+            ResultSet rs_okved_2 = statement.executeQuery(selectTableSQLForType_2_okved);
+
+            // if something was received then the while loop will work
+            while (rs_okved_2.next()) {
+                codeOKVED_type_2 = rs_okved_2.getString("CODE");
+                codeNameOKVED_type_2 = rs_okved_2.getString("CODENAME");
+                beginDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("BEGINDATE"));
+                endDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("ENDDATE"));
+                isPrimaryOKVED_type_2 = DataConversion.booleanConversion(rs_okved_2.getString("ISPRIMARY"));
+            }
+
+            // Get Tax data for type 3 from the database
+            ResultSet rs_okved_3 = statement.executeQuery(selectTableSQLForType_3_okved);
+
+            // if something was received then the while loop will work
+            while (rs_okved_3.next()) {
+                codeOKVED_type_3 = rs_okved_3.getString("CODE");
+                codeNameOKVED_type_3 = rs_okved_3.getString("CODENAME");
+                beginDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("BEGINDATE"));
+                endDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("ENDDATE"));
+                isPrimaryOKVED_type_3 = DataConversion.booleanConversion(rs_okved_3.getString("ISPRIMARY"));
+            }
+
+            connection.close();
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        if(Objects.equals(test_CODE_OKVED, DataComparison.compareData(codeOKVED_type_1, codeOKVED_type_2, codeOKVED_type_3))) {
+            System.out.println("CODE_OKVED test passed!");
+        }else {
+            System.out.println("CODE_OKVED test failed! - X");
+        }
+
+        if(Objects.equals(test_CODENAME_OKVED, DataComparison.compareData(codeNameOKVED_type_1, codeNameOKVED_type_2, codeNameOKVED_type_3))) {
+            System.out.println("CODENAME_OKVED test passed!");
+        }else {
+            System.out.println("CODENAME_OKVED test failed! - X");
+        }
+
+        if(Objects.equals(test_BEGINDATE_OKVED, DataComparison.compareData(beginDateOKVED_type_1, beginDateOKVED_type_2, beginDateOKVED_type_3))) {
+            System.out.println("BEGINDATE_OKVED test passed!");
+        }else {
+            System.out.println("BEGINDATE_OKVED test failed! - X");
+        }
+
+        if(Objects.equals(test_ENDDATE_OKVED, DataComparison.compareData(endDateOKVED_type_1, endDateOKVED_type_2, endDateOKVED_type_3))) {
+            System.out.println("ENDDATE_OKVED test passed!");
+        }else {
+            System.out.println("ENDDATE_OKVED test failed! - X");
+        }
+
+        if(Objects.equals(test_ISPRIMARY_OKVED, DataComparison.compareData(isPrimaryOKVED_type_1, isPrimaryOKVED_type_2, isPrimaryOKVED_type_3))) {
+            System.out.println("ISPRIMARY_OKVED test passed!");
+        }else {
+            System.out.println("ISPRIMARY_OKVED test failed! - X");
+        }
+
+        System.out.println("----------------------------");
+
+    }
+
+
+    @Test (groups = {"regress"},
+            dependsOnMethods = "complianceOKVED",
+            alwaysRun = true,
+            retryAnalyzer = Rerty.class)
+    public void complianceUpdatingOtherInformation() {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Test compliance Updating Other Information is starting...");
+
+        try {
+
+            // Select the Updating Other Information tab
+            WebElement updatingOtherInformationTab = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.UPDATING_OTHER_INFORMATION_TAB));
+            updatingOtherInformationTab.click();
+            Thread.sleep(2000);
+
+            WebElement field_ISREGOFFSHORZONE = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_ISREGOFFSHORZONE));
+            test_ISREGOFFSHORZONE = field_ISREGOFFSHORZONE.getAttribute("value");
+
+            WebElement field_OKPO = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKPO));
+            test_OKPO = field_OKPO.getAttribute("value");
+
+            WebElement field_OKOGU = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKOGU));
+            test_OKOGU = field_OKOGU.getAttribute("value");
+
+            WebElement field_SWIFT = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_SWIFT));
+            test_SWIFT = field_SWIFT.getAttribute("value");
+
+            WebElement field_EIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_EIN));
+            test_EIN = field_EIN.getAttribute("value");
+
+            WebElement field_GIIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_GIIN));
+            test_GIIN = field_GIIN.getAttribute("value");
+
+            WebElement field_FATCADOCW9 = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOCW9));
+            test_FATCADOCW9 = field_FATCADOCW9.getAttribute("value");
+
+            WebElement field_FATCADOC = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOC));
+            test_FATCADOC = field_FATCADOC.getAttribute("value");
+
+            WebElement field_DISREGARDED = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_DISREGARDED));
+            test_DISREGARDED = field_DISREGARDED.getAttribute("value");
+
+            WebElement field_FATCASTATUS = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_FATCASTATUS));
+            test_FATCASTATUS = field_FATCASTATUS.getAttribute("value");
+
+            // Disclose data on the CRS - " V "
+            WebElement openCRS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.OPEN_CRS));
+            openCRS.click();
+            Thread.sleep(3000);
+
+            WebElement field_CRS_NALOG_RESIDENCE = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NALOG_RESIDENCE));
+            test_CRS_NALOG_RESIDENCE = field_CRS_NALOG_RESIDENCE.getAttribute("value");
+
+            WebElement field_CRS_IINN_TYPE = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_TYPE));
+            test_CRS_IINN_TYPE = field_CRS_IINN_TYPE.getAttribute("value");
+
+            WebElement field_CRS_IINN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN));
+            test_CRS_IINN = field_CRS_IINN.getAttribute("value");
+
+            WebElement field_CRS_NO_IINN_CODE = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_CODE));
+            test_CRS_NO_IINN_CODE = field_CRS_NO_IINN_CODE.getAttribute("value");
+
+            WebElement field_CRS_NO_IINN_REASON = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_REASON));
+            test_CRS_NO_IINN_REASON = field_CRS_NO_IINN_REASON.getAttribute("value");
+
+            WebElement field_CRS_DATE_BEGIN = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_BEGIN));
+            test_CRS_DATE_BEGIN = field_CRS_DATE_BEGIN.getAttribute("value");
+
+            WebElement field_CRS_DATE_END = driver.findElement(By
+                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_END));
+            test_CRS_DATE_END = field_CRS_DATE_END.getAttribute("value");
+
+            WebElement field_CRS_STATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_STATUS));
+            test_CRS_STATUS = field_CRS_STATUS.getAttribute("value");
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("---------------");
+        System.out.println(test_ISREGOFFSHORZONE);
+        System.out.println(test_OKPO);
+        System.out.println(test_OKOGU);
+        System.out.println(test_SWIFT);
+        System.out.println(test_EIN);
+        System.out.println(test_GIIN);
+        System.out.println(test_FATCADOCW9);
+        System.out.println(test_FATCADOC);
+        System.out.println(test_DISREGARDED);
+        System.out.println(test_FATCASTATUS);
+        System.out.println(test_CRS_NALOG_RESIDENCE);
+        System.out.println(test_CRS_IINN_TYPE);
+        System.out.println(test_CRS_IINN);
+        System.out.println(test_CRS_NO_IINN_CODE);
+        System.out.println(test_CRS_NO_IINN_REASON);
+        System.out.println(test_CRS_DATE_BEGIN);
+        System.out.println(test_CRS_DATE_END);
+        System.out.println(test_CRS_STATUS);
+        System.out.println("---------------");
+
+        try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+
+            String selectTableSQLForType_1 = "SELECT fbpomd.ISREGOFFSHORZONE, " +
+                    "fbpomd.OKPO, " +
+                    "fbpomd.OKOGU, " +
+                    "fbpomd.SWIFT, " +
+                    "fbpomd.EIN, " +
+                    "fbpomd.GIIN, " +
+                    "fbpomd.FATCADOCW9, " +
+                    "fbpomd.FATCADOC, " +
+                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.FATCASTATUS " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = '1' " +
+                    "AND fbpomd.ISPRIMARY = 'T' ";
+
+            String selectTableSQLForType_2 = "SELECT fbpomd.ISREGOFFSHORZONE, " +
+                    "fbpomd.OKPO, " +
+                    "fbpomd.OKOGU, " +
+                    "fbpomd.SWIFT, " +
+                    "fbpomd.EIN, " +
+                    "fbpomd.GIIN, " +
+                    "fbpomd.FATCADOCW9, " +
+                    "fbpomd.FATCADOC, " +
+                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.FATCASTATUS " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = '2' " +
+                    "AND fbpomd.ISPRIMARY = 'T' ";
+
+            String selectTableSQLForType_3 = "SELECT fbpomd.ISREGOFFSHORZONE, " +
+                    "fbpomd.OKPO, " +
+                    "fbpomd.OKOGU, " +
+                    "fbpomd.SWIFT, " +
+                    "fbpomd.EIN, " +
+                    "fbpomd.GIIN, " +
+                    "fbpomd.FATCADOCW9, " +
+                    "fbpomd.FATCADOC, " +
+                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.FATCASTATUS " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.PRODUCTORDERNUMBER = '" + productOrderNumber + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = '3' " +
+                    "AND fbpomd.ISPRIMARY = 'T' ";
+
+            Statement statement = connection.createStatement();
+
+            // Get data for type 1 from the database
+            ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);
+
+            // if something was received then the while loop will work
+            while (rs_1.next()) {
+                isRegOffshorZone_type_1 = DataConversion.booleanConversion(rs_1.getString("ISREGOFFSHORZONE"));
+                okpo_type_1 = rs_1.getString("OKPO");
+                okogu_type_1 = rs_1.getString("OKOGU");
+                swift_type_1 = rs_1.getString("SWIFT");
+                ein_type_1 = rs_1.getString("EIN");
+                giin_type_1 = rs_1.getString("GIIN");
+                fatcaDocW9_type_1 = DataConversion.booleanConversion(rs_1.getString("FATCADOCW9"));
+                fatcaDoc_type_1 = DataConversion.booleanConversion(rs_1.getString("FATCADOC"));
+                disregarded_type_1 = rs_1.getString("DISREGARDED");
+                fatcaStatus_type_1 = rs_1.getString("FATCASTATUS");
+            }
+
+            // Get data for type 2 from the database
+            ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
+
+            // if something was received then the while loop will work
+            while (rs_2.next()) {
+                isRegOffshorZone_type_2 = DataConversion.booleanConversion(rs_2.getString("ISREGOFFSHORZONE"));
+                okpo_type_2 = rs_2.getString("OKPO");
+                okogu_type_2 = rs_2.getString("OKOGU");
+                swift_type_2 = rs_2.getString("SWIFT");
+                ein_type_2 = rs_2.getString("EIN");
+                giin_type_2 = rs_2.getString("GIIN");
+                fatcaDocW9_type_2 = DataConversion.booleanConversion(rs_2.getString("FATCADOCW9"));
+                fatcaDoc_type_2 = DataConversion.booleanConversion(rs_2.getString("FATCADOC"));
+                disregarded_type_2 = rs_2.getString("DISREGARDED");
+                fatcaStatus_type_2 = rs_2.getString("FATCASTATUS");
+            }
+
+            // Get data for type 3 from the database
+            ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
+
+            // if something was received then the while loop will work
+            while (rs_3.next()) {
+                isRegOffshorZone_type_3 = DataConversion.booleanConversion(rs_3.getString("ISREGOFFSHORZONE"));
+                okpo_type_3 = rs_3.getString("OKPO");
+                okogu_type_3 = rs_3.getString("OKOGU");
+                swift_type_3 = rs_3.getString("SWIFT");
+                ein_type_3 = rs_3.getString("EIN");
+                giin_type_3 = rs_3.getString("GIIN");
+                fatcaDocW9_type_3 = DataConversion.booleanConversion(rs_3.getString("FATCADOCW9"));
+                fatcaDoc_type_3 = DataConversion.booleanConversion(rs_3.getString("FATCADOC"));
+                disregarded_type_3 = rs_3.getString("DISREGARDED");
+                fatcaStatus_type_3 = rs_3.getString("FATCASTATUS");
+            }
+            connection.close();
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        //Comparison of data from a Web service with data from a database.
+        if(Objects.equals(test_ISREGOFFSHORZONE, DataComparison.compareData(isRegOffshorZone_type_1, isRegOffshorZone_type_2, isRegOffshorZone_type_3))) {
+            System.out.println("ISREGOFFSHORZONE test passed!");
+        }else {
+            System.out.println("ISREGOFFSHORZONE test failed! - X");
+        }
+
+        if(Objects.equals(test_OKPO, DataComparison.compareData(okpo_type_1, okpo_type_2, okpo_type_3))) {
+            System.out.println("OKPO test passed!");
+        }else {
+            System.out.println("OKPO test failed! - X");
+        }
+
+        if(Objects.equals(test_OKOGU, DataComparison.compareData(okogu_type_1, okogu_type_2, okogu_type_3))) {
+            System.out.println("OKOGU test passed!");
+        }else {
+            System.out.println("OKOGU test failed! - X");
+        }
+
+        if(Objects.equals(test_SWIFT, DataComparison.compareData(swift_type_1, swift_type_2, swift_type_3))) {
+            System.out.println("SWIFT test passed!");
+        }else {
+            System.out.println("SWIFT test failed! - X");
+        }
+
+        if(Objects.equals(test_EIN, DataComparison.compareData(ein_type_1, ein_type_2, ein_type_3))) {
+            System.out.println("EIN test passed!");
+        }else {
+            System.out.println("EIN test failed! - X");
+        }
+
+        if(Objects.equals(test_GIIN, DataComparison.compareData(giin_type_1, giin_type_2, giin_type_3))) {
+            System.out.println("GIIN test passed!");
+        }else {
+            System.out.println("GIIN test failed! - X");
+        }
+
+        if(Objects.equals(test_FATCADOCW9, DataComparison.compareData(fatcaDocW9_type_1, fatcaDocW9_type_2, fatcaDocW9_type_3))) {
+            System.out.println("FATCADOCW9 test passed!");
+        }else {
+            System.out.println("FATCADOCW9 test failed! - X");
+        }
+
+        if(Objects.equals(test_FATCADOC, DataComparison.compareData(fatcaDoc_type_1, fatcaDoc_type_2, fatcaDoc_type_3))) {
+            System.out.println("FATCADOC test passed!");
+        }else {
+            System.out.println("FATCADOC test failed! - X");
+        }
+
+        if(Objects.equals(test_DISREGARDED, DataComparison.compareData(disregarded_type_1, disregarded_type_2, disregarded_type_3))) {
+            System.out.println("DISREGARDED test passed!");
+        }else {
+            System.out.println("DISREGARDED test failed! - X");
+        }
+
+        if(Objects.equals(test_FATCASTATUS, DataComparison.compareData(fatcaStatus_type_1, fatcaStatus_type_2, fatcaStatus_type_3))) {
+            System.out.println("FATCASTATUS test passed!");
+        }else {
+            System.out.println("FATCASTATUS test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_NALOG_RESIDENCE, DataComparison.compareData(crsNalogResidence_type_1, crsNalogResidence_type_2, crsNalogResidence_type_3))) {
+            System.out.println("CRS_NALOG_RESIDENCE test passed!");
+        }else {
+            System.out.println("CRS_NALOG_RESIDENCE test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_IINN_TYPE, DataComparison.compareData(crsIINNType_type_1, crsIINNType_type_2, crsIINNType_type_3))) {
+            System.out.println("CRS_IINN_TYPE test passed!");
+        }else {
+            System.out.println("CRS_IINN_TYPE test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_IINN, DataComparison.compareData(crsIINN_type_1, crsIINN_type_2, crsIINN_type_3))) {
+            System.out.println("CRS_IINN test passed!");
+        }else {
+            System.out.println("CRS_IINN test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_NO_IINN_CODE, DataComparison.compareData(crsNoIINNCode_type_1, crsNoIINNCode_type_2, crsNoIINNCode_type_3))) {
+            System.out.println("CRS_NO_IINN_CODE test passed!");
+        }else {
+            System.out.println("CRS_NO_IINN_CODE test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_NO_IINN_REASON, DataComparison.compareData(crsNoIINNReason_type_1, crsNoIINNReason_type_2, crsNoIINNReason_type_3))) {
+            System.out.println("CRS_NO_IINN_REASON test passed!");
+        }else {
+            System.out.println("CRS_NO_IINN_REASON test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_DATE_BEGIN, DataComparison.compareData(crsDateBegin_type_1, crsDateBegin_type_2, crsDateBegin_type_3))) {
+            System.out.println("CRS_DATE_BEGIN test passed!");
+        }else {
+            System.out.println("CRS_DATE_BEGIN test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_DATE_END, DataComparison.compareData(crsDateEnd_type_1, crsDateEnd_type_2, crsDateEnd_type_3))) {
+            System.out.println("CRS_DATE_END test passed!");
+        }else {
+            System.out.println("CRS_DATE_END test failed! - X");
+        }
+
+        if(Objects.equals(test_CRS_STATUS, DataComparison.compareData(crsStatus_type_1, crsStatus_type_2, crsStatus_type_3))) {
+            System.out.println("CRS_STATUS test passed!");
+        }else {
+            System.out.println("CRS_STATUS test failed! - X");
+        }
+
+        System.out.println("----------------------------");
     }
 }
