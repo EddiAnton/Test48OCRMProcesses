@@ -1,4 +1,4 @@
-package Tests_8092;
+package Tests_8093;
 
 import Services.DataComparison;
 import Services.Rerty;
@@ -15,10 +15,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class TestAddressesOfCompany {
-    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
+public class TestSF_AddressesOfCompany {
+    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 
     String userName = "Admin";
+    String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC-TSP";
 
     String productOrderNumber = null;
@@ -88,7 +89,7 @@ public class TestAddressesOfCompany {
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
             driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
@@ -101,6 +102,10 @@ public class TestAddressesOfCompany {
             WebElement inputUserName = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
+
+            WebElement inputPassword = driver.findElement(By
+                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
+            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
@@ -242,6 +247,7 @@ public class TestAddressesOfCompany {
         System.out.println("---------------");
 
         try {
+
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
 
@@ -335,6 +341,8 @@ public class TestAddressesOfCompany {
                     "AND fbpomd.MEMBERDATATYPE = '3'" +
                     "AND fbpomd.ISPRIMARY = 'T'" +
                     "AND fbpomad.ADDRESSTYPE = '" + codeAddressType + "'";
+
+
 
             // Get data for type 1 from the database
             ResultSet rs_1 = statement.executeQuery(selectTableSQLForType_1);

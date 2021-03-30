@@ -1,4 +1,4 @@
-package Tests_8093;
+package Tests_8092;
 
 import Services.DataComparison;
 import Services.DateReplace;
@@ -16,11 +16,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class TestRelatedPrivatEntities {
-    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
+public class TestSF_RelatedPrivatEntities {
+    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
     String userName = "Admin";
-    String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC-TSP";
 
     String productOrderNumber = null;
@@ -70,7 +69,7 @@ public class TestRelatedPrivatEntities {
         WebDriver driver = new ChromeDriver();
         try {
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
             driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
@@ -83,10 +82,6 @@ public class TestRelatedPrivatEntities {
             WebElement inputUserName = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
-
-            WebElement inputPassword = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
-            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
@@ -359,9 +354,9 @@ public class TestRelatedPrivatEntities {
         }
 
         if(Objects.equals(test_CITIZENSHIP, DataComparison.compareData(citizenship_type_1, citizenship_type_2, citizenship_type_3))) {
-            System.out.println("COUNTRY test passed!");
+            System.out.println("CITIZENSHIP test passed!");
         }else {
-            System.out.println("COUNTRY test failed! - X");
+            System.out.println("CITIZENSHIP test failed! - X");
         }
 
         System.out.println("----------------------------");

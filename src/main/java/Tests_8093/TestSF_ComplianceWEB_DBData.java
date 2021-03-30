@@ -15,7 +15,7 @@ import java.sql.Statement;
 import java.util.Objects;
 
 @Test
-public class TestComplianceWEB_DBData {
+public class TestSF_ComplianceWEB_DBData {
 
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 

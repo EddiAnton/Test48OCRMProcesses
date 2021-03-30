@@ -19,7 +19,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Tests_8093.TestComplianceWEB_DBData"></class>
+            <class name="Tests_8093.TestSF_ComplianceWEB_DBData"></class>
         </classes>
     </test>
     <test name="RegressionTests_8092_Contour">
@@ -29,7 +29,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Tests_8092.TestComplianceWEB_DBData"></class>
+            <class name="Tests_8092.TestSF_ComplianceWEB_DBData"></class>
         </classes>
     </test>
 </suite>
@@ -59,34 +59,34 @@ ____________________________________________________________________________
 </test>
 <test name="RegressionTests_8093_Contour">
     <classes>
-        <class name="Tests_8093.TestComplianceWEB_DBData"></class>
-        <class name="Tests_8093.TestNameOfCompany"></class>
-        <class name="Tests_8093.TestLicense"></class>
-        <class name="Tests_8093.TestAddressesOfCompany"></class>
-        <class name="Tests_8093.TestContacts"></class>
-        <class name="Tests_8093.TestGoverningBodies"></class>
-        <class name="Tests_8093.TestOKVED"></class>
-        <class name="Tests_8093.TestOtherChangesInDoc"></class>
-        <class name="Tests_8093.TestRelatedLegalEntities"></class>
-        <class name="Tests_8093.TestRelatedPrivatEntities"></class>
-        <class name="Tests_8093.TestTaxAccounting"></class>
-        <class name="Tests_8093.TestUpdatingOtherInformation"></class>
+        <class name="Tests_8093.TestSF_ComplianceWEB_DBData"></class>
+        <class name="Tests_8093.TestSF_NameOfCompany"></class>
+        <class name="Tests_8093.TestSF_License"></class>
+        <class name="Tests_8093.TestSF_AddressesOfCompany"></class>
+        <class name="Tests_8093.TestSF_Contacts"></class>
+        <class name="Tests_8093.TestSF_GoverningBodies"></class>
+        <class name="Tests_8093.TestSF_OKVED"></class>
+        <class name="Tests_8093.TestSF_OtherChangesInDoc"></class>
+        <class name="Tests_8093.TestSF_RelatedLegalEntities"></class>
+        <class name="Tests_8093.TestSF_RelatedPrivatEntities"></class>
+        <class name="Tests_8093.TestSF_TaxAccounting"></class>
+        <class name="Tests_8093.TestSF_UpdatingOtherInformation"></class>
     </classes>
 </test>
 <test name="RegressionTests_8092_Contour">
     <classes>
-        <class name="Tests_8092.TestComplianceWEB_DBData"></class>
-        <class name="Tests_8092.TestNameOfCompany"></class>
-        <class name="Tests_8092.TestLicense"></class>
-        <class name="Tests_8092.TestAddressesOfCompany"></class>
-        <class name="Tests_8092.TestContacts"></class>
-        <class name="Tests_8092.TestGoverningBodies"></class>
-        <class name="Tests_8092.TestOKVED"></class>
-        <class name="Tests_8092.TestOtherChangesInDoc"></class>
-        <class name="Tests_8092.TestRelatedLegalEntities"></class>
-        <class name="Tests_8092.TestRelatedPrivatEntities"></class>
-        <class name="Tests_8092.TestTaxAccounting"></class>
-        <class name="Tests_8092.TestUpdatingOtherInformation"></class>
+        <class name="Tests_8092.TestSF_ComplianceWEB_DBData"></class>
+        <class name="Tests_8092.TestSF_NameOfCompany"></class>
+        <class name="Tests_8092.TestSF_License"></class>
+        <class name="Tests_8092.TestSF_AddressesOfCompany"></class>
+        <class name="Tests_8092.TestSF_Contacts"></class>
+        <class name="Tests_8092.TestSF_GoverningBodies"></class>
+        <class name="Tests_8092.TestSF_OKVED"></class>
+        <class name="Tests_8092.TestSF_OtherChangesInDoc"></class>
+        <class name="Tests_8092.TestSF_RelatedLegalEntities"></class>
+        <class name="Tests_8092.TestSF_RelatedPrivatEntities"></class>
+        <class name="Tests_8092.TestSF_TaxAccounting"></class>
+        <class name="Tests_8092.TestSF_UpdatingOtherInformation"></class>
     </classes>
 </test>
 </suite>

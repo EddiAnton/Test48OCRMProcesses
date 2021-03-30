@@ -9,11 +9,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TestOKVED {
+public class TestSF_UpdatingOtherInformation {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
 
-    public void testOKVED() {
+    public void testUpdatingOtherInformation() {
 
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");

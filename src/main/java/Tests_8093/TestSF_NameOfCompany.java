@@ -1,4 +1,4 @@
-package Tests_8092;
+package Tests_8093;
 
 import Services.DataComparison;
 import Services.Rerty;
@@ -15,10 +15,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class TestNameOfCompany {
-    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
+public class TestSF_NameOfCompany {
+    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 
     String userName = "Admin";
+    String password = "4YFDtyiaPpvIbYkehzkG";
     String requestMask = "UC-TSP";
 
     String productOrderNumber = null;
@@ -50,9 +51,11 @@ public class TestNameOfCompany {
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
+
         try {
+
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8092/SlxClient/logoff.aspx");
+            driver.get("http://192.168.1.140:8093/SlxClient/logoff.aspx");
             driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By
@@ -65,6 +68,10 @@ public class TestNameOfCompany {
             WebElement inputUserName = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']"));
             inputUserName.sendKeys(userName);
+
+            WebElement inputPassword = driver.findElement(By
+                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
+            inputPassword.sendKeys(password);
 
             WebElement submitButton = driver.findElement(By
                     .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']"));
@@ -114,7 +121,6 @@ public class TestNameOfCompany {
             // Отрезать "Заявка - "
             String [] splitString = productOrderNumberFull.split(" ");
             productOrderNumber = splitString[2];
-            Thread.sleep(3000);
 
             // Select the Organization Name tab
             WebElement organizationNameTab = driver.findElement(By
@@ -124,19 +130,19 @@ public class TestNameOfCompany {
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[1]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[1]/div[1]/div/div/textarea"));
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
             WebElement field_AKA = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[2]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[2]/div[1]/div/div/textarea"));
             test_AKA = field_AKA.getAttribute("value");
 
             WebElement field_ENGNAME = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[3]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[3]/div[1]/div/div/textarea"));
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
             WebElement field_ENGNAMESHORT = driver.findElement(By
-                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div//div[4]/div[1]/div/div/textarea"));
+                    .xpath("//*[@id='DetailProductOrderChangeComponent']/div[2]/section/div/div/div[4]/div[1]/div/div/textarea"));
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
@@ -231,6 +237,7 @@ public class TestNameOfCompany {
             ex.printStackTrace();
         }
 
+        //Comparison of data from a Web service with data from a database.
         if(Objects.equals(test_ACCOUNTNAME, DataComparison.compareData(accountName_type_1, accountName_type_2, accountName_type_3))) {
             System.out.println("ACCOUNTNAME test passed!");
         }else {

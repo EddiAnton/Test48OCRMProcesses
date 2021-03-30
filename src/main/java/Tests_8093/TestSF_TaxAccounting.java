@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class TestTaxAccounting {
+public class TestSF_TaxAccounting {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx1";
 
     String userName = "Admin";

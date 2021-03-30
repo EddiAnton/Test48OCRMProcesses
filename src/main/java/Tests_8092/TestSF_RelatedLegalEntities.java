@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class TestRelatedLegalEntities {
+public class TestSF_RelatedLegalEntities {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx10";
 
     String userName = "Admin";
