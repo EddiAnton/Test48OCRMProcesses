@@ -128,9 +128,9 @@ public class TestProcessStage_FormationOfApplication_02 {
 
 
             // Get data on the conditions of transition to stage 02 from the DB
-            String selectTableSQLForConditions = "SELECT fbpo.CREATESOURCE, fbpo.URLTESSA" +
+            String selectTableSQLForConditions = "SELECT fbpo.CREATESOURCE, fbpo.URLTESSA " +
                     "FROM SYSDBA.FB_PRODUCTORDER fbpo " +
-                    "WHERE fbpo.FB_PRODUCTORDERID = '" + productOrderNumber + "'";
+                    "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "'";
 
             ResultSet rs_conditions = statement.executeQuery(selectTableSQLForConditions);
             while (rs_conditions.next()) {
