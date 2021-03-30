@@ -24,4 +24,14 @@ public  final class DataConversion {
 
         return productOrderNumber;
     }
+
+    public static String getFB_ProductOrderID(String inputData) {
+
+        String fb_productOrderID = null;
+
+        String [] splitString = inputData.split("=");
+        fb_productOrderID = splitString[1].substring(0, 12);
+
+        return fb_productOrderID;
+    }
 }

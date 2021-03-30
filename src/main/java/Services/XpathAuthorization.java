@@ -30,4 +30,6 @@ public class XpathAuthorization {
 
     public static final String FIELD_PRODUCTORDERNUMBER = "//*[@id='PageTitle']";
 
+    public static final String FIELD_PRODUCTORDER = "//*[@id=\"mainform\"]";
+
 }
