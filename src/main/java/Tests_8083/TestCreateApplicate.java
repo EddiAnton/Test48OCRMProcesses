@@ -33,13 +33,13 @@ public class TestCreateApplicate {
             driver.manage().window().maximize();
 
             WebElement logoffHref = (new WebDriverWait(driver, 10))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.linkText(XpathAuthorization.LOG_OFF_HREF));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.linkText(XpathAuthorization.LOG_OFF_HREF)));
             logoffHref.click();
 
 
             // Authorization in system
             WebElement inputUserName = (new WebDriverWait(driver, 10))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.INPUT_USERNAME));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.INPUT_USERNAME)));
             inputUserName.sendKeys(userName);
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
@@ -47,16 +47,16 @@ public class TestCreateApplicate {
 
             // Enter to "Clients"
             WebElement clientsTab = (new WebDriverWait(driver, 10))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CLIENTS_TAB));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CLIENTS_TAB)));
             clientsTab.click();
 
             // Enter INN in the field to search for a client and confirm your choice
             WebElement inputINN = (new WebDriverWait(driver, 10))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.FIELD_INN_OR_ACCOUNTNAME));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.FIELD_INN_OR_ACCOUNTNAME)));
             inputINN.sendKeys(INN);
 
             WebElement confirmSelected = (new WebDriverWait(driver, 10))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CONFIRM_SELECTED_CUSTOMER));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CONFIRM_SELECTED_CUSTOMER)));
             confirmSelected.click();
 
 
