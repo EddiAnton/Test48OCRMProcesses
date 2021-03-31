@@ -132,8 +132,8 @@ public class TestProcessStage_CurrentApplicationStage {
 
             // Get data on the conditions of current Application Stage from the DB
             String selectTableSQLForConditions = "SELECT fbpo.CREATESOURCE, fbpo.URLTESSA, " +
-                    "fbpo.ISVERIFICATIONNEED " +
-                    "fbpo.RESULTVERIFICATION " +
+                    "fbpo.ISVERIFICATIONNEED, " +
+                    "fbpo.RESULTVERIFICATION, " +
                     "fbpo.RESPONSESTATUSCFT " +
                     "FROM SYSDBA.FB_PRODUCTORDER fbpo " +
                     "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "'";
@@ -168,7 +168,7 @@ public class TestProcessStage_CurrentApplicationStage {
         System.out.println("Стадия заявки: " + applicationStage);
         System.out.println("Статус заявки: " + applicationStatus);
 
-        if (applicationStage.equals("01 Создание заявки в Тесса и запрос в ЦФТ/Прайм – Авто")) {
+        if (applicationStage.equals("01 Создание заявки в Тесса и запрос в ЦФТ/Прайм - Авто")) {
 
             if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("В работе")) {
 
