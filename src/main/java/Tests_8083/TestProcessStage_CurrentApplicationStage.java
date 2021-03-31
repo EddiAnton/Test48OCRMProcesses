@@ -31,6 +31,7 @@ public class TestProcessStage_CurrentApplicationStage {
     String urlTessa = null;
     String isVerificationNeed = null;
     int resultVerification;
+    int responseStatusCFT;
 
     @Test
     public void checkApplicationStage() {
@@ -133,6 +134,7 @@ public class TestProcessStage_CurrentApplicationStage {
             String selectTableSQLForConditions = "SELECT fbpo.CREATESOURCE, fbpo.URLTESSA, " +
                     "fbpo.ISVERIFICATIONNEED " +
                     "fbpo.RESULTVERIFICATION " +
+                    "fbpo.RESPONSESTATUSCFT " +
                     "FROM SYSDBA.FB_PRODUCTORDER fbpo " +
                     "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "'";
 
@@ -142,6 +144,7 @@ public class TestProcessStage_CurrentApplicationStage {
                 urlTessa = rs_conditions.getString("URLTESSA");
                 isVerificationNeed = rs_conditions.getString("ISVERIFICATIONNEED");
                 resultVerification = Integer.parseInt(rs_conditions.getString("RESULTVERIFICATION"));
+                responseStatusCFT = Integer.parseInt(rs_conditions.getString("RESPONSESTATUSCFT"));
             }
 
             connection.close();
@@ -252,7 +255,7 @@ public class TestProcessStage_CurrentApplicationStage {
 
             if (typeOfApplicationNumber.equals("TSP") && (applicationStatus.equals("Возврат на доработку") ||
                 applicationStatus.equals("Доработка") || applicationStatus.equals("Ожидание информации от клиента") ||
-                applicationStatus.equals("Отложена")) && resultVerification != 1) {
+                applicationStatus.equals("Отложена")) && resultVerification != 1 && responseStatusCFT != 0) {
 
                 System.out.println("Stage is correct.");
                 System.out.println("Test Current Application Stage  passed!");
@@ -264,6 +267,7 @@ public class TestProcessStage_CurrentApplicationStage {
                 System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
                 System.out.println("Возможные статусы: Возврат на доработку, Доработка, Ожидание информации от клиента, Отложена  ||  " + applicationStatus);
                 System.out.println("Признак RESULTVERIFICATION != 1  ||  " + resultVerification);
+                System.out.println("Признак RESPONSESTATUSCFT != 0  ||  " + responseStatusCFT);
 
             }
 
@@ -272,11 +276,42 @@ public class TestProcessStage_CurrentApplicationStage {
 
         else if (applicationStage.equals("08 Передача данных в ЦФТ – Авто")) {
 
+            if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("Отправка в ЦФТ")) {
+
+                System.out.println("Stage is correct.");
+                System.out.println("Test Current Application Stage  passed!");
+
+            } else {
+
+                System.out.println("Test Current Application Stage failed! - X");
+                System.out.println("Проверьте условия перехода на текущую стадию");
+                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                System.out.println("Возможные статусы: Отправка в ЦФТ  ||  " + applicationStatus);
+
+            }
+
+            System.out.println("---------------");
         }
 
         else if (applicationStage.equals("09 Закрытие заявки – Авто")) {
 
+            if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("Заявка исполнена")
+                && responseStatusCFT == 0) {
+
+                System.out.println("Stage is correct.");
+                System.out.println("Test Current Application Stage  passed!");
+
+            } else {
+
+                System.out.println("Test Current Application Stage failed! - X");
+                System.out.println("Проверьте условия перехода на текущую стадию");
+                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                System.out.println("Возможные статусы: Заявка исполнена  ||  " + applicationStatus);
+                System.out.println("Признак RESPONSESTATUSCFT == 0  ||  " + responseStatusCFT);
+
+            }
+
+            System.out.println("---------------");
         }
     }
-
 }
