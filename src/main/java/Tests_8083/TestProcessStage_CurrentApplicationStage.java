@@ -132,8 +132,8 @@ public class TestProcessStage_CurrentApplicationStage {
 
             // Get data on the conditions of current Application Stage from the DB
             String selectTableSQLForConditions = "SELECT fbpo.CREATESOURCE, fbpo.URLTESSA, " +
-                    "fbpo.ISVERIFICATIONNEED " +
-                    "fbpo.RESULTVERIFICATION " +
+                    "fbpo.ISVERIFICATIONNEED, " +
+                    "fbpo.RESULTVERIFICATION, " +
                     "fbpo.RESPONSESTATUSCFT " +
                     "FROM SYSDBA.FB_PRODUCTORDER fbpo " +
                     "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "'";
