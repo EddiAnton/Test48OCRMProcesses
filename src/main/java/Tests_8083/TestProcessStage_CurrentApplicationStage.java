@@ -143,8 +143,8 @@ public class TestProcessStage_CurrentApplicationStage {
                 typeOfApplicationNumber = rs_conditions.getString("CREATESOURCE");
                 urlTessa = rs_conditions.getString("URLTESSA");
                 isVerificationNeed = rs_conditions.getString("ISVERIFICATIONNEED");
-                resultVerification = Integer.parseInt(rs_conditions.getString("RESULTVERIFICATION"));
-                responseStatusCFT = Integer.parseInt(rs_conditions.getString("RESPONSESTATUSCFT"));
+                resultVerification = DataConversion.stringToIntConversion(rs_conditions.getString("RESULTVERIFICATION"));
+                responseStatusCFT = DataConversion.stringToIntConversion(rs_conditions.getString("RESPONSESTATUSCFT"));
             }
 
             connection.close();
