@@ -1546,8 +1546,8 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_kpp_1.next()) {
                 codeKPP_type_1 = rs_kpp_1.getString("CODE");
-                isPrimaryKPP_type_1 = DataConversion.booleanConversion(rs_kpp_1.getString("ISPRIMARY"));
-                isAdditionalProperty1_type_1 = DataConversion.booleanConversion(rs_kpp_1.getString("ISADDITIONALPROPERTY1"));
+                isPrimaryKPP_type_1 = DataConversion.testSF_booleanConversion(rs_kpp_1.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_1 = DataConversion.testSF_booleanConversion(rs_kpp_1.getString("ISADDITIONALPROPERTY1"));
             }
 
             // Get KPP data for type 2 from the database
@@ -1556,8 +1556,8 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_kpp_2.next()) {
                 codeKPP_type_2 = rs_kpp_2.getString("CODE");
-                isPrimaryKPP_type_2 = DataConversion.booleanConversion(rs_kpp_2.getString("ISPRIMARY"));
-                isAdditionalProperty1_type_2 = DataConversion.booleanConversion(rs_kpp_2.getString("ISADDITIONALPROPERTY1"));
+                isPrimaryKPP_type_2 = DataConversion.testSF_booleanConversion(rs_kpp_2.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_2 = DataConversion.testSF_booleanConversion(rs_kpp_2.getString("ISADDITIONALPROPERTY1"));
             }
 
             // Get KPP data for type 3 from the database
@@ -1566,8 +1566,8 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_kpp_3.next()) {
                 codeKPP_type_3 = rs_kpp_3.getString("CODE");
-                isPrimaryKPP_type_3 = DataConversion.booleanConversion(rs_kpp_3.getString("ISPRIMARY"));
-                isAdditionalProperty1_type_3 = DataConversion.booleanConversion(rs_kpp_3.getString("ISADDITIONALPROPERTY1"));
+                isPrimaryKPP_type_3 = DataConversion.testSF_booleanConversion(rs_kpp_3.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_3 = DataConversion.testSF_booleanConversion(rs_kpp_3.getString("ISADDITIONALPROPERTY1"));
             }
 
             connection.close();
@@ -1744,8 +1744,8 @@ public class TestSF_ComplianceWEB_DBData {
                 codeChannelType_type_1 = rs_1.getString("CHANNEL_TYPE");
                 channelValue_type_1 = rs_1.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_1 = rs_1.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISACTIVE"));
-                isPrimaryContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISPRIMARY"));
+                isActiveContact_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("ISACTIVE"));
+                isPrimaryContact_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("ISPRIMARY"));
                 noteContact_type_1 = rs_1.getString("NOTE");
             }
 
@@ -1785,8 +1785,8 @@ public class TestSF_ComplianceWEB_DBData {
                 channelType_type_2 = rs_2.getString("CHANNEL_TYPE");
                 channelValue_type_2 = rs_2.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_2 = rs_2.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISACTIVE"));
-                isPrimaryContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISPRIMARY"));
+                isActiveContact_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISACTIVE"));
+                isPrimaryContact_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISPRIMARY"));
                 noteContact_type_2 = rs_2.getString("NOTE");
             }
 
@@ -1826,8 +1826,8 @@ public class TestSF_ComplianceWEB_DBData {
                 channelType_type_3 = rs_3.getString("CHANNEL_TYPE");
                 channelValue_type_3 = rs_3.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_3 = rs_3.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISACTIVE"));
-                isPrimaryContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISPRIMARY"));
+                isActiveContact_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISACTIVE"));
+                isPrimaryContact_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISPRIMARY"));
                 noteContact_type_3 = rs_3.getString("NOTE");
             }
 

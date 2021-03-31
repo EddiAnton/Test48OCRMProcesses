@@ -252,8 +252,8 @@ public class TestSF_Contacts {
                 codeChannelType_type_1 = rs_1.getString("CHANNEL_TYPE");
                 channelValue_type_1 = rs_1.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_1 = rs_1.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISACTIVE"));
-                isPrimaryContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISPRIMARY"));
+                isActiveContact_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("ISACTIVE"));
+                isPrimaryContact_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("ISPRIMARY"));
                 noteContact_type_1 = rs_1.getString("NOTE");
             }
 
@@ -293,8 +293,8 @@ public class TestSF_Contacts {
                 channelType_type_2 = rs_2.getString("CHANNEL_TYPE");
                 channelValue_type_2 = rs_2.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_2 = rs_2.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISACTIVE"));
-                isPrimaryContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISPRIMARY"));
+                isActiveContact_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISACTIVE"));
+                isPrimaryContact_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISPRIMARY"));
                 noteContact_type_2 = rs_2.getString("NOTE");
             }
 
@@ -334,8 +334,8 @@ public class TestSF_Contacts {
                 channelType_type_3 = rs_3.getString("CHANNEL_TYPE");
                 channelValue_type_3 = rs_3.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_3 = rs_3.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISACTIVE"));
-                isPrimaryContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISPRIMARY"));
+                isActiveContact_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISACTIVE"));
+                isPrimaryContact_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISPRIMARY"));
                 noteContact_type_3 = rs_3.getString("NOTE");
             }
 

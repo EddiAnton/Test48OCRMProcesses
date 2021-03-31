@@ -2156,8 +2156,8 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_kpp_1.next()) {
                 codeKPP_type_1 = rs_kpp_1.getString("CODE");
-                isPrimaryKPP_type_1 = DataConversion.booleanConversion(rs_kpp_1.getString("ISPRIMARY"));
-                isAdditionalProperty1_type_1 = DataConversion.booleanConversion(rs_kpp_1.getString("ISADDITIONALPROPERTY1"));
+                isPrimaryKPP_type_1 = DataConversion.testSF_booleanConversion(rs_kpp_1.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_1 = DataConversion.testSF_booleanConversion(rs_kpp_1.getString("ISADDITIONALPROPERTY1"));
             }
 
             // Get KPP data for type 2 from the database
@@ -2166,8 +2166,8 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_kpp_2.next()) {
                 codeKPP_type_2 = rs_kpp_2.getString("CODE");
-                isPrimaryKPP_type_2 = DataConversion.booleanConversion(rs_kpp_2.getString("ISPRIMARY"));
-                isAdditionalProperty1_type_2 = DataConversion.booleanConversion(rs_kpp_2.getString("ISADDITIONALPROPERTY1"));
+                isPrimaryKPP_type_2 = DataConversion.testSF_booleanConversion(rs_kpp_2.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_2 = DataConversion.testSF_booleanConversion(rs_kpp_2.getString("ISADDITIONALPROPERTY1"));
             }
 
             // Get KPP data for type 3 from the database
@@ -2176,8 +2176,8 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_kpp_3.next()) {
                 codeKPP_type_3 = rs_kpp_3.getString("CODE");
-                isPrimaryKPP_type_3 = DataConversion.booleanConversion(rs_kpp_3.getString("ISPRIMARY"));
-                isAdditionalProperty1_type_3 = DataConversion.booleanConversion(rs_kpp_3.getString("ISADDITIONALPROPERTY1"));
+                isPrimaryKPP_type_3 = DataConversion.testSF_booleanConversion(rs_kpp_3.getString("ISPRIMARY"));
+                isAdditionalProperty1_type_3 = DataConversion.testSF_booleanConversion(rs_kpp_3.getString("ISADDITIONALPROPERTY1"));
             }
 
             connection.close();
@@ -2348,8 +2348,8 @@ public class TestSF_ComplianceWEB_DBData {
                 codeChannelType_type_1 = rs_1.getString("CHANNEL_TYPE");
                 channelValue_type_1 = rs_1.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_1 = rs_1.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISACTIVE"));
-                isPrimaryContact_type_1 = DataConversion.booleanConversion(rs_1.getString("ISPRIMARY"));
+                isActiveContact_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("ISACTIVE"));
+                isPrimaryContact_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("ISPRIMARY"));
                 noteContact_type_1 = rs_1.getString("NOTE");
             }
 
@@ -2389,8 +2389,8 @@ public class TestSF_ComplianceWEB_DBData {
                 channelType_type_2 = rs_2.getString("CHANNEL_TYPE");
                 channelValue_type_2 = rs_2.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_2 = rs_2.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISACTIVE"));
-                isPrimaryContact_type_2 = DataConversion.booleanConversion(rs_2.getString("ISPRIMARY"));
+                isActiveContact_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISACTIVE"));
+                isPrimaryContact_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISPRIMARY"));
                 noteContact_type_2 = rs_2.getString("NOTE");
             }
 
@@ -2430,8 +2430,8 @@ public class TestSF_ComplianceWEB_DBData {
                 channelType_type_3 = rs_3.getString("CHANNEL_TYPE");
                 channelValue_type_3 = rs_3.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_3 = rs_3.getInt("CHANNEL_SUBTYPE");
-                isActiveContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISACTIVE"));
-                isPrimaryContact_type_3 = DataConversion.booleanConversion(rs_3.getString("ISPRIMARY"));
+                isActiveContact_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISACTIVE"));
+                isPrimaryContact_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISPRIMARY"));
                 noteContact_type_3 = rs_3.getString("NOTE");
             }
 
@@ -3012,7 +3012,7 @@ public class TestSF_ComplianceWEB_DBData {
                 codeNameOKVED_type_1 = rs_okved_1.getString("CODENAME");
                 beginDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("BEGINDATE"));
                 endDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("ENDDATE"));
-                isPrimaryOKVED_type_1 = DataConversion.booleanConversion(rs_okved_1.getString("ISPRIMARY"));
+                isPrimaryOKVED_type_1 = DataConversion.testSF_booleanConversion(rs_okved_1.getString("ISPRIMARY"));
             }
 
             // Get Tax data for type 2 from the database
@@ -3024,7 +3024,7 @@ public class TestSF_ComplianceWEB_DBData {
                 codeNameOKVED_type_2 = rs_okved_2.getString("CODENAME");
                 beginDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("BEGINDATE"));
                 endDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("ENDDATE"));
-                isPrimaryOKVED_type_2 = DataConversion.booleanConversion(rs_okved_2.getString("ISPRIMARY"));
+                isPrimaryOKVED_type_2 = DataConversion.testSF_booleanConversion(rs_okved_2.getString("ISPRIMARY"));
             }
 
             // Get Tax data for type 3 from the database
@@ -3036,7 +3036,7 @@ public class TestSF_ComplianceWEB_DBData {
                 codeNameOKVED_type_3 = rs_okved_3.getString("CODENAME");
                 beginDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("BEGINDATE"));
                 endDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("ENDDATE"));
-                isPrimaryOKVED_type_3 = DataConversion.booleanConversion(rs_okved_3.getString("ISPRIMARY"));
+                isPrimaryOKVED_type_3 = DataConversion.testSF_booleanConversion(rs_okved_3.getString("ISPRIMARY"));
             }
 
             connection.close();
@@ -3260,14 +3260,14 @@ public class TestSF_ComplianceWEB_DBData {
 
             // if something was received then the while loop will work
             while (rs_1.next()) {
-                isRegOffshorZone_type_1 = DataConversion.booleanConversion(rs_1.getString("ISREGOFFSHORZONE"));
+                isRegOffshorZone_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("ISREGOFFSHORZONE"));
                 okpo_type_1 = rs_1.getString("OKPO");
                 okogu_type_1 = rs_1.getString("OKOGU");
                 swift_type_1 = rs_1.getString("SWIFT");
                 ein_type_1 = rs_1.getString("EIN");
                 giin_type_1 = rs_1.getString("GIIN");
-                fatcaDocW9_type_1 = DataConversion.booleanConversion(rs_1.getString("FATCADOCW9"));
-                fatcaDoc_type_1 = DataConversion.booleanConversion(rs_1.getString("FATCADOC"));
+                fatcaDocW9_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("FATCADOCW9"));
+                fatcaDoc_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("FATCADOC"));
                 disregarded_type_1 = rs_1.getString("DISREGARDED");
                 fatcaStatus_type_1 = rs_1.getString("FATCASTATUS");
             }
@@ -3277,14 +3277,14 @@ public class TestSF_ComplianceWEB_DBData {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                isRegOffshorZone_type_2 = DataConversion.booleanConversion(rs_2.getString("ISREGOFFSHORZONE"));
+                isRegOffshorZone_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISREGOFFSHORZONE"));
                 okpo_type_2 = rs_2.getString("OKPO");
                 okogu_type_2 = rs_2.getString("OKOGU");
                 swift_type_2 = rs_2.getString("SWIFT");
                 ein_type_2 = rs_2.getString("EIN");
                 giin_type_2 = rs_2.getString("GIIN");
-                fatcaDocW9_type_2 = DataConversion.booleanConversion(rs_2.getString("FATCADOCW9"));
-                fatcaDoc_type_2 = DataConversion.booleanConversion(rs_2.getString("FATCADOC"));
+                fatcaDocW9_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("FATCADOCW9"));
+                fatcaDoc_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("FATCADOC"));
                 disregarded_type_2 = rs_2.getString("DISREGARDED");
                 fatcaStatus_type_2 = rs_2.getString("FATCASTATUS");
             }
@@ -3294,14 +3294,14 @@ public class TestSF_ComplianceWEB_DBData {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                isRegOffshorZone_type_3 = DataConversion.booleanConversion(rs_3.getString("ISREGOFFSHORZONE"));
+                isRegOffshorZone_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISREGOFFSHORZONE"));
                 okpo_type_3 = rs_3.getString("OKPO");
                 okogu_type_3 = rs_3.getString("OKOGU");
                 swift_type_3 = rs_3.getString("SWIFT");
                 ein_type_3 = rs_3.getString("EIN");
                 giin_type_3 = rs_3.getString("GIIN");
-                fatcaDocW9_type_3 = DataConversion.booleanConversion(rs_3.getString("FATCADOCW9"));
-                fatcaDoc_type_3 = DataConversion.booleanConversion(rs_3.getString("FATCADOC"));
+                fatcaDocW9_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("FATCADOCW9"));
+                fatcaDoc_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("FATCADOC"));
                 disregarded_type_3 = rs_3.getString("DISREGARDED");
                 fatcaStatus_type_3 = rs_3.getString("FATCASTATUS");
             }

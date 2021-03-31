@@ -4,7 +4,7 @@
 <suite name="All Test Suite">
     <test name="RegressionTests_8083_Contour">
         <classes>
-            <class name="Tests_8083.TestProcessStage_FormationOfApplication_02"></class>
+            <class name="Tests_8083.TestProcessStage_CurrentApplicationStage"></class>
 
 
         </classes>

@@ -1,7 +1,7 @@
 package Services;
 
 public  final class DataConversion {
-    public static String booleanConversion(String s1) {
+    public static String testSF_booleanConversion(String s1) {
 
         String result = null;
 

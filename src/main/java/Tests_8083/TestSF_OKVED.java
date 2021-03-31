@@ -220,7 +220,7 @@ public class TestSF_OKVED {
                 codeNameOKVED_type_1 = rs_okved_1.getString("CODENAME");
                 beginDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("BEGINDATE"));
                 endDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("ENDDATE"));
-                isPrimaryOKVED_type_1 = DataConversion.booleanConversion(rs_okved_1.getString("ISPRIMARY"));
+                isPrimaryOKVED_type_1 = DataConversion.testSF_booleanConversion(rs_okved_1.getString("ISPRIMARY"));
             }
 
             // Get Tax data for type 2 from the database
@@ -232,7 +232,7 @@ public class TestSF_OKVED {
                 codeNameOKVED_type_2 = rs_okved_2.getString("CODENAME");
                 beginDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("BEGINDATE"));
                 endDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("ENDDATE"));
-                isPrimaryOKVED_type_2 = DataConversion.booleanConversion(rs_okved_2.getString("ISPRIMARY"));
+                isPrimaryOKVED_type_2 = DataConversion.testSF_booleanConversion(rs_okved_2.getString("ISPRIMARY"));
             }
 
             // Get Tax data for type 3 from the database
@@ -244,7 +244,7 @@ public class TestSF_OKVED {
                 codeNameOKVED_type_3 = rs_okved_3.getString("CODENAME");
                 beginDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("BEGINDATE"));
                 endDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("ENDDATE"));
-                isPrimaryOKVED_type_3 = DataConversion.booleanConversion(rs_okved_3.getString("ISPRIMARY"));
+                isPrimaryOKVED_type_3 = DataConversion.testSF_booleanConversion(rs_okved_3.getString("ISPRIMARY"));
             }
 
             connection.close();
