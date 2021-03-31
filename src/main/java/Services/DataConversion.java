@@ -15,6 +15,18 @@ public  final class DataConversion {
         return result;
     }
 
+    public static int stringToIntConversion(String s1) {
+
+        int result;
+
+        if (s1 != null)
+            result = Integer.parseInt(s1);
+        else
+            result = -1;
+
+        return result;
+    }
+
     public static String getProductOrderNumber(String inputData) {
 
         String productOrderNumber = null;
