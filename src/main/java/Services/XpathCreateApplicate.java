@@ -6,7 +6,7 @@ public class XpathCreateApplicate {
 
     public static final String FIELD_INN_OR_ACCOUNTNAME = "//*[@id=\"txt_qs\"]";
 
-    public static final String CONFIRM_SELECTED_CUSTOMER = "//*[@id=\"tblAccountCorpInn\"]/tbody/tr[1]";
+    public static final String CONFIRM_SELECTED_CUSTOMER = "//*[@id=\"tblAccountCorpInn\"]/tbody/tr";
 
     public static final String CREATE = "//*[@id=\"mnuNew_text\"]";
 
