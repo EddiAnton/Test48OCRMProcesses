@@ -11,9 +11,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.io.*;
-import java.sql.*;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class TestCreateApplicate {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
@@ -116,7 +121,8 @@ public class TestCreateApplicate {
             System.out.println(fb_productOrderID);
             System.out.println(SQLQuery);
 
-            PreparedStatement ps = connection.prepareStatement(SQLQuery);
+            String SQLqueryForDB = new String(SQLQuery.getBytes(), "Cp1251");
+            PreparedStatement ps = connection.prepareStatement(SQLqueryForDB);
             ps.execute();
             System.out.println("Data was inserted to Application");
 
