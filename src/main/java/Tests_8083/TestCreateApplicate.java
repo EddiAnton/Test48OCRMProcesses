@@ -14,11 +14,13 @@ import org.testng.annotations.Test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.SortedMap;
 
 public class TestCreateApplicate {
     final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
@@ -120,6 +122,11 @@ public class TestCreateApplicate {
             SQLQuery = SQLQuery.replace("Infor_ID", fb_productOrderID);
             System.out.println(fb_productOrderID);
             System.out.println(SQLQuery);
+
+            SortedMap<String, Charset> set = Charset.availableCharsets();
+            for(String name : set.keySet())
+                System.out.println(name);
+
 
             String SQLqueryForDB = new String(SQLQuery.getBytes(), "Cp1251");
             PreparedStatement ps = connection.prepareStatement(SQLqueryForDB);
