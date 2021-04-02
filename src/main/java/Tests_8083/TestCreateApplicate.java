@@ -121,6 +121,8 @@ public class TestCreateApplicate {
             System.out.println(fb_productOrderID);
             System.out.println(SQLQuery);
 
+
+
             String SQLqueryForDB = new String(SQLQuery.getBytes(), "Cp1251");
             PreparedStatement ps = connection.prepareStatement(SQLqueryForDB);
             ps.execute();
