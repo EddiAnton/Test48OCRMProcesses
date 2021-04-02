@@ -11,9 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -99,6 +97,7 @@ public class TestCreateApplicate {
 
         System.out.println("---------------");
         System.out.println(productOrderNumber);
+        System.out.println("Application successfully created!");
 
         try {
 
@@ -109,7 +108,8 @@ public class TestCreateApplicate {
 
             // Read the script into a variable
             String SQLQuery = "";
-            BufferedReader reader = new BufferedReader(new FileReader("Auto_create_2.sql"));
+            File file = new File("Auto_create_2.sql");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "windows-1251"));
             String line;
             StringBuilder stringBuilder = new StringBuilder();
             String ls = " \n";
@@ -117,24 +117,15 @@ public class TestCreateApplicate {
                 stringBuilder.append(line);
                 stringBuilder.append(ls);
             }
+
+            // Insert fb_productOrderID to script
             SQLQuery = stringBuilder.toString();
             reader.close();
             SQLQuery = SQLQuery.replace("Infor_ID", fb_productOrderID);
-            System.out.println(fb_productOrderID);
-            System.out.println(SQLQuery);
 
-<<<<<<< HEAD
-=======
-            SortedMap<String, Charset> set = Charset.availableCharsets();
-            for(String name : set.keySet())
-                System.out.println(name);
->>>>>>> cfbf092f9947e3dffde329eb1e057aa8820cd5cf
-
-
-            String SQLqueryForDB = new String(SQLQuery.getBytes(), "Cp1251");
-            PreparedStatement ps = connection.prepareStatement(SQLqueryForDB);
+            PreparedStatement ps = connection.prepareStatement(SQLQuery);
             ps.execute();
-            System.out.println("Data was inserted to Application");
+            System.out.println("Data was inserted to Application!");
 
             connection.close();
 
@@ -143,5 +134,11 @@ public class TestCreateApplicate {
         }
 
         driver.navigate().refresh();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.close();
     }
 }
