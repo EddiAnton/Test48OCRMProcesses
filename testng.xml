@@ -8,8 +8,8 @@
 
         <classes>
 
-            <class name="Tests_8083.TestCreateApplicate"></class>
-            <class name="Tests_8083.TestSF_NameOfCompany"></class>
+            <class name="Tests.TestCreateApplicate"></class>
+            <class name="Tests.TestSF_NameOfCompany"></class>
 
         </classes>
     </test>
