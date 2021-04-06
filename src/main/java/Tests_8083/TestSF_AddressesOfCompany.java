@@ -1,6 +1,7 @@
 package Tests_8083;
 
 import Services.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,11 +16,10 @@ import java.sql.Statement;
 import java.util.Objects;
 
 public class TestSF_AddressesOfCompany {
-    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
-    String userName = "Admin";
+    String contour = "8083";
+
     String requestMask = "UC-TSP";
-
     String productOrderNumber = null;
 
     String test_OKATO = null;
@@ -81,6 +81,8 @@ public class TestSF_AddressesOfCompany {
     @Test
     public void testAddressesOfCompany() {
 
+        TestEnvironment testEnvironment = new TestEnvironment(contour);
+
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
@@ -88,9 +90,9 @@ public class TestSF_AddressesOfCompany {
 
         try {
 
-            Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            Thread.sleep(2000);
 
             WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
@@ -99,7 +101,10 @@ public class TestSF_AddressesOfCompany {
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
-            inputUserName.sendKeys(userName);
+            inputUserName.sendKeys(testEnvironment.getUserName());
+
+            WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
+            inputPassword.sendKeys(testEnvironment.getPassword());
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
@@ -219,7 +224,7 @@ public class TestSF_AddressesOfCompany {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             Statement statement = connection.createStatement();
 

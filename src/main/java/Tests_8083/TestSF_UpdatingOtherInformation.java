@@ -2,6 +2,7 @@ package Tests_8083;
 
 import Services.DataComparison;
 import Services.DataConversion;
+import Services.TestEnvironment;
 import Services.XpathAuthorization;
 import Services.XpathUpdatingOtherInformation;
 
@@ -19,11 +20,10 @@ import java.sql.Statement;
 import java.util.Objects;
 
 public class TestSF_UpdatingOtherInformation {
-    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
-    String userName = "Admin";
+    String contour = "8083";
+
     String requestMask = "UC-TSP";
-
     String productOrderNumber = null;
 
     String test_ISREGOFFSHORZONE = null;
@@ -105,6 +105,8 @@ public class TestSF_UpdatingOtherInformation {
     @Test
     public void testUpdatingOtherInformation() {
 
+        TestEnvironment testEnvironment = new TestEnvironment(contour);
+
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
@@ -112,9 +114,9 @@ public class TestSF_UpdatingOtherInformation {
 
         try {
 
-            Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            Thread.sleep(2000);
 
             WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
@@ -123,7 +125,10 @@ public class TestSF_UpdatingOtherInformation {
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
-            inputUserName.sendKeys(userName);
+            inputUserName.sendKeys(testEnvironment.getUserName());
+
+            WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
+            inputPassword.sendKeys(testEnvironment.getPassword());
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
@@ -272,7 +277,7 @@ public class TestSF_UpdatingOtherInformation {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.ISREGOFFSHORZONE, " +
                     "fbpomd.OKPO, " +
@@ -282,7 +287,7 @@ public class TestSF_UpdatingOtherInformation {
                     "fbpomd.GIIN, " +
                     "fbpomd.FATCADOCW9, " +
                     "fbpomd.FATCADOC, " +
-                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.IS_DISREGARDED, " +
                     "fbpomd.FATCASTATUS " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
@@ -301,7 +306,7 @@ public class TestSF_UpdatingOtherInformation {
                     "fbpomd.GIIN, " +
                     "fbpomd.FATCADOCW9, " +
                     "fbpomd.FATCADOC, " +
-                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.IS_DISREGARDED, " +
                     "fbpomd.FATCASTATUS " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
@@ -320,7 +325,7 @@ public class TestSF_UpdatingOtherInformation {
                     "fbpomd.GIIN, " +
                     "fbpomd.FATCADOCW9, " +
                     "fbpomd.FATCADOC, " +
-                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.IS_DISREGARDED, " +
                     "fbpomd.FATCASTATUS " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
@@ -346,7 +351,7 @@ public class TestSF_UpdatingOtherInformation {
                 giin_type_1 = rs_1.getString("GIIN");
                 fatcaDocW9_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("FATCADOCW9"));
                 fatcaDoc_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("FATCADOC"));
-                disregarded_type_1 = rs_1.getString("DISREGARDED");
+                disregarded_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("IS_DISREGARDED"));
                 fatcaStatus_type_1 = rs_1.getString("FATCASTATUS");
             }
 
@@ -363,7 +368,7 @@ public class TestSF_UpdatingOtherInformation {
                 giin_type_2 = rs_2.getString("GIIN");
                 fatcaDocW9_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("FATCADOCW9"));
                 fatcaDoc_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("FATCADOC"));
-                disregarded_type_2 = rs_2.getString("DISREGARDED");
+                disregarded_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("IS_DISREGARDED"));
                 fatcaStatus_type_2 = rs_2.getString("FATCASTATUS");
             }
 
@@ -380,7 +385,7 @@ public class TestSF_UpdatingOtherInformation {
                 giin_type_3 = rs_3.getString("GIIN");
                 fatcaDocW9_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("FATCADOCW9"));
                 fatcaDoc_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("FATCADOC"));
-                disregarded_type_3 = rs_3.getString("DISREGARDED");
+                disregarded_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("IS_DISREGARDED"));
                 fatcaStatus_type_3 = rs_3.getString("FATCASTATUS");
             }
             connection.close();

@@ -8,6 +8,8 @@ public class XpathAuthorization {
 
     public static final String INPUT_USERNAME = "//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']";
 
+    public static final String INPUT_PASSWORD = "//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']";
+
     public static final String SUBMIT_BUTTON = "//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$btnLogin']";
 
     // Open, select ant sort "Data change requests" XPATH constants

@@ -5,7 +5,7 @@
     <test name="RegressionTests">
         <classes>
 
-            <class name="Tests_8083.TestSF_NameOfCompany"></class>
+            <class name="Tests_8083.TestSF_ComplianceWEB_DBData"></class>
 
 
         </classes>

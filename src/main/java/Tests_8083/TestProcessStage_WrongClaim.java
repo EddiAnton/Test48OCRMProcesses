@@ -1,6 +1,7 @@
 package Tests_8083;
 
 import Services.DataConversion;
+import Services.TestEnvironment;
 import Services.XpathAuthorization;
 import Services.XpathTestProcessStage;
 import org.openqa.selenium.By;
@@ -10,11 +11,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class TestProcessStage_WrongClaim {final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
+public class TestProcessStage_WrongClaim {
 
-    String userName = "Admin";
+    String contour = "8083";
+
     String requestMask = "UC-TSP";
-
     String productOrderNumber = null;
 
     String applicationStatus = null;
@@ -23,6 +24,8 @@ public class TestProcessStage_WrongClaim {final String DB_Data = "jdbc:oracle:th
     @Test
     public void goToWrongClaim() {
 
+        TestEnvironment testEnvironment = new TestEnvironment(contour);
+
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
@@ -30,9 +33,9 @@ public class TestProcessStage_WrongClaim {final String DB_Data = "jdbc:oracle:th
 
         try {
 
-            Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            Thread.sleep(2000);
 
             WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
@@ -41,7 +44,10 @@ public class TestProcessStage_WrongClaim {final String DB_Data = "jdbc:oracle:th
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
-            inputUserName.sendKeys(userName);
+            inputUserName.sendKeys(testEnvironment.getUserName());
+
+            WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
+            inputPassword.sendKeys(testEnvironment.getPassword());
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();

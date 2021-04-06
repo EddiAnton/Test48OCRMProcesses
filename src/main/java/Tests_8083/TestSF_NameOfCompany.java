@@ -59,9 +59,9 @@ public class TestSF_NameOfCompany {
 
         try {
 
-            Thread.sleep(2000);
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            Thread.sleep(2000);
 
             WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
@@ -72,8 +72,7 @@ public class TestSF_NameOfCompany {
             WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
             inputUserName.sendKeys(testEnvironment.getUserName());
 
-            WebElement inputPassword = driver.findElement(By
-                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
+            WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
             inputPassword.sendKeys(testEnvironment.getPassword());
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));

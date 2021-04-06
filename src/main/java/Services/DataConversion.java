@@ -5,12 +5,13 @@ public  final class DataConversion {
 
         String result = null;
 
-        if (s1.equals("T"))
-            result = "true";
-        else if (s1.equals("F"))
-            result = "false";
-        else if (s1.equals(null))
+        if (s1 == null) {
             result = "";
+        } else if (s1.equals("F")) {
+            result = "false";
+        } else if (s1.equals("T")) {
+            result = "true";
+        }
 
         return result;
     }

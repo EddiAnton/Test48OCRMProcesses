@@ -19,11 +19,9 @@ import java.util.Objects;
 @Test
 public class TestSF_ComplianceWEB_DBData {
 
-    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
+    String contour = "8083";
 
-    String userName = "Admin";
     String requestMask = "UC-TSP";
-
     String productOrderNumber = null;
 
     // Variables for complianceNameOfCompany method
@@ -479,6 +477,7 @@ public class TestSF_ComplianceWEB_DBData {
     String crsDateEnd_type_3 = null;
     String crsStatus_type_3 = null;
 
+    TestEnvironment testEnvironment = new TestEnvironment(contour);
     WebDriver driver;
 
     @Test (groups = {"regress"},
@@ -492,22 +491,26 @@ public class TestSF_ComplianceWEB_DBData {
         System.out.println("Test Authorization is starting...");
 
         try {
+
             System.setProperty("webdriver.chrome.driver",
                     "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
             driver =  new ChromeDriver();
 
-            Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            Thread.sleep(2000);
 
             WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
-            inputUserName.sendKeys(userName);
+            inputUserName.sendKeys(testEnvironment.getUserName());
+
+            WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
+            inputPassword.sendKeys(testEnvironment.getPassword());
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
@@ -625,7 +628,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
@@ -788,7 +791,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpol.LICENSENUMBER, " +
                     "fbpol.ACTIVITYKIND, " +
@@ -1019,7 +1022,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             Statement statement = connection.createStatement();
 
@@ -1328,7 +1331,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.LASTNAME, " +
                     "fbpomd.FIRSTNAME, " +
@@ -1604,7 +1607,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.ACCOUNTNAME, " +
                     "fbpomd.AKA, " +
@@ -2025,7 +2028,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1_tax = "SELECT fbpomcode.CODE, " +
                     "fbpomcode.CODENAME, " +
@@ -2282,7 +2285,7 @@ public class TestSF_ComplianceWEB_DBData {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             Statement statement = connection.createStatement();
 
@@ -2547,7 +2550,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.MANAGE_PERSON, fbpomd.MANAGE_STRUCTURE " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
@@ -2684,7 +2687,7 @@ public class TestSF_ComplianceWEB_DBData {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.OKFS, " +
                     "fbpomd.COMPANYTYPE, " +
@@ -2948,7 +2951,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1_okved = "SELECT fbpomcode.CODE, " +
                     "fbpomcode.CODENAME, " +
@@ -3194,7 +3197,7 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.ISREGOFFSHORZONE, " +
                     "fbpomd.OKPO, " +
@@ -3204,7 +3207,7 @@ public class TestSF_ComplianceWEB_DBData {
                     "fbpomd.GIIN, " +
                     "fbpomd.FATCADOCW9, " +
                     "fbpomd.FATCADOC, " +
-                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.IS_DISREGARDED, " +
                     "fbpomd.FATCASTATUS " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
@@ -3223,7 +3226,7 @@ public class TestSF_ComplianceWEB_DBData {
                     "fbpomd.GIIN, " +
                     "fbpomd.FATCADOCW9, " +
                     "fbpomd.FATCADOC, " +
-                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.IS_DISREGARDED, " +
                     "fbpomd.FATCASTATUS " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
@@ -3242,7 +3245,7 @@ public class TestSF_ComplianceWEB_DBData {
                     "fbpomd.GIIN, " +
                     "fbpomd.FATCADOCW9, " +
                     "fbpomd.FATCADOC, " +
-                    "fbpomd.DISREGARDED, " +
+                    "fbpomd.IS_DISREGARDED, " +
                     "fbpomd.FATCASTATUS " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
                     "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
@@ -3268,7 +3271,7 @@ public class TestSF_ComplianceWEB_DBData {
                 giin_type_1 = rs_1.getString("GIIN");
                 fatcaDocW9_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("FATCADOCW9"));
                 fatcaDoc_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("FATCADOC"));
-                disregarded_type_1 = rs_1.getString("DISREGARDED");
+                disregarded_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("IS_DISREGARDED"));
                 fatcaStatus_type_1 = rs_1.getString("FATCASTATUS");
             }
 
@@ -3285,7 +3288,7 @@ public class TestSF_ComplianceWEB_DBData {
                 giin_type_2 = rs_2.getString("GIIN");
                 fatcaDocW9_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("FATCADOCW9"));
                 fatcaDoc_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("FATCADOC"));
-                disregarded_type_2 = rs_2.getString("DISREGARDED");
+                disregarded_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("IS_DISREGARDED"));
                 fatcaStatus_type_2 = rs_2.getString("FATCASTATUS");
             }
 
@@ -3302,7 +3305,7 @@ public class TestSF_ComplianceWEB_DBData {
                 giin_type_3 = rs_3.getString("GIIN");
                 fatcaDocW9_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("FATCADOCW9"));
                 fatcaDoc_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("FATCADOC"));
-                disregarded_type_3 = rs_3.getString("DISREGARDED");
+                disregarded_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("IS_DISREGARDED"));
                 fatcaStatus_type_3 = rs_3.getString("FATCASTATUS");
             }
             connection.close();
