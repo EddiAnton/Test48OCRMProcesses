@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.sql.Connection;
@@ -21,10 +22,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
+@Parameters({"contour"})
+@Test
 public class TestSF_RelatedPrivatEntities {
 
-    String contour = "8083";
-
+    String contour;
     String requestMask = "UC-TSP";
     String productOrderNumber = null;
 

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.sql.Connection;
@@ -17,10 +18,10 @@ import java.sql.Statement;
 import java.util.Objects;
 
 @Test
+@Parameters({"contour"})
 public class TestSF_ComplianceWEB_DBData {
 
-    String contour = "8083";
-
+    String contour;
     String requestMask = "UC-TSP";
     String productOrderNumber = null;
 

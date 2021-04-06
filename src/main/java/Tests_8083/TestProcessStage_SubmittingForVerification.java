@@ -4,17 +4,20 @@ import Services.DataConversion;
 import Services.TestEnvironment;
 import Services.XpathAuthorization;
 import Services.XpathTestProcessStage;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+@Parameters({"contour"})
+@Test
 public class TestProcessStage_SubmittingForVerification {
 
-    String contour = "8083";
-
+    String contour;
     String requestMask = "UC-TSP";
     String productOrderNumber = null;
 

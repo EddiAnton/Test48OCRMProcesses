@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
@@ -19,10 +20,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+@Parameters({"contour"})
+@Test
 public class TestCreateApplicate {
 
-    String contour = "8083";
-
+    String contour;
     String INN = "1234567890";
     String productOrderNumber = null;
     String fb_productOrderID = null;
