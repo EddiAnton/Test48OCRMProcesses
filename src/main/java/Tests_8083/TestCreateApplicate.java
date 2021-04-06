@@ -1,6 +1,9 @@
 package Tests_8083;
 
-import Services.*;
+import Services.DataConversion;
+import Services.TestEnvironment;
+import Services.XpathAuthorization;
+import Services.XpathCreateApplicate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,17 +23,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-@Parameters({"contour"})
-@Test
 public class TestCreateApplicate {
 
-    String contour;
-    String INN = "1234567890";
     String productOrderNumber = null;
     String fb_productOrderID = null;
 
+    @Parameters({"contour"})
     @Test
-    public void createApplicate() {
+    public void createApplicate(String contour) {
 
         TestEnvironment testEnvironment = new TestEnvironment(contour);
 
@@ -69,7 +69,7 @@ public class TestCreateApplicate {
 
             // Enter INN in the field to search for a client and confirm your choice
             WebElement inputINN = driver.findElement(By.xpath(XpathCreateApplicate.FIELD_INN_OR_ACCOUNTNAME));
-            inputINN.sendKeys(INN);
+            inputINN.sendKeys(testEnvironment.getInn());
             Thread.sleep(2000);
 
             WebElement confirmSelected = driver.findElement(By.xpath(XpathCreateApplicate.CONFIRM_SELECTED_CUSTOMER));

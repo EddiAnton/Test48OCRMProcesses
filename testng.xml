@@ -4,11 +4,12 @@
 <suite name="All Test Suite">
     <test name="RegressionTests">
 
-        <parameter name="contour" value="8083"></parameter>
+        <parameter name="contour" value="8092"></parameter>
 
         <classes>
 
-            <class name="Tests_8083.TestSF_ComplianceWEB_DBData"></class>
+            <class name="Tests_8083.TestCreateApplicate"></class>
+            <class name="Tests_8083.TestSF_NameOfCompany"></class>
 
         </classes>
     </test>

@@ -602,16 +602,36 @@ public class TestSF_ComplianceWEB_DBData {
             Thread.sleep(2000);
 
             // Get data of the Name type
-            WebElement field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME));
+            WebElement field_ACCOUNTNAME = null;
+            if (contour.equals("8083")) {
+                field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8083));
+            } else {
+                field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8092));
+            }
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
-            WebElement field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA));
+            WebElement field_AKA = null;
+            if (contour.equals("8083")) {
+                field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA_8083));
+            } else {
+                field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA_8092));
+            }
             test_AKA = field_AKA.getAttribute("value");
 
-            WebElement field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME));
+            WebElement field_ENGNAME = null;
+            if (contour.equals("8083")) {
+                field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME_8083));
+            } else {
+                field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME_8092));
+            }
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
-            WebElement field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT));
+            WebElement field_ENGNAMESHORT = null;
+            if (contour.equals("8083")) {
+                field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT_8083));
+            } else {
+                field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT_8092));
+            }
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {

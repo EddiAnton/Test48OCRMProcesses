@@ -6,6 +6,7 @@ public class TestEnvironment {
     private String DB_data;
     private String userName;
     private String password;
+    private String inn;
 
     public TestEnvironment(String contour) {
 
@@ -14,16 +15,19 @@ public class TestEnvironment {
             DB_data = "jdbc:oracle:thin:@server:1521:slx0";
             userName = "Admin";
             password = "";
+            inn = "1234567890";
         } else if (contour.equals("8093")) {
             url = "http://192.168.1.140:8093/SlxClient/logoff.aspx";
             DB_data = "jdbc:oracle:thin:@server:1521:slx1";
             userName = "Admin";
             password = "4YFDtyiaPpvIbYkehzkG";
+            inn = "2543127028";
         } else if (contour.equals("8092")) {
             url = "http://192.168.1.140:8092/SlxClient/logoff.aspx";
-            DB_data = "jdbc:oracle:thin:@server:1521:slx1";
+            DB_data = "jdbc:oracle:thin:@server:1521:slx10";
             userName = "Admin";
             password = "";
+            inn = "7708544480";
         }
     }
 
@@ -41,5 +45,9 @@ public class TestEnvironment {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getInn() {
+        return inn;
     }
 }

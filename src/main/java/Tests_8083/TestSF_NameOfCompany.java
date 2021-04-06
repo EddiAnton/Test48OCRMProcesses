@@ -21,11 +21,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-@Parameters({"contour"})
-@Test
 public class TestSF_NameOfCompany {
 
-    String contour;
     String requestMask = "UC-TSP";
     String productOrderNumber = null;
 
@@ -49,8 +46,9 @@ public class TestSF_NameOfCompany {
     String engName_type_3 = null;
     String engNameShort_type_3 = null;
 
+    @Parameters({"contour"})
     @Test(retryAnalyzer = Rerty.class)
-    public void testNameOfCompany() {
+    public void testNameOfCompany(String contour) {
 
         TestEnvironment testEnvironment = new TestEnvironment(contour);
 
@@ -102,7 +100,12 @@ public class TestSF_NameOfCompany {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
+            WebElement sortByModifiedDate = null;
+            if (contour.equals("8083")) {
+                sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
+            } else {
+                sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE));
+            }
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
@@ -125,16 +128,36 @@ public class TestSF_NameOfCompany {
             Thread.sleep(2000);
 
             // Get data of the Name type
-            WebElement field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME));
+            WebElement field_ACCOUNTNAME = null;
+            if (contour.equals("8083")) {
+                field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8083));
+            } else {
+                field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8092));
+            }
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
-            WebElement field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA));
+            WebElement field_AKA = null;
+            if (contour.equals("8083")) {
+                field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA_8083));
+            } else {
+                field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA_8092));
+            }
             test_AKA = field_AKA.getAttribute("value");
 
-            WebElement field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME));
+            WebElement field_ENGNAME = null;
+            if (contour.equals("8083")) {
+                field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME_8083));
+            } else {
+                field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME_8092));
+            }
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
-            WebElement field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT));
+            WebElement field_ENGNAMESHORT = null;
+            if (contour.equals("8083")) {
+                field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT_8083));
+            } else {
+                field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT_8092));
+            }
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
 
         } catch (InterruptedException e) {
@@ -230,27 +253,27 @@ public class TestSF_NameOfCompany {
         }
 
         //Comparison of data from a Web service with data from a database.
-        if(Objects.equals(test_ACCOUNTNAME, DataComparison.compareData(accountName_type_1, accountName_type_2, accountName_type_3))) {
+        if (Objects.equals(test_ACCOUNTNAME, DataComparison.compareData(accountName_type_1, accountName_type_2, accountName_type_3))) {
             System.out.println("ACCOUNTNAME test passed!");
-        }else {
+        } else {
             System.out.println("ACCOUNTNAME test failed! - X");
         }
 
-        if(Objects.equals(test_AKA, DataComparison.compareData(aka_type_1, aka_type_2, aka_type_3))) {
+        if (Objects.equals(test_AKA, DataComparison.compareData(aka_type_1, aka_type_2, aka_type_3))) {
             System.out.println("AKA test passed!");
-        }else {
+        } else {
             System.out.println("AKA test failed! - X");
         }
 
-        if(Objects.equals(test_ENGNAME, DataComparison.compareData(engName_type_1, engName_type_2, engName_type_3))) {
+        if (Objects.equals(test_ENGNAME, DataComparison.compareData(engName_type_1, engName_type_2, engName_type_3))) {
             System.out.println("ENGNAME test passed!");
-        }else {
+        } else {
             System.out.println("ENGNAME test failed! - X");
         }
 
-        if(Objects.equals(test_ENGNAMESHORT, DataComparison.compareData(engNameShort_type_1, engNameShort_type_2, engNameShort_type_3))) {
+        if (Objects.equals(test_ENGNAMESHORT, DataComparison.compareData(engNameShort_type_1, engNameShort_type_2, engNameShort_type_3))) {
             System.out.println("ENGNAMESHORT test passed!");
-        }else {
+        } else {
             System.out.println("ENGNAMESHORT test failed! - X");
         }
 
