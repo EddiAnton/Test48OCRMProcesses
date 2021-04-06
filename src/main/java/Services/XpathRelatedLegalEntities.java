@@ -22,7 +22,7 @@ public class XpathRelatedLegalEntities {
 
     public static final String FIELD_COMPANYTYPE = "//*[@id=\"DetailProductOrderChange\"]/div[2]/section/div/div[12]/div/div/div[2]/div[1]/div[12]/div/div/div/div/div/div[1]/input";
 
-    public static final String FIELD_OKOPF = "//*[@id=\"DetailProductOrderChange\"]/div[2]/section/div/div[12]/div/div/div[2]/div[1]/div[12]/div/div/div/div/div/div[1]/input";
+    public static final String FIELD_OKOPF = "//*[@id=\"DetailProductOrderChange\"]/div[2]/section/div/div[12]/div/div/div[2]/div[1]/div[14]/div/div/div/div/div/div[1]/input";
 
     public static final String FIELD_JURISDICTION = "//*[@id=\"DetailProductOrderChange\"]/div[2]/section/div/div[12]/div/div/div[2]/div[1]/div[16]/div/div/div/div/div/div[1]/input";
 

@@ -1,6 +1,12 @@
 package Tests_8083;
 
-import Services.*;
+import Services.DataComparison;
+import Services.DataConversion;
+import Services.Rerty;
+import Services.TestEnvironment;
+import Services.XpathAuthorization;
+import Services.XpathNameOfCompany;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,11 +21,10 @@ import java.sql.Statement;
 import java.util.Objects;
 
 public class TestSF_NameOfCompany {
-    final String DB_Data = "jdbc:oracle:thin:@server:1521:slx0";
 
-    String userName = "Admin";
+    String contour = "8083";
+
     String requestMask = "UC-TSP";
-
     String productOrderNumber = null;
 
     String test_ACCOUNTNAME = null;
@@ -45,6 +50,8 @@ public class TestSF_NameOfCompany {
     @Test(retryAnalyzer = Rerty.class)
     public void testNameOfCompany() {
 
+        TestEnvironment testEnvironment = new TestEnvironment(contour);
+
         System.setProperty("webdriver.chrome.driver",
                 "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
 
@@ -53,7 +60,7 @@ public class TestSF_NameOfCompany {
         try {
 
             Thread.sleep(2000);
-            driver.get("http://192.168.1.140:8083/SlxClient/logoff.aspx");
+            driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
 
             WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
@@ -63,7 +70,11 @@ public class TestSF_NameOfCompany {
 
             // Authorization in system
             WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
-            inputUserName.sendKeys(userName);
+            inputUserName.sendKeys(testEnvironment.getUserName());
+
+            WebElement inputPassword = driver.findElement(By
+                    .xpath("//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']"));
+            inputPassword.sendKeys(testEnvironment.getPassword());
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
@@ -142,7 +153,7 @@ public class TestSF_NameOfCompany {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(DB_Data, "SYSDBA", "masterkey");
+            Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
 
             String selectTableSQLForType_1 = "SELECT fbpomd.ACCOUNTNAME, fbpomd.AKA, fbpomd.ENGNAME, fbpomd.ENGNAMESHORT " +
                     "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +

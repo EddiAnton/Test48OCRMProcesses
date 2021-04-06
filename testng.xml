@@ -2,11 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="All Test Suite">
-    <test name="RegressionTests_8083_Contour">
+    <test name="RegressionTests">
         <classes>
-            <class name="Tests_8083.TestCreateApplicate"></class>
-            <class name="Tests_8083.TestProcessStage_CurrentApplicationStage"></class>
-            <class name="Tests_8083.TestSF_ComplianceWEB_DBData"></class>
+
+            <class name="Tests_8083.TestSF_NameOfCompany"></class>
 
 
         </classes>
