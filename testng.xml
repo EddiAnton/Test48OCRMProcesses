@@ -8,7 +8,12 @@
 
         <classes>
 
+<<<<<<< HEAD
             <class name="Tests.TestSF_License"></class>
+=======
+            <class name="Tests.TestCreateApplicate"></class>
+            <class name="Tests.TestSF_NameOfCompany"></class>
+>>>>>>> 4172fe6c4aef4280997956f0a1ad9bbfa1ec6e68
 
 
     </classes>

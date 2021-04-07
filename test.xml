@@ -9,7 +9,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Tests_8083.TestSF_ComplianceWEB_DBData"></class>
+            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
         </classes>
     </test>
     <test name="RegressionTests_8093_Contour">
@@ -43,18 +43,18 @@ ____________________________________________________________________________
 <suite name="All Test Suite">
 <test name="RegressionTests_8083_Contour">
     <classes>
-        <class name="Tests_8083.TestSF_ComplianceWEB_DBData"></class>
-        <class name="Tests_8083.TestSF_NameOfCompany"></class>
-        <class name="Tests_8083.TestSF_License"></class>
-        <class name="Tests_8083.TestSF_AddressesOfCompany"></class>
-        <class name="Tests_8083.TestSF_Contacts"></class>
-        <class name="Tests_8083.TestSF_GoverningBodies"></class>
-        <class name="Tests_8083.TestSF_OKVED"></class>
-        <class name="Tests_8083.TestSF_OtherChangesInDoc"></class>
-        <class name="Tests_8083.TestSF_RelatedLegalEntities"></class>
-        <class name="Tests_8083.TestSF_RelatedPrivatEntities"></class>
-        <class name="Tests_8083.TestSF_TaxAccounting"></class>
-        <class name="Tests_8083.TestSF_UpdatingOtherInformation"></class>
+        <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
+        <class name="Tests.TestSF_NameOfCompany"></class>
+        <class name="Tests.TestSF_License"></class>
+        <class name="Tests.TestSF_AddressesOfCompany"></class>
+        <class name="Tests.TestSF_Contacts"></class>
+        <class name="Tests.TestSF_GoverningBodies"></class>
+        <class name="Tests.TestSF_OKVED"></class>
+        <class name="Tests.TestSF_OtherChangesInDoc"></class>
+        <class name="Tests.TestSF_RelatedLegalEntities"></class>
+        <class name="Tests.TestSF_RelatedPrivatEntities"></class>
+        <class name="Tests.TestSF_TaxAccounting"></class>
+        <class name="Tests.TestSF_UpdatingOtherInformation"></class>
     </classes>
 </test>
 <test name="RegressionTests_8093_Contour">
