@@ -85,6 +85,8 @@ public class TestCreateApplicate {
             WebElement applicationForChangeOfData = driver.findElement(By.xpath(XpathCreateApplicate.APPLICATION_FOR_CHANGE_OF_DATA));
             applicationForChangeOfData.click();
             Thread.sleep(35000);
+            driver.navigate().refresh();
+            Thread.sleep(3000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
@@ -93,8 +95,10 @@ public class TestCreateApplicate {
             // Get data of the FB_PRODUCTORDERID
             WebElement field_PRODUCTORDER = driver.findElement(By
                     .xpath(XpathAuthorization.FIELD_PRODUCTORDER));
-            fb_productOrderID = DataConversion.getFB_ProductOrderID(field_PRODUCTORDER.getAttribute("action"));
-            Thread.sleep(2000);
+            fb_productOrderID = DataConversion.getFB_ProductOrderID(field_PRODUCTORDER.getAttribute("baseURI"));
+
+
+            System.out.println("---- " + fb_productOrderID + " ----");
 
         } catch (InterruptedException e) {
             e.printStackTrace();

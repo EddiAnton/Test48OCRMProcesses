@@ -16,7 +16,7 @@ public class XpathAuthorization {
 
     public static final String REQUESTS_HREF = "//*[@id=\"borderCenter\"]/nav/ul/li[16]/a";
 
-    public static final String FILTER_UC_TSP = "//*[@id='GroupLookupButton']";
+    public static final String FILTER_UC_TSP = "//*[@id=\"GroupLookupButton\"]/span[1]/div";
 
     public static final String INPUT_UC_TSP = "//*[@id='widget_GroupLookup-ConditionManager-SearchCondition0-TextValue']/div/input";
 
