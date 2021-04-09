@@ -61,21 +61,20 @@ public class TestCreateApplicate {
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
-            Thread.sleep(1000);
 
             // Enter to "Clients"
             WebElement clientsTab = new WebDriverWait(driver, 30).until(
-                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CLIENTS_TAB)));
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathCreateApplicate.CLIENTS_TAB)));
             clientsTab.click();
+
 
             // Enter INN in the field to search for a client and confirm your choice
             WebElement inputINN = new WebDriverWait(driver, 30).until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.FIELD_INN_OR_ACCOUNTNAME)));
             inputINN.sendKeys(testEnvironment.getInn());
-            Thread.sleep(1000);
 
             WebElement confirmSelected = new WebDriverWait(driver, 30).until(
-                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CONFIRM_SELECTED_CUSTOMER)));
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathCreateApplicate.CONFIRM_SELECTED_CUSTOMER)));
             confirmSelected.click();
 
             WebElement clientLoaded = new WebDriverWait(driver, 15).until(
@@ -95,6 +94,7 @@ public class TestCreateApplicate {
 
             WebElement clientCreated = new WebDriverWait(driver, 50).until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
+            Thread.sleep(1000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = new WebDriverWait(driver, 30).until(
