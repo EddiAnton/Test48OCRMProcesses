@@ -4,11 +4,14 @@ import Services.DataConversion;
 import Services.TestEnvironment;
 import Services.XpathAuthorization;
 import Services.XpathCreateApplicate;
+import Services.XpathTestProcessStage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -43,15 +46,14 @@ public class TestCreateApplicate {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
-            Thread.sleep(2000);
 
-            WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
+            WebElement logoffHref = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));
             logoffHref.click();
 
-            Thread.sleep(2000);
-
             // Authorization in system
-            WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
+            WebElement inputUserName = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.INPUT_USERNAME)));
             inputUserName.sendKeys(testEnvironment.getUserName());
 
             WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
@@ -59,38 +61,44 @@ public class TestCreateApplicate {
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
-
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             // Enter to "Clients"
-            WebElement clientsTab = driver.findElement(By.xpath(XpathCreateApplicate.CLIENTS_TAB));
+            WebElement clientsTab = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CLIENTS_TAB)));
             clientsTab.click();
-            Thread.sleep(5000);
 
             // Enter INN in the field to search for a client and confirm your choice
-            WebElement inputINN = driver.findElement(By.xpath(XpathCreateApplicate.FIELD_INN_OR_ACCOUNTNAME));
+            WebElement inputINN = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.FIELD_INN_OR_ACCOUNTNAME)));
             inputINN.sendKeys(testEnvironment.getInn());
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
-            WebElement confirmSelected = driver.findElement(By.xpath(XpathCreateApplicate.CONFIRM_SELECTED_CUSTOMER));
+            WebElement confirmSelected = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CONFIRM_SELECTED_CUSTOMER)));
             confirmSelected.click();
-            Thread.sleep(3000);
 
-            WebElement createApplication = driver.findElement(By.xpath(XpathCreateApplicate.CREATE));
+            WebElement clientLoaded = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CLIENT_LOADED)));
+
+            WebElement createApplication = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathCreateApplicate.CREATE)));
             createApplication.click();
-            Thread.sleep(1000);
-            WebElement createNewApplication = driver.findElement(By.xpath(XpathCreateApplicate.CREATE_NEW_APPLICATION));
+
+            WebElement createNewApplication = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.CREATE_NEW_APPLICATION)));
             createNewApplication.click();
-            Thread.sleep(1000);
-            WebElement applicationForChangeOfData = driver.findElement(By.xpath(XpathCreateApplicate.APPLICATION_FOR_CHANGE_OF_DATA));
+
+            WebElement applicationForChangeOfData = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.APPLICATION_FOR_CHANGE_OF_DATA)));
             applicationForChangeOfData.click();
-            Thread.sleep(35000);
-            driver.navigate().refresh();
-            Thread.sleep(3000);
+
+            WebElement clientCreated = new WebDriverWait(driver, 50).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
 
             // Get data of the PRODUCTORDERNUMBER
-            WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
-                    .xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER));
+            WebElement field_PRODUCTORDERNUMBER = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER)));
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
             // Get data of the FB_PRODUCTORDERID
             WebElement field_PRODUCTORDER = driver.findElement(By
@@ -142,9 +150,9 @@ public class TestCreateApplicate {
             e.printStackTrace();
         }
 
-        driver.navigate().refresh();
         try {
             Thread.sleep(3000);
+            driver.navigate().refresh();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

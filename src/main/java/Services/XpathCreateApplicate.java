@@ -8,6 +8,8 @@ public class XpathCreateApplicate {
 
     public static final String CONFIRM_SELECTED_CUSTOMER = "//*[@id=\"tblAccountCorpInn\"]/tbody/tr";
 
+    public static final String CLIENT_LOADED = "//*[@id=\"AccountDetailsCorporate\"]/div[3]/div[2]/div[1]/div[1]/div/div/div/div/div/div[1]/input";
+
     public static final String CREATE = "//*[@id=\"mnuNew_text\"]";
 
     public static final String CREATE_NEW_APPLICATION = "//*[@id=\"mnuNew_new_productOrder_text\"]";

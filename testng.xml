@@ -5,11 +5,11 @@
 
     <test name="8092">
 
-        <parameter name="contour" value="8083"></parameter>
+        <parameter name="contour" value="Dima"></parameter>
 
         <classes>
 
-            <class name="Tests.TestSF_GoverningBodies"></class>
+            <class name="Tests.TestCreateApplicate"></class>
 
         </classes>
     </test>
