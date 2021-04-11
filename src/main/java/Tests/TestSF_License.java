@@ -12,6 +12,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -70,15 +72,14 @@ public class TestSF_License {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
-            Thread.sleep(2000);
 
-            WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
+            WebElement logoffHref = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));
             logoffHref.click();
 
-            Thread.sleep(2000);
-
             // Authorization in system
-            WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
+            WebElement inputUserName = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.INPUT_USERNAME)));
             inputUserName.sendKeys(testEnvironment.getUserName());
 
             WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
@@ -86,72 +87,72 @@ public class TestSF_License {
 
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
-
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             // Enter to "Data change requests"
-            WebElement requestsHref = driver.findElement(By.xpath(XpathAuthorization.REQUESTS_HREF));
+            WebElement requestsHref = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.REQUESTS_HREF)));
             requestsHref.click();
 
-            Thread.sleep(5000);
-
             // Select UC requests
-            WebElement filterUC = driver.findElement(By.xpath(XpathAuthorization.FILTER_UC_TSP));
+            WebElement filterUC = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.FILTER_UC_TSP)));
             filterUC.click();
 
-            Thread.sleep(2000);
-
-            WebElement inputNumberOfRequest = driver.findElement(By.xpath(XpathAuthorization.INPUT_UC_TSP));
+            WebElement inputNumberOfRequest = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.INPUT_UC_TSP)));
             inputNumberOfRequest.sendKeys(requestMask);
 
             WebElement submitSelect = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_SELECT));
             submitSelect.click();
-            Thread.sleep(2000);
 
             // Sort search result
             WebElement sortByModifiedDate;
             if (contour.equals("8083")) {
-                sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
+                sortByModifiedDate = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83)));
             } else {
-                sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE));
+                sortByModifiedDate = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE)));
             }
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
-            Thread.sleep(5000);
 
             // Open the last application
-            WebElement lastApplication = driver.findElement(By.xpath(XpathAuthorization.LAST_APPLICATION));
+            WebElement lastApplication = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.LAST_APPLICATION)));
             lastApplication.click();
-            Thread.sleep(2000);
 
             // Get data of the PRODUCTORDERNUMBER
-            WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
-                    .xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER));
+            WebElement field_PRODUCTORDERNUMBER = new WebDriverWait(driver, 20).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER)));
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
-            Thread.sleep(3000);
 
             // Select the License tab
-            WebElement licenseTab = driver.findElement(By.xpath(XpathLicense.LICENSE_TAB));
+            WebElement licenseTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathLicense.LICENSE_TAB)));
             licenseTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the License - " V "
             WebElement openLicense;
             if (contour.equals("8083")) {
-                openLicense = driver.findElement(By.xpath(XpathLicense.OPEN_LICENSE_8083));
+                openLicense = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathLicense.OPEN_LICENSE_8083)));
             } else {
-                openLicense = driver.findElement(By.xpath(XpathLicense.OPEN_LICENSE_8092));
+                openLicense = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathLicense.OPEN_LICENSE_8092)));
             }
             openLicense.click();
-            Thread.sleep(3000);
 
             // Get data of the License type
             WebElement field_LICENSENUMBER;
             if (contour.equals("8083")) {
-                field_LICENSENUMBER = driver.findElement(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8083));
+                field_LICENSENUMBER = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8083)));
             } else {
-                field_LICENSENUMBER = driver.findElement(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8092));
+                field_LICENSENUMBER = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8092)));
             }
             test_LICENSENUMBER = field_LICENSENUMBER.getAttribute("value");
 

@@ -116,14 +116,15 @@ public class TestSF_GoverningBodies {
             WebElement governingBodiesTab = new WebDriverWait(driver, 10).until(
                     ExpectedConditions.elementToBeClickable(By.xpath(XpathGoverningBodies.GOVERNING_BODIES_TAB)));
             governingBodiesTab.click();
-            Thread.sleep(2000);
 
             // Get data of the Governing Bodies type
             WebElement field_MANAGE_PERSON;
             if (contour.equals("8083")) {
-                field_MANAGE_PERSON = driver.findElement(By.xpath(XpathGoverningBodies.FIELD_MANAGE_PERSON_8083));
+                field_MANAGE_PERSON = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathGoverningBodies.FIELD_MANAGE_PERSON_8083)));
             } else {
-                field_MANAGE_PERSON = driver.findElement(By.xpath(XpathGoverningBodies.FIELD_MANAGE_PERSON_8092));
+                field_MANAGE_PERSON = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathGoverningBodies.FIELD_MANAGE_PERSON_8092)));
             }
             test_MANAGE_PERSON = field_MANAGE_PERSON.getAttribute("value");
 

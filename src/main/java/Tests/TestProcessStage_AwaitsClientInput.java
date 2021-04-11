@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -47,15 +49,14 @@ public class TestProcessStage_AwaitsClientInput {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
-            Thread.sleep(2000);
 
-            WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
+            WebElement logoffHref =new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));
             logoffHref.click();
 
-            Thread.sleep(2000);
-
             // Authorization in system
-            WebElement inputUserName = driver.findElement(By.xpath(XpathAuthorization.INPUT_USERNAME));
+            WebElement inputUserName = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.INPUT_USERNAME)));
             inputUserName.sendKeys(testEnvironment.getUserName());
 
             WebElement inputPassword = driver.findElement(By.xpath(XpathAuthorization.INPUT_PASSWORD));
@@ -64,43 +65,47 @@ public class TestProcessStage_AwaitsClientInput {
             WebElement submitButton = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_BUTTON));
             submitButton.click();
 
-            Thread.sleep(2000);
-
             // Enter to "Data change requests"
-            WebElement requestsHref = driver.findElement(By.xpath(XpathAuthorization.REQUESTS_HREF));
+            WebElement requestsHref = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.REQUESTS_HREF)));
             requestsHref.click();
 
-            Thread.sleep(5000);
 
             // Select UC requests
-            WebElement filterUC = driver.findElement(By.xpath(XpathAuthorization.FILTER_UC_TSP));
+            WebElement filterUC = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.FILTER_UC_TSP)));
             filterUC.click();
 
-            Thread.sleep(2000);
 
-            WebElement inputNumberOfRequest = driver.findElement(By.xpath(XpathAuthorization.INPUT_UC_TSP));
+            WebElement inputNumberOfRequest = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.INPUT_UC_TSP)));
             inputNumberOfRequest.sendKeys(requestMask);
 
             WebElement submitSelect = driver.findElement(By.xpath(XpathAuthorization.SUBMIT_SELECT));
             submitSelect.click();
-            Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = null;
+            WebElement sortByModifiedDate;
             if (contour.equals("8083")) {
-                sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
+                sortByModifiedDate = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83)));
             } else {
-                sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE));
+                sortByModifiedDate = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE)));
             }
             sortByModifiedDate.click();
             Thread.sleep(1000);
             sortByModifiedDate.click();
-            Thread.sleep(5000);
+            Thread.sleep(1000);
 
             // Open the last application
-            WebElement lastApplication = driver.findElement(By.xpath(XpathAuthorization.LAST_APPLICATION));
+            WebElement lastApplication = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.LAST_APPLICATION)));
             lastApplication.click();
-            Thread.sleep(2000);
+
+            WebElement field_applicationStatus = new WebDriverWait(driver, 50).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
+            Thread.sleep(1000);
 
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = driver.findElement(By
@@ -110,7 +115,6 @@ public class TestProcessStage_AwaitsClientInput {
             WebElement field_PRODUCTORDER = driver.findElement(By
                     .xpath(XpathAuthorization.FIELD_PRODUCTORDER));
             fb_productOrderID = DataConversion.getFB_ProductOrderID(field_PRODUCTORDER.getAttribute("action"));
-            Thread.sleep(3000);
 
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -136,23 +140,22 @@ public class TestProcessStage_AwaitsClientInput {
 
 
             // Get data of the application Status
-            WebElement field_applicationStatus = driver.findElement(By
-                    .xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS));
             applicationStatus = field_applicationStatus.getText();
 
             if (applicationStatus.equals("В работе") || applicationStatus.equals("ДОРАБОТКА")) {
 
                 // Get data of the application Status
-                WebElement continueRegistration  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_CONTINUE_REGISTRATION));
+                WebElement continueRegistration  = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTestProcessStage.BUTTON_CONTINUE_REGISTRATION)));
                 continueRegistration.click();
-                Thread.sleep(2000);
 
                 // Selecting a stage from the drop-down list
                 driver.findElement(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST)).click();
                 Thread.sleep(1000);
                 driver.findElement(By.xpath(XpathTestProcessStage.STATUS_AWAITS_CLIENT_INPUT)).click();
 
-                WebElement nextStage  = driver.findElement(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE));
+                WebElement nextStage  = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE)));
                 nextStage.click();
                 Thread.sleep(5000);
 
