@@ -1,13 +1,6 @@
 package Tests;
 
-import Services.DataComparison;
-import Services.DataConversion;
-import Services.DateReplace;
-import Services.Rerty;
-import Services.TestEnvironment;
-import Services.XpathAuthorization;
-import Services.XpathTaxAccounting;
-
+import Services.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,11 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Objects;
 
 public class TestSF_TaxAccounting {
@@ -130,39 +119,84 @@ public class TestSF_TaxAccounting {
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
 
             // Select the Tax Accounting tab
-            WebElement taxAccountingTab = driver.findElement(By.xpath(XpathTaxAccounting.TAX_ACCOUNTING_TAB));
+            WebElement taxAccountingTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.TAX_ACCOUNTING_TAB)));
             taxAccountingTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the Tax - " V "
-            WebElement openTax = driver.findElement(By.xpath(XpathTaxAccounting.OPEN_TAX));
+            WebElement openTax;
+            if (contour.equals("8083")) {
+                openTax = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_TAX_8083)));
+            } else {
+                openTax = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_TAX_8092)));
+            }
             openTax.click();
-            Thread.sleep(3000);
 
             // Get data of the Tax type
-            WebElement field_CODE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODE_TAX));
+            WebElement field_CODE_TAX;
+            if (contour.equals("8083")) {
+                field_CODE_TAX = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_TAX_8083)));
+            } else {
+                field_CODE_TAX = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_TAX_8092)));
+            }
             test_CODE_TAX = field_CODE_TAX.getAttribute("value");
 
-            WebElement field_CODENAME_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODENAME_TAX));
+            WebElement field_CODENAME_TAX;
+            if (contour.equals("8083")) {
+                field_CODENAME_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODENAME_TAX_8083));
+            } else {
+                field_CODENAME_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODENAME_TAX_8092));
+            }
             test_CODENAME_TAX = field_CODENAME_TAX.getAttribute("value");
 
-            WebElement field_BEGINDATE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_BEGINDATE_TAX));
+            WebElement field_BEGINDATE_TAX;
+            if (contour.equals("8083")) {
+                field_BEGINDATE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_BEGINDATE_TAX_8083));
+            } else {
+                field_BEGINDATE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_BEGINDATE_TAX_8092));
+            }
             test_BEGINDATE_TAX = field_BEGINDATE_TAX.getAttribute("value");
 
             // Disclose data on the KPP - " V "
-            WebElement openKPP = driver.findElement(By.xpath(XpathTaxAccounting.OPEN_KPP));
+            WebElement openKPP;
+            if (contour.equals("8083")) {
+                openKPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_KPP_8083)));
+            } else {
+                openKPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_KPP_8092)));
+            }
             openKPP.click();
-            Thread.sleep(3000);
 
             // Get data of the KPP type
-            WebElement field_CODE_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODE_KPP));
+            WebElement field_CODE_KPP;
+            if (contour.equals("8083")) {
+                field_CODE_KPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_KPP_8083)));
+            } else {
+                field_CODE_KPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_KPP_8092)));
+            }
             test_CODE_KPP = field_CODE_KPP.getAttribute("value");
 
-            WebElement field_ISPRIMARY_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISPRIMARY_KPP));
+            WebElement field_ISPRIMARY_KPP;
+            if (contour.equals("8083")) {
+                field_ISPRIMARY_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISPRIMARY_KPP_8083));
+            } else {
+                field_ISPRIMARY_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISPRIMARY_KPP_8092));
+            }
             test_ISPRIMARY_KPP = field_ISPRIMARY_KPP.getAttribute("value");
 
-            WebElement field_ISADDITIONALPROPERTY1 = driver.findElement(By
-                    .xpath(XpathTaxAccounting.FIELD_ISADDITIONALPROPERTY1));
+            WebElement field_ISADDITIONALPROPERTY1;
+            if (contour.equals("8083")) {
+                field_ISADDITIONALPROPERTY1 = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISADDITIONALPROPERTY1_8083));
+            } else {
+                field_ISADDITIONALPROPERTY1 = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISADDITIONALPROPERTY1_8092));
+            }
             test_ISADDITIONALPROPERTY1 = field_ISADDITIONALPROPERTY1.getAttribute("value");
 
         } catch (InterruptedException e) {
