@@ -134,27 +134,51 @@ public class TestSF_OtherChangesInDoc {
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
 
             // Select the Other Changes in Doc tab
-            WebElement otherChangesInDocTab = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.OTHER_CHANGES_IN_DOC_TAB));
+            WebElement otherChangesInDocTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathOtherChangesInDoc.OTHER_CHANGES_IN_DOC_TAB)));
             otherChangesInDocTab.click();
-            Thread.sleep(2000);
 
             // Get data of the Other changes type
-            WebElement field_OKFS = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS));
+            WebElement field_OKFS;
+            if (contour.equals("8083")) {
+                field_OKFS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS_8083)));
+            } else {
+                field_OKFS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS_8092)));
+            }
             test_OKFS = field_OKFS.getAttribute("value");
 
-            WebElement field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE));
+            WebElement field_COMPANYTYPE;
+            if (contour.equals("8083")) {
+                field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE_8083));
+            } else {
+                field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE_8092));
+            }
             test_COMPANYTYPE = field_COMPANYTYPE.getAttribute("value");
 
-            WebElement field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF));
+            WebElement field_OKOPF;
+            if (contour.equals("8083")) {
+                field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF_8083));
+            } else {
+                field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF_8092));
+            }
             test_OKOPF = field_OKOPF.getAttribute("value");
 
-            WebElement field_CAPITALANNOUNCEDSUM = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM));
+            WebElement field_CAPITALANNOUNCEDSUM;
+            if (contour.equals("8083")) {
+                field_CAPITALANNOUNCEDSUM = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM_8083));
+            } else {
+                field_CAPITALANNOUNCEDSUM = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM_8092));
+            }
             test_CAPITALANNOUNCEDSUM = field_CAPITALANNOUNCEDSUM.getAttribute("value");
 
-            WebElement field_CAPITALCURRENCY = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY));
+            WebElement field_CAPITALCURRENCY;
+            if (contour.equals("8083")) {
+                field_CAPITALCURRENCY = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY_8083));
+            } else {
+                field_CAPITALCURRENCY = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY_8092));
+            }
             test_CAPITALCURRENCY = field_CAPITALCURRENCY.getAttribute("value");
 
         } catch (InterruptedException e) {

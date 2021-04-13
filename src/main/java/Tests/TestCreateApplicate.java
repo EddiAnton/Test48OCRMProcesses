@@ -1,10 +1,6 @@
 package Tests;
 
-import Services.DataConversion;
-import Services.TestEnvironment;
-import Services.XpathAuthorization;
-import Services.XpathCreateApplicate;
-import Services.XpathTestProcessStage;
+import Services.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +28,7 @@ public class TestCreateApplicate {
     String fb_productOrderID = null;
 
     @Parameters({"contour"})
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void createApplicate(String contour) {
 
         TestEnvironment testEnvironment = new TestEnvironment(contour);
@@ -151,7 +147,7 @@ public class TestCreateApplicate {
         }
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
             driver.navigate().refresh();
         } catch (InterruptedException e) {
             e.printStackTrace();

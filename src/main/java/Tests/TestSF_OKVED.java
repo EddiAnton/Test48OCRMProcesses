@@ -126,29 +126,62 @@ public class TestSF_OKVED {
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
 
             // Select the OKVED tab
-            WebElement OKVEDTab = driver.findElement(By.xpath(XpathOKVED.OKVED_TAB));
+            WebElement OKVEDTab = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathOKVED.OKVED_TAB)));
             OKVEDTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the OKVED - " V "
-            WebElement openOKVED = driver.findElement(By.xpath(XpathOKVED.OPEN_OKVED));
+            WebElement openOKVED;
+            if (contour.equals("8083")) {
+                openOKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathOKVED.OPEN_OKVED_8083)));
+            } else {
+                openOKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathOKVED.OPEN_OKVED_8092)));
+            }
             openOKVED.click();
-            Thread.sleep(3000);
 
             // Get data of the OKVED type
-            WebElement field_CODE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODE_OKVED));
+            WebElement field_CODE_OKVED;
+            if (contour.equals("8083")) {
+                field_CODE_OKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOKVED.FIELD_CODE_OKVED_8083)));
+            } else {
+                field_CODE_OKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOKVED.FIELD_CODE_OKVED_8092)));
+            }
             test_CODE_OKVED = field_CODE_OKVED.getAttribute("value");
 
-            WebElement field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED));
+            WebElement field_CODENAME_OKVED;
+            if (contour.equals("8083")) {
+                field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED_8083));
+            } else {
+                field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED_8092));
+            }
             test_CODENAME_OKVED = field_CODENAME_OKVED.getAttribute("value");
 
-            WebElement field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED));
+            WebElement field_BEGINDATE_OKVED;
+            if (contour.equals("8083")) {
+                field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED_8083));
+            } else {
+                field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED_8092));
+            }
             test_BEGINDATE_OKVED = field_BEGINDATE_OKVED.getAttribute("value");
 
-            WebElement field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED));
+            WebElement field_ENDDATE_OKVED;
+            if (contour.equals("8083")) {
+                field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED_8083));
+            } else {
+                field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED_8092));
+            }
             test_ENDDATE_OKVED = field_ENDDATE_OKVED.getAttribute("value");
 
-            WebElement field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED));
+            WebElement field_ISPRIMARY_OKVED;
+            if (contour.equals("8083")) {
+                field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED_8083));
+            } else {
+                field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED_8092));
+            }
             test_ISPRIMARY_OKVED = field_ISPRIMARY_OKVED.getAttribute("value");
 
         } catch (InterruptedException e) {

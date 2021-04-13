@@ -2833,21 +2833,21 @@ public class TestSF_ComplianceWEB_DBData {
             Thread.sleep(2000);
 
             // Get data of the Other changes type
-            WebElement field_OKFS = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS));
+            WebElement field_OKFS = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS_8083));
             test_OKFS = field_OKFS.getAttribute("value");
 
-            WebElement field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE));
+            WebElement field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE_8083));
             test_COMPANYTYPE = field_COMPANYTYPE.getAttribute("value");
 
-            WebElement field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF));
+            WebElement field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF_8083));
             test_OKOPF = field_OKOPF.getAttribute("value");
 
             WebElement field_CAPITALANNOUNCEDSUM = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM));
+                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM_8083));
             test_CAPITALANNOUNCEDSUM = field_CAPITALANNOUNCEDSUM.getAttribute("value");
 
             WebElement field_CAPITALCURRENCY = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY));
+                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY_8083));
             test_CAPITALCURRENCY = field_CAPITALCURRENCY.getAttribute("value");
 
         } catch (InterruptedException e) {
@@ -3094,24 +3094,24 @@ public class TestSF_ComplianceWEB_DBData {
             Thread.sleep(2000);
 
             // Disclose data on the OKVED - " V "
-            WebElement openOKVED = driver.findElement(By.xpath(XpathOKVED.OPEN_OKVED));
+            WebElement openOKVED = driver.findElement(By.xpath(XpathOKVED.OPEN_OKVED_8083));
             openOKVED.click();
             Thread.sleep(3000);
 
             // Get data of the OKVED type
-            WebElement field_CODE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODE_OKVED));
+            WebElement field_CODE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODE_OKVED_8083));
             test_CODE_OKVED = field_CODE_OKVED.getAttribute("value");
 
-            WebElement field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED));
+            WebElement field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED_8083));
             test_CODENAME_OKVED = field_CODENAME_OKVED.getAttribute("value");
 
-            WebElement field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED));
+            WebElement field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED_8083));
             test_BEGINDATE_OKVED = field_BEGINDATE_OKVED.getAttribute("value");
 
-            WebElement field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED));
+            WebElement field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED_8083));
             test_ENDDATE_OKVED = field_ENDDATE_OKVED.getAttribute("value");
 
-            WebElement field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED));
+            WebElement field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED_8083));
             test_ISPRIMARY_OKVED = field_ISPRIMARY_OKVED.getAttribute("value");
 
         } catch (InterruptedException e) {

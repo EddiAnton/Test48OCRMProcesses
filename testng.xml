@@ -5,7 +5,7 @@
 
     <test name="8092">
 
-        <parameter name="contour" value="Dima"></parameter>
+        <parameter name="contour" value="8093"></parameter>
 
         <classes>
 
