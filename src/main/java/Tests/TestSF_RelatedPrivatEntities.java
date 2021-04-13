@@ -127,8 +127,8 @@ public class TestSF_RelatedPrivatEntities {
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
 
             // Select the Related Privat Entities tab
-            WebElement relatedPrivatEntitiesTab = driver.findElement(By
-                    .xpath(XpathRelatedPrivatEntities.RELATED_PRIVAT_ENTITIES_TAB));
+            WebElement relatedPrivatEntitiesTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedPrivatEntities.RELATED_PRIVAT_ENTITIES_TAB)));
             relatedPrivatEntitiesTab.click();
 
             // Disclose data on the Related Privat Entities - " V "

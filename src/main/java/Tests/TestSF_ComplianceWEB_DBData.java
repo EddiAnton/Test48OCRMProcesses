@@ -605,20 +605,22 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Organization Name tab
-            WebElement organizationNameTab = driver.findElement(By.xpath(XpathNameOfCompany.ORGANIZATION_NAME_TAB));
+            WebElement organizationNameTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathNameOfCompany.ORGANIZATION_NAME_TAB)));
             organizationNameTab.click();
-            Thread.sleep(2000);
 
             // Get data of the Name type
             WebElement field_ACCOUNTNAME;
             if (contour.equals("8083")) {
-                field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8083));
+                field_ACCOUNTNAME = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8083)));
             } else {
-                field_ACCOUNTNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8092));
+                field_ACCOUNTNAME = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathNameOfCompany.FIELD_ACCOUNTNAME_8092)));
             }
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
-            WebElement field_AKA;
+            WebElement field_AKA = null;
             if (contour.equals("8083")) {
                 field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA_8083));
             } else {
@@ -626,7 +628,7 @@ public class TestSF_ComplianceWEB_DBData {
             }
             test_AKA = field_AKA.getAttribute("value");
 
-            WebElement field_ENGNAME;
+            WebElement field_ENGNAME = null;
             if (contour.equals("8083")) {
                 field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME_8083));
             } else {
@@ -634,13 +636,14 @@ public class TestSF_ComplianceWEB_DBData {
             }
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
-            WebElement field_ENGNAMESHORT;
+            WebElement field_ENGNAMESHORT = null;
             if (contour.equals("8083")) {
                 field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT_8083));
             } else {
                 field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT_8092));
             }
             test_ENGNAMESHORT = field_ENGNAMESHORT.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             System.out.println("Get web NameOfCompany data failed");
@@ -775,26 +778,29 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the License tab
-            WebElement licenseTab = driver.findElement(By.xpath(XpathLicense.LICENSE_TAB));
+            WebElement licenseTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathLicense.LICENSE_TAB)));
             licenseTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the License - " V "
             WebElement openLicense;
             if (contour.equals("8083")) {
-                openLicense = driver.findElement(By.xpath(XpathLicense.OPEN_LICENSE_8083));
+                openLicense = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathLicense.OPEN_LICENSE_8083)));
             } else {
-                openLicense = driver.findElement(By.xpath(XpathLicense.OPEN_LICENSE_8092));
+                openLicense = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathLicense.OPEN_LICENSE_8092)));
             }
             openLicense.click();
-            Thread.sleep(3000);
 
             // Get data of the License type
             WebElement field_LICENSENUMBER;
             if (contour.equals("8083")) {
-                field_LICENSENUMBER = driver.findElement(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8083));
+                field_LICENSENUMBER = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8083)));
             } else {
-                field_LICENSENUMBER = driver.findElement(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8092));
+                field_LICENSENUMBER = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathLicense.FIELD_LICENSENUMBER_8092)));
             }
             test_LICENSENUMBER = field_LICENSENUMBER.getAttribute("value");
 
@@ -837,6 +843,7 @@ public class TestSF_ComplianceWEB_DBData {
                 field_ACTIVITYKINDLIST = driver.findElement(By.xpath(XpathLicense.FIELD_ACTIVITYKINDLIST_8092));
             }
             test_ACTIVITYKINDLIST = field_ACTIVITYKINDLIST.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             System.out.println("Get web License data failed");
@@ -1013,16 +1020,18 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Address tab
-            WebElement addressTab = driver.findElement(By.xpath(XpathAddress.ADDRESS_TAB));
+            WebElement addressTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathAddress.ADDRESS_TAB)));
             addressTab.click();
-            Thread.sleep(5000);
 
             // Get data OKATO & OKTMO
             WebElement field_OKATO;
             if (contour.equals("8083")) {
-                field_OKATO = driver.findElement(By.xpath(XpathAddress.FIELD_OKATO_8083));
+                field_OKATO = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAddress.FIELD_OKATO_8083)));
             } else {
-                field_OKATO = driver.findElement(By.xpath(XpathAddress.FIELD_OKATO_8092));
+                field_OKATO = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAddress.FIELD_OKATO_8092)));
             }
             test_OKATO = field_OKATO.getAttribute("value");
 
@@ -1042,14 +1051,15 @@ public class TestSF_ComplianceWEB_DBData {
                 openAddress = driver.findElement(By.xpath(XpathAddress.OPEN_ADDRESS_8092));
             }
             openAddress.click();
-            Thread.sleep(3000);
 
             // Get data of the Address type
             WebElement field_ADDRESSTYPE;
             if (contour.equals("8083")) {
-                field_ADDRESSTYPE = driver.findElement(By.xpath(XpathAddress.FIELD_ADDRESSTYPE_8083));
+                field_ADDRESSTYPE = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAddress.FIELD_ADDRESSTYPE_8083)));
             } else {
-                field_ADDRESSTYPE = driver.findElement(By.xpath(XpathAddress.FIELD_ADDRESSTYPE_8092));
+                field_ADDRESSTYPE = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAddress.FIELD_ADDRESSTYPE_8092)));
             }
             test_ADDRESSTYPE = field_ADDRESSTYPE.getAttribute("value");
 
@@ -1132,6 +1142,7 @@ public class TestSF_ComplianceWEB_DBData {
                 field_FULLADDRESS = driver.findElement(By.xpath(XpathAddress.FIELD_FULLADDRESS_8092));
             }
             test_FULLADDRESS = field_FULLADDRESS.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -1411,10 +1422,9 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Related Privat Entities tab
-            WebElement relatedPrivatEntitiesTab = driver.findElement(By
-                    .xpath(XpathRelatedPrivatEntities.RELATED_PRIVAT_ENTITIES_TAB));
+            WebElement relatedPrivatEntitiesTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedPrivatEntities.RELATED_PRIVAT_ENTITIES_TAB)));
             relatedPrivatEntitiesTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the Related Privat Entities - " V "
             WebElement openRelatedPrivatEntities;
@@ -1493,6 +1503,7 @@ public class TestSF_ComplianceWEB_DBData {
                 field_CITIZENSHIP = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_CITIZENSHIP_8092));
             }
             test_CITIZENSHIP = field_CITIZENSHIP.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -1689,76 +1700,168 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Related Legal Entities tab
-            WebElement relatedLegalEntitiesTab = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.RELATED_LEGAL_ENTITIES_TAB));
+            WebElement relatedLegalEntitiesTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedLegalEntities.RELATED_LEGAL_ENTITIES_TAB)));
             relatedLegalEntitiesTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the Related Legal Entities - " V "
-            WebElement openRelatedLegalEntities = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.OPEN_RELATED_LEGAL_ENTITIES));
+            WebElement openRelatedLegalEntities;
+            if (contour.equals("8083")) {
+                openRelatedLegalEntities = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedLegalEntities.OPEN_RELATED_LEGAL_ENTITIES_8083)));
+            } else {
+                openRelatedLegalEntities = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedLegalEntities.OPEN_RELATED_LEGAL_ENTITIES_8092)));
+            }
             openRelatedLegalEntities.click();
-            Thread.sleep(3000);
 
             // Get data of the Related Legal Entities type
-            WebElement field_CODE_FACE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_FACE));
+            WebElement field_CODE_FACE;
+            if (contour.equals("8083")) {
+                field_CODE_FACE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_FACE_8083)));
+            } else {
+                field_CODE_FACE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_FACE_8092)));
+            }
             test_CODE_FACE = field_CODE_FACE.getAttribute("value");
 
-            WebElement field_ACCOUNTNAME_RLE = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.FIELD_ACCOUNTNAME));
+            WebElement field_ACCOUNTNAME_RLE;
+            if (contour.equals("8083")) {
+                field_ACCOUNTNAME_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ACCOUNTNAME_8083));
+            } else {
+                field_ACCOUNTNAME_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ACCOUNTNAME_8092));
+            }
             test_ACCOUNTNAME_RLE = field_ACCOUNTNAME_RLE.getAttribute("value");
 
-            WebElement field_AKA_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_AKA));
+            WebElement field_AKA_RLE;
+            if (contour.equals("8083")) {
+                field_AKA_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_AKA_8083));
+            } else {
+                field_AKA_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_AKA_8092));
+            }
             test_AKA_RLE = field_AKA_RLE.getAttribute("value");
 
-            WebElement field_ENGNAME_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAME));
+            WebElement field_ENGNAME_RLE;
+            if (contour.equals("8083")) {
+                field_ENGNAME_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAME_8083));
+            } else {
+                field_ENGNAME_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAME_8092));
+            }
             test_ENGNAME_RLE = field_ENGNAME_RLE.getAttribute("value");
 
-            WebElement field_ENGNAMESHORT_RLE = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.FIELD_ENGNAMESHORT));
+            WebElement field_ENGNAMESHORT_RLE;
+            if (contour.equals("8083")) {
+                field_ENGNAMESHORT_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAMESHORT_8083));
+            } else {
+                field_ENGNAMESHORT_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ENGNAMESHORT_8092));
+            }
             test_ENGNAMESHORT_RLE = field_ENGNAMESHORT_RLE.getAttribute("value");
 
-            WebElement field_OKFS_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKFS));
+            WebElement field_OKFS_RLE;
+            if (contour.equals("8083")) {
+                field_OKFS_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKFS_8083));
+            } else {
+                field_OKFS_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKFS_8092));
+            }
             test_OKFS_RLE = field_OKFS_RLE.getAttribute("value");
 
-            WebElement field_COMPANYTYPE_RLE = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.FIELD_COMPANYTYPE));
+            WebElement field_COMPANYTYPE_RLE;
+            if (contour.equals("8083")) {
+                field_COMPANYTYPE_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_COMPANYTYPE_8083));
+            } else {
+                field_COMPANYTYPE_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_COMPANYTYPE_8092));
+            }
             test_COMPANYTYPE_RLE = field_COMPANYTYPE_RLE.getAttribute("value");
 
-            WebElement field_OKOPF_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOPF));
+            WebElement field_OKOPF_RLE;
+            if (contour.equals("8083")) {
+                field_OKOPF_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOPF_8083));
+            } else {
+                field_OKOPF_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOPF_8092));
+            }
             test_OKOPF_RLE = field_OKOPF_RLE.getAttribute("value");
 
-            WebElement field_JURISDICTION_RLE = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.FIELD_JURISDICTION));
+            WebElement field_JURISDICTION_RLE;
+            if (contour.equals("8083")) {
+                field_JURISDICTION_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_JURISDICTION_8083));
+            } else {
+                field_JURISDICTION_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_JURISDICTION_8092));
+            }
             test_JURISDICTION_RLE = field_JURISDICTION_RLE.getAttribute("value");
 
-            WebElement field_ISREGOFFSHORZONE_RLE = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.FIELD_ISREGOFFSHORZONE));
+            WebElement field_ISREGOFFSHORZONE_RLE;
+            if (contour.equals("8083")) {
+                field_ISREGOFFSHORZONE_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ISREGOFFSHORZONE_8083));
+            } else {
+                field_ISREGOFFSHORZONE_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_ISREGOFFSHORZONE_8092));
+            }
             test_ISREGOFFSHORZONE_RLE = field_ISREGOFFSHORZONE_RLE.getAttribute("value");
 
-            WebElement field_INN_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_INN));
+            WebElement field_INN_RLE;
+            if (contour.equals("8083")) {
+                field_INN_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_INN_8083));
+            } else {
+                field_INN_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_INN_8092));
+            }
             test_INN_RLE = field_INN_RLE.getAttribute("value");
 
-            WebElement field_CODE_KPP_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_KPP));
+            WebElement field_CODE_KPP_RLE;
+            if (contour.equals("8083")) {
+                field_CODE_KPP_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_KPP_8083));
+            } else {
+                field_CODE_KPP_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_CODE_KPP_8092));
+            }
             test_CODE_KPP_RLE = field_CODE_KPP_RLE.getAttribute("value");
 
-            WebElement field_SWIFT_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_SWIFT));
+            WebElement field_SWIFT_RLE;
+            if (contour.equals("8083")) {
+                field_SWIFT_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_SWIFT_8083));
+            } else {
+                field_SWIFT_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_SWIFT_8092));
+            }
             test_SWIFT_RLE = field_SWIFT_RLE.getAttribute("value");
 
-            WebElement field_KIO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_KIO));
+            WebElement field_KIO_RLE;
+            if (contour.equals("8083")) {
+                field_KIO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_KIO_8083));
+            } else {
+                field_KIO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_KIO_8092));
+            }
             test_KIO_RLE = field_KIO_RLE.getAttribute("value");
 
-            WebElement field_OKATO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKATO));
+            WebElement field_OKATO_RLE;
+            if (contour.equals("8083")) {
+                field_OKATO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKATO_8083));
+            } else {
+                field_OKATO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKATO_8092));
+            }
             test_OKATO_RLE = field_OKATO_RLE.getAttribute("value");
 
-            WebElement field_OKTMO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKTMO));
+            WebElement field_OKTMO_RLE;
+            if (contour.equals("8083")) {
+                field_OKTMO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKTMO_8083));
+            } else {
+                field_OKTMO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKTMO_8092));
+            }
             test_OKTMO_RLE = field_OKTMO_RLE.getAttribute("value");
 
-            WebElement field_OKPO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKPO));
+            WebElement field_OKPO_RLE;
+            if (contour.equals("8083")) {
+                field_OKPO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKPO_8083));
+            } else {
+                field_OKPO_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKPO_8092));
+            }
             test_OKPO_RLE = field_OKPO_RLE.getAttribute("value");
 
-            WebElement field_OKOGU_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOGU));
+            WebElement field_OKOGU_RLE;
+            if (contour.equals("8083")) {
+                field_OKOGU_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOGU_8083));
+            } else {
+                field_OKOGU_RLE = driver.findElement(By.xpath(XpathRelatedLegalEntities.FIELD_OKOGU_8092));
+            }
             test_OKOGU_RLE = field_OKOGU_RLE.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -2158,40 +2261,86 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Tax Accounting tab
-            WebElement taxAccountingTab = driver.findElement(By.xpath(XpathTaxAccounting.TAX_ACCOUNTING_TAB));
+            WebElement taxAccountingTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.TAX_ACCOUNTING_TAB)));
             taxAccountingTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the Tax - " V "
-            WebElement openTax = driver.findElement(By.xpath(XpathTaxAccounting.OPEN_TAX));
+            WebElement openTax;
+            if (contour.equals("8083")) {
+                openTax = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_TAX_8083)));
+            } else {
+                openTax = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_TAX_8092)));
+            }
             openTax.click();
-            Thread.sleep(3000);
 
             // Get data of the Tax type
-            WebElement field_CODE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODE_TAX));
+            WebElement field_CODE_TAX;
+            if (contour.equals("8083")) {
+                field_CODE_TAX = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_TAX_8083)));
+            } else {
+                field_CODE_TAX = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_TAX_8092)));
+            }
             test_CODE_TAX = field_CODE_TAX.getAttribute("value");
 
-            WebElement field_CODENAME_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODENAME_TAX));
+            WebElement field_CODENAME_TAX;
+            if (contour.equals("8083")) {
+                field_CODENAME_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODENAME_TAX_8083));
+            } else {
+                field_CODENAME_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODENAME_TAX_8092));
+            }
             test_CODENAME_TAX = field_CODENAME_TAX.getAttribute("value");
 
-            WebElement field_BEGINDATE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_BEGINDATE_TAX));
+            WebElement field_BEGINDATE_TAX;
+            if (contour.equals("8083")) {
+                field_BEGINDATE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_BEGINDATE_TAX_8083));
+            } else {
+                field_BEGINDATE_TAX = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_BEGINDATE_TAX_8092));
+            }
             test_BEGINDATE_TAX = field_BEGINDATE_TAX.getAttribute("value");
 
             // Disclose data on the KPP - " V "
-            WebElement openKPP = driver.findElement(By.xpath(XpathTaxAccounting.OPEN_KPP));
+            WebElement openKPP;
+            if (contour.equals("8083")) {
+                openKPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_KPP_8083)));
+            } else {
+                openKPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTaxAccounting.OPEN_KPP_8092)));
+            }
             openKPP.click();
-            Thread.sleep(3000);
 
             // Get data of the KPP type
-            WebElement field_CODE_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_CODE_KPP));
+            WebElement field_CODE_KPP;
+            if (contour.equals("8083")) {
+                field_CODE_KPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_KPP_8083)));
+            } else {
+                field_CODE_KPP = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTaxAccounting.FIELD_CODE_KPP_8092)));
+            }
             test_CODE_KPP = field_CODE_KPP.getAttribute("value");
 
-            WebElement field_ISPRIMARY_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISPRIMARY_KPP));
+            WebElement field_ISPRIMARY_KPP;
+            if (contour.equals("8083")) {
+                field_ISPRIMARY_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISPRIMARY_KPP_8083));
+            } else {
+                field_ISPRIMARY_KPP = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISPRIMARY_KPP_8092));
+            }
             test_ISPRIMARY_KPP = field_ISPRIMARY_KPP.getAttribute("value");
 
-            WebElement field_ISADDITIONALPROPERTY1 = driver.findElement(By
-                    .xpath(XpathTaxAccounting.FIELD_ISADDITIONALPROPERTY1));
+            WebElement field_ISADDITIONALPROPERTY1;
+            if (contour.equals("8083")) {
+                field_ISADDITIONALPROPERTY1 = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISADDITIONALPROPERTY1_8083));
+            } else {
+                field_ISADDITIONALPROPERTY1 = driver.findElement(By.xpath(XpathTaxAccounting.FIELD_ISADDITIONALPROPERTY1_8092));
+            }
             test_ISADDITIONALPROPERTY1 = field_ISADDITIONALPROPERTY1.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -2423,26 +2572,29 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Contacts tab
-            WebElement contactsTab = driver.findElement(By.xpath(XpathContact.CONTACTS_TAB));
+            WebElement contactsTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathContact.CONTACTS_TAB)));
             contactsTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the Contact - " V "
             WebElement openContact;
             if (contour.equals("8083")) {
-                openContact = driver.findElement(By.xpath(XpathContact.OPEN_CONTACT_8083));
+                openContact = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathContact.OPEN_CONTACT_8083)));
             } else {
-                openContact = driver.findElement(By.xpath(XpathContact.OPEN_CONTACT_8092));
+                openContact = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathContact.OPEN_CONTACT_8092)));
             }
             openContact.click();
-            Thread.sleep(3000);
 
             // Get data of the Contact type
             WebElement field_CHANNEL_TYPE;
             if (contour.equals("8083")) {
-                field_CHANNEL_TYPE = driver.findElement(By.xpath(XpathContact.FIELD_CHANNEL_TYPE_8083));
+                field_CHANNEL_TYPE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathContact.FIELD_CHANNEL_TYPE_8083)));
             } else {
-                field_CHANNEL_TYPE = driver.findElement(By.xpath(XpathContact.FIELD_CHANNEL_TYPE_8092));
+                field_CHANNEL_TYPE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathContact.FIELD_CHANNEL_TYPE_8092)));
             }
             test_CHANNEL_TYPE = field_CHANNEL_TYPE.getAttribute("value");
 
@@ -2485,6 +2637,7 @@ public class TestSF_ComplianceWEB_DBData {
                 field_NOTE = driver.findElement(By.xpath(XpathContact.FIELD_NOTE_8092));
             }
             test_NOTE = field_NOTE.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -2741,9 +2894,9 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Governing Bodies tab
-            WebElement governingBodiesTab = driver.findElement(By.xpath(XpathGoverningBodies.GOVERNING_BODIES_TAB));
+            WebElement governingBodiesTab = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathGoverningBodies.GOVERNING_BODIES_TAB)));
             governingBodiesTab.click();
-            Thread.sleep(2000);
 
             // Get data of the Governing Bodies type
             WebElement field_MANAGE_PERSON;
@@ -2763,6 +2916,7 @@ public class TestSF_ComplianceWEB_DBData {
                         .xpath(XpathGoverningBodies.FIELD_MANAGE_STRUCTURE_8092));
             }
             test_MANAGE_STRUCTURE = field_MANAGE_STRUCTURE.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             System.out.println("Get web GoverningBodies data failed");
@@ -2876,28 +3030,53 @@ public class TestSF_ComplianceWEB_DBData {
         try{
 
             // Select the Other Changes in Doc tab
-            WebElement otherChangesInDocTab = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.OTHER_CHANGES_IN_DOC_TAB));
+            WebElement otherChangesInDocTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathOtherChangesInDoc.OTHER_CHANGES_IN_DOC_TAB)));
             otherChangesInDocTab.click();
-            Thread.sleep(2000);
 
             // Get data of the Other changes type
-            WebElement field_OKFS = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS_8083));
+            WebElement field_OKFS;
+            if (contour.equals("8083")) {
+                field_OKFS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS_8083)));
+            } else {
+                field_OKFS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOtherChangesInDoc.FIELD_OKFS_8092)));
+            }
             test_OKFS = field_OKFS.getAttribute("value");
 
-            WebElement field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE_8083));
+            WebElement field_COMPANYTYPE;
+            if (contour.equals("8083")) {
+                field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE_8083));
+            } else {
+                field_COMPANYTYPE = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_COMPANYTYPE_8092));
+            }
             test_COMPANYTYPE = field_COMPANYTYPE.getAttribute("value");
 
-            WebElement field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF_8083));
+            WebElement field_OKOPF;
+            if (contour.equals("8083")) {
+                field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF_8083));
+            } else {
+                field_OKOPF = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_OKOPF_8092));
+            }
             test_OKOPF = field_OKOPF.getAttribute("value");
 
-            WebElement field_CAPITALANNOUNCEDSUM = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM_8083));
+            WebElement field_CAPITALANNOUNCEDSUM;
+            if (contour.equals("8083")) {
+                field_CAPITALANNOUNCEDSUM = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM_8083));
+            } else {
+                field_CAPITALANNOUNCEDSUM = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALANNOUNCEDSUM_8092));
+            }
             test_CAPITALANNOUNCEDSUM = field_CAPITALANNOUNCEDSUM.getAttribute("value");
 
-            WebElement field_CAPITALCURRENCY = driver.findElement(By
-                    .xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY_8083));
+            WebElement field_CAPITALCURRENCY;
+            if (contour.equals("8083")) {
+                field_CAPITALCURRENCY = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY_8083));
+            } else {
+                field_CAPITALCURRENCY = driver.findElement(By.xpath(XpathOtherChangesInDoc.FIELD_CAPITALCURRENCY_8092));
+            }
             test_CAPITALCURRENCY = field_CAPITALCURRENCY.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             System.out.println("Get web Other Changes data failed");
@@ -3138,30 +3317,64 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the OKVED tab
-            WebElement OKVEDTab = driver.findElement(By.xpath(XpathOKVED.OKVED_TAB));
+            WebElement OKVEDTab = new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathOKVED.OKVED_TAB)));
             OKVEDTab.click();
-            Thread.sleep(2000);
 
             // Disclose data on the OKVED - " V "
-            WebElement openOKVED = driver.findElement(By.xpath(XpathOKVED.OPEN_OKVED_8083));
+            WebElement openOKVED;
+            if (contour.equals("8083")) {
+                openOKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathOKVED.OPEN_OKVED_8083)));
+            } else {
+                openOKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathOKVED.OPEN_OKVED_8092)));
+            }
             openOKVED.click();
-            Thread.sleep(3000);
 
             // Get data of the OKVED type
-            WebElement field_CODE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODE_OKVED_8083));
+            WebElement field_CODE_OKVED;
+            if (contour.equals("8083")) {
+                field_CODE_OKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOKVED.FIELD_CODE_OKVED_8083)));
+            } else {
+                field_CODE_OKVED = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathOKVED.FIELD_CODE_OKVED_8092)));
+            }
             test_CODE_OKVED = field_CODE_OKVED.getAttribute("value");
 
-            WebElement field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED_8083));
+            WebElement field_CODENAME_OKVED;
+            if (contour.equals("8083")) {
+                field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED_8083));
+            } else {
+                field_CODENAME_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_CODENAME_OKVED_8092));
+            }
             test_CODENAME_OKVED = field_CODENAME_OKVED.getAttribute("value");
 
-            WebElement field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED_8083));
+            WebElement field_BEGINDATE_OKVED;
+            if (contour.equals("8083")) {
+                field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED_8083));
+            } else {
+                field_BEGINDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_BEGINDATE_OKVED_8092));
+            }
             test_BEGINDATE_OKVED = field_BEGINDATE_OKVED.getAttribute("value");
 
-            WebElement field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED_8083));
+            WebElement field_ENDDATE_OKVED;
+            if (contour.equals("8083")) {
+                field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED_8083));
+            } else {
+                field_ENDDATE_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ENDDATE_OKVED_8092));
+            }
             test_ENDDATE_OKVED = field_ENDDATE_OKVED.getAttribute("value");
 
-            WebElement field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED_8083));
+            WebElement field_ISPRIMARY_OKVED;
+            if (contour.equals("8083")) {
+                field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED_8083));
+            } else {
+                field_ISPRIMARY_OKVED = driver.findElement(By.xpath(XpathOKVED.FIELD_ISPRIMARY_OKVED_8092));
+            }
             test_ISPRIMARY_OKVED = field_ISPRIMARY_OKVED.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -3323,78 +3536,171 @@ public class TestSF_ComplianceWEB_DBData {
         try {
 
             // Select the Updating Other Information tab
-            WebElement updatingOtherInformationTab = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.UPDATING_OTHER_INFORMATION_TAB));
+            WebElement updatingOtherInformationTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathUpdatingOtherInformation.UPDATING_OTHER_INFORMATION_TAB)));
             updatingOtherInformationTab.click();
-            Thread.sleep(2000);
 
-            WebElement field_ISREGOFFSHORZONE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_ISREGOFFSHORZONE));
+            // Get data of the Other information
+            WebElement field_ISREGOFFSHORZONE;
+            if (contour.equals("8083")) {
+                field_ISREGOFFSHORZONE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_ISREGOFFSHORZONE_8083)));
+            } else {
+                field_ISREGOFFSHORZONE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_ISREGOFFSHORZONE_8092)));
+            }
             test_ISREGOFFSHORZONE = field_ISREGOFFSHORZONE.getAttribute("value");
 
-            WebElement field_OKPO = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKPO));
+            WebElement field_OKPO;
+            if (contour.equals("8083")) {
+                field_OKPO = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKPO_8083));
+            } else {
+                field_OKPO = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKPO_8092));
+            }
             test_OKPO = field_OKPO.getAttribute("value");
 
-            WebElement field_OKOGU = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKOGU));
+            WebElement field_OKOGU;
+            if (contour.equals("8083")) {
+                field_OKOGU = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKOGU_8083));
+            } else {
+                field_OKOGU = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKOGU_8092));
+            }
             test_OKOGU = field_OKOGU.getAttribute("value");
 
-            WebElement field_SWIFT = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_SWIFT));
+            WebElement field_SWIFT;
+            if (contour.equals("8083")) {
+                field_SWIFT = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_SWIFT_8083));
+            } else {
+                field_SWIFT = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_SWIFT_8092));
+            }
             test_SWIFT = field_SWIFT.getAttribute("value");
 
-            WebElement field_EIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_EIN));
+            WebElement field_EIN;
+            if (contour.equals("8083")) {
+                field_EIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_EIN_8083));
+            } else {
+                field_EIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_EIN_8092));
+            }
             test_EIN = field_EIN.getAttribute("value");
 
-            WebElement field_GIIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_GIIN));
+            WebElement field_GIIN;
+            if (contour.equals("8083")) {
+                field_GIIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_GIIN_8083));
+            } else {
+                field_GIIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_GIIN_8092));
+            }
             test_GIIN = field_GIIN.getAttribute("value");
 
-            WebElement field_FATCADOCW9 = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOCW9));
+            WebElement field_FATCADOCW9;
+            if (contour.equals("8083")) {
+                field_FATCADOCW9 = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOCW9_8083));
+            } else {
+                field_FATCADOCW9 = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOCW9_8092));
+            }
             test_FATCADOCW9 = field_FATCADOCW9.getAttribute("value");
 
-            WebElement field_FATCADOC = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOC));
+            WebElement field_FATCADOC;
+            if (contour.equals("8083")) {
+                field_FATCADOC = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOC_8083));
+            } else {
+                field_FATCADOC = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOC_8092));
+            }
             test_FATCADOC = field_FATCADOC.getAttribute("value");
 
-            WebElement field_DISREGARDED = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_DISREGARDED));
+            WebElement field_DISREGARDED;
+            if (contour.equals("8083")) {
+                field_DISREGARDED = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_DISREGARDED_8083));
+            } else {
+                field_DISREGARDED = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_DISREGARDED_8092));
+            }
             test_DISREGARDED = field_DISREGARDED.getAttribute("value");
 
-            WebElement field_FATCASTATUS = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_FATCASTATUS));
+            WebElement field_FATCASTATUS;
+            if (contour.equals("8083")) {
+                field_FATCASTATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCASTATUS_8083));
+            } else {
+                field_FATCASTATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCASTATUS_8092));
+            }
             test_FATCASTATUS = field_FATCASTATUS.getAttribute("value");
 
             // Disclose data on the CRS - " V "
-            WebElement openCRS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.OPEN_CRS));
+            WebElement openCRS;
+            if (contour.equals("8083")) {
+                openCRS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathUpdatingOtherInformation.OPEN_CRS_8083)));
+            } else {
+                openCRS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathUpdatingOtherInformation.OPEN_CRS_8092)));
+            }
             openCRS.click();
-            Thread.sleep(3000);
 
-            WebElement field_CRS_NALOG_RESIDENCE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NALOG_RESIDENCE));
+            // Get data of the CRS
+            WebElement field_CRS_NALOG_RESIDENCE;
+            if (contour.equals("8083")) {
+                field_CRS_NALOG_RESIDENCE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NALOG_RESIDENCE_8083)));
+            } else {
+                field_CRS_NALOG_RESIDENCE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NALOG_RESIDENCE_8092)));
+            }
             test_CRS_NALOG_RESIDENCE = field_CRS_NALOG_RESIDENCE.getAttribute("value");
 
-            WebElement field_CRS_IINN_TYPE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_TYPE));
+            WebElement field_CRS_IINN_TYPE;
+            if (contour.equals("8083")) {
+                field_CRS_IINN_TYPE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_TYPE_8083));
+            } else {
+                field_CRS_IINN_TYPE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_TYPE_8092));
+            }
             test_CRS_IINN_TYPE = field_CRS_IINN_TYPE.getAttribute("value");
 
-            WebElement field_CRS_IINN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN));
+            WebElement field_CRS_IINN;
+            if (contour.equals("8083")) {
+                field_CRS_IINN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_8083));
+            } else {
+                field_CRS_IINN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_8092));
+            }
             test_CRS_IINN = field_CRS_IINN.getAttribute("value");
 
-            WebElement field_CRS_NO_IINN_CODE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_CODE));
+            WebElement field_CRS_NO_IINN_CODE;
+            if (contour.equals("8083")) {
+                field_CRS_NO_IINN_CODE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_CODE_8083));
+            } else {
+                field_CRS_NO_IINN_CODE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_CODE_8092));
+            }
             test_CRS_NO_IINN_CODE = field_CRS_NO_IINN_CODE.getAttribute("value");
 
-            WebElement field_CRS_NO_IINN_REASON = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_REASON));
+            WebElement field_CRS_NO_IINN_REASON;
+            if (contour.equals("8083")) {
+                field_CRS_NO_IINN_REASON = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_REASON_8083));
+            } else {
+                field_CRS_NO_IINN_REASON = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_REASON_8092));
+            }
             test_CRS_NO_IINN_REASON = field_CRS_NO_IINN_REASON.getAttribute("value");
 
-            WebElement field_CRS_DATE_BEGIN = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_BEGIN));
+            WebElement field_CRS_DATE_BEGIN;
+            if (contour.equals("8083")) {
+                field_CRS_DATE_BEGIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_BEGIN_8083));
+            } else {
+                field_CRS_DATE_BEGIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_BEGIN_8092));
+            }
             test_CRS_DATE_BEGIN = field_CRS_DATE_BEGIN.getAttribute("value");
 
-            WebElement field_CRS_DATE_END = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_END));
+            WebElement field_CRS_DATE_END;
+            if (contour.equals("8083")) {
+                field_CRS_DATE_END = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_END_8083));
+            } else {
+                field_CRS_DATE_END = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_END_8092));
+            }
             test_CRS_DATE_END = field_CRS_DATE_END.getAttribute("value");
 
-            WebElement field_CRS_STATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_STATUS));
+            WebElement field_CRS_STATUS;
+            if (contour.equals("8083")) {
+                field_CRS_STATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_STATUS_8083));
+            } else {
+                field_CRS_STATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_STATUS_8092));
+            }
             test_CRS_STATUS = field_CRS_STATUS.getAttribute("value");
+            Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();

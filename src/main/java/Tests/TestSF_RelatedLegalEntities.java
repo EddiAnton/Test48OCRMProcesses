@@ -181,8 +181,8 @@ public class TestSF_RelatedLegalEntities {
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
 
             // Select the Related Legal Entities tab
-            WebElement relatedLegalEntitiesTab = driver.findElement(By
-                    .xpath(XpathRelatedLegalEntities.RELATED_LEGAL_ENTITIES_TAB));
+            WebElement relatedLegalEntitiesTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedLegalEntities.RELATED_LEGAL_ENTITIES_TAB)));
             relatedLegalEntitiesTab.click();
 
             // Disclose data on the Related Legal Entities - " V "
