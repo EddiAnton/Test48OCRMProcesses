@@ -176,77 +176,169 @@ public class TestSF_UpdatingOtherInformation {
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
 
             // Select the Updating Other Information tab
-            WebElement updatingOtherInformationTab = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.UPDATING_OTHER_INFORMATION_TAB));
+            WebElement updatingOtherInformationTab = new WebDriverWait(driver, 15).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath(XpathUpdatingOtherInformation.UPDATING_OTHER_INFORMATION_TAB)));
             updatingOtherInformationTab.click();
-            Thread.sleep(2000);
 
-            WebElement field_ISREGOFFSHORZONE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_ISREGOFFSHORZONE));
+            // Get data of the Other information
+            WebElement field_ISREGOFFSHORZONE;
+            if (contour.equals("8083")) {
+                field_ISREGOFFSHORZONE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_ISREGOFFSHORZONE_8083)));
+            } else {
+                field_ISREGOFFSHORZONE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_ISREGOFFSHORZONE_8092)));
+            }
             test_ISREGOFFSHORZONE = field_ISREGOFFSHORZONE.getAttribute("value");
 
-            WebElement field_OKPO = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKPO));
+            WebElement field_OKPO;
+            if (contour.equals("8083")) {
+                field_OKPO = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKPO_8083));
+            } else {
+                field_OKPO = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKPO_8092));
+            }
             test_OKPO = field_OKPO.getAttribute("value");
 
-            WebElement field_OKOGU = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKOGU));
+            WebElement field_OKOGU;
+            if (contour.equals("8083")) {
+                field_OKOGU = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKOGU_8083));
+            } else {
+                field_OKOGU = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_OKOGU_8092));
+            }
             test_OKOGU = field_OKOGU.getAttribute("value");
 
-            WebElement field_SWIFT = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_SWIFT));
+            WebElement field_SWIFT;
+            if (contour.equals("8083")) {
+                field_SWIFT = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_SWIFT_8083));
+            } else {
+                field_SWIFT = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_SWIFT_8092));
+            }
             test_SWIFT = field_SWIFT.getAttribute("value");
 
-            WebElement field_EIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_EIN));
+            WebElement field_EIN;
+            if (contour.equals("8083")) {
+                field_EIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_EIN_8083));
+            } else {
+                field_EIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_EIN_8092));
+            }
             test_EIN = field_EIN.getAttribute("value");
 
-            WebElement field_GIIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_GIIN));
+            WebElement field_GIIN;
+            if (contour.equals("8083")) {
+                field_GIIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_GIIN_8083));
+            } else {
+                field_GIIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_GIIN_8092));
+            }
             test_GIIN = field_GIIN.getAttribute("value");
 
-            WebElement field_FATCADOCW9 = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOCW9));
+            WebElement field_FATCADOCW9;
+            if (contour.equals("8083")) {
+                field_FATCADOCW9 = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOCW9_8083));
+            } else {
+                field_FATCADOCW9 = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOCW9_8092));
+            }
             test_FATCADOCW9 = field_FATCADOCW9.getAttribute("value");
 
-            WebElement field_FATCADOC = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOC));
+            WebElement field_FATCADOC;
+            if (contour.equals("8083")) {
+                field_FATCADOC = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOC_8083));
+            } else {
+                field_FATCADOC = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCADOC_8092));
+            }
             test_FATCADOC = field_FATCADOC.getAttribute("value");
 
-            WebElement field_DISREGARDED = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_DISREGARDED));
+            WebElement field_DISREGARDED;
+            if (contour.equals("8083")) {
+                field_DISREGARDED = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_DISREGARDED_8083));
+            } else {
+                field_DISREGARDED = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_DISREGARDED_8092));
+            }
             test_DISREGARDED = field_DISREGARDED.getAttribute("value");
 
-            WebElement field_FATCASTATUS = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_FATCASTATUS));
+            WebElement field_FATCASTATUS;
+            if (contour.equals("8083")) {
+                field_FATCASTATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCASTATUS_8083));
+            } else {
+                field_FATCASTATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_FATCASTATUS_8092));
+            }
             test_FATCASTATUS = field_FATCASTATUS.getAttribute("value");
 
             // Disclose data on the CRS - " V "
-            WebElement openCRS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.OPEN_CRS));
+            WebElement openCRS;
+            if (contour.equals("8083")) {
+                openCRS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathUpdatingOtherInformation.OPEN_CRS_8083)));
+            } else {
+                openCRS = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathUpdatingOtherInformation.OPEN_CRS_8092)));
+            }
             openCRS.click();
-            Thread.sleep(3000);
 
-            WebElement field_CRS_NALOG_RESIDENCE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NALOG_RESIDENCE));
+            // Get data of the CRS
+            WebElement field_CRS_NALOG_RESIDENCE;
+            if (contour.equals("8083")) {
+                field_CRS_NALOG_RESIDENCE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NALOG_RESIDENCE_8083)));
+            } else {
+                field_CRS_NALOG_RESIDENCE = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NALOG_RESIDENCE_8092)));
+            }
             test_CRS_NALOG_RESIDENCE = field_CRS_NALOG_RESIDENCE.getAttribute("value");
 
-            WebElement field_CRS_IINN_TYPE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_TYPE));
+            WebElement field_CRS_IINN_TYPE;
+            if (contour.equals("8083")) {
+                field_CRS_IINN_TYPE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_TYPE_8083));
+            } else {
+                field_CRS_IINN_TYPE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_TYPE_8092));
+            }
             test_CRS_IINN_TYPE = field_CRS_IINN_TYPE.getAttribute("value");
 
-            WebElement field_CRS_IINN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN));
+            WebElement field_CRS_IINN;
+            if (contour.equals("8083")) {
+                field_CRS_IINN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_8083));
+            } else {
+                field_CRS_IINN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_IINN_8092));
+            }
             test_CRS_IINN = field_CRS_IINN.getAttribute("value");
 
-            WebElement field_CRS_NO_IINN_CODE = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_CODE));
+            WebElement field_CRS_NO_IINN_CODE;
+            if (contour.equals("8083")) {
+                field_CRS_NO_IINN_CODE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_CODE_8083));
+            } else {
+                field_CRS_NO_IINN_CODE = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_CODE_8092));
+            }
             test_CRS_NO_IINN_CODE = field_CRS_NO_IINN_CODE.getAttribute("value");
 
-            WebElement field_CRS_NO_IINN_REASON = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_REASON));
+            WebElement field_CRS_NO_IINN_REASON;
+            if (contour.equals("8083")) {
+                field_CRS_NO_IINN_REASON = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_REASON_8083));
+            } else {
+                field_CRS_NO_IINN_REASON = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_NO_IINN_REASON_8092));
+            }
             test_CRS_NO_IINN_REASON = field_CRS_NO_IINN_REASON.getAttribute("value");
 
-            WebElement field_CRS_DATE_BEGIN = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_BEGIN));
+            WebElement field_CRS_DATE_BEGIN;
+            if (contour.equals("8083")) {
+                field_CRS_DATE_BEGIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_BEGIN_8083));
+            } else {
+                field_CRS_DATE_BEGIN = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_BEGIN_8092));
+            }
             test_CRS_DATE_BEGIN = field_CRS_DATE_BEGIN.getAttribute("value");
 
-            WebElement field_CRS_DATE_END = driver.findElement(By
-                    .xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_END));
+            WebElement field_CRS_DATE_END;
+            if (contour.equals("8083")) {
+                field_CRS_DATE_END = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_END_8083));
+            } else {
+                field_CRS_DATE_END = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_DATE_END_8092));
+            }
             test_CRS_DATE_END = field_CRS_DATE_END.getAttribute("value");
 
-            WebElement field_CRS_STATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_STATUS));
+            WebElement field_CRS_STATUS;
+            if (contour.equals("8083")) {
+                field_CRS_STATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_STATUS_8083));
+            } else {
+                field_CRS_STATUS = driver.findElement(By.xpath(XpathUpdatingOtherInformation.FIELD_CRS_STATUS_8092));
+            }
             test_CRS_STATUS = field_CRS_STATUS.getAttribute("value");
 
         } catch (InterruptedException e) {

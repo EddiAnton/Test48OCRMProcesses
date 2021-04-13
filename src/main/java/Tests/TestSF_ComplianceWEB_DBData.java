@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -1415,34 +1417,81 @@ public class TestSF_ComplianceWEB_DBData {
             Thread.sleep(2000);
 
             // Disclose data on the Related Privat Entities - " V "
-            WebElement openRelatedPrivatEntities = driver.findElement(By
-                    .xpath(XpathRelatedPrivatEntities.OPEN_RELATED_PRIVAT_ENTITIES));
+            WebElement openRelatedPrivatEntities;
+            if (contour.equals("8083")) {
+                openRelatedPrivatEntities = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedPrivatEntities.OPEN_RELATED_PRIVAT_ENTITIES_8083)));
+            } else {
+                openRelatedPrivatEntities = new WebDriverWait(driver, 15).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathRelatedPrivatEntities.OPEN_RELATED_PRIVAT_ENTITIES_8092)));
+            }
             openRelatedPrivatEntities.click();
-            Thread.sleep(3000);
 
             // Get data of the Related Privat Entities type
-            WebElement field_LASTNAME = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_LASTNAME));
+            WebElement field_LASTNAME;
+            if (contour.equals("8083")) {
+                field_LASTNAME = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathRelatedPrivatEntities.FIELD_LASTNAME_8083)));
+            } else {
+                field_LASTNAME = new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(XpathRelatedPrivatEntities.FIELD_LASTNAME_8092)));
+            }
             test_LASTNAME = field_LASTNAME.getAttribute("value");
 
-            WebElement field_FIRSTNAME = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_FIRSTNAME));
+            WebElement field_FIRSTNAME;
+            if (contour.equals("8083")) {
+                field_FIRSTNAME = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_FIRSTNAME_8083));
+            } else {
+                field_FIRSTNAME = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_FIRSTNAME_8092));
+            }
             test_FIRSTNAME = field_FIRSTNAME.getAttribute("value");
 
-            WebElement field_MIDDLENAME = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_MIDDLENAME));
+            WebElement field_MIDDLENAME;
+            if (contour.equals("8083")) {
+                field_MIDDLENAME = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_MIDDLENAME_8083));
+            } else {
+                field_MIDDLENAME = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_MIDDLENAME_8092));
+            }
             test_MIDDLENAME = field_MIDDLENAME.getAttribute("value");
 
-            WebElement field_BIRTHPLACE = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_BIRTHPLACE));
+            WebElement field_BIRTHPLACE;
+            if (contour.equals("8083")) {
+                field_BIRTHPLACE = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_BIRTHPLACE_8083));
+            } else {
+                field_BIRTHPLACE = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_BIRTHPLACE_8092));
+            }
             test_BIRTHPLACE = field_BIRTHPLACE.getAttribute("value");
 
-            WebElement field_BIRTHDATE = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_BIRTHDATE));
+            WebElement field_BIRTHDATE;
+            if (contour.equals("8083")) {
+                field_BIRTHDATE = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_BIRTHDATE_8083));
+            } else {
+                field_BIRTHDATE = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_BIRTHDATE_8092));
+            }
             test_BIRTHDATE = field_BIRTHDATE.getAttribute("value");
 
-            WebElement field_GENDER = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_GENDER));
+            WebElement field_GENDER;
+            if (contour.equals("8083")) {
+                field_GENDER = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_GENDER_8083));
+            } else {
+                field_GENDER = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_GENDER_8092));
+            }
             test_GENDER = field_GENDER.getAttribute("value");
 
-            WebElement field_INN = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_INN));
+            WebElement field_INN;
+            if (contour.equals("8083")) {
+                field_INN = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_INN_8083));
+            } else {
+                field_INN = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_INN_8092));
+            }
             test_INN = field_INN.getAttribute("value");
 
-            WebElement field_CITIZENSHIP = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_CITIZENSHIP));
+            WebElement field_CITIZENSHIP;
+            if (contour.equals("8083")) {
+                field_CITIZENSHIP = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_CITIZENSHIP_8083));
+            } else {
+                field_CITIZENSHIP = driver.findElement(By.xpath(XpathRelatedPrivatEntities.FIELD_CITIZENSHIP_8092));
+            }
             test_CITIZENSHIP = field_CITIZENSHIP.getAttribute("value");
 
         } catch (InterruptedException e) {
