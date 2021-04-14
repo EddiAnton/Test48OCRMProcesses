@@ -94,12 +94,12 @@ public class TestCreateApplicate {
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.APPLICATION_FOR_CHANGE_OF_DATA)));
             applicationForChangeOfData.click();
 
-            WebElement clientCreated = new WebDriverWait(driver, 50).until(
+            WebElement clientCreated = new WebDriverWait(driver, 60).until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             // Get data of the PRODUCTORDERNUMBER
-            WebElement field_PRODUCTORDERNUMBER = new WebDriverWait(driver, 30).until(
+            WebElement field_PRODUCTORDERNUMBER = new WebDriverWait(driver, 60).until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER)));
             productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
             // Get data of the FB_PRODUCTORDERID

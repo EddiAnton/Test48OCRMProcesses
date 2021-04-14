@@ -5,11 +5,11 @@
 
     <test name="8092">
 
-        <parameter name="contour" value="8093"></parameter>
+        <parameter name="contour" value="8083"></parameter>
 
         <classes>
 
-            <class name="Tests.TestCreateApplicate"></class>
+            <class name="Tests.TestProcess_E2E"></class>
 
         </classes>
     </test>
