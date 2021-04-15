@@ -1,0 +1,24 @@
+<CDF xmlns:jms1="http://www.tibco.com/namespaces/tnt/plugins/jms">
+    <Signon>
+        <Requestor>InforCRM</Requestor>
+        <ServiceName>InforCRM.Party.Send.Verify</ServiceName>
+        <RqUID>Infor_ID</RqUID>
+        <RequestDt>2021-03-16T09:24:57.680337+03:00</RequestDt>
+    </Signon>
+    <Request>
+        <Status>
+            <StatusCode>1</StatusCode>
+            <Severity>Info</Severity>
+        </Status>
+        <Params>
+            <Type>adp</Type>
+            <Receiver>Tessa</Receiver>
+            <ServiceFilter>In.Party.Send.Verify</ServiceFilter>
+        </Params>
+        <Message>
+            <ns0:Entity xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd">
+                <ns0:EntityStatus/>
+            </ns0:Entity>
+        </Message>
+    </Request>
+</CDF>

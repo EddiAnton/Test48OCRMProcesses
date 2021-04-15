@@ -122,15 +122,16 @@ public class TestProcess_E2E {
             System.out.println("Application successfully created!");
 
 
-            // Insert new data to the application in DB
+            // Database connection
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection_SYSDBA = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
             Connection connection_NM_CRM = DriverManager.getConnection(testEnvironment.getDB_data(), "NM_CRM", "masterkey");
             Statement statement_SYSDBA = connection_SYSDBA.createStatement();
-            Statement statement_NM_CRM = connection_NM_CRM.createStatement();
 
+
+            // Insert new data to the application in DB
             // Read the script into a variable
-            String SQLQuery = "";
+            String SQL_Create_Applicate = "";
             File file = new File("Auto_create_2.sql");
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "windows-1251"));
             String line;
@@ -142,11 +143,11 @@ public class TestProcess_E2E {
             }
 
             // Insert fb_productOrderID to script
-            SQLQuery = stringBuilder.toString();
+            SQL_Create_Applicate = stringBuilder.toString();
             reader.close();
-            SQLQuery = SQLQuery.replace("Infor_ID", fb_productOrderID);
+            SQL_Create_Applicate = SQL_Create_Applicate.replace("Infor_ID", fb_productOrderID);
 
-            PreparedStatement ps_SYSDBA = connection_SYSDBA.prepareStatement(SQLQuery);
+            PreparedStatement ps_SYSDBA = connection_SYSDBA.prepareStatement(SQL_Create_Applicate);
             ps_SYSDBA.execute();
             System.out.println("Data was inserted to Application!");
 
@@ -188,8 +189,13 @@ public class TestProcess_E2E {
 
             new WebDriverWait(driver, 10).until(
                     ExpectedConditions.elementToBeClickable(By.xpath(XpathTestProcessStage.OPEN_STATUS_LIST))).click();
-            new WebDriverWait(driver, 10).until(
-                    ExpectedConditions.elementToBeClickable(By.xpath(XpathTestProcessStage.STATUS_SUBMITTING_FOR_VERIFICATION))).click();
+            if (contour.equals("8083")) {
+                new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTestProcessStage.STATUS_SUBMITTING_FOR_VERIFICATION_8083))).click();
+            } else {
+                new WebDriverWait(driver, 10).until(
+                        ExpectedConditions.elementToBeClickable(By.xpath(XpathTestProcessStage.STATUS_SUBMITTING_FOR_VERIFICATION_8092))).click();
+            }
 
             WebElement nextStage = new WebDriverWait(driver, 10).until(
                     ExpectedConditions.elementToBeClickable(By.xpath(XpathTestProcessStage.BUTTON_NEXT_STAGE)));
@@ -213,21 +219,49 @@ public class TestProcess_E2E {
             System.out.println("Статус заявки: " + applicationStatus);
 
 
-            // Modeling a response from Tessa about receiving a verification request.
+
+            /** Modeling a response from Tessa about receiving a verification request. **/
+
+            // Read the xml-file into a variable
+            String TESSA_1_response = "";
+            File tessa_1_file = new File("TESSA_1_response.xml");
+            BufferedReader tessa_1_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_1_file), "windows-1251"));
+            String line_tessa_1;
+            StringBuilder sb_tessa_1 = new StringBuilder();
+            while ((line_tessa_1 = tessa_1_reader.readLine()) != null) {
+                sb_tessa_1.append(line_tessa_1);
+                sb_tessa_1.append(ls);
+            }
+
+            // Insert fb_productOrderID to script
+            TESSA_1_response = sb_tessa_1.toString();
+            tessa_1_reader.close();
+            TESSA_1_response = TESSA_1_response.replace("Infor_ID", fb_productOrderID);
+
+            //Update IN_MSG field into NM_CRM.EVENT_TABLE
+            PreparedStatement ps_TESSA_1 = connection_NM_CRM.prepareStatement(
+                    "UPDATE NM_CRM.EVENT_TABLE " +
+                    "SET " +
+                    "IN_MSG = '" + TESSA_1_response + "' " +
+                    "WHERE ID = '312'"
+            );
+            ps_TESSA_1.execute();
+
+
             // Read the script into a variable
-            String SQLResponse_From_Tessa_Receiving = "";
-            File file_2 = new File("Response_From_Tessa_Receiving.sql");
-            BufferedReader reader_2 = new BufferedReader(new InputStreamReader(new FileInputStream(file_2), "windows-1251"));
-            String line_2;
+            String SQL_Tessa_1_Response = "";
+            File tessa_1_response_file = new File("Response_From_Tessa_Receiving.sql");
+            BufferedReader reader_tessa_1_response = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_1_response_file), "windows-1251"));
+            String line_tessa_1_response;
             StringBuilder stringBuilder_2 = new StringBuilder();
-            while ((line_2 = reader_2.readLine()) != null) {
-                stringBuilder_2.append(line_2);
+            while ((line_tessa_1_response = reader_tessa_1_response.readLine()) != null) {
+                stringBuilder_2.append(line_tessa_1_response);
                 stringBuilder_2.append(ls);
             }
-            SQLResponse_From_Tessa_Receiving = stringBuilder_2.toString();
-            reader_2.close();
+            SQL_Tessa_1_Response = stringBuilder_2.toString();
+            reader_tessa_1_response.close();
             // Insert response to DB
-            PreparedStatement ps_NM_CRM = connection_NM_CRM.prepareStatement(SQLResponse_From_Tessa_Receiving);
+            PreparedStatement ps_NM_CRM = connection_NM_CRM.prepareStatement(SQL_Tessa_1_Response);
             ps_NM_CRM.execute();
             Thread.sleep(5000);
 
@@ -240,18 +274,103 @@ public class TestProcess_E2E {
             Thread.sleep(5000);
 
             // Get the current data on the application
-            // Get data of the application Status
-            applicationStatus = field_applicationStatus.getText();
             // Get data of the application Stage
             ResultSet rs_stageName_3 = statement_SYSDBA.executeQuery(selectTableSQLForStageName);
             while (rs_stageName_3.next()) {
                 applicationStage = rs_stageName_3.getString("STAGENAME");
             }
+            // Get data of the application Status
+            WebElement field_applicationStatus_new = new WebDriverWait(driver, 20).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
+            applicationStatus = field_applicationStatus_new.getText();
 
             System.out.println("---------------");
             System.out.println("Стадия заявки: " + applicationStage);
             System.out.println("Статус заявки: " + applicationStatus);
 
+
+
+            /** Modeling the response from Tessa about the verification of the application. **/
+
+            // Read the xml-file into a variable
+            String TESSA_3_response = "";
+            File tessa_3_file = new File("TESSA_3_response.xml");
+            BufferedReader tessa_3_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_3_file), "windows-1251"));
+            String line_tessa_3;
+            StringBuilder sb_tessa_3 = new StringBuilder();
+            while ((line_tessa_3 = tessa_3_reader.readLine()) != null) {
+                sb_tessa_3.append(line_tessa_3);
+                sb_tessa_3.append(ls);
+            }
+
+            // Insert ProductOrderNumber to xml
+            TESSA_3_response = sb_tessa_3.toString();
+            tessa_3_reader.close();
+            TESSA_3_response = TESSA_3_response.replace("Infor_ProductOrderNumber", productOrderNumber);
+
+
+            //Update IN_MSG field into NM_CRM.EVENT_TABLE
+            // Read the sql-file into a variable
+            String Script_to_CLOB = "";
+            File script_file = new File("Script_to_CLOB.sql");
+            BufferedReader script_reader = new BufferedReader(new InputStreamReader(new FileInputStream(script_file), "windows-1251"));
+            String line_script;
+            StringBuilder sb_script = new StringBuilder();
+            while ((line_script = script_reader.readLine()) != null) {
+                sb_script.append(line_script);
+                sb_script.append(ls);
+            }
+
+            // Insert ProductOrderNumber to xml
+            Script_to_CLOB = sb_script.toString();
+            script_reader.close();
+            Script_to_CLOB = Script_to_CLOB.replace("Very_long_string_value", TESSA_3_response);
+
+            PreparedStatement ps_script = connection_NM_CRM.prepareStatement(Script_to_CLOB);
+            ps_script.execute();
+
+
+            // Read the script into a variable
+            String SQL_Tessa_3_Response = "";
+            File tessa_3_response_file = new File("Response_From_Tessa_Receiving.sql");
+            BufferedReader reader_tessa_3_response = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_3_response_file), "windows-1251"));
+            String line_tessa_3_response;
+            StringBuilder stringBuilder_3 = new StringBuilder();
+            while ((line_tessa_3_response = reader_tessa_3_response.readLine()) != null) {
+                stringBuilder_3.append(line_tessa_3_response);
+                stringBuilder_3.append(ls);
+            }
+            SQL_Tessa_3_Response = stringBuilder_3.toString();
+            reader_tessa_3_response.close();
+            // Insert response to DB
+            PreparedStatement ps_Tessa_3_Response = connection_NM_CRM.prepareStatement(SQL_Tessa_3_Response);
+            ps_Tessa_3_Response.execute();
+            Thread.sleep(5000);
+
+            System.out.println();
+            System.out.println("-> Получен ответ от Тессы о успешной верификации ->");
+            System.out.println();
+            System.out.println("-> Отправляется запрос на обновление данных в ЦФТ ->");
+            System.out.println();
+
+            // Get the current data on the application
+            driver.navigate().refresh();
+            Thread.sleep(10000);
+
+            // Get the current data on the application
+            // Get data of the application Stage
+            ResultSet rs_stageName_4 = statement_SYSDBA.executeQuery(selectTableSQLForStageName);
+            while (rs_stageName_4.next()) {
+                applicationStage = rs_stageName_4.getString("STAGENAME");
+            }
+            // Get data of the application Status
+            WebElement field_applicationStatus_new2 = new WebDriverWait(driver, 20).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
+            applicationStatus = field_applicationStatus_new2.getText();
+
+            System.out.println("---------------");
+            System.out.println("Стадия заявки: " + applicationStage);
+            System.out.println("Статус заявки: " + applicationStatus);
 
         } catch (InterruptedException | SQLException | ClassNotFoundException | IOException e) {
             e.printStackTrace();

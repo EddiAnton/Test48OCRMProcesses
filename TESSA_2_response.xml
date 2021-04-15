@@ -1,0 +1,44 @@
+<CDF xmlns:pfx13="openbank/tibco/schemas/cdf/3.0/application.xsd">
+    <Signon>
+        <Requestor>Adp_TESSA</Requestor>
+        <ServiceName>Application.Send.Verify.Result</ServiceName>
+        <RqUID>608671</RqUID>
+        <RequestDt>2021-03-18T14:05:47.078+03:00</RequestDt>
+    </Signon>
+    <Request>
+        <Status>
+            <StatusCode>0</StatusCode>
+            <Severity>New</Severity>
+        </Status>
+        <Params>
+            <Type>adp</Type>
+            <Receiver>InforCRM</Receiver>
+            <ServiceFilter>In.Application.Send.Verify.Result</ServiceFilter>
+        </Params>
+        <Message>
+            <ns0:Entity xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="pfx13:T_Application">
+                <ns0:IdList>
+                    <ns0:Id systemCode="InforCRM">UC-TSP-000-000-00000148</ns0:Id>
+                </ns0:IdList>
+                <ns0:EntityStatus>
+                    <ns0:Code>2</ns0:Code>
+                </ns0:EntityStatus>
+                <pfx13:ServicePerson>
+                    <ns1:SurName xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Admin</ns1:SurName>
+                    <ns1:Position xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd"/>
+                </pfx13:ServicePerson>
+                <pfx13:PhaseList>
+                    <ns1:Phase xmlns:ns1="openbank/tibco/schemas/cdf/3.0/task.xsd">
+                        <ns1:Code>3</ns1:Code>
+                        <ns1:StageList>
+                            <ns1:Stage>
+                                <ns1:Name>Верификация</ns1:Name>
+                            </ns1:Stage>
+                        </ns1:StageList>
+                    </ns1:Phase>
+                </pfx13:PhaseList>
+                <pfx13:Comment>Просьба приложить выписку.</pfx13:Comment>
+            </ns0:Entity>
+        </Message>
+    </Request>
+</CDF>

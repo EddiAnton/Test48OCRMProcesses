@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<CDF xmlns:ns5="openbank/tibco/schemas/cdf/3.0/party.xsd">
+    <Signon xmlns:ns1="http://www.tibco.com/ns/no_namespace_schema_location/Resources/XSD/CDFvGO/Party.xsd">
+        <Requestor>IBSO</Requestor>
+        <ServiceName>InforCRM.Update.ClientOrg</ServiceName>
+        <RqUID>b7f7de10-9ccf-21f3-2ae9-267925ece54f</RqUID>
+        <RequestDt>2021-04-08T15:58:30.401</RequestDt>
+        <Properties>
+            <ps ns="Receiver">InforCRM</ps>
+            <ps ns="RefRqUID"/>
+            <ps ns="ReplyUID">Q6UJ9A0FKSZJ</ps>
+        </Properties>
+    </Signon>
+    <Request>
+        <Status>
+            <StatusCode>0</StatusCode>
+            <Severity>New</Severity>
+            <Msg/>
+        </Status>
+        <Params>
+            <Type>adp</Type>
+            <Receiver>InforCRM</Receiver>
+            <ServiceFilter>In.Party.Send.Client.CFT.Rs</ServiceFilter>
+        </Params>
+        <Message>
+            <ns0:Object xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns5:T_Party">
+                <ns5:BaseParty>
+                    <ns0:IdList>
+                        <ns0:Id systemCode="IBSO">7126</ns0:Id>
+                    </ns0:IdList>
+                </ns5:BaseParty>
+                <ns5:LegalParty>
+                    <ns0:EntityStatus>
+                        <ns0:Code>0</ns0:Code>
+                        <ns0:Title>Клиент успешно обновлен</ns0:Title>
+                    </ns0:EntityStatus>
+                </ns5:LegalParty>
+            </ns0:Object>
+        </Message>
+    </Request>
+</CDF>

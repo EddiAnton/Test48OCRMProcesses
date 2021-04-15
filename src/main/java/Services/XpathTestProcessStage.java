@@ -16,7 +16,9 @@ public class XpathTestProcessStage {
 
     public static final String STATUS_POSTPONED = "/html/body/div[5]/div/ul/li[3]/span";
 
-    public static final String STATUS_SUBMITTING_FOR_VERIFICATION = "/html/body/div[5]/div/ul/li[4]/span";
+    public static final String STATUS_SUBMITTING_FOR_VERIFICATION_8083 = "/html/body/div[5]/div/ul/li[4]/span";
+
+    public static final String STATUS_SUBMITTING_FOR_VERIFICATION_8092 = "/html/body/div[4]/div/ul/li[4]/span";
 
     public static final String STATUS_WRONG_CLIME = "/html/body/div[5]/div/ul/li[5]/span";
 
