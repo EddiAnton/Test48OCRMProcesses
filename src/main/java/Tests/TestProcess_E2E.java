@@ -243,7 +243,7 @@ public class TestProcess_E2E {
                     "UPDATE NM_CRM.EVENT_TABLE " +
                     "SET " +
                     "IN_MSG = '" + TESSA_1_response + "' " +
-                    "WHERE ID = '312'"
+                    "WHERE ID = '5'"
             );
             ps_TESSA_1.execute();
 
