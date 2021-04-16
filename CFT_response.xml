@@ -8,7 +8,7 @@
         <Properties>
             <ps ns="Receiver">InforCRM</ps>
             <ps ns="RefRqUID"/>
-            <ps ns="ReplyUID">Q6UJ9A0FKSZJ</ps>
+            <ps ns="ReplyUID">Infor_ID</ps>
         </Properties>
     </Signon>
     <Request>
