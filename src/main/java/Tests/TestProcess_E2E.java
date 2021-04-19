@@ -28,6 +28,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestProcess_E2E {
 
@@ -222,7 +224,6 @@ public class TestProcess_E2E {
             /** Modeling a response from Tessa about receiving a verification request. **/
 
             // Read the xml-file into a variable
-            String TESSA_1_response;
             File tessa_1_file = new File("TESSA_1_response.xml");
             BufferedReader tessa_1_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_1_file), "windows-1251"));
             String line_tessa_1;
@@ -233,7 +234,7 @@ public class TestProcess_E2E {
             }
 
             // Insert fb_productOrderID to script
-            TESSA_1_response = sb_tessa_1.toString();
+            String TESSA_1_response = sb_tessa_1.toString();
             tessa_1_reader.close();
             TESSA_1_response = TESSA_1_response.replace("Infor_ID", fb_productOrderID);
 
@@ -242,13 +243,12 @@ public class TestProcess_E2E {
                     "UPDATE NM_CRM.EVENT_TABLE " +
                             "SET " +
                             "IN_MSG = '" + TESSA_1_response + "' " +
-                            "WHERE ID = '5'"
+                            "WHERE ID = '312'"
             );
             ps_TESSA_1.execute();
 
 
             // Read the script into a variable
-            String SQL_Tessa_1_Response;
             File tessa_1_response_file = new File("Response_From_Tessa_Receiving.sql");
             BufferedReader reader_tessa_1_response = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_1_response_file), "windows-1251"));
             String line_tessa_1_response;
@@ -257,7 +257,7 @@ public class TestProcess_E2E {
                 stringBuilder_2.append(line_tessa_1_response);
                 stringBuilder_2.append(ls);
             }
-            SQL_Tessa_1_Response = stringBuilder_2.toString();
+            String SQL_Tessa_1_Response = stringBuilder_2.toString();
             reader_tessa_1_response.close();
             // Insert response to DB
             PreparedStatement ps_NM_CRM = connection_NM_CRM.prepareStatement(SQL_Tessa_1_Response);
@@ -268,31 +268,12 @@ public class TestProcess_E2E {
             System.out.println("-> Получен ответ от Тессы о доставке xml с данными для верификации ->");
             System.out.println();
 
-            // Get the current data on the application
-            driver.navigate().refresh();
-            Thread.sleep(5000);
-
-            // Get the current data on the application
-            // Get data of the application Stage
-            ResultSet rs_stageName_3 = statement_SYSDBA.executeQuery(selectTableSQLForStageName);
-            while (rs_stageName_3.next()) {
-                applicationStage = rs_stageName_3.getString("STAGENAME");
-            }
-            // Get data of the application Status
-            WebElement field_applicationStatus_new = new WebDriverWait(driver, 20).until(
-                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
-            applicationStatus = field_applicationStatus_new.getText();
-
-            System.out.println("---------------");
-            System.out.println("Стадия заявки: " + applicationStage);
-            System.out.println("Статус заявки: " + applicationStatus);
-
 
             /** Modeling the response from Tessa about the verification of the application. **/
 
             // Read the xml-file into a variable
             File tessa_3_file = new File("TESSA_3_response.xml");
-            BufferedReader tessa_3_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_3_file), "windows-1251"));
+            BufferedReader tessa_3_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_3_file), "UTF-8"));
             String line_tessa_3;
             StringBuilder sb_tessa_3 = new StringBuilder();
             while ((line_tessa_3 = tessa_3_reader.readLine()) != null) {
@@ -340,7 +321,7 @@ public class TestProcess_E2E {
             // Insert response to DB
             PreparedStatement ps_Tessa_3_Response = connection_NM_CRM.prepareStatement(SQL_Tessa_3_Response);
             ps_Tessa_3_Response.execute();
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 
             System.out.println();
             System.out.println("-> Получен ответ от Тессы о успешной верификации ->");
@@ -350,7 +331,6 @@ public class TestProcess_E2E {
 
             // Get the current data on the application
             driver.navigate().refresh();
-            Thread.sleep(10000);
 
             // Get the current data on the application
             // Get data of the application Stage
@@ -370,29 +350,22 @@ public class TestProcess_E2E {
 
             /** Modeling a response from CFT about a successful update. **/
 
-            // Read the xml-file into a variable
-            File cft_file = new File("CFT_response.xml");
-            BufferedReader cft_reader = new BufferedReader(new InputStreamReader(new FileInputStream(cft_file), "windows-1251"));
-            String line_cft;
-            StringBuilder sb_cft = new StringBuilder();
-            while ((line_cft = cft_reader.readLine()) != null) {
-                sb_cft.append(line_cft);
-                sb_cft.append(ls);
+
+            // Получаем ID всех записей с 3 типом в заявке
+            String selectForAll_FB_PRODUCTORDMEMB_DATAID = "SELECT fbpomd.FB_PRODUCTORDMEMB_DATAID " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = 3";
+
+            List <String> DATAID_list = new ArrayList<>();
+            ResultSet rs_allData = statement_SYSDBA.executeQuery(selectForAll_FB_PRODUCTORDMEMB_DATAID);
+            while (rs_allData.next()) {
+                DATAID_list.add(rs_allData.getString("FB_PRODUCTORDMEMB_DATAID"));
             }
-
-            // Insert fb_productOrderID to script
-            String CFT_response = sb_cft.toString();
-            cft_reader.close();
-            CFT_response = CFT_response.replace("Infor_ID", fb_productOrderID);
-
-            //Update IN_MSG field into NM_CRM.EVENT_TABLE
-            PreparedStatement ps_CFT = connection_NM_CRM.prepareStatement(
-                    "UPDATE NM_CRM.EVENT_TABLE " +
-                            "SET " +
-                            "IN_MSG = '" + CFT_response + "' " +
-                            "WHERE ID = '5'"
-            );
-            ps_CFT.execute();
 
 
             // Read the script into a variable
@@ -406,18 +379,47 @@ public class TestProcess_E2E {
             }
             String SQL_CFT_Response = sb_cft_response.toString();
             reader_cft_response.close();
-            // Insert response to DB
-            PreparedStatement ps_CFT_response = connection_NM_CRM.prepareStatement(SQL_CFT_Response);
-            ps_CFT_response.execute();
-            Thread.sleep(5000);
 
-            System.out.println();
-            System.out.println("-> Получен ответ от ЦФТ о успешном обновлении данных ->");
-            System.out.println();
 
-            // Get the current data on the application
+            // Read the xml-file into a variable
+            File cft_file = new File("CFT_response.xml");
+            BufferedReader cft_reader = new BufferedReader(new InputStreamReader(new FileInputStream(cft_file), "UTF-8"));
+            String line_cft;
+            StringBuilder sb_cft = new StringBuilder();
+            while ((line_cft = cft_reader.readLine()) != null) {
+                sb_cft.append(line_cft);
+                sb_cft.append(ls);
+            }
+            cft_reader.close();
+
+            // For each entry in the application
+            for (String data: DATAID_list) {
+                // Insert fb_productOrderID to script
+                String CFT_response = sb_cft.toString();
+                CFT_response = CFT_response.replace("Infor_ID", data);
+
+                //Update IN_MSG field into NM_CRM.EVENT_TABLE
+                PreparedStatement ps_CFT = connection_NM_CRM.prepareStatement(
+                        "UPDATE NM_CRM.EVENT_TABLE " +
+                                "SET " +
+                                "IN_MSG = '" + CFT_response + "' " +
+                                "WHERE ID = '312'"
+                );
+                ps_CFT.execute();
+
+
+                // Insert response to DB
+                PreparedStatement ps_CFT_response = connection_NM_CRM.prepareStatement(SQL_CFT_Response);
+                ps_CFT_response.execute();
+
+                System.out.println();
+                System.out.println("-> Получен ответ от ЦФТ о успешном обновлении данных " + data + " ->");
+                System.out.println();
+            }
+
+            Thread.sleep(10000);
             driver.navigate().refresh();
-            Thread.sleep(5000);
+
 
             // Get the current data on the application
             // Get data of the application Stage

@@ -5,7 +5,7 @@ DECLARE
    msgid                RAW (16);
    text                 CLOB;
 BEGIN
-    select IN_MSG into text from NM_CRM.EVENT_TABLE where ID = '9';
+    select IN_MSG into text from NM_CRM.EVENT_TABLE where ID = '312';
    MESSAGE := sys.aq$_jms_text_message.construct;
    MESSAGE.set_text (text);
    DBMS_AQ.enqueue (queue_name           => 'Q_CFT_CLIENTDATA_UPDATE_IN',
