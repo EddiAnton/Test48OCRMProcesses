@@ -5,11 +5,12 @@
 
     <test name="8092">
 
-        <parameter name="contour" value="8083"></parameter>
+        <parameter name="contour" value="8092"></parameter>
 
         <classes>
 
-            <class name="Tests.TestProcess_E2E"></class>
+            <class name="Tests.TestCreateApplicate"></class>
+            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
 
         </classes>
     </test>

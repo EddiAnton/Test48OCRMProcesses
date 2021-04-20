@@ -488,7 +488,7 @@ public class TestSF_ComplianceWEB_DBData {
 
         this.contour = contour;
         System.out.println();
-        System.out.println("TEST 8083 IS STARTING...");
+        System.out.println("TEST Compliance IS STARTING...");
         System.out.println();
         System.out.println();
         System.out.println("Test Authorization is starting...");
