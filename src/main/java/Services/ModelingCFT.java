@@ -16,7 +16,7 @@ import java.util.List;
 
 public final class ModelingCFT {
 
-    public static void responseCFT(String fb_productOrderID, Connection connection_NM_CRM, Connection connection_SYSDBA) {
+    public static void successfullyUpdated(String fb_productOrderID, Connection connection_NM_CRM, Connection connection_SYSDBA) {
 
         try {
 
