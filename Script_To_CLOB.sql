@@ -5,5 +5,5 @@ BEGIN
   UPDATE NM_CRM.EVENT_TABLE
   SET
   IN_MSG = str
-  WHERE ID = '312';
+  WHERE ID = '5';
 END;

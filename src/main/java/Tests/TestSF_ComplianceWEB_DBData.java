@@ -767,7 +767,6 @@ public class TestSF_ComplianceWEB_DBData {
 
     @Test (groups = {"regress"},
             dependsOnMethods = "complianceNameOfCompany",
-            alwaysRun = true,
             retryAnalyzer = Rerty.class)
     public void complianceLicense() {
 

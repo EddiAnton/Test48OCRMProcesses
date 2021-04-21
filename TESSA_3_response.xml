@@ -30,7 +30,7 @@
                 <pfx13:CounterParty>
                     <ns4:LegalParty xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="openbank/tibco/schemas/cdf/3.0/party.xsd">
                         <ns0:IdList>
-                            <ns0:Id systemCode="IBSO">7126</ns0:Id>
+                            <ns0:Id systemCode="Infor">7126</ns0:Id>
                             <ns0:Id systemCode="REGISTR_NUM"/>
                         </ns0:IdList>
                         <ns4:SystemPartyInfo>
@@ -250,45 +250,6 @@
                                 </ns1:Currency>
                             </ns4:DeclAuthCapital>
                             <ns4:NumberOfEmployee>1000000</ns4:NumberOfEmployee>
-                            <ns4:ClassCodes>
-                                <ns1:OKPO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>93309026</ns1:ShortName>
-                                </ns1:OKPO>
-                                <ns1:OKOGU xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>4210014</ns1:ShortName>
-                                </ns1:OKOGU>
-                                <ns1:OKATO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>60401000000</ns1:ShortName>
-                                </ns1:OKATO>
-                                <ns1:OKFS xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>14</ns1:ShortName>
-                                </ns1:OKFS>
-                                <ns1:OKOPF xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>13200</ns1:ShortName>
-                                </ns1:OKOPF>
-                                <ns1:OKVED xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" id="215">
-                                    <ns1:ShortName>82.99</ns1:ShortName>
-                                    <ns1:SettingDate>2000-01-01</ns1:SettingDate>
-                                </ns1:OKVED>
-                                <ns1:KPP xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" id="212">
-                                    <ns1:ShortName>777000000</ns1:ShortName>
-                                </ns1:KPP>
-                                <ns1:OKTMO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>60701000001</ns1:ShortName>
-                                </ns1:OKTMO>
-                                <ns1:SWIFT xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>TESSA</ns1:ShortName>
-                                </ns1:SWIFT>
-                                <ns1:FOC xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:ShortName>000007</ns1:ShortName>
-                                </ns1:FOC>
-                                <ns1:OtherOKVEDList xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns1:OKVED id="217">
-                                        <ns1:ShortName>73.20</ns1:ShortName>
-                                        <ns1:SettingDate>2000-01-01</ns1:SettingDate>
-                                    </ns1:OKVED>
-                                </ns1:OtherOKVEDList>
-                            </ns4:ClassCodes>
                         </ns4:LegalPartyInfo>
                     </ns4:LegalParty>
                 </pfx13:CounterParty>

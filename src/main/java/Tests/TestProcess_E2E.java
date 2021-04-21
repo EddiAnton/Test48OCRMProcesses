@@ -1,6 +1,7 @@
 package Tests;
 
 import Services.DataConversion;
+import Services.Rerty;
 import Services.TestEnvironment;
 import Services.XpathAuthorization;
 import Services.XpathCreateApplicate;
@@ -22,6 +23,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,7 +42,7 @@ public class TestProcess_E2E {
     String applicationStatus = null;
 
     @Parameters({"contour"})
-    @Test
+    @Test(retryAnalyzer = Rerty.class)
     public void goProcessE2E(String contour) {
 
         TestEnvironment testEnvironment = new TestEnvironment(contour);
@@ -155,6 +157,7 @@ public class TestProcess_E2E {
 
 
             // Get the current data on the application
+            Thread.sleep(15000);
             driver.navigate().refresh();
 
             // Get data of the application Status
@@ -205,7 +208,7 @@ public class TestProcess_E2E {
             System.out.println();
             System.out.println("-> Выполняется переход на следующую стадию! ->");
             System.out.println();
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 
             // Get the current data on the application
             // Get data of the application Status
@@ -223,6 +226,7 @@ public class TestProcess_E2E {
 
             /** Modeling a response from Tessa about receiving a verification request. **/
 
+            Thread.sleep(13000);
             // Read the xml-file into a variable
             File tessa_1_file = new File("TESSA_1_response.xml");
             BufferedReader tessa_1_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_1_file), "windows-1251"));
@@ -243,7 +247,7 @@ public class TestProcess_E2E {
                     "UPDATE NM_CRM.EVENT_TABLE " +
                             "SET " +
                             "IN_MSG = '" + TESSA_1_response + "' " +
-                            "WHERE ID = '312'"
+                            "WHERE ID = '5'"
             );
             ps_TESSA_1.execute();
 
@@ -266,14 +270,13 @@ public class TestProcess_E2E {
 
             System.out.println();
             System.out.println("-> Получен ответ от Тессы о доставке xml с данными для верификации ->");
-            System.out.println();
 
 
             /** Modeling the response from Tessa about the verification of the application. **/
 
             // Read the xml-file into a variable
             File tessa_3_file = new File("TESSA_3_response.xml");
-            BufferedReader tessa_3_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_3_file), "UTF-8"));
+            BufferedReader tessa_3_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_3_file), StandardCharsets.UTF_8));
             String line_tessa_3;
             StringBuilder sb_tessa_3 = new StringBuilder();
             while ((line_tessa_3 = tessa_3_reader.readLine()) != null) {
@@ -321,11 +324,12 @@ public class TestProcess_E2E {
             // Insert response to DB
             PreparedStatement ps_Tessa_3_Response = connection_NM_CRM.prepareStatement(SQL_Tessa_3_Response);
             ps_Tessa_3_Response.execute();
-            Thread.sleep(10000);
+            Thread.sleep(13000);
 
             System.out.println();
             System.out.println("-> Получен ответ от Тессы о успешной верификации ->");
             System.out.println();
+            Thread.sleep(10000);
             System.out.println("-> Отправляется запрос на обновление данных в ЦФТ ->");
             System.out.println();
 
@@ -391,6 +395,7 @@ public class TestProcess_E2E {
                 sb_cft.append(ls);
             }
             cft_reader.close();
+            Thread.sleep(23000);
 
             // For each entry in the application
             for (String data: DATAID_list) {
@@ -403,7 +408,7 @@ public class TestProcess_E2E {
                         "UPDATE NM_CRM.EVENT_TABLE " +
                                 "SET " +
                                 "IN_MSG = '" + CFT_response + "' " +
-                                "WHERE ID = '312'"
+                                "WHERE ID = '5'"
                 );
                 ps_CFT.execute();
 
@@ -411,10 +416,12 @@ public class TestProcess_E2E {
                 // Insert response to DB
                 PreparedStatement ps_CFT_response = connection_NM_CRM.prepareStatement(SQL_CFT_Response);
                 ps_CFT_response.execute();
+                Thread.sleep(3000);
 
                 System.out.println();
                 System.out.println("-> Получен ответ от ЦФТ о успешном обновлении данных " + data + " ->");
                 System.out.println();
+
             }
 
             Thread.sleep(10000);
