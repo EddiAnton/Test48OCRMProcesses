@@ -1,6 +1,10 @@
 package Services;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,17 +12,65 @@ import java.sql.SQLException;
 
 public final class ModelingTESSA {
 
+    static String separator = " \n";
+
     public static void deliveryForVerification(String fb_productOrderID, Connection connection_NM_CRM) {
 
-        
+        try {
+
+            // Read the xml-file into a variable
+            File tessa_1_file = new File("TESSA_1_response.xml");
+            BufferedReader tessa_1_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_1_file), "windows-1251"));
+            String line_tessa_1;
+            StringBuilder sb_tessa_1 = new StringBuilder();
+            while ((line_tessa_1 = tessa_1_reader.readLine()) != null) {
+                sb_tessa_1.append(line_tessa_1);
+                sb_tessa_1.append(separator);
+            }
+
+            // Insert fb_productOrderID to script
+            String TESSA_1_response = sb_tessa_1.toString();
+            tessa_1_reader.close();
+            TESSA_1_response = TESSA_1_response.replace("Infor_ID", fb_productOrderID);
+
+            //Update IN_MSG field into NM_CRM.EVENT_TABLE
+            PreparedStatement ps_TESSA_1 = connection_NM_CRM.prepareStatement(
+                    "UPDATE NM_CRM.EVENT_TABLE " +
+                            "SET " +
+                            "IN_MSG = '" + TESSA_1_response + "' " +
+                            "WHERE ID = '5'"
+            );
+            ps_TESSA_1.execute();
+
+
+            // Read the script into a variable
+            File tessa_1_response_file = new File("Response_From_Tessa_Receiving.sql");
+            BufferedReader reader_tessa_1_response = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_1_response_file), "windows-1251"));
+            String line_tessa_1_response;
+            StringBuilder stringBuilder_2 = new StringBuilder();
+            while ((line_tessa_1_response = reader_tessa_1_response.readLine()) != null) {
+                stringBuilder_2.append(line_tessa_1_response);
+                stringBuilder_2.append(separator);
+            }
+            String SQL_Tessa_1_Response = stringBuilder_2.toString();
+            reader_tessa_1_response.close();
+            // Insert response to DB
+            PreparedStatement ps_NM_CRM = connection_NM_CRM.prepareStatement(SQL_Tessa_1_Response);
+            ps_NM_CRM.execute();
+            Thread.sleep(5000);
+
+            System.out.println();
+            System.out.println("-> Получен ответ от Тессы о доставке xml с данными для верификации ->");
+
+        } catch (InterruptedException | SQLException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
     public static void successfullyVerified(String productOrderNumber, Connection connection_NM_CRM) {
 
         try {
-
-            String separator = " \n";
 
             // Read the xml-file into a variable
             File tessa_3_file = new File("TESSA_3_response.xml");
