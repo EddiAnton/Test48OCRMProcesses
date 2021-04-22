@@ -146,6 +146,16 @@ public class TestProcess_E2E {
             Thread.sleep(15000);
             driver.navigate().refresh();*/
 
+            // Get data of the PRODUCTORDERNUMBER
+            WebElement field_PRODUCTORDERNUMBER = new WebDriverWait(driver, 30).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER)));
+            productOrderNumber = DataConversion.getProductOrderNumber(field_PRODUCTORDERNUMBER.getText());
+
+            // Get data of the FB_PRODUCTORDERID
+            WebElement field_PRODUCTORDER = driver.findElement(By
+                    .xpath(XpathAuthorization.FIELD_PRODUCTORDER));
+            fb_productOrderID = DataConversion.getFB_ProductOrderID(field_PRODUCTORDER.getAttribute("baseURI"));
+
             // Get data of the application Status
             WebElement field_applicationStatus = new WebDriverWait(driver, 20).until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));

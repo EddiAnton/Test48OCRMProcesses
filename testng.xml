@@ -9,7 +9,7 @@
 
         <classes>
 
-            <class name="Tests.TestCreateApplicate"></class>
+            <class name="Tests.TestProcess_E2E"></class>
 
         </classes>
     </test>
