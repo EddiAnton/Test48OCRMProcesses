@@ -5,7 +5,6 @@ import java.sql.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,12 +13,8 @@ public final class Application {
     static String fb_productOrderID;
     static String productOrderNumber;
 
-    public static void createApplication(TestEnvironment testEnvironment) {
+    public static void createApplication(TestEnvironment testEnvironment, WebDriver driver) {
 
-        System.setProperty("webdriver.chrome.driver",
-                "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
-
-        WebDriver driver = new ChromeDriver();
 
         try {
             // Enter INN in the field to search for a client and confirm your choice

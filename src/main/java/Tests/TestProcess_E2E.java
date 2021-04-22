@@ -64,7 +64,7 @@ public class TestProcess_E2E {
 
             /** Create application */
 
-            Application.createApplication(testEnvironment);
+            Application.createApplication(testEnvironment, driver);
 
             /*// Enter INN in the field to search for a client and confirm your choice
             WebElement inputINN = new WebDriverWait(driver, 30).until(
