@@ -3,25 +3,13 @@
 
 <suite name="All Test Suite">
 
-    <test name="8092 Simple test">
+    <test name="8093 Test with process">
 
-        <parameter name="contour" value="8092"></parameter>
+        <parameter name="contour" value="8083"></parameter>
 
         <classes>
 
             <class name="Tests.TestCreateApplicate"></class>
-            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
-
-        </classes>
-    </test>
-    <test name="8093 Test with process">
-
-        <parameter name="contour" value="8093"></parameter>
-
-        <classes>
-
-            <class name="Tests.TestProcess_E2E"></class>
-            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
 
         </classes>
     </test>
