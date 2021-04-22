@@ -1,6 +1,7 @@
 package Tests;
 
 import Services.*;
+import java.sql.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,9 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import java.io.*;
-import java.sql.*;
 
 public class TestProcess_E2E {
 
@@ -33,6 +31,11 @@ public class TestProcess_E2E {
         WebDriver driver = new ChromeDriver();
 
         try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection connection_SYSDBA = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
+            Connection connection_NM_CRM = DriverManager.getConnection(testEnvironment.getDB_data(), "NM_CRM", "masterkey");
+            Statement statement_SYSDBA = connection_SYSDBA.createStatement();
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
@@ -59,8 +62,11 @@ public class TestProcess_E2E {
                     ExpectedConditions.elementToBeClickable(By.xpath(XpathCreateApplicate.CLIENTS_TAB)));
             clientsTab.click();
 
+            /** Create application */
 
-            // Enter INN in the field to search for a client and confirm your choice
+            Application.createApplication(testEnvironment);
+
+            /*// Enter INN in the field to search for a client and confirm your choice
             WebElement inputINN = new WebDriverWait(driver, 30).until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathCreateApplicate.FIELD_INN_OR_ACCOUNTNAME)));
             inputINN.sendKeys(testEnvironment.getInn());
@@ -138,7 +144,7 @@ public class TestProcess_E2E {
 
             // Get the current data on the application
             Thread.sleep(15000);
-            driver.navigate().refresh();
+            driver.navigate().refresh();*/
 
             // Get data of the application Status
             WebElement field_applicationStatus = new WebDriverWait(driver, 20).until(
@@ -259,7 +265,7 @@ public class TestProcess_E2E {
             System.out.println("Стадия заявки: " + applicationStage);
             System.out.println("Статус заявки: " + applicationStatus);
 
-        } catch (InterruptedException | SQLException | ClassNotFoundException | IOException e) {
+        } catch (InterruptedException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
