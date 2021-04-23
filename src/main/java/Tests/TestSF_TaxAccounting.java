@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class TestSF_TaxAccounting {
 
-    String requestMask = "UC-TSP";
+    final String requestMask = "UC-TSP";
     String productOrderNumber = null;
 
     String test_CODE_TAX = null;

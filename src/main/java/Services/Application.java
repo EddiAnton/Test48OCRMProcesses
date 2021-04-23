@@ -67,10 +67,8 @@ public final class Application {
             // Insert new data to the application in DB
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
-            Statement statement = connection.createStatement();
 
             // Read the script into a variable
-            String SQLQuery = "";
             File file = new File("Auto_create_2.sql");
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "windows-1251"));
             String line;
@@ -82,7 +80,7 @@ public final class Application {
             }
 
             // Insert fb_productOrderID to script
-            SQLQuery = stringBuilder.toString();
+            String SQLQuery = stringBuilder.toString();
             reader.close();
             SQLQuery = SQLQuery.replace("Infor_ID", fb_productOrderID);
 

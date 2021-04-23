@@ -21,7 +21,7 @@ import java.sql.Statement;
 
 public class TestProcessStage_CurrentApplicationStage {
 
-    String requestMask = "UC-TSP";
+    final String requestMask = "UC-TSP";
     String productOrderNumber = null;
     String fb_productOrderID = null;
 
@@ -91,7 +91,7 @@ public class TestProcessStage_CurrentApplicationStage {
             Thread.sleep(2000);
 
             // Sort search result
-            WebElement sortByModifiedDate = null;
+            WebElement sortByModifiedDate;
             if (contour.equals("8083")) {
                 sortByModifiedDate = driver.findElement(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE_83));
             } else {
@@ -179,150 +179,146 @@ public class TestProcessStage_CurrentApplicationStage {
         System.out.println("Стадия заявки: " + applicationStage);
         System.out.println("Статус заявки: " + applicationStatus);
 
-        if (applicationStage.equals("01 Создание заявки в Тесса и запрос в ЦФТ/Прайм - Авто")) {
+        switch (applicationStage) {
+            case "01 Создание заявки в Тесса и запрос в ЦФТ/Прайм - Авто":
 
-            if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("В работе")) {
+                if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("В работе")) {
 
-                System.out.println("Stage is correct.");
-                System.out.println("Test Current Application Stage  passed!");
+                    System.out.println("Stage is correct.");
+                    System.out.println("Test Current Application Stage  passed!");
 
-            } else {
+                } else {
 
-                System.out.println("Test Current Application Stage failed! - X");
-                System.out.println("Проверьте условия перехода на текущую стадию");
-                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
-                System.out.println("Возможные статусы: В работе  ||  " + applicationStatus);
+                    System.out.println("Test Current Application Stage failed! - X");
+                    System.out.println("Проверьте условия перехода на текущую стадию");
+                    System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                    System.out.println("Возможные статусы: В работе  ||  " + applicationStatus);
 
-            }
+                }
 
-            System.out.println("---------------");
-        }
+                System.out.println("---------------");
+                break;
+            case "02 Формирование заявки":
 
-        else if (applicationStage.equals("02 Формирование заявки")) {
+                if (typeOfApplicationNumber.equals("TSP") && urlTessa != null &&
+                        (applicationStatus.equals("В работе") || applicationStatus.equals("Отложена") ||
+                                applicationStatus.equals("Ожидание информации от клиента"))) {
 
-            if (typeOfApplicationNumber.equals("TSP") && urlTessa != null &&
-               (applicationStatus.equals("В работе") || applicationStatus.equals("Отложена") ||
-                applicationStatus.equals("Ожидание информации от клиента"))) {
+                    System.out.println("Stage is correct.");
+                    System.out.println("Test Current Application Stage  passed!");
 
-                System.out.println("Stage is correct.");
-                System.out.println("Test Current Application Stage  passed!");
+                } else {
 
-            } else {
+                    System.out.println("Test Current Application Stage failed! - X");
+                    System.out.println("Проверьте условия перехода на текущую стадию");
+                    System.out.println("URLTESSA is not null  ||  " + urlTessa);
+                    System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                    System.out.println("Возможные статусы: В работе, Отложена, Ожидание информации от клиента  ||  " + applicationStatus);
 
-                System.out.println("Test Current Application Stage failed! - X");
-                System.out.println("Проверьте условия перехода на текущую стадию");
-                System.out.println("URLTESSA is not null  ||  " + urlTessa);
-                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
-                System.out.println("Возможные статусы: В работе, Отложена, Ожидание информации от клиента  ||  " + applicationStatus);
+                }
 
-            }
+                System.out.println("---------------");
 
-            System.out.println("---------------");
+                break;
+            case "02 Назначение встречи и выезд (КВМ ВМ)":
 
-        }
+                if (typeOfApplicationNumber.equals("TSP") && (applicationStatus.equals("Подписание документов") ||
+                        applicationStatus.equals("Отложена"))) {
 
-        else if (applicationStage.equals("02 Назначение встречи и выезд (КВМ ВМ)")) {
+                    System.out.println("Stage is correct.");
+                    System.out.println("Test Current Application Stage  passed!");
 
-            if (typeOfApplicationNumber.equals("TSP") && (applicationStatus.equals("Подписание документов") ||
-                applicationStatus.equals("Отложена"))) {
+                } else {
 
-                System.out.println("Stage is correct.");
-                System.out.println("Test Current Application Stage  passed!");
+                    System.out.println("Test Current Application Stage failed! - X");
+                    System.out.println("Проверьте условия перехода на текущую стадию");
+                    System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                    System.out.println("Возможные статусы: Подписание документов, Отложена  ||  " + applicationStatus);
 
-            } else {
+                }
 
-                System.out.println("Test Current Application Stage failed! - X");
-                System.out.println("Проверьте условия перехода на текущую стадию");
-                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
-                System.out.println("Возможные статусы: Подписание документов, Отложена  ||  " + applicationStatus);
+                System.out.println("---------------");
+                break;
+            case "06 Верификация в Тесса – Авто":
 
-            }
+                if (typeOfApplicationNumber.equals("TSP") && (applicationStatus.equals("На верификации") ||
+                        applicationStatus.equals("Отправка на верификацию")) && isVerificationNeed.equals("T")) {
 
-            System.out.println("---------------");
-        }
+                    System.out.println("Stage is correct.");
+                    System.out.println("Test Current Application Stage  passed!");
 
-        else if (applicationStage.equals("06 Верификация в Тесса – Авто")) {
+                } else {
 
-            if (typeOfApplicationNumber.equals("TSP") && (applicationStatus.equals("На верификации") ||
-                applicationStatus.equals("Отправка на верификацию")) && isVerificationNeed.equals("T")) {
+                    System.out.println("Test Current Application Stage failed! - X");
+                    System.out.println("Проверьте условия перехода на текущую стадию");
+                    System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                    System.out.println("Возможные статусы: На верификации, Отправка на верификацию  ||  " + applicationStatus);
+                    System.out.println("Признак ISVERIFICATIONNEED = 'T'  ||  " + isVerificationNeed);
 
-                System.out.println("Stage is correct.");
-                System.out.println("Test Current Application Stage  passed!");
+                }
 
-            } else {
+                System.out.println("---------------");
+                break;
+            case "07 Доработка заявки":
 
-                System.out.println("Test Current Application Stage failed! - X");
-                System.out.println("Проверьте условия перехода на текущую стадию");
-                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
-                System.out.println("Возможные статусы: На верификации, Отправка на верификацию  ||  " + applicationStatus);
-                System.out.println("Признак ISVERIFICATIONNEED = 'T'  ||  " + isVerificationNeed);
+                if (typeOfApplicationNumber.equals("TSP") && (applicationStatus.equals("Возврат на доработку") ||
+                        applicationStatus.equals("Доработка") || applicationStatus.equals("Ожидание информации от клиента") ||
+                        applicationStatus.equals("Отложена")) && resultVerification != 1 && responseStatusCFT != 0) {
 
-            }
+                    System.out.println("Stage is correct.");
+                    System.out.println("Test Current Application Stage  passed!");
 
-            System.out.println("---------------");
-        }
+                } else {
 
-        else if (applicationStage.equals("07 Доработка заявки")) {
+                    System.out.println("Test Current Application Stage failed! - X");
+                    System.out.println("Проверьте условия перехода на текущую стадию");
+                    System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                    System.out.println("Возможные статусы: Возврат на доработку, Доработка, Ожидание информации от клиента, Отложена  ||  " + applicationStatus);
+                    System.out.println("Признак RESULTVERIFICATION != 1  ||  " + resultVerification);
+                    System.out.println("Признак RESPONSESTATUSCFT != 0  ||  " + responseStatusCFT);
 
-            if (typeOfApplicationNumber.equals("TSP") && (applicationStatus.equals("Возврат на доработку") ||
-                applicationStatus.equals("Доработка") || applicationStatus.equals("Ожидание информации от клиента") ||
-                applicationStatus.equals("Отложена")) && resultVerification != 1 && responseStatusCFT != 0) {
+                }
 
-                System.out.println("Stage is correct.");
-                System.out.println("Test Current Application Stage  passed!");
+                System.out.println("---------------");
+                break;
+            case "08 Передача данных в ЦФТ – Авто":
 
-            } else {
+                if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("Отправка в ЦФТ")) {
 
-                System.out.println("Test Current Application Stage failed! - X");
-                System.out.println("Проверьте условия перехода на текущую стадию");
-                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
-                System.out.println("Возможные статусы: Возврат на доработку, Доработка, Ожидание информации от клиента, Отложена  ||  " + applicationStatus);
-                System.out.println("Признак RESULTVERIFICATION != 1  ||  " + resultVerification);
-                System.out.println("Признак RESPONSESTATUSCFT != 0  ||  " + responseStatusCFT);
+                    System.out.println("Stage is correct.");
+                    System.out.println("Test Current Application Stage  passed!");
 
-            }
+                } else {
 
-            System.out.println("---------------");
-        }
+                    System.out.println("Test Current Application Stage failed! - X");
+                    System.out.println("Проверьте условия перехода на текущую стадию");
+                    System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                    System.out.println("Возможные статусы: Отправка в ЦФТ  ||  " + applicationStatus);
 
-        else if (applicationStage.equals("08 Передача данных в ЦФТ – Авто")) {
+                }
 
-            if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("Отправка в ЦФТ")) {
+                System.out.println("---------------");
+                break;
+            case "09 Закрытие заявки – Авто":
 
-                System.out.println("Stage is correct.");
-                System.out.println("Test Current Application Stage  passed!");
+                if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("Заявка исполнена")
+                        && responseStatusCFT == 0) {
 
-            } else {
+                    System.out.println("Stage is correct.");
+                    System.out.println("Test Current Application Stage  passed!");
 
-                System.out.println("Test Current Application Stage failed! - X");
-                System.out.println("Проверьте условия перехода на текущую стадию");
-                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
-                System.out.println("Возможные статусы: Отправка в ЦФТ  ||  " + applicationStatus);
+                } else {
 
-            }
+                    System.out.println("Test Current Application Stage failed! - X");
+                    System.out.println("Проверьте условия перехода на текущую стадию");
+                    System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
+                    System.out.println("Возможные статусы: Заявка исполнена  ||  " + applicationStatus);
+                    System.out.println("Признак RESPONSESTATUSCFT == 0  ||  " + responseStatusCFT);
 
-            System.out.println("---------------");
-        }
+                }
 
-        else if (applicationStage.equals("09 Закрытие заявки – Авто")) {
-
-            if (typeOfApplicationNumber.equals("TSP") && applicationStatus.equals("Заявка исполнена")
-                && responseStatusCFT == 0) {
-
-                System.out.println("Stage is correct.");
-                System.out.println("Test Current Application Stage  passed!");
-
-            } else {
-
-                System.out.println("Test Current Application Stage failed! - X");
-                System.out.println("Проверьте условия перехода на текущую стадию");
-                System.out.println("Номер заявки имеет вид: TSP  ||  " + typeOfApplicationNumber);
-                System.out.println("Возможные статусы: Заявка исполнена  ||  " + applicationStatus);
-                System.out.println("Признак RESPONSESTATUSCFT == 0  ||  " + responseStatusCFT);
-
-            }
-
-            System.out.println("---------------");
+                System.out.println("---------------");
+                break;
         }
     }
 }

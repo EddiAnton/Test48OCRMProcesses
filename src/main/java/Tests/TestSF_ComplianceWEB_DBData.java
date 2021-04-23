@@ -22,7 +22,7 @@ import java.util.Objects;
 public class TestSF_ComplianceWEB_DBData {
 
     String contour;
-    String requestMask = "UC-TSP";
+    final String requestMask = "UC-TSP";
     String productOrderNumber = null;
 
     // Variables for complianceNameOfCompany method
@@ -620,7 +620,7 @@ public class TestSF_ComplianceWEB_DBData {
             }
             test_ACCOUNTNAME = field_ACCOUNTNAME.getAttribute("value");
 
-            WebElement field_AKA = null;
+            WebElement field_AKA;
             if (contour.equals("8083")) {
                 field_AKA = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_AKA_8083));
             } else {
@@ -628,7 +628,7 @@ public class TestSF_ComplianceWEB_DBData {
             }
             test_AKA = field_AKA.getAttribute("value");
 
-            WebElement field_ENGNAME = null;
+            WebElement field_ENGNAME;
             if (contour.equals("8083")) {
                 field_ENGNAME = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAME_8083));
             } else {
@@ -636,7 +636,7 @@ public class TestSF_ComplianceWEB_DBData {
             }
             test_ENGNAME = field_ENGNAME.getAttribute("value");
 
-            WebElement field_ENGNAMESHORT = null;
+            WebElement field_ENGNAMESHORT;
             if (contour.equals("8083")) {
                 field_ENGNAMESHORT = driver.findElement(By.xpath(XpathNameOfCompany.FIELD_ENGNAMESHORT_8083));
             } else {

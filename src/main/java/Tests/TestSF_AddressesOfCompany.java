@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class TestSF_AddressesOfCompany {
 
-    String requestMask = "UC-TSP";
+    final String requestMask = "UC-TSP";
     String productOrderNumber = null;
 
     String test_OKATO = null;

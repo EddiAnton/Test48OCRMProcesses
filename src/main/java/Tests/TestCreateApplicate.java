@@ -1,32 +1,19 @@
 package Tests;
 
-import Services.DataConversion;
-import Services.Rerty;
-import Services.TestEnvironment;
-import Services.XpathAuthorization;
-import Services.XpathCreateApplicate;
-import Services.XpathTestProcessStage;
-
+import Services.*;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class TestCreateApplicate {
 
@@ -123,10 +110,8 @@ public class TestCreateApplicate {
             // Insert new data to the application in DB
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(testEnvironment.getDB_data(), "SYSDBA", "masterkey");
-            Statement statement = connection.createStatement();
 
             // Read the script into a variable
-            String SQLQuery = "";
             File file = new File("Auto_create_2.sql");
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "windows-1251"));
             String line;
@@ -138,7 +123,7 @@ public class TestCreateApplicate {
             }
 
             // Insert fb_productOrderID to script
-            SQLQuery = stringBuilder.toString();
+            String SQLQuery = stringBuilder.toString();
             reader.close();
             SQLQuery = SQLQuery.replace("Infor_ID", fb_productOrderID);
 

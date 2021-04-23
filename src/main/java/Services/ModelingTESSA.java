@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 public final class ModelingTESSA {
 
-    static String separator = " \n";
+    final static String separator = " \n";
 
     public static void deliveryForVerification(String fb_productOrderID, Connection connection_NM_CRM) {
 

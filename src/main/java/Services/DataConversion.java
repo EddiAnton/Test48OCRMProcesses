@@ -30,21 +30,13 @@ public  final class DataConversion {
 
     public static String getProductOrderNumber(String inputData) {
 
-        String productOrderNumber = null;
-
         String [] splitString = inputData.split(" ");
-        productOrderNumber = splitString[2];
-
-        return productOrderNumber;
+        return splitString[2];
     }
 
     public static String getFB_ProductOrderID(String inputData) {
 
-        String fb_productOrderID = null;
-
         String [] splitString = inputData.split("=");
-        fb_productOrderID = splitString[1].substring(0, 12);
-
-        return fb_productOrderID;
+        return splitString[1].substring(0, 12);
     }
 }
