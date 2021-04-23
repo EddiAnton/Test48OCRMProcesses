@@ -26,7 +26,7 @@
             <ns0:Object xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns5:T_Party">
                 <ns5:BaseParty>
                     <ns0:IdList>
-                        <ns0:Id systemCode="IBSO">7126</ns0:Id>
+                        <ns0:Id systemCode="IBSO"/>
                     </ns0:IdList>
                 </ns5:BaseParty>
                 <ns5:LegalParty>
