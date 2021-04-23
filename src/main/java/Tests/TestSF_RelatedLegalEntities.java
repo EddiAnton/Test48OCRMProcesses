@@ -1,6 +1,14 @@
 package Tests;
 
-import Services.*;
+import Services.DataComparison;
+import Services.DataConversion;
+import Services.TestEnvironment;
+import Services.XpathAuthorization;
+import Services.XpathRelatedLegalEntities;
+
+import java.sql.*;
+import java.util.Objects;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,13 +18,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Objects;
 
 public class TestSF_RelatedLegalEntities {
 
