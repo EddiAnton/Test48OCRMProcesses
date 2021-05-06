@@ -83,6 +83,10 @@ public class TestProcess_E2E {
 
             Application.createApplication(testEnvironment, driver);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15abbfd0a83fdb189008d19b9c342e1ed87aed01
             // Get data of the PRODUCTORDERNUMBER
             WebElement field_PRODUCTORDERNUMBER = new WebDriverWait(driver, 30).until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath(XpathAuthorization.FIELD_PRODUCTORDERNUMBER)));
