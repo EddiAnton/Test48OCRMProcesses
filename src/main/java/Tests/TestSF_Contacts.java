@@ -23,6 +23,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class TestSF_Contacts {
 
@@ -78,6 +79,7 @@ public class TestSF_Contacts {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             WebElement logoffHref = new WebDriverWait(driver, 10).until(
                     ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));

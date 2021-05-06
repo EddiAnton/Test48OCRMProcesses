@@ -3,13 +3,15 @@
 
 <suite name="All Test Suite">
 
-    <test name="8093 Test with process">
 
-        <parameter name="contour" value="Dima"></parameter>
+    <test name="8092 Test">
+
+        <parameter name="contour" value="8092"></parameter>
 
         <classes>
 
-            <class name="Tests.TestProcess_E2E"></class>
+            <class name="Tests.TestCreateApplicate"></class>
+            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
 
         </classes>
     </test>

@@ -18,6 +18,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.concurrent.TimeUnit;
 
 public class TestProcessStage_CurrentApplicationStage {
 
@@ -52,7 +53,7 @@ public class TestProcessStage_CurrentApplicationStage {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
-            Thread.sleep(2000);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             WebElement logoffHref = driver.findElement(By.linkText(XpathAuthorization.LOG_OFF_HREF));
             logoffHref.click();

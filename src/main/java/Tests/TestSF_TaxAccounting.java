@@ -24,6 +24,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class TestSF_TaxAccounting {
 
@@ -73,6 +74,7 @@ public class TestSF_TaxAccounting {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             WebElement logoffHref = new WebDriverWait(driver, 10).until(
                     ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));

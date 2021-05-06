@@ -24,8 +24,8 @@
                     <ns0:Code>2</ns0:Code>
                 </ns0:EntityStatus>
                 <pfx13:ServicePerson>
-                    <ns1:SurName xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Admin</ns1:SurName>
-                    <ns1:Position xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd"/>
+                    <ns1:SurName xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Жегалова Снежана Ивановна</ns1:SurName>
+                    <ns1:Position xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Главный специалист</ns1:Position>
                 </pfx13:ServicePerson>
                 <pfx13:CounterParty>
                     <ns4:LegalParty xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="openbank/tibco/schemas/cdf/3.0/party.xsd">
@@ -120,7 +120,7 @@
                                     <ns0:EntityStatus>
                                         <ns0:Code>2</ns0:Code>
                                     </ns0:EntityStatus>
-                                    <ns1:BaseContactInfo primary="0" verified="0" contactType="PHONE">
+                                    <ns1:BaseContactInfo primary="false" verified="true" contactType="PHONE">
                                         <ns1:Comment>Генеральный директор из Тессы</ns1:Comment>
                                     </ns1:BaseContactInfo>
                                     <ns1:PhoneInfo>
@@ -134,7 +134,7 @@
                                     <ns0:EntityStatus>
                                         <ns0:Code/>
                                     </ns0:EntityStatus>
-                                    <ns1:BaseContactInfo primary="1" verified="0" contactType="MAIL">
+                                    <ns1:BaseContactInfo primary="false" verified="false" contactType="MAIL">
                                         <ns1:Comment>Для корреспонденции из Тессы</ns1:Comment>
                                     </ns1:BaseContactInfo>
                                     <ns1:EmailInfo>
@@ -148,7 +148,7 @@
                                     <ns0:EntityStatus>
                                         <ns0:Code/>
                                     </ns0:EntityStatus>
-                                    <ns1:BaseContactInfo primary="0" verified="0" contactType="WEB">
+                                    <ns1:BaseContactInfo primary="false" verified="false" contactType="WEB">
                                         <ns1:Comment>из Тессы</ns1:Comment>
                                     </ns1:BaseContactInfo>
                                     <ns1:WebAccountInfo>

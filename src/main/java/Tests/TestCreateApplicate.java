@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -39,7 +40,7 @@ public class TestCreateApplicate {
         TestEnvironment testEnvironment = new TestEnvironment(contour);
 
         System.setProperty("webdriver.chrome.driver",
-                "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+                "D:\\selenium\\drivers\\chromedriver_90\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 
@@ -47,6 +48,7 @@ public class TestCreateApplicate {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             WebElement logoffHref = new WebDriverWait(driver, 30).until(
                     ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));

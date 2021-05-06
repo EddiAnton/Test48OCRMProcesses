@@ -497,7 +497,7 @@ public class TestSF_ComplianceWEB_DBData {
 
             testEnvironment = new TestEnvironment(contour);
             System.setProperty("webdriver.chrome.driver",
-                    "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+                    "D:\\selenium\\drivers\\chromedriver_90\\chromedriver.exe");
             driver =  new ChromeDriver();
 
             driver.get(testEnvironment.getUrl());

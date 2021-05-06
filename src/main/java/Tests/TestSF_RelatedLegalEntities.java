@@ -8,6 +8,7 @@ import Services.XpathRelatedLegalEntities;
 
 import java.sql.*;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -124,6 +125,7 @@ public class TestSF_RelatedLegalEntities {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             WebElement logoffHref = new WebDriverWait(driver, 10).until(
                     ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));

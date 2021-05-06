@@ -104,6 +104,7 @@ public final class Application {
             System.out.println("---------------");
             System.out.println(productOrderNumber);
             System.out.println("Application successfully created!");
+            Thread.sleep(3000);
 
         } catch (ClassNotFoundException | IOException | SQLException | InterruptedException e) {
             e.printStackTrace();
