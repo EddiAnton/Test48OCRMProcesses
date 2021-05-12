@@ -9,7 +9,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
+            <class name="org.fbconsult.Tests.TestSF_ComplianceWEB_DBData"></class>
         </classes>
     </test>
     <test name="RegressionTests_8093_Contour">
@@ -19,7 +19,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
+            <class name="org.fbconsult.Tests.TestSF_ComplianceWEB_DBData"></class>
         </classes>
     </test>
     <test name="RegressionTests_8092_Contour">
@@ -29,7 +29,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
+            <class name="org.fbconsult.Tests.TestSF_ComplianceWEB_DBData"></class>
         </classes>
     </test>
 </suite>
@@ -43,18 +43,18 @@ ____________________________________________________________________________
 <suite name="All Test Suite">
 <test name="RegressionTests">
     <classes>
-        <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
-        <class name="Tests.TestSF_NameOfCompany"></class>
-        <class name="Tests.TestSF_License"></class>
-        <class name="Tests.TestSF_AddressesOfCompany"></class>
-        <class name="Tests.TestSF_Contacts"></class>
-        <class name="Tests.TestSF_GoverningBodies"></class>
-        <class name="Tests.TestSF_OKVED"></class>
-        <class name="Tests.TestSF_OtherChangesInDoc"></class>
-        <class name="Tests.TestSF_RelatedLegalEntities"></class>
-        <class name="Tests.TestSF_RelatedPrivatEntities"></class>
-        <class name="Tests.TestSF_TaxAccounting"></class>
-        <class name="Tests.TestSF_UpdatingOtherInformation"></class>
+        <class name="org.fbconsult.Tests.TestSF_ComplianceWEB_DBData"></class>
+        <class name="org.fbconsult.Tests.TestSF_NameOfCompany"></class>
+        <class name="org.fbconsult.Tests.TestSF_License"></class>
+        <class name="org.fbconsult.Tests.TestSF_AddressesOfCompany"></class>
+        <class name="org.fbconsult.Tests.TestSF_Contacts"></class>
+        <class name="org.fbconsult.Tests.TestSF_GoverningBodies"></class>
+        <class name="org.fbconsult.Tests.TestSF_OKVED"></class>
+        <class name="org.fbconsult.Tests.TestSF_OtherChangesInDoc"></class>
+        <class name="org.fbconsult.Tests.TestSF_RelatedLegalEntities"></class>
+        <class name="org.fbconsult.Tests.TestSF_RelatedPrivatEntities"></class>
+        <class name="org.fbconsult.Tests.TestSF_TaxAccounting"></class>
+        <class name="org.fbconsult.Tests.TestSF_UpdatingOtherInformation"></class>
     </classes>
 </test>
 

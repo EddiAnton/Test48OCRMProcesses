@@ -6,12 +6,11 @@
 
     <test name="8092 Test">
 
-        <parameter name="contour" value="8092"></parameter>
+        <parameter name="contour" value="8083"></parameter>
 
         <classes>
 
-            <class name="Tests.TestCreateApplicate"></class>
-            <class name="Tests.TestSF_ComplianceWEB_DBData"></class>
+            <class name="org.fbconsult.Tests.TestSF_RelatedPrivatEntities"></class>
 
         </classes>
     </test>

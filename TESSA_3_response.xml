@@ -120,7 +120,7 @@
                                     <ns0:EntityStatus>
                                         <ns0:Code>2</ns0:Code>
                                     </ns0:EntityStatus>
-                                    <ns1:BaseContactInfo primary="false" verified="true" contactType="PHONE">
+                                    <ns1:BaseContactInfo primary="0" verified="1" contactType="PHONE">
                                         <ns1:Comment>Генеральный директор из Тессы</ns1:Comment>
                                     </ns1:BaseContactInfo>
                                     <ns1:PhoneInfo>
@@ -134,7 +134,7 @@
                                     <ns0:EntityStatus>
                                         <ns0:Code/>
                                     </ns0:EntityStatus>
-                                    <ns1:BaseContactInfo primary="false" verified="false" contactType="MAIL">
+                                    <ns1:BaseContactInfo primary="0" verified="0" contactType="MAIL">
                                         <ns1:Comment>Для корреспонденции из Тессы</ns1:Comment>
                                     </ns1:BaseContactInfo>
                                     <ns1:EmailInfo>
@@ -148,7 +148,7 @@
                                     <ns0:EntityStatus>
                                         <ns0:Code/>
                                     </ns0:EntityStatus>
-                                    <ns1:BaseContactInfo primary="false" verified="false" contactType="WEB">
+                                    <ns1:BaseContactInfo primary="1" verified="0" contactType="WEB">
                                         <ns1:Comment>из Тессы</ns1:Comment>
                                     </ns1:BaseContactInfo>
                                     <ns1:WebAccountInfo>
