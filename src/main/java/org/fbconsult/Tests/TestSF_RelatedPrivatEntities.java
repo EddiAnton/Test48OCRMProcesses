@@ -66,6 +66,7 @@ public class TestSF_RelatedPrivatEntities {
     String title_type_1 = null;
     String isNoCOPOP_type_1 = null;
     String isConnectedBP_type_1 = null;
+    String codeSignatureTypeBP_type_1 = null;
     String signatureTypeBP_type_1 = null;
     String roleBP_type_1 = null;
     String phoneBP_type_1 = null;
@@ -86,6 +87,7 @@ public class TestSF_RelatedPrivatEntities {
     String title_type_2 = null;
     String isNoCOPOP_type_2 = null;
     String isConnectedBP_type_2 = null;
+    String codeSignatureTypeBP_type_2 = null;
     String signatureTypeBP_type_2 = null;
     String roleBP_type_2 = null;
     String phoneBP_type_2 = null;
@@ -106,6 +108,7 @@ public class TestSF_RelatedPrivatEntities {
     String title_type_3 = null;
     String isNoCOPOP_type_3 = null;
     String isConnectedBP_type_3 = null;
+    String codeSignatureTypeBP_type_3 = null;
     String signatureTypeBP_type_3 = null;
     String roleBP_type_3 = null;
     String phoneBP_type_3 = null;
@@ -482,10 +485,23 @@ public class TestSF_RelatedPrivatEntities {
                 inn_type_1 = rs_1.getString("INN");
                 citizenship_type_1 = rs_1.getString("COUNTRY");
                 isConnectedBP_type_1 = DataConversion.testSF_booleanConversion(rs_1.getString("IS_CONNECTED_BP"));
-                signatureTypeBP_type_1 = rs_1.getString("SIGNATURETYPEBP");
+                codeSignatureTypeBP_type_1 = rs_1.getString("SIGNATURETYPEBP");
                 roleBP_type_1 = rs_1.getString("ROLEBP");
                 phoneBP_type_1 = rs_1.getString("PHONEBP");
                 mailBP_type_1 = rs_1.getString("MAILBP");
+            }
+
+            String selectPicklist_SIGNATURETYPEBP_1 = "select pl.text " +
+            "from picklist pl " +
+            "inner join picklist pln " +
+            "on pln.itemid = pl.picklistid " +
+            "and pln.picklistid = 'PICKLISTLIST' " +
+            "where pln.text = 'Типы подписи' " +
+            "and pl.SHORTTEXT = '" + codeSignatureTypeBP_type_1 + "'";
+
+            ResultSet rs_1_SIGNATURETYPEBP = statement.executeQuery(selectPicklist_SIGNATURETYPEBP_1);
+            while (rs_1_SIGNATURETYPEBP.next()) {
+                signatureTypeBP_type_1 = rs_1_SIGNATURETYPEBP.getString("TEXT");
             }
 
             // Get data for type 2 from the database
@@ -502,10 +518,23 @@ public class TestSF_RelatedPrivatEntities {
                 inn_type_2 = rs_2.getString("INN");
                 citizenship_type_2 = rs_2.getString("COUNTRY");
                 isConnectedBP_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("IS_CONNECTED_BP"));
-                signatureTypeBP_type_2 = rs_2.getString("SIGNATURETYPEBP");
+                codeSignatureTypeBP_type_2 = rs_2.getString("SIGNATURETYPEBP");
                 roleBP_type_2 = rs_2.getString("ROLEBP");
                 phoneBP_type_2 = rs_2.getString("PHONEBP");
                 mailBP_type_2 = rs_2.getString("MAILBP");
+            }
+
+            String selectPicklist_SIGNATURETYPEBP_2 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Типы подписи' " +
+                    "and pl.SHORTTEXT = '" + codeSignatureTypeBP_type_2 + "'";
+
+            ResultSet rs_2_SIGNATURETYPEBP = statement.executeQuery(selectPicklist_SIGNATURETYPEBP_2);
+            while (rs_2_SIGNATURETYPEBP.next()) {
+                signatureTypeBP_type_2 = rs_2_SIGNATURETYPEBP.getString("TEXT");
             }
 
             // Get data for type 3 from the database
@@ -522,10 +551,23 @@ public class TestSF_RelatedPrivatEntities {
                 inn_type_3 = rs_3.getString("INN");
                 citizenship_type_3 = rs_3.getString("COUNTRY");
                 isConnectedBP_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("IS_CONNECTED_BP"));
-                signatureTypeBP_type_3 = rs_3.getString("SIGNATURETYPEBP");
+                codeSignatureTypeBP_type_3 = rs_3.getString("SIGNATURETYPEBP");
                 roleBP_type_3 = rs_3.getString("ROLEBP");
                 phoneBP_type_3 = rs_3.getString("PHONEBP");
                 mailBP_type_3 = rs_3.getString("MAILBP");
+            }
+
+            String selectPicklist_SIGNATURETYPEBP_3 = "select pl.text " +
+                    "from picklist pl " +
+                    "inner join picklist pln " +
+                    "on pln.itemid = pl.picklistid " +
+                    "and pln.picklistid = 'PICKLISTLIST' " +
+                    "where pln.text = 'Типы подписи' " +
+                    "and pl.SHORTTEXT = '" + codeSignatureTypeBP_type_3 + "'";
+
+            ResultSet rs_3_SIGNATURETYPEBP = statement.executeQuery(selectPicklist_SIGNATURETYPEBP_3);
+            while (rs_3_SIGNATURETYPEBP.next()) {
+                signatureTypeBP_type_3 = rs_3_SIGNATURETYPEBP.getString("TEXT");
             }
 
             connection.close();
