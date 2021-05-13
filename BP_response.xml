@@ -1,0 +1,259 @@
+<CDF xmlns:pfx13="openbank/tibco/schemas/cdf/3.0/application.xsd">
+    <Signon>
+        <Requestor>Adp_TESSA</Requestor>
+        <ServiceName>Application.Send.Verify.Result</ServiceName>
+        <RqUID>752000</RqUID>
+        <RequestDt>2021-04-08T11:42:32.461+03:00</RequestDt>
+    </Signon>
+    <Request>
+        <Status>
+            <StatusCode>0</StatusCode>
+            <Severity>New</Severity>
+        </Status>
+        <Params>
+            <Type>adp</Type>
+            <Receiver>InforCRM</Receiver>
+            <ServiceFilter>In.Application.Send.Verify.Result</ServiceFilter>
+        </Params>
+        <Message>
+            <ns0:Entity xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="pfx13:T_Application">
+                <ns0:IdList>
+                    <ns0:Id systemCode="InforCRM">Infor_ProductOrderNumber</ns0:Id>
+                </ns0:IdList>
+                <ns0:EntityStatus>
+                    <ns0:Code>2</ns0:Code>
+                </ns0:EntityStatus>
+                <pfx13:ServicePerson>
+                    <ns1:SurName xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Жегалова Снежана Ивановна</ns1:SurName>
+                    <ns1:Position xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Главный специалист</ns1:Position>
+                </pfx13:ServicePerson>
+                <pfx13:CounterParty>
+                    <ns4:LegalParty xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="openbank/tibco/schemas/cdf/3.0/party.xsd">
+                        <ns0:IdList>
+                            <ns0:Id systemCode="IBSO">0123456789</ns0:Id>
+                            <ns0:Id systemCode="REGISTR_NUM"/>
+                        </ns0:IdList>
+                        <ns4:SystemPartyInfo>
+                            <ns4:OptionList>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>COUNTRY_ALFA_3</ns1:Name>
+                                    <ns1:Value>KZ</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>OFFSHORE_NUM</ns1:Name>
+                                    <ns1:Value>2.14.</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>ADMINISTRATION</ns1:Name>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>NOM_MANAGE_STAFF</ns1:Name>
+                                    <ns1:Value>100% Генеральный директор АИСТ</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>NOM_CORP_STRUCT</ns1:Name>
+                                    <ns1:Value>Из Теслы</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>TaxResident_FATCA</ns1:Name>
+                                    <ns1:Value>0000000001</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>GIIN_FATCA</ns1:Name>
+                                    <ns1:Value>0000000002</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>W9_FATCA</ns1:Name>
+                                    <ns1:Value>0</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>DOC_FATCA</ns1:Name>
+                                    <ns1:Value>1</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>DISREGARDED_FATCA</ns1:Name>
+                                    <ns1:Value>0</ns1:Value>
+                                </ns1:Option>
+                                <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>Additional_Requisites_CODE</ns1:Name>
+                                    <ns1:Value>SPECIFIED</ns1:Value>
+                                </ns1:Option>
+                            </ns4:OptionList>
+                        </ns4:SystemPartyInfo>
+                        <ns4:BasePartyInfo>
+                            <ns4:INN>7405556677</ns4:INN>
+                            <ns4:AddressList>
+                                <ns1:Address xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" addrType="POST">
+                                    <ns0:IdList>
+                                        <ns0:Id>396</ns0:Id>
+                                    </ns0:IdList>
+                                    <ns1:StringValue>РОССИЯ, 394029, г Воронеж, наб Авиастроителей, 14, корп 3, пом/офис V/9,</ns1:StringValue>
+                                    <ns1:Country>RUS</ns1:Country>
+                                    <ns1:ZIP>000001</ns1:ZIP>
+                                    <ns1:District/>
+                                    <ns1:City code="5bf5ddff-6353-4a3d-80c4-6fb27f00c6c1">Воронеж</ns1:City>
+                                    <ns1:Street code="684edad9-9b61-4cc6-b8c0-d5daa118e09c">Авиастроителей</ns1:Street>
+                                    <ns1:House>77</ns1:House>
+                                    <ns1:Block>корп 77</ns1:Block>
+                                    <ns1:Room>пом/офис 77</ns1:Room>
+                                </ns1:Address>
+                                <ns1:Address xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" addrType="CORP">
+                                    <ns0:IdList>
+                                        <ns0:Id>389</ns0:Id>
+                                    </ns0:IdList>
+                                    <ns1:StringValue>РОССИЯ, 123456, г Ростов-на-Дону, ул Авиационная, 14, корп 3, пом/офис V/9,</ns1:StringValue>
+                                    <ns1:Country>RUS</ns1:Country>
+                                    <ns1:ZIP>000001</ns1:ZIP>
+                                    <ns1:District/>
+                                    <ns1:City code="c1cfe4b9-f7c2-423c-abfa-6ed1c05a15c5">Ростов-на-Дону</ns1:City>
+                                    <ns1:Street code="4af18d85-861d-4d51-a06f-19f04b02a013">Авиационная</ns1:Street>
+                                    <ns1:House>88</ns1:House>
+                                    <ns1:Block>корп 88</ns1:Block>
+                                    <ns1:Room>пом/офис 88</ns1:Room>
+                                </ns1:Address>
+                            </ns4:AddressList>
+                            <ns4:ContactList>
+                                <ns1:Phone xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns0:IdList>
+                                        <ns0:Id systemCode="IBSO">291</ns0:Id>
+                                    </ns0:IdList>
+                                    <ns0:EntityStatus>
+                                        <ns0:Code>2</ns0:Code>
+                                    </ns0:EntityStatus>
+                                    <ns1:BaseContactInfo primary="0" verified="1" contactType="PHONE">
+                                        <ns1:Comment>Генеральный директор Теслы</ns1:Comment>
+                                    </ns1:BaseContactInfo>
+                                    <ns1:PhoneInfo>
+                                        <ns1:Number>7(495) 47800000</ns1:Number>
+                                    </ns1:PhoneInfo>
+                                </ns1:Phone>
+                                <ns1:Email xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns0:IdList>
+                                        <ns0:Id systemCode="IBSO">295</ns0:Id>
+                                    </ns0:IdList>
+                                    <ns0:EntityStatus>
+                                        <ns0:Code/>
+                                    </ns0:EntityStatus>
+                                    <ns1:BaseContactInfo primary="0" verified="0" contactType="MAIL">
+                                        <ns1:Comment>Для корреспонденции</ns1:Comment>
+                                    </ns1:BaseContactInfo>
+                                    <ns1:EmailInfo>
+                                        <ns1:Address>Svetlana.A@lukoi77777.com</ns1:Address>
+                                    </ns1:EmailInfo>
+                                </ns1:Email>
+                                <ns1:WebAccount xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns0:IdList>
+                                        <ns0:Id systemCode="IBSO">305</ns0:Id>
+                                    </ns0:IdList>
+                                    <ns0:EntityStatus>
+                                        <ns0:Code/>
+                                    </ns0:EntityStatus>
+                                    <ns1:BaseContactInfo primary="1" verified="0" contactType="WEB">
+                                        <ns1:Comment>из Теслы</ns1:Comment>
+                                    </ns1:BaseContactInfo>
+                                    <ns1:WebAccountInfo>
+                                        <ns1:Id>http:/testsave77777.ru/</ns1:Id>
+                                    </ns1:WebAccountInfo>
+                                </ns1:WebAccount>
+                            </ns4:ContactList>
+                            <ns4:Resident>1</ns4:Resident>
+                            <ns4:TaxResident>1</ns4:TaxResident>
+                            <ns4:PartyRelationList>
+                                <ns4:BaseParty owner="NOM_UCH_DOPINFO">
+                                    <ns0:IdList>
+                                        <ns0:Id systemCode="RES_OUTSIDE_ID">404         </ns0:Id>
+                                    </ns0:IdList>
+                                    <ns0:EntityStatus>
+                                        <ns0:Title>2</ns0:Title>
+                                    </ns0:EntityStatus>
+                                    <ns4:SystemPartyInfo>
+                                        <ns4:OptionList>
+                                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns1:Name>RES_OUTSIDE_CODE</ns1:Name>
+                                            </ns1:Option>
+                                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns1:Name>REASON</ns1:Name>
+                                            </ns1:Option>
+                                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns1:Name>RES_OUTSIDE_DATE_BEGIN</ns1:Name>
+                                                <ns1:Value>2000-01-01</ns1:Value>
+                                            </ns1:Option>
+                                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns1:Name>RES_OUTSIDE_DATE_END</ns1:Name>
+                                            </ns1:Option>
+                                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns1:Name>RES_OUTSIDE_CRS_STATUS</ns1:Name>
+                                                <ns1:Value>CRS_INO_ACTIV</ns1:Value>
+                                            </ns1:Option>
+                                        </ns4:OptionList>
+                                    </ns4:SystemPartyInfo>
+                                    <ns4:BasePartyInfo>
+                                        <ns4:INN>55555550000000</ns4:INN>
+                                        <ns4:ResidenceCountry>BHS</ns4:ResidenceCountry>
+                                        <ns4:DocumentList/>
+                                    </ns4:BasePartyInfo>
+                                </ns4:BaseParty>
+                            </ns4:PartyRelationList>
+                            <ns4:TaxInfoList>
+                                <ns4:TaxInfo>
+                                    <ns4:InspectionCode>7714</ns4:InspectionCode>
+                                    <ns4:OptionList>
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                            <ns1:Name>Tax_Reg_DATE</ns1:Name>
+                                            <ns1:Value>2000-01-01</ns1:Value>
+                                        </ns1:Option>
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                            <ns1:Name>Tax_ID</ns1:Name>
+                                            <ns1:Value>213</ns1:Value>
+                                        </ns1:Option>
+                                    </ns4:OptionList>
+                                </ns4:TaxInfo>
+                            </ns4:TaxInfoList>
+                            <ns4:LicenseList>
+                                <ns4:License>
+                                    <ns4:Id>450</ns4:Id>
+                                    <ns4:Number>12/0000077777</ns4:Number>
+                                    <ns4:Type>Услуги связи</ns4:Type>
+                                    <ns4:IssuedFrom>Тесла</ns4:IssuedFrom>
+                                    <ns4:IssueDate>2000-01-01</ns4:IssueDate>
+                                    <ns4:Term>
+                                        <ns1:EndDate xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">2100-10-10</ns1:EndDate>
+                                    </ns4:Term>
+                                    <ns4:Area>Позвонить из Теслы</ns4:Area>
+                                </ns4:License>
+                            </ns4:LicenseList>
+                        </ns4:BasePartyInfo>
+                        <ns4:LegalPartyInfo>
+                            <ns4:NameList>
+                                <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>NAME</ns1:Name>
+                                    <ns1:Value>ООО &quot;ТЕСЛА&quot;</ns1:Value>
+                                </ns1:NameValue>
+                                <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>LONG_NAME</ns1:Name>
+                                    <ns1:Value>ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ &quot;ТЕСЛА&quot;</ns1:Value>
+                                </ns1:NameValue>
+                                <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>I_NAME</ns1:Name>
+                                    <ns1:Value>TESLA</ns1:Value>
+                                </ns1:NameValue>
+                                <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:Name>SI_NAME</ns1:Name>
+                                    <ns1:Value>TESLA</ns1:Value>
+                                </ns1:NameValue>
+                            </ns4:NameList>
+                            <ns4:OrgType>F_К</ns4:OrgType>
+                            <ns4:DeclAuthCapital>
+                                <ns1:Amount xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">1111111111</ns1:Amount>
+                                <ns1:Currency xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:CharCode>KZT</ns1:CharCode>
+                                </ns1:Currency>
+                            <ns4:DeclAuthCapital>55000000</ns4:DeclAuthCapital>
+                            <ns4:NumberOfEmployee>100000</ns4:NumberOfEmployee>
+                        </ns4:LegalPartyInfo>
+                    </ns4:LegalParty>
+                </pfx13:CounterParty>
+            </ns0:Entity>
+        </Message>
+    </Request>
+</CDF>
