@@ -244,11 +244,11 @@
                             </ns4:NameList>
                             <ns4:OrgType>F_К</ns4:OrgType>
                             <ns4:DeclAuthCapital>
-                                <ns1:Amount xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">1111111111</ns1:Amount>
+                                <ns1:Amount xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">550000000</ns1:Amount>
                                 <ns1:Currency xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
                                     <ns1:CharCode>KZT</ns1:CharCode>
                                 </ns1:Currency>
-                            <ns4:DeclAuthCapital>55000000</ns4:DeclAuthCapital>
+                            </ns4:DeclAuthCapital>
                             <ns4:NumberOfEmployee>100000</ns4:NumberOfEmployee>
                         </ns4:LegalPartyInfo>
                     </ns4:LegalParty>

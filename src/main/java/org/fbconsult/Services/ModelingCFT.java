@@ -16,6 +16,8 @@ import java.util.List;
 
 public final class ModelingCFT {
 
+    final static String separator = " \n";
+
     public static void successfullyUpdated(String fb_productOrderID, Connection connection_NM_CRM, Connection connection_SYSDBA) {
 
         try {
