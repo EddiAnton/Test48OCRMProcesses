@@ -60,6 +60,8 @@ public class TestProcess_BP {
             submitButton.click();
 
 
+
+
             /** Receive an application from the Business Portal  */
 
             ModelingBP.createApplicationFromBP(connection_NM_CRM);
@@ -136,7 +138,7 @@ public class TestProcess_BP {
             System.out.println("Статус заявки: " + applicationStatus);
 
 
-            
+
 
         } catch (InterruptedException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();

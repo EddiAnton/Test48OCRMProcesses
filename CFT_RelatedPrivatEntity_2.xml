@@ -1,0 +1,575 @@
+<?xml version="1.0"?>
+
+<CDF xmlns:ns4="openbank/tibco/schemas/cdf/3.0/party.xsd">
+
+    <Signon>
+
+        <Requestor/>
+
+        <ServiceName>InforPrivDataSearch</ServiceName>
+
+        <RqUID>5e8bfac4-5994-d317-d348-bf7da9f930a1</RqUID>
+
+        <RequestDt>2021-05-13T13:03:15.262</RequestDt>
+
+        <Properties>
+
+            <ps ns="CorrelationId">C2201AA93C4B0DECE0536E08D80AEA15</ps>
+
+            <ps ns="Receiver">InforCRM</ps>
+
+            <ps ns="RefRqUID"/>
+
+            <ps ns="ReplyUID">Q6UJ9A3QEUV2</ps>
+
+        </Properties>
+
+    </Signon>
+
+    <Request>
+
+        <Status>
+
+            <StatusCode>0</StatusCode>
+
+            <Severity>Info</Severity>
+
+            <Msg/>
+
+        </Status>
+
+        <Params>
+
+            <Type>adp</Type>
+
+            <Receiver>InforCRM</Receiver>
+
+            <ServiceFilter>In.Party.Get.LegalClientInfo.CFT.Rs</ServiceFilter>
+
+        </Params>
+
+        <Message>
+
+            <ns0:Object xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns4:T_Party">
+
+                <ns4:BaseParty>
+
+                    <ns0:IdList>
+
+                        <ns0:Id systemCode="IBSO">24367483988</ns0:Id>
+
+                        <ns0:Id systemCode="REGISTR_NUM">479590</ns0:Id>
+
+                    </ns0:IdList>
+
+                    <ns0:EntityStatus>
+
+                        <ns0:Code>0</ns0:Code>
+
+                        <ns0:Title/>
+
+                        <ns0:SettingDateTime>2021-05-13 13:03:15</ns0:SettingDateTime>
+
+                    </ns0:EntityStatus>
+
+                    <ns4:SystemPartyInfo>
+
+                        <ns4:OptionList/>
+
+                    </ns4:SystemPartyInfo>
+
+                    <ns4:BasePartyInfo>
+
+                        <ns4:AddressList>
+
+                            <ns1:Address xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" addrType="REGISTRATION">
+
+                                <ns0:IdList>
+
+                                    <ns0:Id>24367558437</ns0:Id>
+
+                                </ns0:IdList>
+
+                                <ns0:EntityStatus/>
+
+                                <ns1:StringValue>РОССИЯ,630017,обл Новосибирская,,г Новосибирск,ул Военная,дом 9/2,,кв. 60</ns1:StringValue>
+
+                                <ns1:Country>RUS</ns1:Country>
+
+                                <ns1:ZIP>630017</ns1:ZIP>
+
+                                <ns1:District code=""/>
+
+                                <ns1:City code="8dea00e3-9aab-4d8e-887c-ef2aaa546456">Новосибирск</ns1:City>
+
+                                <ns1:Street code="72f26eb5-9662-493e-9f85-2cc6c11cc2ec">Военная</ns1:Street>
+
+                                <ns1:House>9/2</ns1:House>
+
+                                <ns1:Block/>
+
+                                <ns1:Room>60</ns1:Room>
+
+                                <ns1:RegDate xsi:nil="true"/>
+
+                            </ns1:Address>
+
+                            <ns1:Address xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" addrType="REAL_LIVE">
+
+                                <ns0:IdList>
+
+                                    <ns0:Id>278587537295</ns0:Id>
+
+                                </ns0:IdList>
+
+                                <ns0:EntityStatus/>
+
+                                <ns1:StringValue>РОССИЯ,630017,обл Новосибирская,,г Новосибирск,ул Военная,дом 9/2,,кв. 60</ns1:StringValue>
+
+                                <ns1:Country>RUS</ns1:Country>
+
+                                <ns1:ZIP>630017</ns1:ZIP>
+
+                                <ns1:District code=""/>
+
+                                <ns1:City code="8dea00e3-9aab-4d8e-887c-ef2aaa546456">Новосибирск</ns1:City>
+
+                                <ns1:Street code="72f26eb5-9662-493e-9f85-2cc6c11cc2ec">Военная</ns1:Street>
+
+                                <ns1:House>9/2</ns1:House>
+
+                                <ns1:Block/>
+
+                                <ns1:Room>60</ns1:Room>
+
+                                <ns1:RegDate xsi:nil="true"/>
+
+                            </ns1:Address>
+
+                        </ns4:AddressList>
+
+                        <ns4:ContactList>
+
+                            <ns1:Phone xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                <ns0:IdList>
+
+                                    <ns0:Id systemCode="">25418667332</ns0:Id>
+
+                                </ns0:IdList>
+
+                                <ns0:EntityStatus>
+
+                                    <ns0:Code/>
+
+                                </ns0:EntityStatus>
+
+                                <ns1:BaseContactInfo contactType="PHONE" primary="false" verified="true">
+
+                                    <ns1:Comment/>
+
+                                </ns1:BaseContactInfo>
+
+                                <ns1:PhoneInfo>
+
+                                    <ns1:Number>211-00-84</ns1:Number>
+
+                                </ns1:PhoneInfo>
+
+                            </ns1:Phone>
+
+                            <ns1:Phone xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                <ns0:IdList>
+
+                                    <ns0:Id systemCode="">278588371148</ns0:Id>
+
+                                </ns0:IdList>
+
+                                <ns0:EntityStatus>
+
+                                    <ns0:Code>1</ns0:Code>
+
+                                </ns0:EntityStatus>
+
+                                <ns1:BaseContactInfo contactType="PHONE" primary="false" verified="true">
+
+                                    <ns1:Comment/>
+
+                                </ns1:BaseContactInfo>
+
+                                <ns1:PhoneInfo>
+
+                                    <ns1:Number>+79139188887</ns1:Number>
+
+                                </ns1:PhoneInfo>
+
+                            </ns1:Phone>
+
+                            <ns1:Phone xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                <ns0:IdList>
+
+                                    <ns0:Id systemCode="">25418667341</ns0:Id>
+
+                                </ns0:IdList>
+
+                                <ns0:EntityStatus>
+
+                                    <ns0:Code>1</ns0:Code>
+
+                                </ns0:EntityStatus>
+
+                                <ns1:BaseContactInfo contactType="PHONE" primary="false" verified="true">
+
+                                    <ns1:Comment/>
+
+                                </ns1:BaseContactInfo>
+
+                                <ns1:PhoneInfo>
+
+                                    <ns1:Number>913-918-888-7</ns1:Number>
+
+                                </ns1:PhoneInfo>
+
+                            </ns1:Phone>
+
+                        </ns4:ContactList>
+
+                        <ns4:DocumentList/>
+
+                        <ns4:PartyRelationList>
+
+                            <ns4:BaseParty owner="NOM_UCH_DOPINFO">
+
+                                <ns0:IdList>
+
+                                    <ns0:Id systemCode="RES_OUTSIDE_ID">397844189300</ns0:Id>
+
+                                    <ns0:Id systemCode="RES_OUTSIDE_INN"/>
+
+                                </ns0:IdList>
+
+                                <ns0:EntityStatus>
+
+                                    <ns0:Title/>
+
+                                </ns0:EntityStatus>
+
+                                <ns4:SystemPartyInfo>
+
+                                    <ns4:OptionList>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_CODE</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>REASON</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_DATE_BEGIN</ns1:Name>
+
+                                            <ns1:Value>2019-05-22</ns1:Value>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_DATE_END</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_CRS_STATUS</ns1:Name>
+
+                                            <ns1:Value>CRS_UNKNOWN</ns1:Value>
+
+                                        </ns1:Option>
+
+                                    </ns4:OptionList>
+
+                                </ns4:SystemPartyInfo>
+
+                                <ns4:BasePartyInfo>
+
+                                    <ns4:INN/>
+
+                                    <ns4:ResidenceCountry/>
+
+                                </ns4:BasePartyInfo>
+
+                            </ns4:BaseParty>
+
+                            <ns4:BaseParty owner="NOM_UCH_DOPINFO">
+
+                                <ns0:IdList>
+
+                                    <ns0:Id systemCode="RES_OUTSIDE_ID"/>
+
+                                    <ns0:Id systemCode="RES_OUTSIDE_INN"/>
+
+                                </ns0:IdList>
+
+                                <ns0:EntityStatus>
+
+                                    <ns0:Title/>
+
+                                </ns0:EntityStatus>
+
+                                <ns4:SystemPartyInfo>
+
+                                    <ns4:OptionList>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_CODE</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>REASON</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_DATE_BEGIN</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_DATE_END</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                            <ns1:Name>RES_OUTSIDE_CRS_STATUS</ns1:Name>
+
+                                            <ns1:Value/>
+
+                                        </ns1:Option>
+
+                                    </ns4:OptionList>
+
+                                </ns4:SystemPartyInfo>
+
+                                <ns4:BasePartyInfo>
+
+                                    <ns4:INN/>
+
+                                    <ns4:ResidenceCountry/>
+
+                                </ns4:BasePartyInfo>
+
+                            </ns4:BaseParty>
+
+                        </ns4:PartyRelationList>
+
+                        <ns4:TaxInfoList/>
+
+                    </ns4:BasePartyInfo>
+
+                </ns4:BaseParty>
+
+                <ns4:PersonalParty>
+
+                    <ns4:SystemPartyInfo>
+
+                        <ns4:OptionList>
+
+                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                <ns1:Name>FIAS</ns1:Name>
+
+                                <ns1:Value/>
+
+                            </ns1:Option>
+
+                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                <ns1:Name>NO_CITIZENSHIP</ns1:Name>
+
+                                <ns1:Value>0</ns1:Value>
+
+                            </ns1:Option>
+
+                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                <ns1:Name>DOC_FATCA</ns1:Name>
+
+                                <ns1:Value>1</ns1:Value>
+
+                            </ns1:Option>
+
+                        </ns4:OptionList>
+
+                    </ns4:SystemPartyInfo>
+
+                    <ns4:BasePartyInfo>
+
+                        <ns4:INN>540620074788</ns4:INN>
+
+                        <ns4:Resident>true</ns4:Resident>
+
+                        <ns4:TaxResident>true</ns4:TaxResident>
+
+                        <ns4:Status>YES</ns4:Status>
+
+                        <ns4:DocumentList>
+
+                            <ns1:Doc xmlns:ns1="openbank/tibco/schemas/cdf/3.0/identificationdocument.xsd" owner="1">
+
+                                <ns1:PersonalDoc>
+
+                                    <ns1:DocumentBaseInfo docType="21"/>
+
+                                    <ns1:IdentificationDocInfo>
+
+                                        <ns1:Series>50 06</ns1:Series>
+
+                                        <ns1:Number>131820</ns1:Number>
+
+                                        <ns1:IssueDate>2007-07-19</ns1:IssueDate>
+
+                                        <ns1:ExpiryDate xsi:nil="true"/>
+
+                                        <ns1:IssueFrom>Отделом УФМС России по Новосибирской области в Центральном районе</ns1:IssueFrom>
+
+                                        <ns1:IssuePlace/>
+
+                                        <ns1:CodeFrom>540-011</ns1:CodeFrom>
+
+                                    </ns1:IdentificationDocInfo>
+
+                                    <ns1:PersonalDocInfo/>
+
+                                </ns1:PersonalDoc>
+
+                            </ns1:Doc>
+
+                        </ns4:DocumentList>
+
+                    </ns4:BasePartyInfo>
+
+                    <ns4:PersonalPartyInfo>
+
+                        <ns4:SNILS/>
+
+                        <ns4:Surname>Скворцова</ns4:Surname>
+
+                        <ns4:Name>Людмила</ns4:Name>
+
+                        <ns4:FatherName>Михайловна</ns4:FatherName>
+
+                        <ns4:Gender>Ж</ns4:Gender>
+
+                        <ns4:BirthDate>1960-10-10</ns4:BirthDate>
+
+                        <ns4:BirthPlace/>
+
+                        <ns4:Citizenship>RUS</ns4:Citizenship>
+
+                    </ns4:PersonalPartyInfo>
+
+                </ns4:PersonalParty>
+
+                <ns4:LegalParty>
+
+                    <ns4:SystemPartyInfo>
+
+                        <ns4:OptionList/>
+
+                    </ns4:SystemPartyInfo>
+
+                    <ns4:BasePartyInfo>
+
+                        <ns4:DocumentList/>
+
+                        <ns4:PartyRelationList/>
+
+                        <ns4:TaxInfoList/>
+
+                        <ns4:LicenseList/>
+
+                    </ns4:BasePartyInfo>
+
+                    <ns4:LegalPartyInfo>
+
+                        <ns4:NameList/>
+
+                        <ns4:DeclAuthCapital>
+
+                            <ns1:Currency xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                        </ns4:DeclAuthCapital>
+
+                        <ns4:ClassCodes>
+
+                            <ns1:OGRN xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OKPO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OKOGU xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OKATO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OKFS xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OKOPF xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OKVED xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+
+                                <ns1:ShortName/>
+
+                            </ns1:OKVED>
+
+                            <ns1:KPP xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OKTMO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:SWIFT xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:FOC xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OtherOKVEDList xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                            <ns1:OtherKPPList xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+
+                        </ns4:ClassCodes>
+
+                    </ns4:LegalPartyInfo>
+
+                </ns4:LegalParty>
+
+            </ns0:Object>
+
+        </Message>
+
+    </Request>
+
+</CDF>
