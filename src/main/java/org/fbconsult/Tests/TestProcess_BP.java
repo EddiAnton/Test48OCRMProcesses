@@ -140,7 +140,7 @@ public class TestProcess_BP {
 
             /** Receive the Main Client data from the CFT system  */
 
-            ModelingCFT.getCustomerData(fb_productOrderID, connection_NM_CRM);
+            ModelingCFT.getCustomerData(fb_productOrderID, connection_NM_CRM, connection_SYSDBA);
 
             // Get the current data on the application
             driver.navigate().refresh();

@@ -98,9 +98,16 @@ public final class ModelingCFT {
         }
     }
 
-    public static void getCustomerData(String fb_productOrderID, Connection connection_NM_CRM) {
+    public static void getCustomerData(String fb_productOrderID, Connection connection_NM_CRM, Connection connection_SYSDBA) {
+
+        final String CFTID_RelatedLegalEntity = "";
+        final String CFTID_RelatedPrivatEntity_1 = "";
+        final String CFTID_RelatedPrivatEntity_2 = "";
+        
 
         try {
+
+            Statement statement_SYSDBA = connection_SYSDBA.createStatement();
 
             // Read the CFT_MainClient_part1.xml into a variable
             File mainClient_file_1 = new File("CFT_MainClient_part1.xml");
@@ -132,7 +139,7 @@ public final class ModelingCFT {
 
             //Update IN_MSG field into NM_CRM.EVENT_TABLE
             // Read the sql-file into a variable
-            File script_file = new File("Script_to_CLOB.sql");
+            File script_file = new File("Script_to_CLOB_2.sql");
             BufferedReader script_reader = new BufferedReader(new InputStreamReader(new FileInputStream(script_file), "windows-1251"));
             String line_script;
             StringBuilder sb_script = new StringBuilder();
@@ -141,9 +148,9 @@ public final class ModelingCFT {
                 sb_script.append(separator);
             }
 
-            String Script_to_CLOB = sb_script.toString().replace("Very_long_string_value_1", MainClient_response_1);
-            Script_to_CLOB = Script_to_CLOB.replace("Very_long_string_value_2", MainClient_response_2);
-            PreparedStatement ps_script = connection_NM_CRM.prepareStatement(Script_to_CLOB);
+            String Script_to_CLOB_2 = sb_script.toString().replace("Very_long_string_value_1", MainClient_response_1);
+            Script_to_CLOB_2 = Script_to_CLOB_2.replace("Very_long_string_value_2", MainClient_response_2);
+            PreparedStatement ps_script = connection_NM_CRM.prepareStatement(Script_to_CLOB_2);
             ps_script.execute();
             script_reader.close();
 
@@ -167,6 +174,24 @@ public final class ModelingCFT {
             System.out.println();
             System.out.println("-> Получены данные из ЦФТ по основному клиенту ->");
             System.out.println();
+
+
+            // Получаем ID всех записей по связанным лицам в заявке
+            String selectForAll_FB_PRODUCTORDMEMB_DATAID = "SELECT fbpomd.FB_PRODUCTORDMEMB_DATAID " +
+                    "FROM SYSDBA.FB_PRODUCTORDMEMB_DATA fbpomd " +
+                    "JOIN SYSDBA.FB_PRODUCTORDERMEMBER fbpom " +
+                    "ON fbpomd.FB_PRODUCTORDERMEMBERID = fbpom.FB_PRODUCTORDERMEMBERID " +
+                    "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
+                    "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
+                    "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "' " +
+                    "AND fbpomd.MEMBERDATATYPE = 1" +
+                    "AND fbpomd.MEMBERCLASS IS NOT NULL";
+
+            List<String> DATAID_list = new ArrayList<>();
+            ResultSet rs_allData = statement_SYSDBA.executeQuery(selectForAll_FB_PRODUCTORDMEMB_DATAID);
+            while (rs_allData.next()) {
+                DATAID_list.add(rs_allData.getString("FB_PRODUCTORDMEMB_DATAID"));
+            }
 
         } catch (InterruptedException | SQLException | IOException e) {
             e.printStackTrace();
