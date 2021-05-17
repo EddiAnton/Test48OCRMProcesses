@@ -1,0 +1,373 @@
+<ns4:PersonalParty owner="ALL_BOSS">
+    <ns0:IdList>
+        <ns0:Id>208553795256</ns0:Id>
+        <ns0:Id systemCode="FASE">24367483988</ns0:Id>
+    </ns0:IdList>
+    <ns4:PersonalPartyInfo>
+        <ns4:Title>CL_PRIV</ns4:Title>
+        <ns4:WorkPlaceList>
+            <ns4:WorkPlace>
+                <ns4:WorkInfo>
+                    <ns4:BeginDate>2014-02-09</ns4:BeginDate>
+                    <ns4:EndDate>2024-02-09</ns4:EndDate>
+                    <ns4:Position>Директор</ns4:Position>
+                    <ns4:PositionLevel>1</ns4:PositionLevel>
+                </ns4:WorkInfo>
+                <ns4:LegalParty>
+                    <ns4:SystemPartyInfo>
+                        <ns4:OptionList>
+                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                <ns1:Name>UNDEF_SROK</ns1:Name>
+                                <ns1:Value>0</ns1:Value>
+                            </ns1:Option>
+                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                <ns1:Name>NOM_EXCL_KOPOP</ns1:Name>
+                                <ns1:Value>0</ns1:Value>
+                            </ns1:Option>
+                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                <ns1:Name>Notes</ns1:Name>
+                                <ns1:Value>Общее собрание участников. Диркетор. 5 лет.по Уставу от 28.12.2009</ns1:Value>
+                            </ns1:Option>
+                            <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                <ns1:Name>Sole_Executive_Body</ns1:Name>
+                                <ns1:Value>true</ns1:Value>
+                            </ns1:Option>
+                        </ns4:OptionList>
+                    </ns4:SystemPartyInfo>
+                </ns4:LegalParty>
+            </ns4:WorkPlace>
+        </ns4:WorkPlaceList>
+    </ns4:PersonalPartyInfo>
+</ns4:PersonalParty>
+<ns4:PersonalParty owner="ALL_BOSS">
+<ns0:IdList>
+    <ns0:Id>208554280924</ns0:Id>
+    <ns0:Id systemCode="FASE">24366923725</ns0:Id>
+</ns0:IdList>
+<ns4:PersonalPartyInfo>
+    <ns4:Title>CL_PRIV</ns4:Title>
+    <ns4:WorkPlaceList>
+        <ns4:WorkPlace>
+            <ns4:WorkInfo>
+                <ns4:BeginDate>2014-06-27</ns4:BeginDate>
+                <ns4:EndDate>2015-06-27</ns4:EndDate>
+                <ns4:Position>Заместитель директора</ns4:Position>
+                <ns4:PositionLevel>0</ns4:PositionLevel>
+            </ns4:WorkInfo>
+            <ns4:LegalParty>
+                <ns4:SystemPartyInfo>
+                    <ns4:OptionList>
+                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                            <ns1:Name>UNDEF_SROK</ns1:Name>
+                            <ns1:Value>0</ns1:Value>
+                        </ns1:Option>
+                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                            <ns1:Name>NOM_EXCL_KOPOP</ns1:Name>
+                            <ns1:Value>1</ns1:Value>
+                        </ns1:Option>
+                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                            <ns1:Name>Notes</ns1:Name>
+                            <ns1:Value>По доверенности 1 год</ns1:Value>
+                        </ns1:Option>
+                        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                            <ns1:Name>Sole_Executive_Body</ns1:Name>
+                            <ns1:Value>false</ns1:Value>
+                        </ns1:Option>
+                    </ns4:OptionList>
+                </ns4:SystemPartyInfo>
+            </ns4:LegalParty>
+        </ns4:WorkPlace>
+    </ns4:WorkPlaceList>
+</ns4:PersonalPartyInfo>
+</ns4:PersonalParty>
+        </ns4:PartyRelationList>
+<ns4:TaxInfoList>
+<ns4:TaxInfo>
+    <ns4:InspectionCode>5405</ns4:InspectionCode>
+    <ns4:OptionList>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>Tax_ID</ns1:Name>
+            <ns1:Value>208502591398</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>Tax_Reg_DATE</ns1:Name>
+            <ns1:Value>2006-02-16</ns1:Value>
+        </ns1:Option>
+    </ns4:OptionList>
+</ns4:TaxInfo>
+</ns4:TaxInfoList>
+        </ns4:BasePartyInfo>
+        </ns4:BaseParty>
+<ns4:PersonalParty>
+<ns4:SystemPartyInfo>
+    <ns4:OptionList/>
+</ns4:SystemPartyInfo>
+<ns4:BasePartyInfo>
+    <ns4:DocumentList/>
+</ns4:BasePartyInfo>
+<ns4:PersonalPartyInfo/>
+</ns4:PersonalParty>
+<ns4:LegalParty>
+<ns4:SystemPartyInfo>
+    <ns4:OptionList>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>COUNTRY_ALFA_3</ns1:Name>
+            <ns1:Value>RUS</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>OFFSHORE_NUM</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>OFFSHORE_ALFA_3</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>REGISTER.NUM_REESTR</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>REGISTER.DATE_REESTR</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>REGISTER.REGISTRAR</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>REGISTER.REG_PLACE</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>OPER_CONTROL.OTHER</ns1:Name>
+            <ns1:Value>false</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>ADMINISTRATION</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>NOM_TYPE_USTAV_CODE</ns1:Name>
+            <ns1:Value>NOSTOP_POLN_BOSS</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>NOM_MANAGE_STAFF</ns1:Name>
+            <ns1:Value>1. Общее собрание Скворцова Людмила Михайловна (10.10.1960г.р.) 2. Директор Скворцова Людмила Михайловна (10.10.1960г.р. )</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>NOM_CORP_STRUCT</ns1:Name>
+            <ns1:Value>Общее собрание Директор</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>ANK_UPDUPD_DATE</ns1:Name>
+            <ns1:Value>2021-05-04</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>NOM_AVG_REVENUE</ns1:Name>
+            <ns1:Value>100000</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>KPP_MAJOR_TAXPAYER</ns1:Name>
+            <ns1:Value/>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>Business_Reputation_From_Client</ns1:Name>
+            <ns1:Value>0</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>Business_Reputation_From_Bank</ns1:Name>
+            <ns1:Value>0</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>Business_Reputation_Other</ns1:Name>
+            <ns1:Value>1</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>Additional_Requisites_CODE</ns1:Name>
+            <ns1:Value>NFFE_EXCEPTION</ns1:Value>
+        </ns1:Option>
+        <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>DOC_FATCA</ns1:Name>
+            <ns1:Value>1</ns1:Value>
+        </ns1:Option>
+    </ns4:OptionList>
+</ns4:SystemPartyInfo>
+<ns4:BasePartyInfo>
+    <ns4:INN>5405310419</ns4:INN>
+    <ns4:Resident>true</ns4:Resident>
+    <ns4:TaxResident>true</ns4:TaxResident>
+    <ns4:DocumentList/>
+    <ns4:PartyRelationList>
+        <ns4:BaseParty owner="STATE_STAGE">
+            <ns4:SystemPartyInfo>
+                <ns4:OptionList>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>ID</ns1:Name>
+                        <ns1:Value>208502592552</ns1:Value>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>DATE_BEGIN</ns1:Name>
+                        <ns1:Value>2016-07-17</ns1:Value>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>DATE_END</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>LIM_CODE</ns1:Name>
+                        <ns1:Value>STABLE</ns1:Value>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>LIM_NUM</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>LIM_DATE</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>DT_CLAIM_OUR_BNK</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>REASON</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>COURT_NAME</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>REASON_CLOSE</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>DOP_INFO</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                </ns4:OptionList>
+            </ns4:SystemPartyInfo>
+        </ns4:BaseParty>
+        <ns4:BaseParty owner="FOUNDERS">
+            <ns0:IdList>
+                <ns0:Id>208558694387</ns0:Id>
+                <ns0:Id systemCode="FOUNDER">24367483988</ns0:Id>
+            </ns0:IdList>
+            <ns4:SystemPartyInfo>
+                <ns4:OptionList>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>CLASS_ID</ns1:Name>
+                        <ns1:Value>CL_PRIV</ns1:Value>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>PERCENT</ns1:Name>
+                        <ns1:Value>100</ns1:Value>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>DATE_BEG</ns1:Name>
+                        <ns1:Value>2006-02-16</ns1:Value>
+                    </ns1:Option>
+                    <ns1:Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>DATE_END</ns1:Name>
+                        <ns1:Value/>
+                    </ns1:Option>
+                </ns4:OptionList>
+            </ns4:SystemPartyInfo>
+        </ns4:BaseParty>
+    </ns4:PartyRelationList>
+    <ns4:TaxInfoList/>
+    <ns4:LicenseList/>
+</ns4:BasePartyInfo>
+<ns4:LegalPartyInfo>
+    <ns4:NameList>
+        <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>NAME</ns1:Name>
+            <ns1:Value>ООО ОЦ "ХОККАЙДО"</ns1:Value>
+        </ns1:NameValue>
+        <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>LONG_NAME</ns1:Name>
+            <ns1:Value>Общество с ограниченной ответственностью "Оздоровительный центр Хоккайдо"</ns1:Value>
+        </ns1:NameValue>
+        <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>I_NAME</ns1:Name>
+            <ns1:Value/>
+        </ns1:NameValue>
+        <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>SI_NAME</ns1:Name>
+            <ns1:Value/>
+        </ns1:NameValue>
+        <ns1:NameValue xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:Name>REG_LONG_NAME</ns1:Name>
+            <ns1:Value>Инспекция Федеральной налоговой службы по Октябрьскому району г. Новосибирска</ns1:Value>
+        </ns1:NameValue>
+    </ns4:NameList>
+    <ns4:OrgType>F_К</ns4:OrgType>
+    <ns4:DeclAuthCapital>
+        <ns1:Amount xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">10000</ns1:Amount>
+        <ns1:Currency xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:CharCode>RUB</ns1:CharCode>
+        </ns1:Currency>
+    </ns4:DeclAuthCapital>
+    <ns4:NumberOfEmployee>5</ns4:NumberOfEmployee>
+    <ns4:ClassCodes>
+        <ns1:OGRN xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName>1065405012826</ns1:ShortName>
+            <ns1:FullName/>
+        </ns1:OGRN>
+        <ns1:OKPO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName>93844274</ns1:ShortName>
+            <ns1:FullName/>
+        </ns1:OKPO>
+        <ns1:OKOGU xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName>4210014</ns1:ShortName>
+            <ns1:FullName>Организации, учрежденные юридическими лицами или гражданами, или юридическими лицами и гражданами совместно</ns1:FullName>
+        </ns1:OKOGU>
+        <ns1:OKATO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName>50401379000</ns1:ShortName>
+            <ns1:FullName/>
+        </ns1:OKATO>
+        <ns1:OKFS xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName>16</ns1:ShortName>
+            <ns1:FullName>Частная собственность</ns1:FullName>
+        </ns1:OKFS>
+        <ns1:OKOPF xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName>12300</ns1:ShortName>
+            <ns1:FullName>Общества с ограниченной ответственностью</ns1:FullName>
+        </ns1:OKOPF>
+        <ns1:OKVED xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" id="208502591865">
+            <ns1:ShortName>86.21</ns1:ShortName>
+            <ns1:SettingDate>2016-12-31</ns1:SettingDate>
+        </ns1:OKVED>
+        <ns1:KPP xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" id="208502591525">
+            <ns1:ShortName>540501001</ns1:ShortName>
+        </ns1:KPP>
+        <ns1:OKTMO xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName>50701000001</ns1:ShortName>
+            <ns1:FullName/>
+        </ns1:OKTMO>
+        <ns1:SWIFT xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName/>
+            <ns1:FullName/>
+        </ns1:SWIFT>
+        <ns1:RegDate xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">2006-02-16</ns1:RegDate>
+        <ns1:RegPlace xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">Новосибирск</ns1:RegPlace>
+        <ns1:RegOrgCode xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+        <ns1:FOC xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:ShortName/>
+            <ns1:FullName/>
+        </ns1:FOC>
+        <ns1:Addr_FIAS xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">8dea00e3-9aab-4d8e-887c-ef2aaa546456</ns1:Addr_FIAS>
+        <ns1:OtherOKVEDList xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+            <ns1:OKVED id="208502591930">
+                <ns1:ShortName>86.90.9</ns1:ShortName>
+                <ns1:SettingDate>2016-12-31</ns1:SettingDate>
+            </ns1:OKVED>
+        </ns1:OtherOKVEDList>
+        <ns1:OtherKPPList xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+    </ns4:ClassCodes>
+</ns4:LegalPartyInfo>
+</ns4:LegalParty>
+        </ns0:Object>
+        </Message>
+        </Request>
+        </CDF>

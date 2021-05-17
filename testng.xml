@@ -10,7 +10,7 @@
 
         <classes>
 
-            <class name="org.fbconsult.Tests.TestProcess_E2E"></class>
+            <class name="org.fbconsult.Tests.TestProcess_BP"></class>
 
         </classes>
     </test>

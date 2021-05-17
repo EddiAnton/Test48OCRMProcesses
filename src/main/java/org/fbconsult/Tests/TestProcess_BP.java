@@ -138,6 +138,27 @@ public class TestProcess_BP {
             System.out.println("Статус заявки: " + applicationStatus);
 
 
+            /** Receive the Main Client data from the CFT system  */
+
+            ModelingCFT.getCustomerData(fb_productOrderID, connection_NM_CRM);
+
+            // Get the current data on the application
+            driver.navigate().refresh();
+
+            // Get the current data on the application
+            // Get data of the application Stage
+            ResultSet rs_stageName_4 = statement_SYSDBA.executeQuery(selectTableSQLForStageName);
+            while (rs_stageName_4.next()) {
+                applicationStage = rs_stageName_4.getString("STAGENAME");
+            }
+            // Get data of the application Status
+            WebElement field_applicationStatus_new2 = new WebDriverWait(driver, 20).until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(XpathTestProcessStage.FIELD_APPLICATION_STATUS)));
+            applicationStatus = field_applicationStatus_new2.getText();
+
+            System.out.println("---------------");
+            System.out.println("Стадия заявки: " + applicationStage);
+            System.out.println("Статус заявки: " + applicationStatus);
 
 
         } catch (InterruptedException | SQLException | ClassNotFoundException e) {

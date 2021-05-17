@@ -23,7 +23,6 @@ public final class ModelingCFT {
         try {
 
             Statement statement_SYSDBA = connection_SYSDBA.createStatement();
-            String separator = " \n";
 
             // Получаем ID всех записей с 3 типом в заявке
             String selectForAll_FB_PRODUCTORDMEMB_DATAID = "SELECT fbpomd.FB_PRODUCTORDMEMB_DATAID " +
@@ -43,7 +42,7 @@ public final class ModelingCFT {
 
 
             // Read the script into a variable
-            File cft_response_file = new File("Response_From_CFT_Receiving.sql");
+            File cft_response_file = new File("Response_From_CFT_UPD_Receiving.sql");
             BufferedReader reader_cft_response = new BufferedReader(new InputStreamReader(new FileInputStream(cft_response_file), "windows-1251"));
             String line_cft_response;
             StringBuilder sb_cft_response = new StringBuilder();
@@ -99,23 +98,36 @@ public final class ModelingCFT {
         }
     }
 
-    public static void getCustomerData(Connection connection_NM_CRM) {
+    public static void getCustomerData(String fb_productOrderID, Connection connection_NM_CRM) {
 
         try {
 
-            // Read the xml-file into a variable
-            File bp_file = new File("BP_response.xml");
-            BufferedReader bp_reader = new BufferedReader(new InputStreamReader(new FileInputStream(bp_file), StandardCharsets.UTF_8));
-            String line_bp;
-            StringBuilder sb_bp = new StringBuilder();
-            while ((line_bp = bp_reader.readLine()) != null) {
-                sb_bp.append(line_bp);
-                sb_bp.append(separator);
+            // Read the CFT_MainClient_part1.xml into a variable
+            File mainClient_file_1 = new File("CFT_MainClient_part1.xml");
+            BufferedReader mainClient_reader_1 = new BufferedReader(new InputStreamReader(new FileInputStream(mainClient_file_1), StandardCharsets.UTF_8));
+            String line_mainClient_file_1;
+            StringBuilder sb_mainClient_1 = new StringBuilder();
+            while ((line_mainClient_file_1 = mainClient_reader_1.readLine()) != null) {
+                sb_mainClient_1.append(line_mainClient_file_1);
+                sb_mainClient_1.append(separator);
             }
+            // Insert fb_productOrderIDr to xml
+            String MainClient_response_1 = sb_mainClient_1.toString();
+            MainClient_response_1 = MainClient_response_1.replace("Infor_ID", fb_productOrderID);
+            mainClient_reader_1.close();
 
-            // Insert ProductOrderNumber to xml
-            String BP_response = sb_bp.toString();
-            bp_reader.close();
+
+            // Read the CFT_MainClient_part2.xml into a variable
+            File mainClient_file_2 = new File("CFT_MainClient_part2.xml");
+            BufferedReader mainClient_reader_2 = new BufferedReader(new InputStreamReader(new FileInputStream(mainClient_file_2), StandardCharsets.UTF_8));
+            String line_mainClient_file_2;
+            StringBuilder sb_mainClient_2 = new StringBuilder();
+            while ((line_mainClient_file_2 = mainClient_reader_2.readLine()) != null) {
+                sb_mainClient_2.append(line_mainClient_file_2);
+                sb_mainClient_2.append(separator);
+            }
+            String MainClient_response_2 = sb_mainClient_2.toString();
+            mainClient_reader_2.close();
 
 
             //Update IN_MSG field into NM_CRM.EVENT_TABLE
@@ -129,31 +141,31 @@ public final class ModelingCFT {
                 sb_script.append(separator);
             }
 
-            String Script_to_CLOB = sb_script.toString().replace("Very_long_string_value", BP_response);
-            //Script_to_CLOB = Script_to_CLOB.replace("Very_long_string_value", BP_response);
+            String Script_to_CLOB = sb_script.toString().replace("Very_long_string_value_1", MainClient_response_1);
+            Script_to_CLOB = Script_to_CLOB.replace("Very_long_string_value_2", MainClient_response_2);
             PreparedStatement ps_script = connection_NM_CRM.prepareStatement(Script_to_CLOB);
             ps_script.execute();
             script_reader.close();
 
 
             // Read the script into a variable
-            File BP_response_file = new File("Response_From_BP_Receiving.sql");
-            BufferedReader reader_bp_response = new BufferedReader(new InputStreamReader(new FileInputStream(BP_response_file), "windows-1251"));
-            String line_bp_response;
+            File mainClient_response_file = new File("Response_From_CFT_REQ_Receiving.sql");
+            BufferedReader reader_mainClient_response = new BufferedReader(new InputStreamReader(new FileInputStream(mainClient_response_file), "windows-1251"));
+            String line_mainClient_response;
             StringBuilder stringBuilder_3 = new StringBuilder();
-            while ((line_bp_response = reader_bp_response.readLine()) != null) {
-                stringBuilder_3.append(line_bp_response);
+            while ((line_mainClient_response = reader_mainClient_response.readLine()) != null) {
+                stringBuilder_3.append(line_mainClient_response);
                 stringBuilder_3.append(separator);
             }
-            String SQL_BP_Response = stringBuilder_3.toString();
-            reader_bp_response.close();
+            String SQL_MainClient_Response = stringBuilder_3.toString();
+            reader_mainClient_response.close();
             // Insert response to DB
-            PreparedStatement ps_BP_Response = connection_NM_CRM.prepareStatement(SQL_BP_Response);
-            ps_BP_Response.execute();
+            PreparedStatement ps_mainClient_Response = connection_NM_CRM.prepareStatement(SQL_MainClient_Response);
+            ps_mainClient_Response.execute();
             Thread.sleep(20000);
 
             System.out.println();
-            System.out.println("-> Получена заявка из Бизнес портала ->");
+            System.out.println("-> Получены данные из ЦФТ по основному клиенту ->");
             System.out.println();
 
         } catch (InterruptedException | SQLException | IOException e) {
