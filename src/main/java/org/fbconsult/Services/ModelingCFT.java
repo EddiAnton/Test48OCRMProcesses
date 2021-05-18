@@ -100,10 +100,10 @@ public final class ModelingCFT {
 
     public static void getCustomerData(String fb_productOrderID, Connection connection_NM_CRM, Connection connection_SYSDBA) {
 
-        final String CFTID_RelatedLegalEntity = "";
-        final String CFTID_RelatedPrivatEntity_1 = "";
-        final String CFTID_RelatedPrivatEntity_2 = "";
-        
+        final String CFTID_RelatedLegalEntity = "208502545440";
+        final String CFTID_RelatedPrivatEntity_1 = "24366923725";
+        final String CFTID_RelatedPrivatEntity_2 = "24367483988";
+
 
         try {
 
@@ -184,13 +184,12 @@ public final class ModelingCFT {
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "' " +
-                    "AND fbpomd.MEMBERDATATYPE = 1" +
-                    "AND fbpomd.MEMBERCLASS IS NOT NULL";
+                    "AND fbpomd.IDCFT = '" + CFTID_RelatedLegalEntity + "'";
 
-            List<String> DATAID_list = new ArrayList<>();
-            ResultSet rs_allData = statement_SYSDBA.executeQuery(selectForAll_FB_PRODUCTORDMEMB_DATAID);
-            while (rs_allData.next()) {
-                DATAID_list.add(rs_allData.getString("FB_PRODUCTORDMEMB_DATAID"));
+            String DATAID = null;
+            ResultSet rs_DataID = statement_SYSDBA.executeQuery(selectForAll_FB_PRODUCTORDMEMB_DATAID);
+            while (rs_DataID.next()) {
+                DATAID = rs_DataID.getString("FB_PRODUCTORDMEMB_DATAID");
             }
 
         } catch (InterruptedException | SQLException | IOException e) {

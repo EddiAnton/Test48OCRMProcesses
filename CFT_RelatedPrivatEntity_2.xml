@@ -9,7 +9,7 @@
             <ps ns="CorrelationId">C2201AA93C4B0DECE0536E08D80AEA15</ps>
             <ps ns="Receiver">InforCRM</ps>
             <ps ns="RefRqUID"/>
-            <ps ns="ReplyUID">Q6UJ9A3QEUV2</ps>
+            <ps ns="ReplyUID">Infor_ID</ps>
         </Properties>
     </Signon>
     <Request>
