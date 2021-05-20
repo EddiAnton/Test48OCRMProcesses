@@ -104,6 +104,8 @@ public final class ModelingCFT {
         final String CFTID_RelatedPrivatEntity_1 = "24366923725";
         final String CFTID_RelatedPrivatEntity_2 = "24367483988";
 
+        String DATA_RelatedLegalEntity_ID = null;
+
 
         try {
 
@@ -188,7 +190,7 @@ public final class ModelingCFT {
                     "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "' " +
                     "AND fbpomd.IDCFT = '" + CFTID_RelatedLegalEntity + "'";
 
-            String DATA_RelatedLegalEntity_ID = null;
+
             ResultSet rs_DataID = statement_SYSDBA.executeQuery(selectForAll_FB_PRODUCTORDMEMB_DATAID);
             while (rs_DataID.next()) {
                 DATA_RelatedLegalEntity_ID = rs_DataID.getString("FB_PRODUCTORDMEMB_DATAID");
@@ -206,7 +208,6 @@ public final class ModelingCFT {
             }
             // Insert fb_productOrderIDr to xml
             String RelatedLegalEntity_response_1 = sb_relatedLegalEntity_1.toString();
-            assert DATA_RelatedLegalEntity_ID != null;
             RelatedLegalEntity_response_1 = RelatedLegalEntity_response_1.replace("Infor_ID", DATA_RelatedLegalEntity_ID);
             relatedLegalEntity_reader_1.close();
 
