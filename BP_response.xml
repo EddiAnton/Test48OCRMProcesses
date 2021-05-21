@@ -321,9 +321,9 @@
                                     <ns2:FullName/>
                                     <ns2:SettingDate>2021-05-17</ns2:SettingDate>
                                 </ns2:OKVED>
-                                <ns2:KPP xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
-                                    <ns2:ShortName/>
-                                </ns2:KPP>
+                                <ns1:KPP xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" id="208502591525">
+                                    <ns1:ShortName>540501001</ns1:ShortName>
+                                </ns1:KPP>
                                 <ns2:OKTMO xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
                                     <ns2:ShortName/>
                                 </ns2:OKTMO>
@@ -342,7 +342,11 @@
                                         <ns2:SettingDate>2021-05-17</ns2:SettingDate>
                                     </ns2:OKVED>
                                 </ns2:OtherOKVEDList>
-                                <ns2:OtherKPPList xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                <ns2:OtherKPPList xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns1:KPP xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" id="208502591525">
+                                        <ns1:ShortName>540501002</ns1:ShortName>
+                                    </ns1:KPP>
+                                </ns2:OtherKPPList>
                             </ns1:ClassCodes>
                         </ns4:LegalPartyInfo>
                     </ns4:LegalParty>
