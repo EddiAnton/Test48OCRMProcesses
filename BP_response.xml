@@ -300,7 +300,7 @@
                                 </ns1:Currency>
                             </ns4:DeclAuthCapital>
                             <ns4:NumberOfEmployee>100000</ns4:NumberOfEmployee>
-                            <ns1:ClassCodes>
+                            <ns1:ClassCodes xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
                                 <ns2:OGRN xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
                                     <ns2:ShortName>1065405012826</ns2:ShortName>
                                 </ns2:OGRN>
