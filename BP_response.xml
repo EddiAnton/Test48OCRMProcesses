@@ -184,7 +184,7 @@
                                         </ns1:OptionList>
                                     </ns1:SystemPartyInfo>
                                 </ns1:BaseParty>
-                                <ns1:BaseParty owner="FOUNDERS">
+                                <ns1:BaseParty owner="FOUNDERS" xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
                                     <ns0:IdList>
                                         <ns0:Id>24366923725</ns0:Id>
                                         <ns0:Id systemCode="FOUNDER"/>
