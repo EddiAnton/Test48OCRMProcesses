@@ -159,7 +159,7 @@
                             <ns4:Resident>1</ns4:Resident>
                             <ns4:TaxResident>1</ns4:TaxResident>
                             <ns4:PartyRelationList>
-                                <ns1:BaseParty owner="FOUNDERS">
+                                <ns1:BaseParty owner="FOUNDERS" xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
                                     <ns0:IdList>
                                         <ns0:Id>24367483988</ns0:Id>
                                         <ns0:Id systemCode="FOUNDER"/>
