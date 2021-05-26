@@ -6,6 +6,8 @@ public class XpathAuthorization {
 
     public static final String LOG_OFF_HREF = "Вернуться на страницу входа";
 
+    public static final String LOG_OFF_HREF_xpath = "//*[@id=\"ContentPlaceHolderArea_loginLink\"]";
+
     public static final String INPUT_USERNAME = "//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$UserName']";
 
     public static final String INPUT_PASSWORD = "//input[@name='ctl00$ContentPlaceHolderArea$slxLogin$Password']";

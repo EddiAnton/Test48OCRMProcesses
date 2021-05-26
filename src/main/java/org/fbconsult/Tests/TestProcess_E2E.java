@@ -159,7 +159,7 @@ public class TestProcess_E2E {
 
             /** Modeling a response from Tessa about receiving a verification request. **/
 
-            Thread.sleep(13000);
+            Thread.sleep(17000);
             ModelingTESSA.deliveryForVerification(fb_productOrderID, connection_NM_CRM);
 
 

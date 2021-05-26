@@ -44,14 +44,13 @@
                                 <ns0:IdList>
                                     <ns0:Id>25418667568</ns0:Id>
                                 </ns0:IdList>
-                                <ns0:EntityStatus/>
-                                <ns1:StringValue>РОССИЯ,630000,обл Новосибирская,,г Новосибирск,ул Шевченко,дом 28/1,,</ns1:StringValue>
+                                <ns1:StringValue>РОССИЯ,630000,обл Московская,г Одинцово,с Немчиновка,,,,</ns1:StringValue>
                                 <ns1:Country>RUS</ns1:Country>
                                 <ns1:ZIP>630000</ns1:ZIP>
-                                <ns1:District code=""/>
-                                <ns1:City code="8dea00e3-9aab-4d8e-887c-ef2aaa546456">Новосибирск</ns1:City>
-                                <ns1:Street code="3ebf7e10-c75a-41f2-a3b9-03bfa68402c9">Шевченко</ns1:Street>
-                                <ns1:House>28/1</ns1:House>
+                                <ns1:District/>
+                                <ns1:City code="abbc9105-0460-472a-ba54-d6741881f39b">Немчиновка</ns1:City>
+                                <ns1:Street/>
+                                <ns1:House/>
                                 <ns1:Block/>
                                 <ns1:Room/>
                             </ns1:Address>

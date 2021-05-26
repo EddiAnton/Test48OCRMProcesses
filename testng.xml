@@ -4,17 +4,16 @@
 <suite name="All Test Suite">
 
 
-    <test name="8092 Test">
+    <test name="Test">
 
-        <parameter name="contour" value="Misha"></parameter>
+        <parameter name="contour" value="8093"></parameter>
 
         <classes>
 
-            <class name="org.fbconsult.Tests.TestCreateApplicate"></class>
+            <class name="org.fbconsult.Tests.TestAuthorization"></class>
 
         </classes>
     </test>
-
 
 
 </suite>

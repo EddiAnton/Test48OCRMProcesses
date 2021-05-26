@@ -32,7 +32,8 @@ public final class ModelingCFT {
                     "JOIN SYSDBA.FB_PRODUCTORDER fbpo " +
                     "ON fbpom.FB_PRODUCTORDERID = fbpo.FB_PRODUCTORDERID " +
                     "WHERE fbpo.FB_PRODUCTORDERID = '" + fb_productOrderID + "' " +
-                    "AND fbpomd.MEMBERDATATYPE = 3";
+                    "AND fbpomd.MEMBERDATATYPE = 3 " +
+                    "ORDER BY fbpomd.MEMBERCLASS ASC";
 
             List<String> DATAID_list = new ArrayList<>();
             ResultSet rs_allData = statement_SYSDBA.executeQuery(selectForAll_FB_PRODUCTORDMEMB_DATAID);
