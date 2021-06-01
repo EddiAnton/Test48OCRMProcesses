@@ -6,11 +6,11 @@
 
     <test name="Test">
 
-        <parameter name="contour" value="8093"></parameter>
+        <parameter name="contour" value="8083"></parameter>
 
         <classes>
 
-            <class name="org.fbconsult.Tests.TestAuthorization"></class>
+            <class name="org.fbconsult.Tests.TestProcess_E2E"></class>
 
         </classes>
     </test>

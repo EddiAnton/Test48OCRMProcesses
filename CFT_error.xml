@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<CDF xmlns:ns5="openbank/tibco/schemas/cdf/3.0/party.xsd">
+    <Signon>
+        <Requestor>IBSO</Requestor>
+        <ServiceName>InforCRM.Update.ClientOrg</ServiceName>
+        <RqUID>52994dbe-74cf-8821-2668-d37dac1a2f20</RqUID>
+        <RequestDt>2021-05-31T13:06:45.594</RequestDt>
+        <Properties>
+            <ps ns="Receiver">InforCRM</ps>
+            <ps ns="RefRqUID"/>
+            <ps ns="ReplyUID">Infor_ID</ps>
+        </Properties>
+    </Signon>
+    <Request>
+        <Status>
+            <StatusCode>-1</StatusCode>
+            <Severity>New</Severity>
+            <Msg>ORA-20300: APP-NOM_INFORCRM_INT.LIB_CL_UPD: Не найден населенный пункт с наименованием Нью-Йорк и ГУИАО
+                ORA-06512: на  "IBS.MESSAGE", line 51
+                ORA-06512: на  "IBS.Z$NOM_INFORCRM_INT_LIB_CL_UPD", line 186
+                ORA-06512: на  "IBS.Z$NOM_INFORCRM_INT528646411073", line 61
+            </Msg>
+        </Status>
+        <Params>
+            <Type>adp</Type>
+            <Receiver>InforCRM</Receiver>
+            <ServiceFilter>In.Party.Send.Client.CFT.Rs</ServiceFilter>
+        </Params>
+        <Message>
+            <ns0:Object xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns5:T_Party">
+                <ns5:BaseParty/>
+                <ns5:LegalParty/>
+            </ns0:Object>
+        </Message>
+    </Request>
+</CDF>

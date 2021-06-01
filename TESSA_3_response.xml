@@ -28,7 +28,7 @@
                     <ns1:Position xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Главный специалист</ns1:Position>
                 </pfx13:ServicePerson>
                 <pfx13:CounterParty>
-                    <ns4:LegalParty xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="openbank/tibco/schemas/cdf/3.0/party.xsd">
+                    <ns4:LegalParty xmlns:ns1="openbank/tibco/schemas/cdf/3.0/party.xsd" xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="openbank/tibco/schemas/cdf/3.0/party.xsd">
                         <ns0:IdList>
                             <ns0:Id systemCode="Infor">7126</ns0:Id>
                             <ns0:Id systemCode="REGISTR_NUM"/>
@@ -159,6 +159,48 @@
                             <ns4:Resident>1</ns4:Resident>
                             <ns4:TaxResident>1</ns4:TaxResident>
                             <ns4:PartyRelationList>
+                                <ns1:BaseParty owner="LINKS_OTHER">
+                                    <ns0:IdList>
+                                        <ns0:Id>347600</ns0:Id>
+                                    </ns0:IdList>
+                                    <ns0:EntityStatus>
+                                        <ns0:Code>БЕНЕФИЦИАР</ns0:Code>
+                                    </ns0:EntityStatus>
+                                    <ns1:SystemPartyInfo >
+                                        <ns1:OptionList >
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_CODE</ns2:Name>
+                                                <ns2:Value>BEN5</ns2:Value>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_DATE_BEG</ns2:Name>
+                                                <ns2:Value>2021-05-01</ns2:Value>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_DATE_END</ns2:Name>
+                                                <ns2:Value/>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_PARTNER</ns2:Name>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_CLASS_ID</ns2:Name>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_CLIENT_NAME</ns2:Name>
+                                                <ns2:Value/>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND</ns2:Name>
+                                                <ns2:Value/>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>CL_INFO</ns2:Name>
+                                                <ns2:Value>true</ns2:Value>
+                                            </ns2:Option>
+                                        </ns1:OptionList>
+                                    </ns1:SystemPartyInfo>
+                                </ns1:BaseParty>
                                 <ns4:BaseParty owner="NOM_UCH_DOPINFO">
                                     <ns0:IdList>
                                         <ns0:Id systemCode="RES_OUTSIDE_ID">404         </ns0:Id>

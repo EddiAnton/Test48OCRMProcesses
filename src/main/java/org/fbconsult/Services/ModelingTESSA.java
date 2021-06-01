@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public final class ModelingTESSA {
 
     final static String separator = " \n";
+    final static String tessa_response = "TESSA_3_response.xml";
 
     public static void deliveryForVerification(String fb_productOrderID, Connection connection_NM_CRM) {
 
@@ -73,7 +74,7 @@ public final class ModelingTESSA {
         try {
 
             // Read the xml-file into a variable
-            File tessa_3_file = new File("TESSA_3_response.xml");
+            File tessa_3_file = new File(tessa_response);
             BufferedReader tessa_3_reader = new BufferedReader(new InputStreamReader(new FileInputStream(tessa_3_file), StandardCharsets.UTF_8));
             String line_tessa_3;
             StringBuilder sb_tessa_3 = new StringBuilder();

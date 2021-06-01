@@ -190,9 +190,9 @@ public class TestProcess_E2E {
             System.out.println("Статус заявки: " + applicationStatus);
 
 
-            /** Modeling a response from CFT about a successful update. **/
+            /** Modeling a response from CFT about a update. **/
 
-            ModelingCFT.successfullyUpdated(fb_productOrderID, connection_NM_CRM, connection_SYSDBA);
+            ModelingCFT.errorUpdate(fb_productOrderID, connection_NM_CRM, connection_SYSDBA);
             Thread.sleep(10000);
             driver.navigate().refresh();
 

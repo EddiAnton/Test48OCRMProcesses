@@ -85,7 +85,7 @@
                             <ns4:AddressList>
                                 <ns1:Address xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" addrType="POST">
                                     <ns0:IdList>
-                                        <ns0:Id>396</ns0:Id>
+                                        <ns0:Id>208502589477</ns0:Id>
                                     </ns0:IdList>
                                     <ns1:StringValue>РОССИЯ, 394029, г Воронеж, наб Авиастроителей, 14, корп 3, пом/офис V/9,</ns1:StringValue>
                                     <ns1:Country>RUS</ns1:Country>
@@ -99,7 +99,7 @@
                                 </ns1:Address>
                                 <ns1:Address xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd" addrType="CORP">
                                     <ns0:IdList>
-                                        <ns0:Id>389</ns0:Id>
+                                        <ns0:Id>25418667568</ns0:Id>
                                     </ns0:IdList>
                                     <ns1:StringValue>РОССИЯ, 123456, г Ростов-на-Дону, ул Авиационная, 14, корп 3, пом/офис V/9,</ns1:StringValue>
                                     <ns1:Country>RUS</ns1:Country>

@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<CDF xmlns:pfx13="openbank/tibco/schemas/cdf/3.0/application.xsd">
+    <Signon>
+        <Requestor>Adp_TESSA</Requestor>
+        <ServiceName>Application.Send.Verify.Result</ServiceName>
+        <RqUID>523103</RqUID>
+        <RequestDt>2021-05-26T14:17:53.32+03:00</RequestDt>
+    </Signon>
+    <Request>
+        <Status>
+            <StatusCode>0</StatusCode>
+            <Severity>New</Severity>
+        </Status>
+        <Params>
+            <Type>adp</Type>
+            <Receiver>InforCRM</Receiver>
+            <ServiceFilter>In.Application.Send.Verify.Result</ServiceFilter>
+        </Params>
+        <Message>
+            <ns0:Entity xsi:type="pfx13:T_Application" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="openbank/tibco/schemas/cdf/commontypes.xsd">
+                <ns0:IdList>
+                    <ns0:Id systemCode="InforCRM">Infor_ProductOrderNumber</ns0:Id>
+                </ns0:IdList>
+                <ns0:EntityStatus>
+                    <ns0:Code>2</ns0:Code>
+                </ns0:EntityStatus>
+                <pfx13:ServicePerson>
+                    <ns1:SurName xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd">Павлюченков Константин Михайлович</ns1:SurName>
+                    <ns1:Position xmlns:ns1="openbank/tibco/schemas/cdf/3.0/geoobject.xsd"/>
+                </pfx13:ServicePerson>
+                <pfx13:CounterParty>
+                    <ns1:LegalParty xmlns:ns1="openbank/tibco/schemas/cdf/3.0/party.xsd">
+                        <ns0:IdList>
+                            <ns0:Id systemCode="Infor">7126</ns0:Id>
+                        </ns0:IdList>
+                        <ns1:SystemPartyInfo>
+                            <ns1:OptionList>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>COUNTRY_ALFA_3</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>OFFSHORE_NUM</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>NOM_AVG_REVENUE</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>DATE_BEG</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Planned_Operations_CODE</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Sum_Planned_Operations_CODE</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Bankruptcy_Proceedings</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Liquidation</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Default</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Court</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Foreign_Trade</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>REG_NUM_LAWYER</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>REG_NUM_NOTARY</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>Business_Reputation_From_Client</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>BusinessReputationFromBank</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>BusinessReputationOther</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>CustomerIncomeFounder</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>CustomerIncomePrimary</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>CustomerIncomeAdditional</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>CustomerIncomeCredit</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>CustomerIncomeGov</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>CustomerIncomeOther</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>EstimatedCashWithdrawalWage</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>EstimatedCashWithdrawalBusinessTrip</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>EstimatedCashWithdrawalBusinessGoals</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>EstimatedCashWithdrawalAgriculturalProducts</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>EstimatedCashWithdrawalOther</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>TaxResident_FATCA</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>GIIN_FATCA</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>W9_FATCA</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>DOC_FATCA</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>DISREGARDED_FATCA</ns2:Name>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>DOC_FATCA_CODE</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>KPP_MAJOR_TAXPAYER</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>NOM_MANAGE_STAFF</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>NOM_CORP_STRUCT</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>NOM_TYPE_USTAV_CODE</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>ADMINISTRATION</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>OPER_CONTROL.OTHER</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>INN</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>REASON</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>REASON_CODE</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>RES_OUTSIDE_DATE_BEGIN</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>RES_OUTSIDE_DATE_END</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                                <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>RES_OUTSIDE_CRS_STATUS</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:Option>
+                            </ns1:OptionList>
+                        </ns1:SystemPartyInfo>
+                        <ns1:BasePartyInfo>
+                            <ns1:INN/>
+                            <ns1:AddressList/>
+                            <ns1:ContactList/>
+                            <ns1:PartyRelationList>
+                                <ns1:BaseParty owner="LINKS_OTHER">
+                                    <ns0:IdList>
+                                        <ns0:Id>410</ns0:Id>
+                                    </ns0:IdList>
+                                    <ns0:EntityStatus>
+                                        <ns0:Code>ПОД_УПРАВ_ЕИО</ns0:Code>
+                                    </ns0:EntityStatus>
+                                    <ns1:SystemPartyInfo>
+                                        <ns1:OptionList>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_CODE</ns2:Name>
+                                                <ns2:Value/>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_DATE_BEG</ns2:Name>
+                                                <ns2:Value>2007-12-28</ns2:Value>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_DATE_END</ns2:Name>
+                                                <ns2:Value>2014-02-14</ns2:Value>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_PARTNER</ns2:Name>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_CLASS_ID</ns2:Name>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND_CLIENT_NAME</ns2:Name>
+                                                <ns2:Value/>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>BASE_FOUND</ns2:Name>
+                                                <ns2:Value>Единоличный исполнительный орган "ПАНКРАШОВ АНДРЕЙ ЛЕОНИДОВИЧ".</ns2:Value>
+                                            </ns2:Option>
+                                            <ns2:Option xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                                <ns2:Name>CL_INFO</ns2:Name>
+                                                <ns2:Value>false</ns2:Value>
+                                            </ns2:Option>
+                                        </ns1:OptionList>
+                                    </ns1:SystemPartyInfo>
+                                </ns1:BaseParty>
+                            </ns1:PartyRelationList>
+                            <ns1:TaxInfoList/>
+                            <ns1:LicenseList>
+                                <ns1:License>
+                                    <ns1:Id>450</ns1:Id>
+                                    <ns1:Number>test_12</ns1:Number>
+                                    <ns1:Type>1242</ns1:Type>
+                                    <ns1:IssuedFrom>кем</ns1:IssuedFrom>
+                                    <ns1:IssueDate>2021-05-26</ns1:IssueDate>
+                                    <ns1:Term/>
+                                    <ns1:Area/>
+                                </ns1:License>
+                            </ns1:LicenseList>
+                            <ns1:AgreementList>
+                                <ns2:BaseAgreement xmlns:ns2="openbank/tibco/schemas/cdf/3.0/agreement.xsd">
+                                    <ns2:BaseAgreementInfo>
+                                        <ns2:CounterParty>
+                                            <ns1:BaseParty>
+                                                <ns1:BasePartyInfo>
+                                                    <ns1:DocumentList/>
+                                                </ns1:BasePartyInfo>
+                                            </ns1:BaseParty>
+                                        </ns2:CounterParty>
+                                        <ns2:AccountList>
+                                            <ns3:Account xmlns:ns3="openbank/tibco/schemas/cdf/3.0/account.xsd">
+                                                <ns3:ArrestList/>
+                                            </ns3:Account>
+                                        </ns2:AccountList>
+                                    </ns2:BaseAgreementInfo>
+                                </ns2:BaseAgreement>
+                            </ns1:AgreementList>
+                        </ns1:BasePartyInfo>
+                        <ns1:LegalPartyInfo>
+                            <ns1:NameList>
+                                <ns2:NameValue xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>I_NAME</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:NameValue>
+                                <ns2:NameValue xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>LONG_NAME</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:NameValue>
+                                <ns2:NameValue xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>NAME</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:NameValue>
+                                <ns2:NameValue xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:Name>SI_NAME</ns2:Name>
+                                    <ns2:Value/>
+                                </ns2:NameValue>
+                            </ns1:NameList>
+                            <ns1:OrgType/>
+                            <ns1:DeclAuthCapital>
+                                <ns2:Currency xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:CharCode xsi:nil="true"/>
+                                </ns2:Currency>
+                            </ns1:DeclAuthCapital>
+                            <ns1:ClassCodes>
+                                <ns2:OGRN xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:ShortName>1079847154617</ns2:ShortName>
+                                </ns2:OGRN>
+                                <ns2:OKPO xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                <ns2:OKOGU xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                <ns2:OKATO xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                <ns2:OKFS xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:ShortName/>
+                                </ns2:OKFS>
+                                <ns2:OKOPF xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:ShortName/>
+                                </ns2:OKOPF>
+                                <ns2:OKVED xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:ShortName/>
+                                    <ns2:FullName/>
+                                </ns2:OKVED>
+                                <ns2:KPP xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                    <ns2:ShortName/>
+                                </ns2:KPP>
+                                <ns2:OKTMO xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                <ns2:SWIFT xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                <ns2:RegDate xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">2007-12-27</ns2:RegDate>
+                                <ns2:RegOrgCode xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                -<ns2:FOC xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                                <ns2:ShortName/>
+                            </ns2:FOC>
+                                <ns2:OtherOKVEDList xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                                <ns2:OtherKPPList xmlns:ns2="openbank/tibco/schemas/cdf/3.0/common.xsd"/>
+                            </ns1:ClassCodes>
+                        </ns1:LegalPartyInfo>
+                    </ns1:LegalParty>
+                </pfx13:CounterParty>
+                <pfx13:PhaseList>
+                    <ns1:Phase xmlns:ns1="openbank/tibco/schemas/cdf/3.0/task.xsd">
+                        <ns1:Code>1</ns1:Code>
+                        <ns1:StageList>
+                            <ns1:Stage>
+                                <ns1:Name>Верификация</ns1:Name>
+                            </ns1:Stage>
+                        </ns1:StageList>
+                    </ns1:Phase>
+                </pfx13:PhaseList>
+                <pfx13:Comment>123</pfx13:Comment>
+            </ns0:Entity>
+        </Message>
+    </Request>
+</CDF>
