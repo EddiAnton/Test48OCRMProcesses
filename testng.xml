@@ -11,7 +11,7 @@
         <classes>
 
 
-            <class name="org.fbconsult.Tests.TestSF_Contacts"></class>
+            <class name="org.fbconsult.Tests.TestSF_OKVED"></class>
 
         </classes>
     </test>
