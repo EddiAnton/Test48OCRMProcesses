@@ -97,7 +97,9 @@ public class TestSF_ComplianceWEB_DBData {
 
     String okato_type_1 = null;
     String oktmo_type_1 = null;
+    String codeAddresstype_type_1 = null;
     String addresstype_type_1 = null;
+    String codeCountry_type_1 = null;
     String country_type_1 = null;
     String postalcode_type_1 = null;
     String county_type_1 = null;
@@ -111,7 +113,9 @@ public class TestSF_ComplianceWEB_DBData {
 
     String okato_type_2 = null;
     String oktmo_type_2 = null;
+    String codeAddresstype_type_2 = null;
     String addresstype_type_2 = null;
+    String codeCountry_type_2 = null;
     String country_type_2 = null;
     String postalcode_type_2 = null;
     String county_type_2 = null;
@@ -125,7 +129,9 @@ public class TestSF_ComplianceWEB_DBData {
 
     String okato_type_3 = null;
     String oktmo_type_3 = null;
+    String codeAddresstype_type_3 = null;
     String addresstype_type_3 = null;
+    String codeCountry_type_3 = null;
     String country_type_3 = null;
     String postalcode_type_3 = null;
     String county_type_3 = null;
@@ -1299,8 +1305,8 @@ public class TestSF_ComplianceWEB_DBData {
             while (rs_1.next()) {
                 okato_type_1 = rs_1.getString("OKATO");
                 oktmo_type_1 = rs_1.getString("OKTMO");
-                addresstype_type_1 = rs_1.getString("ADDRESSTYPE");
-                country_type_1 = rs_1.getString("COUNTRY");
+                codeAddresstype_type_1 = rs_1.getString("ADDRESSTYPE");
+                codeCountry_type_1 = rs_1.getString("COUNTRY");
                 postalcode_type_1 = rs_1.getString("POSTALCODE");
                 county_type_1 = rs_1.getString("COUNTY");
                 district_type_1 = rs_1.getString("DISTRICT");
@@ -1312,6 +1318,33 @@ public class TestSF_ComplianceWEB_DBData {
                 fulladdress_type_1 = rs_1.getString("FULLADDRESS");
             }
 
+            String selectPicklistAddressType = "SELECT pl.TEXT " +
+                    "FROM picklist pl " +
+                    "INNER JOIN picklist pln " +
+                    "ON pln.itemid = pl.picklistid " +
+                    "AND pln.picklistid = 'PICKLISTLIST' " +
+                    "WHERE pln.text = 'Тип адреса' " +
+                    "AND pl.SHORTTEXT = '" + codeAddresstype_type_1 + "'";
+
+            ResultSet rs_1_addressType = statement.executeQuery(selectPicklistAddressType);
+            while (rs_1_addressType.next()) {
+                addresstype_type_1 = rs_1_addressType.getString("TEXT");
+            }
+
+            String selectPicklistCountry = "SELECT pl.TEXT " +
+                    "FROM picklist pl " +
+                    "INNER JOIN picklist pln " +
+                    "ON pln.itemid = pl.picklistid " +
+                    "AND pln.picklistid = 'PICKLISTLIST' " +
+                    "WHERE pln.text = 'Страны' " +
+                    "AND pl.SHORTTEXT = '" + codeCountry_type_1 + "'";
+
+            ResultSet rs_1_country = statement.executeQuery(selectPicklistCountry);
+            while (rs_1_country.next()) {
+                country_type_1 = rs_1_country.getString("TEXT");
+            }
+
+
             // Get data for type 2 from the database
             ResultSet rs_2 = statement.executeQuery(selectTableSQLForType_2);
 
@@ -1319,8 +1352,8 @@ public class TestSF_ComplianceWEB_DBData {
             while (rs_2.next()) {
                 okato_type_2 = rs_2.getString("OKATO");
                 oktmo_type_2 = rs_2.getString("OKTMO");
-                addresstype_type_2 = rs_2.getString("ADDRESSTYPE");
-                country_type_2 = rs_2.getString("COUNTRY");
+                codeAddresstype_type_2 = rs_2.getString("ADDRESSTYPE");
+                codeCountry_type_2 = rs_2.getString("COUNTRY");
                 postalcode_type_2 = rs_2.getString("POSTALCODE");
                 county_type_2 = rs_2.getString("COUNTY");
                 district_type_2 = rs_2.getString("DISTRICT");
@@ -1332,6 +1365,33 @@ public class TestSF_ComplianceWEB_DBData {
                 fulladdress_type_2 = rs_2.getString("FULLADDRESS");
             }
 
+            String selectPicklistAddressType_2 = "SELECT pl.TEXT " +
+                    "FROM picklist pl " +
+                    "INNER JOIN picklist pln " +
+                    "ON pln.itemid = pl.picklistid " +
+                    "AND pln.picklistid = 'PICKLISTLIST' " +
+                    "WHERE pln.text = 'Тип адреса' " +
+                    "AND pl.SHORTTEXT = ' " + codeAddresstype_type_2 + "'";
+
+            ResultSet rs_2_addressType = statement.executeQuery(selectPicklistAddressType_2);
+            while (rs_2_addressType.next()) {
+                addresstype_type_2 = rs_2_addressType.getString("TEXT");
+            }
+
+            String selectPicklistCountry_2 = "SELECT pl.TEXT " +
+                    "FROM picklist pl " +
+                    "INNER JOIN picklist pln " +
+                    "ON pln.itemid = pl.picklistid " +
+                    "AND pln.picklistid = 'PICKLISTLIST' " +
+                    "WHERE pln.text = 'Страны' " +
+                    "AND pl.SHORTTEXT = '" + codeCountry_type_2 + "'";
+
+            ResultSet rs_2_country = statement.executeQuery(selectPicklistCountry_2);
+            while (rs_2_country.next()) {
+                country_type_2 = rs_2_country.getString("TEXT");
+            }
+
+
             // Get data for type 3 from the database
             ResultSet rs_3 = statement.executeQuery(selectTableSQLForType_3);
 
@@ -1339,8 +1399,8 @@ public class TestSF_ComplianceWEB_DBData {
             while (rs_3.next()) {
                 okato_type_3 = rs_3.getString("OKATO");
                 oktmo_type_3 = rs_3.getString("OKTMO");
-                addresstype_type_3 = rs_3.getString("ADDRESSTYPE");
-                country_type_3 = rs_3.getString("COUNTRY");
+                codeAddresstype_type_3 = rs_3.getString("ADDRESSTYPE");
+                codeCountry_type_3 = rs_3.getString("COUNTRY");
                 postalcode_type_3 = rs_3.getString("POSTALCODE");
                 county_type_3 = rs_3.getString("COUNTY");
                 district_type_3 = rs_3.getString("DISTRICT");
@@ -1350,6 +1410,32 @@ public class TestSF_ComplianceWEB_DBData {
                 corpus_type_3 = rs_3.getString("CORPUS");
                 apartment_type_3 = rs_3.getString("APARTMENT");
                 fulladdress_type_3 = rs_3.getString("FULLADDRESS");
+            }
+
+            String selectPicklistAddressType_3 = "SELECT pl.TEXT " +
+                    "FROM picklist pl " +
+                    "INNER JOIN picklist pln " +
+                    "ON pln.itemid = pl.picklistid " +
+                    "AND pln.picklistid = 'PICKLISTLIST' " +
+                    "WHERE pln.text = 'Тип адреса' " +
+                    "AND pl.SHORTTEXT = ' " + codeAddresstype_type_3 + "'";
+
+            ResultSet rs_3_addressType = statement.executeQuery(selectPicklistAddressType_3);
+            while (rs_3_addressType.next()) {
+                addresstype_type_3 = rs_3_addressType.getString("TEXT");
+            }
+
+            String selectPicklistCountry_3 = "SELECT pl.TEXT " +
+                    "FROM picklist pl " +
+                    "INNER JOIN picklist pln " +
+                    "ON pln.itemid = pl.picklistid " +
+                    "AND pln.picklistid = 'PICKLISTLIST' " +
+                    "WHERE pln.text = 'Страны' " +
+                    "AND pl.SHORTTEXT = '" + codeCountry_type_3 + "'";
+
+            ResultSet rs_3_country = statement.executeQuery(selectPicklistCountry_3);
+            while (rs_3_country.next()) {
+                country_type_3 = rs_3_country.getString("TEXT");
             }
 
             connection.close();
