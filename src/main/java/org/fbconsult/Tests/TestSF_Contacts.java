@@ -71,7 +71,7 @@ public class TestSF_Contacts {
         TestEnvironment testEnvironment = new TestEnvironment(contour);
 
         System.setProperty("webdriver.chrome.driver",
-                "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+                "D:\\selenium\\drivers\\chromedriver_90\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 
@@ -327,7 +327,7 @@ public class TestSF_Contacts {
 
             // if something was received then the while loop will work
             while (rs_2.next()) {
-                channelType_type_2 = rs_2.getString("CHANNEL_TYPE");
+                codeChannelType_type_2 = rs_2.getString("CHANNEL_TYPE");
                 channelValue_type_2 = rs_2.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_2 = rs_2.getInt("CHANNEL_SUBTYPE");
                 isActiveContact_type_2 = DataConversion.testSF_booleanConversion(rs_2.getString("ISACTIVE"));
@@ -368,7 +368,7 @@ public class TestSF_Contacts {
 
             // if something was received then the while loop will work
             while (rs_3.next()) {
-                channelType_type_3 = rs_3.getString("CHANNEL_TYPE");
+                codeChannelType_type_3 = rs_3.getString("CHANNEL_TYPE");
                 channelValue_type_3 = rs_3.getString("CHANNEL_VALUE");
                 codeChannelSubtype_type_3 = rs_3.getInt("CHANNEL_SUBTYPE");
                 isActiveContact_type_3 = DataConversion.testSF_booleanConversion(rs_3.getString("ISACTIVE"));

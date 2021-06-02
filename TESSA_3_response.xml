@@ -306,6 +306,12 @@
                     </ns1:Phase>
                 </pfx13:PhaseList>
                 <pfx13:Comment/>
+                <ns4:OptionList xmlns:ns4="openbank/tibco/schemas/cdf/3.0/party.xsd">
+                    <Option xmlns:ns1="openbank/tibco/schemas/cdf/3.0/common.xsd">
+                        <ns1:Name>СourierRequired</ns1:Name>
+                        <ns1:Value>1</ns1:Value>
+                    </Option>
+                </ns4:OptionList>
             </ns0:Entity>
         </Message>
     </Request>
