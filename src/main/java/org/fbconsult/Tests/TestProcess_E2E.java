@@ -192,7 +192,7 @@ public class TestProcess_E2E {
 
             /** Modeling a response from CFT about a update. **/
 
-            ModelingCFT.errorUpdate(fb_productOrderID, connection_NM_CRM, connection_SYSDBA);
+            ModelingCFT.successUpdate(fb_productOrderID, connection_NM_CRM, connection_SYSDBA);
             Thread.sleep(10000);
             driver.navigate().refresh();
 

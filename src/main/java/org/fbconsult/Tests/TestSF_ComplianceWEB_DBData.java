@@ -56,6 +56,7 @@ public class TestSF_ComplianceWEB_DBData {
     String test_ACTIVITYKINDLIST = null;
 
     String licenseNumber_type_1 = null;
+    String codeActivityKind_type_1 = null;
     String activityKind_type_1 = null;
     String issuedBy_type_1 = null;
     String issueDate_type_1 = null;
@@ -63,6 +64,7 @@ public class TestSF_ComplianceWEB_DBData {
     String activityKindList_type_1 = null;
 
     String licenseNumber_type_2 = null;
+    String codeActivityKind_type_2 = null;
     String activityKind_type_2 = null;
     String issuedBy_type_2 = null;
     String issueDate_type_2 = null;
@@ -70,6 +72,7 @@ public class TestSF_ComplianceWEB_DBData {
     String activityKindList_type_2 = null;
 
     String licenseNumber_type_3 = null;
+    String codeActivityKind_type_3 = null;
     String activityKind_type_3 = null;
     String issuedBy_type_3 = null;
     String issueDate_type_3 = null;
@@ -925,11 +928,21 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_1.next()) {
                 licenseNumber_type_1 = rs_1.getString("LICENSENUMBER");
-                activityKind_type_1 = rs_1.getString("ACTIVITYKIND");
+                codeActivityKind_type_1 = rs_1.getString("ACTIVITYKIND");
                 issuedBy_type_1 = rs_1.getString("ISSUEDBY");
                 issueDate_type_1 = DateReplace.replaceInputDate(rs_1.getString("ISSUEDATE"));
                 expiryDate_type_1 = DateReplace.replaceInputDate(rs_1.getString("EXPIRYDATE"));
                 activityKindList_type_1 = rs_1.getString("ACTIVITYKINDLIST");
+            }
+
+            String selectPicklistLicense = "SELECT ITEMVALUE " +
+                    "FROM fb_picklist " +
+                    "WHERE PICKLISTNAME = 'Виды лицензий' " +
+                    "AND ITEMNAME = '" + codeActivityKind_type_1 + "'";
+
+            ResultSet rs_1_license = statement.executeQuery(selectPicklistLicense);
+            while (rs_1_license.next()) {
+                activityKind_type_1 = rs_1_license.getString("ITEMVALUE");
             }
 
             // Get data for type 2 from the database
@@ -938,11 +951,21 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_2.next()) {
                 licenseNumber_type_2 = rs_2.getString("LICENSENUMBER");
-                activityKind_type_2 = rs_2.getString("ACTIVITYKIND");
+                codeActivityKind_type_2 = rs_2.getString("ACTIVITYKIND");
                 issuedBy_type_2 = rs_2.getString("ISSUEDBY");
                 issueDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("ISSUEDATE"));
                 expiryDate_type_2 = DateReplace.replaceInputDate(rs_2.getString("EXPIRYDATE"));
                 activityKindList_type_2 = rs_2.getString("ACTIVITYKINDLIST");
+            }
+
+            String selectPicklistLicense_2 = "SELECT ITEMVALUE " +
+                    "FROM fb_picklist " +
+                    "WHERE PICKLISTNAME = 'Виды лицензий' " +
+                    "AND ITEMNAME = '" + codeActivityKind_type_2 + "'";
+
+            ResultSet rs_2_license = statement.executeQuery(selectPicklistLicense_2);
+            while (rs_2_license.next()) {
+                activityKind_type_2 = rs_2_license.getString("ITEMVALUE");
             }
 
             // Get data for type 3 from the database
@@ -951,11 +974,21 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_3.next()) {
                 licenseNumber_type_3 = rs_3.getString("LICENSENUMBER");
-                activityKind_type_3 = rs_3.getString("ACTIVITYKIND");
+                codeActivityKind_type_3 = rs_3.getString("ACTIVITYKIND");
                 issuedBy_type_3 = rs_3.getString("ISSUEDBY");
                 issueDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("ISSUEDATE"));
                 expiryDate_type_3 = DateReplace.replaceInputDate(rs_3.getString("EXPIRYDATE"));
                 activityKindList_type_3 = rs_3.getString("ACTIVITYKINDLIST");
+            }
+
+            String selectPicklistLicense_3 = "SELECT ITEMVALUE " +
+                    "FROM fb_picklist " +
+                    "WHERE PICKLISTNAME = 'Виды лицензий' " +
+                    "AND ITEMNAME = '" + codeActivityKind_type_3 + "'";
+
+            ResultSet rs_3_license = statement.executeQuery(selectPicklistLicense_3);
+            while (rs_3_license.next()) {
+                activityKind_type_3 = rs_3_license.getString("ITEMVALUE");
             }
 
             connection.close();
