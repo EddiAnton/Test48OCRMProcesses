@@ -12,9 +12,9 @@ public class XpathTestProcessStage {
 
     public static final String STATUS_AWAITS_CLIENT_INPUT = "/html/body/div[4]/div/ul/li[1]/span";
 
-    public static final String STATUS_CLIENT_REFUSAL = "/html/body/div[5]/div/ul/li[2]/span";
+    public static final String STATUS_CLIENT_REFUSAL = "/html/body/div[4]/div/ul/li[2]/span";
 
-    public static final String STATUS_POSTPONED = "/html/body/div[5]/div/ul/li[3]/span";
+    public static final String STATUS_POSTPONED = "/html/body/div[4]/div/ul/li[3]/span";
 
     public static final String STATUS_SUBMITTING_FOR_VERIFICATION_8083 = "/html/body/div[5]/div/ul/li[4]/span";
 

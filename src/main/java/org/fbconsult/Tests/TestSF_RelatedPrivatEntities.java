@@ -139,7 +139,6 @@ public class TestSF_RelatedPrivatEntities {
 
             driver.get(testEnvironment.getUrl());
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             WebElement logoffHref = new WebDriverWait(driver, 10).until(
                     ExpectedConditions.elementToBeClickable(By.linkText(XpathAuthorization.LOG_OFF_HREF)));
@@ -184,7 +183,7 @@ public class TestSF_RelatedPrivatEntities {
                         ExpectedConditions.elementToBeClickable(By.xpath(XpathAuthorization.SORT_BY_MODIFIED_DATE)));
             }
             sortByModifiedDate.click();
-            Thread.sleep(1000);
+            Thread.sleep(5000);
             sortByModifiedDate.click();
 
             // Open the last application

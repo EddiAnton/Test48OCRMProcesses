@@ -1,0 +1,82 @@
+<CDF>
+    <Signon>
+        <Requestor>MarketPlace</Requestor>
+        <ServiceName>Send.UDK</ServiceName>
+        <RqUID>0e66efec-2942-48d0-8789-7c31e217a667</RqUID>
+        <RequestDt>2021-06-08T18:16:37.858+03:00</RequestDt>
+    </Signon>
+    <Request>
+        <Status>
+            <StatusCode>0</StatusCode>
+            <Severity>New</Severity>
+        </Status>
+        <Params>
+            <Type>adp</Type>
+            <Receiver>InforCRM</Receiver>
+            <ServiceFilter>In.Party.Send.UDK</ServiceFilter>
+        </Params>
+        <Message xmlns:ns2="http://openbank.ru/MarketPlace/back/types/CommonTypes/" xmlns:ns4="http://openbank.ru/MarketPlace/back/types/CardService/" xmlns:ns3="http://openbank.ru/MarketPlace/back/types/AgreementService/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns6="http://openbank.ru/MarketPlace/back/types/DocumentService/" xmlns:ns5="http://openbank.ru/MarketPlace/back/types/CardTypes/" xmlns:ns8="http://www.informatica.com/wsdl/" xmlns:ns7="http://openbank.ru/MarketPlace/back/types/ForeignExchange/" xmlns:ns13="http://openbank.ru/MarketPlace/back/types/SalaryService/" xmlns:ns9="http://openbank.ru/MarketPlace/back/types/NotificationService/" xmlns:ns12="http://openbank.ru/MarketPlace/back/types/ProductService/" xmlns:ns11="http://openbank.ru/MarketPlace/back/types/PartyService/" xmlns:ns10="http://openbank.ru/MarketPlace/back/types/ObjectService/" xmlns:ns17="http://openbank.ru/MarketPlace/back/types/CDFService/" xmlns:ns16="openbank/tibco/schemas/cdf/commontypes.xsd" xmlns:ns15="http://openbank.ru/MarketPlace/back/types/ApplicationService/" xmlns:ns14="http://openbank.ru/MarketPlace/back/types/SecurityService/" xmlns:ns19="openbank/tibco/schemas/cdf/3.0/party.xsd" xmlns:ns18="openbank/tibco/schemas/cdf/3.0/identificationdocument.xsd" xmlns:ns20="openbank/tibco/schemas/cdf/3.0/common.xsd" xmlns:ns24="urn:cbr-ru:ed:v2.0" xmlns:ns23="http://openbank.ru/MarketPlace/back/types/" xmlns:ns22="openbank/tibco/schemas/cdf/3.0/application.xsd" xmlns:ns21="openbank/tibco/schemas/cdf/3.0/agreement.xsd" xmlns:ns25="http://openbank.ru/MarketPlace/back/types/AccountService/">
+            <ns16:Entity xsi:type="ns22:T_Application">
+                <ns22:CounterParty>
+                    <ns19:BaseParty>
+                        <ns19:BasePartyInfo>
+                            <ns19:AddressList>
+                                <ns20:Address addrType="CORP">
+                                    <ns16:IdList>
+                                        <ns16:Id>377427262674</ns16:Id>
+                                    </ns16:IdList>
+                                    <ns20:StringValue>Московская обл, г Красногорск, б-р Космонавтов, д 4, пом 22</ns20:StringValue>
+                                    <ns20:Country>RUS</ns20:Country>
+                                    <ns20:ZIP>143408</ns20:ZIP>
+                                    <ns20:Region>Московская</ns20:Region>
+                                    <ns20:District/>
+                                    <ns20:City code="63fcf18a-365e-451f-baee-8d09ac50b773">Красногорск</ns20:City>
+                                    <ns20:Street type="б-р" code="5d337be1-98a7-49eb-a91b-8bcb2c989a74">Космонавтов</ns20:Street>
+                                    <ns20:House>4</ns20:House>
+                                    <ns20:Room>22</ns20:Room>
+                                </ns20:Address>
+                                <ns20:Address addrType="FACT">
+                                    <ns16:IdList>
+                                        <ns16:Id>377427262820</ns16:Id>
+                                    </ns16:IdList>
+                                    <ns20:StringValue>Московская область, Химки, Победы, 8, 352</ns20:StringValue>
+                                    <ns20:Country>RUS</ns20:Country>
+                                    <ns20:ZIP>143408</ns20:ZIP>
+                                    <ns20:Region>Московская область</ns20:Region>
+                                    <ns20:District code=""/>
+                                    <ns20:City code="63fcf18a-365e-451f-baee-8d09ac50b773">Химки</ns20:City>
+                                    <ns20:Street code="5d337be1-98a7-49eb-a91b-8bcb2c989a74">Победы</ns20:Street>
+                                    <ns20:House>8</ns20:House>
+                                    <ns20:Room>352</ns20:Room>
+                                </ns20:Address>
+                                <ns20:Address addrType="POST">
+                                    <ns16:IdList>
+                                        <ns16:Id>377427264531</ns16:Id>
+                                    </ns16:IdList>
+                                    <ns20:StringValue>Московская обл, г Красногорск, мкр Опалиха, пер Березовый 1-й, д 3 к 1, пом 33</ns20:StringValue>
+                                    <ns20:Country>RUS</ns20:Country>
+                                    <ns20:ZIP>143443</ns20:ZIP>
+                                    <ns20:Region>Московская</ns20:Region>
+                                    <ns20:District/>
+                                    <ns20:City code="63fcf18a-365e-451f-baee-8d09ac50b773">Красногорск / Опалиха</ns20:City>
+                                    <ns20:Street type="пер" code="33cb187f-17a6-4d86-8548-f0d71a53f947">Березовый 1-й</ns20:Street>
+                                    <ns20:House>3</ns20:House>
+                                    <ns20:Block>1</ns20:Block>
+                                    <ns20:Room>33</ns20:Room>
+                                </ns20:Address>
+                            </ns19:AddressList>
+                        </ns19:BasePartyInfo>
+                    </ns19:BaseParty>
+                    <ns19:LegalParty>
+                        <ns16:IdList>
+                            <ns16:Id systemCode="IBSO">0123456789</ns16:Id>
+                        </ns16:IdList>
+                        <ns19:LegalPartyInfo>
+                            <ns19:ClassCodes/>
+                        </ns19:LegalPartyInfo>
+                    </ns19:LegalParty>
+                </ns22:CounterParty>
+            </ns16:Entity>
+        </Message>
+    </Request>
+</CDF>

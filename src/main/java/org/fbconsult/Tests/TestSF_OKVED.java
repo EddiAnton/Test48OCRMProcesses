@@ -188,7 +188,7 @@ public class TestSF_OKVED {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } 
+        }
 
         System.out.println(productOrderNumber);
         System.out.println("---------------");

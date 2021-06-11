@@ -28,7 +28,7 @@ public class TestProcess_BP {
         TestEnvironment testEnvironment = new TestEnvironment(contour);
 
         System.setProperty("webdriver.chrome.driver",
-                "D:\\selenium\\drivers\\chromedriver_90\\chromedriver.exe");
+                "D:\\selenium\\drivers\\chromedriver_91\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 

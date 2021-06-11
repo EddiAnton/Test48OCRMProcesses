@@ -449,19 +449,19 @@ public class TestSF_ComplianceWEB_DBData {
     String test_ISPRIMARY_OKVED = null;
 
     String codeOKVED_type_1 = null;
-    String codeNameOKVED_type_1 = null;
+    String nameOKVED_type_1 = null;
     String beginDateOKVED_type_1 = null;
     String endDateOKVED_type_1 = null;
     String isPrimaryOKVED_type_1 = null;
 
     String codeOKVED_type_2 = null;
-    String codeNameOKVED_type_2 = null;
+    String nameOKVED_type_2 = null;
     String beginDateOKVED_type_2 = null;
     String endDateOKVED_type_2 = null;
     String isPrimaryOKVED_type_2 = null;
 
     String codeOKVED_type_3 = null;
-    String codeNameOKVED_type_3 = null;
+    String nameOKVED_type_3 = null;
     String beginDateOKVED_type_3 = null;
     String endDateOKVED_type_3 = null;
     String isPrimaryOKVED_type_3 = null;
@@ -3965,11 +3965,23 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_okved_1.next()) {
                 codeOKVED_type_1 = rs_okved_1.getString("CODE");
-                codeNameOKVED_type_1 = rs_okved_1.getString("CODENAME");
                 beginDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("BEGINDATE"));
                 endDateOKVED_type_1 = DateReplace.replaceInputDate(rs_okved_1.getString("ENDDATE"));
                 isPrimaryOKVED_type_1 = DataConversion.testSF_booleanConversion(rs_okved_1.getString("ISPRIMARY"));
             }
+
+            String selectPicklistOKVED = "SELECT OKVED_NAME " +
+                    "FROM fb_okved " +
+                    "WHERE OKVED = '" + codeOKVED_type_1 + "' " +
+                    "ORDER BY MODIFYDATE " +
+                    "DESC " +
+                    "FETCH NEXT 1 ROWS ONLY";
+
+            ResultSet rs_1_OKVED = statement.executeQuery(selectPicklistOKVED);
+            while (rs_1_OKVED.next()) {
+                nameOKVED_type_1 = rs_1_OKVED.getString("OKVED_NAME");
+            }
+
 
             // Get Tax data for type 2 from the database
             ResultSet rs_okved_2 = statement.executeQuery(selectTableSQLForType_2_okved);
@@ -3977,11 +3989,23 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_okved_2.next()) {
                 codeOKVED_type_2 = rs_okved_2.getString("CODE");
-                codeNameOKVED_type_2 = rs_okved_2.getString("CODENAME");
                 beginDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("BEGINDATE"));
                 endDateOKVED_type_2 = DateReplace.replaceInputDate(rs_okved_2.getString("ENDDATE"));
                 isPrimaryOKVED_type_2 = DataConversion.testSF_booleanConversion(rs_okved_2.getString("ISPRIMARY"));
             }
+
+            String selectPicklistOKVED_2 = "SELECT OKVED_NAME " +
+                    "FROM fb_okved " +
+                    "WHERE OKVED = '" + codeOKVED_type_2 + "' " +
+                    "ORDER BY MODIFYDATE " +
+                    "DESC " +
+                    "FETCH NEXT 1 ROWS ONLY";
+
+            ResultSet rs_2_OKVED = statement.executeQuery(selectPicklistOKVED_2);
+            while (rs_2_OKVED.next()) {
+                nameOKVED_type_2 = rs_2_OKVED.getString("OKVED_NAME");
+            }
+
 
             // Get Tax data for type 3 from the database
             ResultSet rs_okved_3 = statement.executeQuery(selectTableSQLForType_3_okved);
@@ -3989,10 +4013,21 @@ public class TestSF_ComplianceWEB_DBData {
             // if something was received then the while loop will work
             while (rs_okved_3.next()) {
                 codeOKVED_type_3 = rs_okved_3.getString("CODE");
-                codeNameOKVED_type_3 = rs_okved_3.getString("CODENAME");
                 beginDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("BEGINDATE"));
                 endDateOKVED_type_3 = DateReplace.replaceInputDate(rs_okved_3.getString("ENDDATE"));
                 isPrimaryOKVED_type_3 = DataConversion.testSF_booleanConversion(rs_okved_3.getString("ISPRIMARY"));
+            }
+
+            String selectPicklistOKVED_3 = "SELECT OKVED_NAME " +
+                    "FROM fb_okved " +
+                    "WHERE OKVED = '" + codeOKVED_type_3 + "' " +
+                    "ORDER BY MODIFYDATE " +
+                    "DESC " +
+                    "FETCH NEXT 1 ROWS ONLY";
+
+            ResultSet rs_3_OKVED = statement.executeQuery(selectPicklistOKVED_3);
+            while (rs_3_OKVED.next()) {
+                nameOKVED_type_3 = rs_3_OKVED.getString("OKVED_NAME");
             }
 
             connection.close();
@@ -4007,7 +4042,7 @@ public class TestSF_ComplianceWEB_DBData {
             System.out.println("CODE_OKVED test failed! - X");
         }
 
-        if(Objects.equals(test_CODENAME_OKVED, DataComparison.compareData(codeNameOKVED_type_1, codeNameOKVED_type_2, codeNameOKVED_type_3))) {
+        if(Objects.equals(test_CODENAME_OKVED, DataComparison.compareData(nameOKVED_type_1, nameOKVED_type_2, nameOKVED_type_3))) {
             System.out.println("CODENAME_OKVED test passed!");
         }else {
             System.out.println("CODENAME_OKVED test failed! - X");

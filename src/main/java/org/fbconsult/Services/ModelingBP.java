@@ -9,13 +9,14 @@ import java.sql.SQLException;
 public class ModelingBP {
 
     final static String separator = " \n";
+    final static String responseFileName = "BP_response_docs.xml";    
 
     public static void createApplicationFromBP(Connection connection_NM_CRM) {
 
         try {
 
             // Read the xml-file into a variable
-            File bp_file = new File("BP_response.xml");
+            File bp_file = new File(responseFileName);
             BufferedReader bp_reader = new BufferedReader(new InputStreamReader(new FileInputStream(bp_file), StandardCharsets.UTF_8));
             String line_bp;
             StringBuilder sb_bp = new StringBuilder();

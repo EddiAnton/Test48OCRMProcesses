@@ -30,7 +30,7 @@ public class TestEnvironment {
                 DB_data = "jdbc:oracle:thin:@server:1521:slx10";
                 userName = "Admin";
                 password = "";
-                inn = "7708544480";
+                inn = "5404168294";
                 break;
             case "Dima":
                 url = "http://192.168.1.47:4444/SlxClient/logoff.aspx";

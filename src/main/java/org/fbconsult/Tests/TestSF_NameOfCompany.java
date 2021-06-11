@@ -57,7 +57,7 @@ public class TestSF_NameOfCompany {
         TestEnvironment testEnvironment = new TestEnvironment(contour);
 
         System.setProperty("webdriver.chrome.driver",
-                "D:\\selenium\\drivers\\chromedriver_88\\chromedriver.exe");
+                "D:\\selenium\\drivers\\chromedriver_90\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 
